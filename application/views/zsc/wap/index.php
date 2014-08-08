@@ -3,17 +3,54 @@ $this->load->view('header');
 ?>
  <div data-role="page" id="wap">          
 	<div data-role="content">
-		<ul data-role="listview" data-inset="true">
-			<li data-role="divider">Game</li>
-			<li>
-				<a href="<?=base_url('wap/hbwc')?>" data-ajax="false">
-					<img src="/style/img/wap/ico_hbwc.ico">
-					<h2>黑白无常</h2>
-					<p>看看你的寿命有多长，点击白无常一次寿命+1，点击黑无常一次寿命-1,限时60秒。</p>
-				</a>
-				<a href="<?=base_url('wap/hbwc')?>" data-rel="dialog" data-transition="pop">Download Browser</a>
-			</li>			
-		</ul>
+		<?php
+			foreach ($dataList as $key => $value) {
+				if($key == 'Games'){
+					echo <<<ETO
+					<div data-role="collapsible" data-collapsed="false" data-theme="b" data-content-theme="d">
+						<h1>{$key}</h1>
+						<ul data-role="listview" data-inset="true">
+ETO;
+					foreach ($value as $k2 => $v2) {
+						echo <<<ETO
+						<li>
+							<a href="{$v2['url']}" data-ajax="false">
+								<img src="{$v2['logo']}" style="width: 80px; height:80px">
+								<h2>{$v2['title']}</h2>
+								<p>{$v2['content']}</p>
+							</a>
+							<a href="{$v2['url']}" data-rel="dialog" data-transition="pop">Download</a>
+						</li>
+ETO;
+					}
+					echo <<<ETO
+						</ul>
+					</div>
+ETO;
+				}else{
+					echo <<<ETO
+					<div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="d">
+						<h1>{$key}</h1>
+						<ul data-role="listview" data-inset="true">
+ETO;
+					foreach ($value as $k2 => $v2) {
+						echo <<<ETO
+						<li>
+							<a href="{$v2['url']}" data-ajax="false">
+								<h2>{$v2['title']}</h2>
+							</a>
+							<a href="{$v2['url']}" data-rel="dialog" data-transition="pop">Download</a>
+						</li>
+ETO;
+					}
+					echo <<<ETO
+						</ul>
+					</div>
+ETO;
+				}
+			}
+		?>
+		
 	</div>	
 	<?php
 	$this->load->view('zsc/footer',array('navIndex'=>'wap'));
