@@ -16,7 +16,8 @@ class Wap extends MY_Controller {
 		);
 		$dataList['Notes'] = array(
 			array('title'=>'拖动特效','url'=>base_url('html5/drag')),
-			array('title'=>'定位','url'=>base_url('html5/location'))
+			array('title'=>'定位','url'=>base_url('html5/location')),
+			array('title'=>'存储','url'=>base_url('html5/storage'))
 		);	
 		$data['dataList'] = $dataList;
 		$this->load->view('zsc/wap/index',$data);
