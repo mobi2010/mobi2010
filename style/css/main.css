@@ -3,8 +3,8 @@ a{text-decoration:none; color:#006699; font-size:13px}
 a:hover{text-decoration:underline; color:#FF0000}
 .body{background:#f5f4f3}
 .home-topbar{width:100%;background:#fe7203;}
-.home-topbar-box{width:980px;margin: 0 auto;padding:1em 0 .5em 0;}
+.home-topbar-box{width:980px;margin: 0 auto;padding:.5em 0 .2em 0;}
 .home-body{width:980px;margin:0 auto;}
 .home-body-p1{border: #CCCCCC thin solid;padding:.5em;background:#fff;margin:1em 0;}
-.logo-white{background:url(/style/img/logoWhite.png) no-repeat;display:inline-block;width:106px; height:38px;overflow: hidden; }
+.logo-white{background:url(/style/img/logoWhite.png) no-repeat;background-size:86px auto;display:inline-block;width:86px; height:30px;overflow: hidden; }
 .logo{background:url(/style/img/logo.png) no-repeat;display:inline-block;width:140px; height:60px;overflow: hidden; }
