@@ -1,5 +1,5 @@
 <?php
-$this->load->view('header');
+$this->load->view('wap/header');
 ?>
  <div data-role="page" id="wap">          
 	<div data-role="content">
@@ -57,5 +57,5 @@ ETO;
 	?>
 </div> 
 <?php
-$this->load->view('footer');
+$this->load->view('wap/footer');
 ?>

@@ -1,5 +1,5 @@
 <?php
-$this->load->view('wap/header');
+$this->load->view('header');
 ?>
 <div data-role="page" id="pageone">
 	<div data-role="header">
@@ -18,5 +18,5 @@ $this->load->view('wap/header');
 	</div>
 </div> 
 <?php
-$this->load->view('wap/footer');
+$this->load->view('footer');
 ?>

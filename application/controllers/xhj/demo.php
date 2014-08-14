@@ -10,7 +10,7 @@ class Demo extends MY_Controller {
     }
 
     public function index() {
-        $this->load->view('header');
+        $this->load->view('wap/header');
         $this->load->view('xhj/demo/index');
         $this->load->view('xhj/footer', array('navIndex' => 'demo'));
     }
@@ -19,7 +19,7 @@ class Demo extends MY_Controller {
         if (!file_exists(APPPATH . 'views/xhj/demo/templates/' . $pageName . '.html') || $pageName == '') {
             show_404();
         }
-        $this->load->view('header');
+        $this->load->view('wap/header');
         $this->load->view('xhj/demo/templates/' . $pageName . '.html');
         $this->load->view('xhj/footer', array('navIndex' => 'demo'));
     }

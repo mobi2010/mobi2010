@@ -1,10 +1,10 @@
 <?php
-$this->load->view('header');
+$this->load->view('wap/header');
 ?>
 <div class="bbb">0</div>
 <input class="aaa" type="button" value="aaa" />
 <?php
-$this->load->view('footer');
+$this->load->view('wap/footer');
 ?>
 <script>
 $(document).on("pageinit",function(){

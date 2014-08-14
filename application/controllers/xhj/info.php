@@ -10,7 +10,7 @@ class Info extends MY_Controller {
     }
 
     public function index() {
-        $this->load->view('header');
+        $this->load->view('wap/header');
         $this->load->view('xhj/info/index');
         $this->load->view('xhj/footer', array('navIndex' => 'info'));
     }

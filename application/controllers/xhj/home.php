@@ -10,7 +10,7 @@ class Home extends MY_Controller {
     }
 
     public function index() {
-        $this->load->view('header');
+        $this->load->view('wap/header');
         $this->load->view('xhj/home/index');
         $this->load->view('xhj/footer', array('navIndex' => 'home'));
     }

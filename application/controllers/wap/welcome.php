@@ -3,10 +3,10 @@
 class Welcome extends MY_Controller {	
 	public function index()
 	{
-		// $info = $this->db->query('show variables')->result_array();
+		// $info = $this->db->query('show varibles')->result_array();
 		// var_dump($info);
 		//$this->mobiModel->dataInsert(array('table'=>'users','data'=>array('uname'=>'zsc','upwd'=>'13241')));
 		//var_dump($this->mobiModel->dataFetchArray(array('table'=>'users')));
-		$this->load->view('welcome');
+		$this->load->view('wap/welcome');
 	}	
 }
