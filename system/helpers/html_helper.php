@@ -438,6 +438,38 @@ if ( ! function_exists('nbs'))
 
 ########################author by zsc####################################
 /**
+* [join description]
+* @param  [type] $params      [description]
+* @param  array  $unsetParams [description]
+* @return [type]              [description]
+*/
+if ( ! function_exists('html_join')){
+	function html_join($params,$unsetParams=array()){
+		$html = null;
+		if(!empty($params)) {
+		  foreach ($params as $key => $val) {
+		    if(!in_array($key, $unsetParams) && !is_null($val)){
+		      $html .= $key.'="'.$val.'" ';
+		    }        
+		  }
+		}
+		return $html;
+	}
+}
+/**
+* [radio description]
+* @param  [type] $params [description]
+* @return [type]         [description]
+*/
+if ( ! function_exists('html_img')){
+   function html_img($params){    
+    $img = '<img ';
+    $img .= html_join($params);
+    $img .= ' />';    
+    return $img;     
+  }
+}
+/**
 * [radio description]
 * @param  [type] $params [description]
 * @return [type]         [description]
@@ -561,25 +593,7 @@ if ( ! function_exists('html_a')){
 		return $a;
 	}
 }
-/**
-* [join description]
-* @param  [type] $params      [description]
-* @param  array  $unsetParams [description]
-* @return [type]              [description]
-*/
-if ( ! function_exists('html_join')){
-	function html_join($params,$unsetParams=array()){
-		$html = null;
-		if(!empty($params)) {
-		  foreach ($params as $key => $val) {
-		    if(!in_array($key, $unsetParams) && !is_null($val)){
-		      $html .= $key.'="'.$val.'" ';
-		    }        
-		  }
-		}
-		return $html;
-	}
-}
+
 /**
 * [select description]
 * @param  [type] $params [description]
@@ -657,138 +671,4 @@ if ( ! function_exists('html_button')){
 	    $submit .= '/>';
 	    return $submit;
   }
-}
-/**
- * [html_condition description]
- * @param  array  $params [description]
- *
- * var string 变量名称
- * options array(1=>'上海',2=>'北京') 数据
- * href string 连接 选填 默认 ? 
- * unset array 要删除的变量
- * selected string 选中的值
- * selected_class string 选中后的样式
- * 
- * @return [type]         [description]
- */
-if ( ! function_exists('html_condition')){
-	function html_condition($params=array()){
-		$options = $params['options'];unset($params['options']);
-		if(!empty($options)){
-			$html = null;
-			$query_stirng = $_GET;
-			$href = $params['href'] ? $params['href'] : "?"; //链接地址
-			$var = $params['name'];unset($params['name']);//变量名称
-			$unset = is_array($params['unset']) ? $params['unset']+array($var) : array($var);
-			unset($params['unset']);
-	        foreach ($unset as $k=>$v){
-	          unset($query_stirng[$v]);
-	        }
-	      
-	        $selected = $params['selected'];unset($params['selected']);
-		    $href .= http_build_query($query_stirng);
-		    $selected_class = $params['selected_class'] ? $params['selected_class'] : 'on';
-			foreach ($options as $k => $v) {
-				$params['href'] = $href.'&'.$var.'='.$k;
-				$params['text'] = $v;
-				if($k == $selected){
-					$html .= html_a($params+array('class'=>$selected_class));
-				} else {
-					$html .= html_a($params);
-				}
-			}
-			return $html;
-		}
-	}
-}
-/**
- * [html_select_condition description]
- * @param  array  $params [description]
- * @return [type]         [description]
- */
-if ( ! function_exists('html_select_condition')){
-
-	function html_select_condition($params=array()){
-		$html = null;
-		$query_stirng = $_GET;
-		$id = $params['id'] ? $params['id'] : $params['name'];
-		$html .= html_select($params);
-		$href = $params['href'] ? $params['href'] : "?"; //链接地址
-		$var = $params['name'];//变量名称
-		$unset = is_array($params['unset']) ? $params['unset']+array($var) : array($var);
-		unset($params['unset']);
-        foreach ($unset as $k=>$v){
-          unset($query_stirng[$v]);
-        }
-        $options = $params['options'];unset($params['options']);
-        $selected = $params['selected'];unset($params['selected']);
-	    $href .= http_build_query($query_stirng);
-		$html .= "<script language=\"javascript\">
-			$(document).ready(function() {
-				$('#{$id}').change(function(){
-					$.gy.location('{$href}&{$var}='+this.value);
-					return false;
-				})
-			})
-	</script>";
-		return $html;
-	}
-}
-/**
- * [html_page description]
- * @param  array  $params [description]
- * @return [type]         [description]
- */
-if ( ! function_exists('html_page')){
-
-	function html_page($pages=array()){
-		$html = null;
-     $sum = $pages["sum"]>0 ? $pages["sum"] : 0; //记录总数     
-     $size = $pages["size"]>0 ? $pages["size"] : 15; //每页显示的记录数
-     $psum = ceil($sum/$size);//总页数
-     if($sum > 0 && $psum > 1){
-       ############################参数      
-       $pn = $pages['pn'] ? $pages['pn'] : 'p';
-       $p = $pages[$pn] ? $pages[$pn] : $_GET[$pn]; //当前页码
-       $p = $p > 0 ? $p : 1;
-       $psize = $pages["psize"]>0 ? $pages["psize"] : 6; //显示的页数
-       $url = $pages['url'] ? $pages['url'] : "?"; //链接地址
-       $unset = $pages['unset'] ? $pages['unset'] : array($pn);//需要upset掉的参数
-       ############################链接参数
-        $query_stirng = $_GET;
-        foreach ($unset as $k=>$v){
-          unset($query_stirng[$v]);
-        }    
-        $url .= http_build_query($query_stirng);
-       //###############页面显示    
-         $html .= '<div class="tc pageStyle w clearfix pt20">';       
-         $psize = $psize > $psum ? $psum : $psize; //显示的页数
-         $pj = 3;//自动翻转的基数
-         if($p+$psize > $psum){     
-         $c = ($p+$psize -$psum);
-         $c = $c >$pj ? $c : ($pj+1);
-         $pg = $p-$c+1;
-        }elseif($p > $pj && $p<$psum){
-         $pg = $p-$pj;
-        } 
-         $pg = $pg >0 ? $pg : 1;       
-         //上页
-        $purl =  $p > 1 ? $url.'&'.$pn.'='.($p-1) : null;
-        $html .= '<a class="previous" href="'.$purl.'"><span class="hidden">previous</span></a>';        
-        $html .= $pg > 1 ? '<a href="'.$url.'&'.$pn.'=1">1</a>...' : null;           
-         for($i=0;$i<$psize;$i++){
-            $pi = $i+$pg;
-            if($p == $pi){
-               $html .= "<a class='on'>{$pi}</a>";
-            }else{
-               $html .= "<a href='{$url}&{$pn}={$pi}'>{$pi}</a>";
-            }
-         }   
-         $html .= ($pg+$psize-1) < $psum ? "...<a href='{$url}&{$pn}={$psum}'>{$psum}</a>" : null;    
-         $aurl .= $p < $psum ? $url.'&'.$pn.'='.($p+1) : null;
-         $html .= '<a class="next" href="'.$aurl.'"><span class="hidden">next</span></a>';
-         $html .= '</div>';
-     }
-     return $html;
-	}
 }
