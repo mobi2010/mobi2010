@@ -267,8 +267,9 @@ class CI_Router {
 		{
 			return $segments;
 		}
-		if(in_array($segments[0], $this->config->item('pan_resolved_address'))){
-			$segments[1] = 'panResolvedAddress';
+		$resolvedAddress = $this->config->item('pan_resolved_citys');
+		if($resolvedAddress[$segments[0]]){
+			$segments[1] = 'panResolvedCitys';
 			$segments[0] = 'welcome';
 		}
 
