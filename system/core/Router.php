@@ -267,6 +267,10 @@ class CI_Router {
 		{
 			return $segments;
 		}
+		if(in_array($segments[0], $this->config->item('pan_resolved_address'))){
+			$segments[1] = 'panResolvedAddress';
+			$segments[0] = 'welcome';
+		}
 
 		// Does the requested controller exist in the root folder?
 		if (file_exists(APPPATH.'controllers/'.$segments[0].'.php'))
