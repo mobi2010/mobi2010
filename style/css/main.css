@@ -1,10 +1,18 @@
 *{padding:0;margin:0;}
-a{text-decoration:none; color:#006699; font-size:13px}
+.body{background:#f5f4f3;font-size:13px;color:#333333}
+a{text-decoration:none; color:#ECECEC; }
 a:hover{text-decoration:underline; color:#FF0000}
-.body{background:#f5f4f3}
-.home-topbar{width:100%;background:#fe7203;}
+.home-topbar{width:100%;background:#FF9900;}
+.home-topbar a{text-decoration:none; color:#ECECEC;}
+.home-topbar a:hover{text-decoration:none; color:#FF0000;}
+.home-bottombar{width:100%;background:#f5f4f3;}
 .home-topbar-box{width:980px;margin: 0 auto;padding:.5em 0 .2em 0;}
+.home-topbar-right{float: right;padding:.5em 0 .2em 0;}
+.home-bottombar-box{width:980px;margin: 0 auto;text-align:center;padding:2em 0;}
+.home-bottombar-box a{text-decoration:none; color:#666;}
+.home-bottombar-box a:hover{text-decoration:underline; color:#FF0000;}
 .home-body{width:980px;margin:0 auto;}
 .home-body-p1{border: #CCCCCC thin solid;padding:.5em;background:#fff;margin:1em 0;}
+
 .logo-white{background:url(/style/img/logoWhite.png) no-repeat;background-size:86px auto;display:inline-block;width:86px; height:30px;overflow: hidden; }
 .logo{background:url(/style/img/logo.png) no-repeat;display:inline-block;width:140px; height:60px;overflow: hidden; }

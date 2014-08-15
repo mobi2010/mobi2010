@@ -1,16 +1,5 @@
-<?php
-$this->load->view('header');
-?>
-<div class="home-topbar">
-	<div class="home-topbar-box">
-		<a class="logo-white"></a>
-	</div>
-</div>
 <div class="home-body">
-	<div class="home-body-p1">
-		用户名：<input type="text" name="uname" />
-		密码：<input type="text" name="upwd" />
-	</div>
+	
 	
 	<div class="home-body-p1">
 		<img id="currentMap" src="http://c.hiphotos.baidu.com/image/pic/item/f636afc379310a5591453d5eb54543a982261032.jpg" />
@@ -24,8 +13,3 @@ $this->load->view('header');
 	</div>	
 	
 </div>
-帮助中心 | 空间客服 | 投诉中心 | 空间协议
-			©2014 Baidu
-<?php
-$this->load->view('footer');
-?>

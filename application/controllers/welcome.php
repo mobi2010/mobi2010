@@ -3,11 +3,18 @@
 class Welcome extends MY_Controller {		
 	public function index()
 	{
-		// $info = $this->db->query('show variables')->result_array();
-		// var_dump($info);
-		//$this->mobiModel->dataInsert(array('table'=>'users','data'=>array('uname'=>'zsc','upwd'=>'13241')));
-		//var_dump($this->mobiModel->dataFetchArray(array('table'=>'users')));
-		$this->load->view('welcome');
+
+
+
+
+		$data['pineryTitle'] = "菠萝园";
+
+
+
+		$this->load->view('pinery/header',$data);
+		$this->load->view('pinery/public/home_topbar',$data);
+		$this->load->view('welcome',$data);
+		$this->load->view('pinery/footer',$data);
 	}	
 	/**
 	 * [特殊参数解析]
