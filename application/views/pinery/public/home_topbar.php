@@ -1,11 +1,13 @@
 <div class="home-topbar">
 	<div class="home-topbar-box">
-		<a class="logo-white" href="<?=base_url('/')?>"></a>
-		<div class="home-topbar-right">
-			帐号:<input type="text" class="input-text-login" />
-			密码:<input type="password" class="input-pass-login" />
-			<a href="">登录</a>&nbsp;|&nbsp;<a href="">注册</a>						
+		
+		<div class="home-topbar-left">
+			<a class="logo-orange" href="<?=base_url('/')?>"></a>
+			<a href="" class="change-citys">涿州[换]</a>
+		</div>
+		<div class="home-topbar-right">			
+			<a href="" title="微博登陆"><img src="/style/img/loginbtn_sinawb.jpg" class="login-btn" /></a>&nbsp;
+			<a href="" title="QQ登陆"><img src="/style/img/loginbtn_qq.jpg" class="login-btn"/></a>	
 		</div>		
-	</div>
-	
+	</div>	
 </div>

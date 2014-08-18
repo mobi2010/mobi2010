@@ -1,15 +1,59 @@
+<div class="home-nav">
+	<dl>
+		<dd>房</dd>
+		<dd>车</dd>
+		<dd>市场</dd>
+		<dd>服务</dd>
+	</dl>	
+</div>
 <div class="home-body">
-	
-	<?php
-	foreach ($citys as $key => $value) {
-		echo '<div class="home-body-p1 hp200">';
-		echo '<h2>'.html_a(array('text'=>$value['names'],'href'=>base_url($key))).'</h2><br/>';
-		echo html_a(array('text'=>html_img(array('src'=>$value['picture'],'style'=>'float:left;width:15em')),'href'=>base_url($key)));	
-		echo "<span style='line-height:2em'>".str_repeat('&nbsp;', 4).$value['content']."</span>";	
-		echo '</div>';
-	}
+	<div class="home-body-box">
+		<dl>
+			<dd>
+				<img  src="http://imglf2.ph.126.net/fLfUAypO3k_Isev_90dTOg==/6608178132632946452.jpg" />
+				<div class="title">二手房</div>
+			</dd>
+			<dd><img src="http://imglf2.ph.126.net/fLfUAypO3k_Isev_90dTOg==/6608178132632946452.jpg" />
+				<div class="title">二手房</div>
+			</dd>
+			<dd><img src="http://imglf2.ph.126.net/fLfUAypO3k_Isev_90dTOg==/6608178132632946452.jpg" />
+				<div class="title">二手房</div>			
+			</dd>
+			<dd>
+				<img  src="http://imglf2.ph.126.net/fLfUAypO3k_Isev_90dTOg==/6608178132632946452.jpg" />
+				<div class="title">二手房</div>
+			</dd>
+			<dd><img src="http://imglf2.ph.126.net/fLfUAypO3k_Isev_90dTOg==/6608178132632946452.jpg" />
+				<div class="title">二手房</div>
+			</dd>
+			<dd><img src="http://imglf2.ph.126.net/fLfUAypO3k_Isev_90dTOg==/6608178132632946452.jpg" />
+				<div class="title">二手房</div>			
+			</dd>
+		</dl>	
 
-	?>
+		<dl>
+			<dd>
+				<img  src="http://imglf2.ph.126.net/fLfUAypO3k_Isev_90dTOg==/6608178132632946452.jpg" />
+				<div class="title">二手房</div>
+			</dd>
+			<dd><img src="http://imglf2.ph.126.net/fLfUAypO3k_Isev_90dTOg==/6608178132632946452.jpg" />
+				<div class="title">二手房</div>
+			</dd>
+			<dd><img src="http://imglf2.ph.126.net/fLfUAypO3k_Isev_90dTOg==/6608178132632946452.jpg" />
+				<div class="title">二手房</div>			
+			</dd>
+			<dd>
+				<img  src="http://imglf2.ph.126.net/fLfUAypO3k_Isev_90dTOg==/6608178132632946452.jpg" />
+				<div class="title">二手房</div>
+			</dd>
+			<dd><img src="http://imglf2.ph.126.net/fLfUAypO3k_Isev_90dTOg==/6608178132632946452.jpg" />
+				<div class="title">二手房</div>
+			</dd>
+			<dd><img src="http://imglf2.ph.126.net/fLfUAypO3k_Isev_90dTOg==/6608178132632946452.jpg" />
+				<div class="title">二手房</div>			
+			</dd>
+		</dl>
+	</div>
 	
 	
 </div>

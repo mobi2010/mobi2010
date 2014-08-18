@@ -20,7 +20,7 @@ class Welcome extends MY_Controller {
 		if($citys[$segments[1]]){
 			$data['cityInfo'] = $citys[$segments[1]];
 			$this->load->view('pinery/header',$data);
-			$this->load->view('pinery/public/home_topbar',$data);
+			$this->load->view('pinery/public/channel_topbar',$data);
 			$this->load->view('pinery/citys',$data);
 			$this->load->view('pinery/footer',$data);
 		}else{
