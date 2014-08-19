@@ -807,4 +807,47 @@ class Image {
 		$res['msg'] = 'Success';		
 		return $res;
 	}
+	 /**
+      * [又拍云-上传-基础版]
+      * @param  array  $params [description]
+      * $params['file'] 	//[选填]图片文件,默认$_FILES[$fileKey]['tmp_name']
+      * @return [array]         [description]
+      * $res['filePath']  //新的文件路径
+      */
+    function ypyUploadBase($params=array()){    	
+    	require_once(APPPATH.'third_party/upyun.class.php');
+    	try {
+    		$file = $params['file'];
+    		
+		    $fileExtStr = $this->fileExt($file); //.jpg 后缀
+		   
+			$upyun = new UpYun('getarts', 'getarts', 'getartscn');
+		    $fh = fopen($file, 'rb');
+		    //文件名称
+			$fileName = $this->fileName($params['fileName']).$fileExtStr;
+		    $filePath = $this->filePath().$fileName;
+		    $rsp = $upyun->writeFile($filePath, $fh, True);   // 上传图片，自动创建目录
+		    fclose($fh);
+		    $res['status'] = 200;
+		    $res['msg'] = "上传成功";
+		    $res['filePath'] = "http://getarts.b0.upaiyun.com".$filePath;
+	    	$res['sourceFile'] = $file;
+		}catch(Exception $e) {
+			$res['status'] = 503;
+		    $res['msg'] = $e->getCode().'-'.$e->getMessage();
+		}
+    	return $res;
+    }
+    //遍历目录
+	function iteralDirs($path){
+	    $filearr = array();
+	    foreach (glob($path.'\*') as $file){
+	        if(is_dir($file)){
+	            $filearr = array_merge($filearr,$this->iteralDirs($file));
+	        }else{
+	            $filearr[] = $file;
+	        }
+	    }
+	    return $filearr;
+	}
 }
