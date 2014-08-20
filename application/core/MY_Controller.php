@@ -6,7 +6,7 @@ class MY_Controller extends CI_Controller
 {	
 	public $uriEntity = null;//uri 实体
 	public $initData;//初始数据
-	function  __construct($params = array())
+	function __construct($params = array())
 	{
 		parent::__construct();
 		$this->load->model('Pinery_model', 'pineryModel');//		

@@ -611,7 +611,7 @@ if ( ! function_exists('html_select')){
 			$selected = $params['selected'];
 			$params['id'] = $params['id'] ? $params['id'] : $params['name'];
 			$select .= '<select ';
-			$select .= html_join($params,array('options','selected'));		
+			$select .= html_join($params,array('options','selected','sval','sval'));		
 			$select .= '>';			
 			foreach ($options as $key => $val) {
 				$optionValue = $params['skey'] ? $val[$params['skey']] : $key;

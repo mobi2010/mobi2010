@@ -1,6 +1,10 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Welcome extends MY_Controller {		
+	function __construct($params = array())
+	{
+		parent::__construct(array('auth'=>false));		
+	}
 	public function index()
 	{
 		// $data['pineryTitle'] = 'pineryTitle';
@@ -8,6 +12,7 @@ class Welcome extends MY_Controller {
 		// $data['pineryDescription'] = 'pineryDescription';
 		$this->load->view('pinery/header',$data);
 		$this->load->view('pinery/public/home_topbar',$data);
+		//$this->load->view('pinery/public/login_popwin',$data);
 		//$this->load->view('welcome',$data);
 		$this->load->view('pinery/footer',$data);
 	}	

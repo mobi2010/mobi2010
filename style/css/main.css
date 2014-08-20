@@ -71,3 +71,6 @@ a:hover{color:#00B7D6}
 
 .btn-orange{cursor: pointer;display: inline-block;vertical-align: middle;text-align:center;padding:.5em 2em;background:#FE7203;color: #fff;border:#FE7203 thin solid;}
 .btn-orange:hover{background:#FD8221;color: #fff;text-decoration:none;}
+
+/**plugins**/
+.login-popwin{border: 1px solid #ccc; width: 300px; padding: 2em; background: #fff;z-index: 2}

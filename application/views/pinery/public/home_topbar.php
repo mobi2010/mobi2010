@@ -9,24 +9,27 @@
 			?>
 		</div>
 		<div class="home-topbar-right">			
-			<a class="btn-green" href="<?=base_url('login')?>">登录</a>
-			<a class="btn-red" href="<?=base_url('register')?>">注册</a>			
-			<a href="" title="微博登陆"><img src="/style/img/loginbtn_sinawb.jpg" class="login-btn" /></a>&nbsp;
-			<a href="" title="QQ登陆"><img src="/style/img/loginbtn_qq.jpg" class="login-btn"/></a>
+			<?php
+			echo html_a(array('id'=>'loginBtn','class'=>"btn-green",'text'=>'登录'));
+			echo "&nbsp;";
+			echo html_a(array('id'=>'registerBtn','class'=>"btn-red",'text'=>'注册'));
+			?>
+			
+			<!-- <a href="" title="微博登陆"><img src="/style/img/loginbtn_sinawb.jpg" class="login-btn" /></a>&nbsp;
+			<a href="" title="QQ登陆"><img src="/style/img/loginbtn_qq.jpg" class="login-btn"/></a> -->
 		</div>	
 	</div>	
 </div>
 <script type="text/javascript">
 	$(document).ready(function() {
-		$.mobi.alert('用户名不能为空，用户名不能为');
-		//换
+		//城市-换
 		$('#changeCity').click(function(){
 			$(this).hide();
 			$('#selectCitys').show();
 			$('#changeCityCancel').show();
 			return false;
 		})
-		//选中
+		//城市-选中
 		$('#selectCitys').change(function(){			
 			var id = $(this).val();			
 			var $loading = loading.init();
@@ -37,12 +40,21 @@
 			})
 			return false;
 		})
-		//取消
+		//城市-取消
 		$('#changeCityCancel').click(function(){			
 			$('#selectCitys').hide();
 			$('#changeCityCancel').hide();
 			$('#changeCity').show();
 			return false;
 		})
+		//登录
+		$('#loginBtn').click(function(){
+			var $cover = cover.init({'id':'loginCover','z-index':1,'opacity':1});
+			$cover.show();
+			$.post("<?=base_url('login/popWin')?>",function(dt){
+				$(dt).center({'y':-90}).appendTo("body");
+			})
+		})
+
 	})
 </script>

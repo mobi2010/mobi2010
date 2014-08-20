@@ -1,7 +1,123 @@
 (function($){
     //##############对象方法##############	
     $.fn.extend({
-        
+        center:function(obj){//对象屏幕中央显示
+            var obj = obj instanceof Object ? obj : {};//扩展用，暂时无用
+            var x = obj['x'] ? obj['x'] : 0;//横坐标偏移量
+            var y = obj['y'] ? obj['y'] : 0;//纵坐标偏移量
+            var ow = $(this).width();
+            var oh = $(this).height();
+            var ww = $(window).width();  
+            var wh = $(window).height(); 
+            var dt = $(document).scrollTop();  
+            var dl = $(document).scrollLeft();  
+            var w = (ww-ow)/2+dl+(x);
+            var h = (wh-oh)/2+dt+(y);
+            var z = obj['z-index'] ? obj['z-index'] : 1;
+            var p = obj['position'] ? obj['position'] : 'absolute';
+            return $(this).css({'position':p,'left':w,'top':h,'z-index':z});
+        },
+        loading:function(obj){//加载图片            
+            var obj = obj instanceof Object ? obj : {};//扩展用，暂时无用
+            var ow = 31;
+            var oh = 31;
+            var ww = obj['width'] || $(this).width();  
+            var wh = obj['height'] || $(this).height(); 
+            var dt = $(this).scrollTop();  
+            var dl = $(this).scrollLeft();  
+            var w = (ww-ow)/2+dl;
+            var h = (wh-oh)/2+dt;
+            var czi = $(this).css('z-index') ? $(this).css('z-index') : 0;
+            $img = $("<img>");
+            $img.attr('src','/style/img/loading.gif');
+            $img.css({'position':"relative",'left':w,'top':h,'z-index':czi+1});
+            $(this).append($img);
+            return false;
+        },
+        inputToggle:function(val){//内容显示隐藏切换
+            $(this).focus(function(){//获得焦点
+                $(this).val() == val && $(this).val('');
+            }).blur(function(){//失去焦点
+                !($(this).val()) && $(this).val(val);
+            })
+            return false;
+        },    
+        memberInfoPanelMove:function(){//会员信息面板移动
+            $(this).off('mousedown').on('mousedown',function(e){      
+                if($(e.target).css('cursor') != 'move'){//连接返回false
+                    return ;
+                }
+
+                var $upside = $('.ProInfoBanner.upside');       //背景层
+                var mipmFlag = true;                            //触发移动事件
+                var $mif = $('#memberInfoDiv');                 //用户信息对象
+                // var $imlist = $('#div_impression');             //印象对象列表
+                // var $imbtn = $('#impressionList');              //印象对象按钮
+                // var imbtnStyle = $imbtn.attr('style');          //印象按钮的style
+                var $subtn = $('#memberSetupButton');           //设置对象按钮
+                var subtnStyle = $subtn.attr('style');          //设置按钮的style
+                var $self = $(this);                            //当前对象
+                var w = $upside.width()+64;//$self.width();                    //当前对象的宽
+                var h = $upside.height()+40;                         //当前对象的高
+                var mcX = Math.round(w/2);                      //当前对象的中线
+                var $offset = $self.offset();                   //当前对象的偏移量
+                var x = e.pageX;                                //当前鼠标的x坐标
+                var y = e.pageY;                                //当前鼠标的y坐标
+                var wW = $('body').width();                     //当前屏幕的宽
+                var wH = $('#imgBgBox').height();               //可显示区域的高
+                var minX = 0;                                   //x坐标最小值
+                var maxX = wW-w;                                //x坐标最大值
+                var minY = 0;                                   //y坐标最小值
+                var maxY = wH-h;                                //y坐标最大值        
+                var oL;                                         //当前对象移动时的左偏移量
+                var oT;                                         //当前对象移动时的顶偏移量
+                var bcX = Math.round(wW/2);                     //当前屏幕的中线
+                var positionStyle = "";                         //位置的样式
+                $(document).on('mousemove',function(e){//鼠标移动
+                   /* if($('#lightBoxTmp').length == 0){
+                        var newDiv = $('<div id="lightBoxTmp" style="width:100%;height:100%;position:fixed;left:0;top:0;background:rgba(0, 0, 0, 0.5) none repeat scroll 0 0 !important;filter:Alpha(opacity=50); background:#000;z-index:0;"><div style="width:1246px; margin:0 auto; height:100%; background:rgba(255, 255, 255, 0.5) none repeat scroll 0 0 !important;filter:Alpha(opacity=50); background:#FFF; relative;" id="lightCox"></div></div>');
+                        $('body').append(newDiv);
+                    }*/
+                    if(mipmFlag){
+                        //$imlist.hide();
+                        oL = e.pageX-x + $offset.left;
+                        oT = e.pageY-y + $offset.top-50;            
+                        oL = oL < minX ? minX : oL; 
+                        oL = oL > maxX ? maxX : oL;
+                        oT = oT < minY ? minY : oT; 
+                        oT = oT > maxY ? maxY : oT;
+                        if(oL+mcX > bcX){//印象显示在左侧
+                            $mif.css('float','right');
+                            //$imbtn.attr('style',imbtnStyle.replace('right','left'));
+                            $subtn.attr('style',subtnStyle.replace('right','left')+';border-radius:6px 0px 0px 6px;');
+                            positionStyle = {'top':oT+"px",'left':'auto','right':(wW-oL)+"px"};
+                            $self.css(positionStyle);
+                        }else{//印象显示在右侧
+                            $mif.css('float','left');
+                            //$imbtn.attr('style',imbtnStyle.replace('left','right'));
+                            $subtn.attr('style',subtnStyle.replace('left','right')+';border-radius:0px 6px 6px 0px;');     
+                            positionStyle = {'top':oT+"px",'left':oL+"px",'right':'auto'};           
+                            $self.css(positionStyle);
+                        }
+                    }
+                    return ;
+                })
+                $(document).on('mouseup',function(e){//鼠标抬起
+                    //$(this).off('mousemove');
+                    mipmFlag = false;
+                    if(positionStyle){
+                        $.post('/users/setup/position',positionStyle);//保存位置
+                        positionStyle = "";
+                    }
+                   /* if($('#lightBoxTmp').length != 0){
+                        $('#lightBoxTmp').remove();
+                    }*/
+                    
+                    return ;
+                })
+                return ;
+            })
+        }
     })
   
   
@@ -23,7 +139,10 @@
             }
             return flag;
         },
-        alert:function(data){//弹出框          
+        alert:function(data,obj){//弹出框
+            $('.alert').remove();   
+            var obj = obj || {}; 
+            var zIndex = obj['z-index'] || 10; 
             var ww = $(window).width();  
             var wh = $(window).height(); 
             var dt = $(document).scrollTop();  
@@ -31,10 +150,11 @@
             var w = (ww-200)/2+dl;
             var h = (wh-200)/2+dt;        
             var dialog = $('<div>');
-            dialog.attr('style','border-radius:5px;background:#999999;color:#FFFFFF; position:absolute;z-index: 10;width:200px;padding:1em 2em;text-align:center;').css({'top':h,'left':w}).appendTo('body');
-        	dialog.text(data).slideDown(1000,function(){
-              setTimeout(function(){dialog.slideUp(1000);dialog.remove();},3000);
-             });
+            dialog.text(data);
+            dialog.attr('class','alert');
+            dialog.attr('style','border-radius:5px;background:#000000;color:#FFFFFF; position:absolute;width:200px;padding:1em 2em;text-align:center;filter:alpha(opacity=70);opacity:0.7');
+            dialog.css({'top':h,'left':w,'z-index':zIndex}).appendTo('body');
+        	dialog.slideDown(500,function(){setTimeout(function(){dialog.slideUp(1000);},2000);});
         	return false;
         },
     	submit:function(form,url,para,action){//提交表单
@@ -198,17 +318,36 @@
     }    
 })(jQuery)  
 
-
+//cover 组件
+var cover = {
+    init : function(options){//初始化
+        var options = options instanceof Object ? options : {};//扩展用，暂时无用
+        var cw = $(document).width();
+        var ch = $(document).height();
+        var czi = options['z-index'] || 100*100; 
+        var op = options['opacity'] || 5;
+        this.cover = $('<div>');
+        var id = options['id'] ? options['id'] : "cover";
+        this.cover.attr({'id':id});
+        this.cover.css({'width':cw,'height':ch,'background':"#000000",'position':"absolute",'left':0,'top':0,'z-index':czi,'filter':"alpha(opacity="+(op*10)+")",'opacity':(op/10)});            
+        return this;
+    },
+    show : function(){//显示
+        $('body').append(this.cover);
+        return false;
+    },
+    remove: function(){//移除
+        this.cover.remove();
+        return false;
+    }
+}
     
 //loading组件
 var loading = {
     init: function(obj){//初始化
         var obj = obj instanceof Object ? obj : {};//扩展用，暂时无用
-        this.cover = $('<div>');
-        var cw = $(document).width();
-        var ch = $(document).height();
-        var czi = obj['z-index'] ? obj['z-index'] : 100*100;  
-        this.cover.css({'width':cw,'height':ch,'backgroundColor':"black",'position':"absolute",'left':0,'top':0,'zIndex':czi,'filter':"alpha(opacity=30)",'opacity':'.3'});  
+        this.cover = cover.init(obj);        
+        var czi = obj['z-index'] ? obj['z-index'] : 100*100;    
         var ow = 31;
         var oh = 31;
         var ww = $(window).width();  
@@ -223,36 +362,13 @@ var loading = {
         return this;            
     },
     show:function(){//显示
-        $('body').append(this.cover);
+        this.cover.show();
         $('body').append(this.img);
         return false;
     },
     remove:function(){//移除
         this.cover.remove();
         this.img.remove();
-        return false;
-    }
-}
-//cover 组件
-var cover = {
-    init : function(options){//初始化
-        var options = options instanceof Object ? options : {};//扩展用，暂时无用
-        var cw = $(document).width();
-        var ch = $(document).height();
-        var czi = options['z-index'] || 100*100; 
-        var op = 5;
-        this.cover = $('<div>');
-        var id = options['id'] ? options['id'] : "cover";
-        this.cover.attr({'id':id});
-        this.cover.css({'width':cw,'height':ch,'background':"none repeat scroll 0 0 #000000",'position':"absolute",'left':0,'top':0,'z-index':czi,'filter':"alpha(opacity="+(op*10)+")",'opacity':(op/10)});            
-        return this;
-    },
-    show : function(){//显示
-        $('body').append(this.cover);
-        return false;
-    },
-    remove: function(){//移除
-        this.cover.remove();
         return false;
     }
 }
