@@ -3,11 +3,12 @@
 class Welcome extends MY_Controller {		
 	public function index()
 	{
-		$data['pineryTitle'] = "菠萝园";
-		$data['citys'] = $this->config->item('pan_resolved_citys');
+		// $data['pineryTitle'] = 'pineryTitle';
+		// $data['pineryKeywords'] = 'pineryKeywords';
+		// $data['pineryDescription'] = 'pineryDescription';
 		$this->load->view('pinery/header',$data);
 		$this->load->view('pinery/public/home_topbar',$data);
-		$this->load->view('welcome',$data);
+		//$this->load->view('welcome',$data);
 		$this->load->view('pinery/footer',$data);
 	}	
 	/**
@@ -26,6 +27,18 @@ class Welcome extends MY_Controller {
 		}else{
 			redirect('/');
 		}
-
 	}	
+	/**
+	 * [changeCity description]
+	 * @return [type] [description]
+	 */
+	function changeCity(){
+		$id =$_POST['id'];
+		if($this->initData['dataCitys'][$id]){
+			mobi_setcookie('cityKey',$id,3600*24*30);
+			echo 1;
+		}else{
+			echo 0;
+		}
+	}
 }

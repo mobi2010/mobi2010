@@ -1,8 +1,20 @@
+/**全局**/
 *{padding:0;margin:0;}
-.body{background:#f5f4f3;font-size:13px;color:#333333;font-family: Tahoma, Helvetica, "Microsoft Yahei", "微软雅黑", Arial, STHeiti;}
-a{text-decoration:none; color:#3fa7cc; }
-a:hover{text-decoration:underline; color:#FF0000}
+.body{background:#f5f4f3;font-size:13px;color:#333333;font-family: Tahoma, Helvetica, "Microsoft Yahei", "微软雅黑", Arial, STHeiti;height: 1000px;}
+a{text-decoration:none; color:#308EB5; }
+a:hover{color:#00B7D6}
 
+
+/**base**/
+.hp200{height:200px}
+.hp300{height:300px}
+.hp400{height:400px}
+.hp500{height:500px}
+.hp600{height:600px}
+
+.display-none{display:none;}
+
+/**home**/
 .home-body{clear: both;width:980px;margin:0 auto;}
 
 .home-topbar{width:100%; height: 60px }
@@ -13,6 +25,9 @@ a:hover{text-decoration:underline; color:#FF0000}
 .home-nav{clear: both;height: 60px; width:980px;margin:2em auto;}
 .home-nav dd{ font-weight:bold;font-size:1.5em;float: left;border: 1px solid #ccc; width: 243px; background: #fff;text-align:center;padding: 1em 0;}
 .home-nav dd:hover{border-bottom:3px solid #fe7203;background: #CCCCCC;cursor:pointer}
+
+
+
 
 .home-body-box{border: #CCCCCC thin solid;padding:2em;background:#fff;margin:1em 0;}
 .home-body-box dd{display:inline-block;margin:0 1px 20px 0;}
@@ -26,44 +41,33 @@ a:hover{text-decoration:underline; color:#FF0000}
 .home-bottombar-box a:hover{text-decoration:underline; color:#FF0000;}
 
 
-.channel-topbar{width:100%;background:#FF9900;color:#fff;height:45px;line-height:45px}
-.channel-topbar a{text-decoration:none;color:#ECECEC;}
-.channel-topbar a:hover{text-decoration:none;color:#fff}
-.channel-topbar-box{width:980px;margin: 0 auto;}
-
-.channel-topbar-right{float:right;padding:0 1em ;}
-.channel-body-p1{border: #CCCCCC thin solid;padding:.5em;background:#fff;margin:1em 0;}
-.channel-pop-border{
-border: 1px solid #d8d8d8;
-background-color: #f9f9f9;
-border-radius: 0 0 4px 4px;
-box-shadow: 2px 1px 4px #e1e1e1, -2px 1px 4px #e1e1e1;background:#fff;color:#333333;padding:2em 2em;}
-
-.input-pass-login,.input-text-login{
-width: 120px;
-height: 18px;
-border: 1px solid #ccc;
-padding-left: 5px;
-padding-right: 5px;
-outline: none;
-box-shadow: 2px 2px 2px #eee inset;
--moz-box-shadow: 2px 2px 2px #eee inset;
--webkit-box-shadow: 2px 2px 2px #eee inset;
-}
-
-.login-btn{
-	border: 1px solid #ccc;	
-	width: 36px;
-}
-.login-btn:hover{border: 1px solid #fff;}
+/**channel**/
 
 
 
+/**logo**/
 .logo-white{background:url(/style/img/logoWhite.png) no-repeat;background-size:86px auto;display:block;float:left;width:86px; height:30px;overflow: hidden; position: relative;top:.5em;}
 .logo-orange{background:url(/style/img/logo.png) no-repeat;display:inline-block;width:140px; height:60px;overflow: hidden; }
 
-.hp200{height:200px}
-.hp300{height:300px}
-.hp400{height:400px}
-.hp500{height:500px}
-.hp600{height:600px}
+
+
+/**input-text**/
+
+.input-text,.input-password{width: 16em;height: 2em;border: 1px solid #ccc;padding-left: 5px;padding-right: 5px;outline: none;box-shadow: 2px 2px 2px #eee inset;-moz-box-shadow: 2px 2px 2px #eee inset;-webkit-box-shadow: 2px 2px 2px #eee inset;}
+
+
+/**button**/
+.btn-grey{cursor: pointer;display: inline-block;vertical-align: middle;text-align:center;padding:.5em 2em;background:#EBEBEB;color:#333333;border:#CCCCCC thin solid;}
+.btn-grey:hover{background:#F4F4F4;color:#333333;text-decoration:none;}
+
+.btn-blue{cursor: pointer;display: inline-block;vertical-align: middle;text-align:center;padding:.5em 2em;background:#308EB5;color: #fff;border:#308EB5 thin solid;}
+.btn-blue:hover{background:#00B7D6;color: #fff;text-decoration:none;}
+
+.btn-green{cursor: pointer;display: inline-block;vertical-align: middle;text-align:center;padding:.5em 2em;background:#8DB800;color: #fff;border:#79B800 thin solid;}
+.btn-green:hover{background:#AED505;color: #fff;text-decoration:none;}
+
+.btn-red{cursor: pointer;display: inline-block;vertical-align: middle;text-align:center;padding:.5em 2em;background:#E65E42;color: #fff;border:#FA7D17 thin solid;}
+.btn-red:hover{background:#FF734A;color: #fff;text-decoration:none;}
+
+.btn-orange{cursor: pointer;display: inline-block;vertical-align: middle;text-align:center;padding:.5em 2em;background:#FE7203;color: #fff;border:#FE7203 thin solid;}
+.btn-orange:hover{background:#FD8221;color: #fff;text-decoration:none;}

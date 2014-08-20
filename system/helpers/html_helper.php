@@ -448,7 +448,7 @@ if ( ! function_exists('html_join')){
 		$html = null;
 		if(!empty($params)) {
 		  foreach ($params as $key => $val) {
-		    if(!in_array($key, $unsetParams) && !is_null($val)){
+		    if(!in_array($key, $unsetParams) && isset($val)){
 		      $html .= $key.'="'.$val.'" ';
 		    }        
 		  }
@@ -479,9 +479,8 @@ if ( ! function_exists('html_radio')){
     $params['id'] = $params['id'] ? $params['id'] : $params['name'];
     $text = $params['text'];unset($params['text']);
     $position = $params['position'];//0默认后边，1前边 
-    unset($params['position']);
     $radio = '<input type="radio" ';
-    $radio .= html_join($params);
+    $radio .= html_join($params,array('position'));
     $radio .= ' />';    
     return $position ? $text.$radio : $radio.$text;     
   }
@@ -554,10 +553,10 @@ if ( ! function_exists('html_hidden')){
 */
 if ( ! function_exists('html_textarea')){
 	function html_textarea($params){
-		$value = $params['value'];unset($params['value']);
+		$value = $params['value'];
 		$params['id'] = $params['id'] ? $params['id'] : $params['name'];
 		$text = '<textarea ';
-		$text .= html_join($params);
+		$text .= html_join($params,array('value'));
 		$text .= '>';
 		$text .= $value;
 		$text .= '</textarea>';
@@ -597,28 +596,29 @@ if ( ! function_exists('html_a')){
 /**
 * [select description]
 * @param  [type] $params [description]
+* options 选项数据
+* selected 选中项 
+* sval option 的 text
+* skey option 的 value
+* 
 * @return [type]         [description]
 */
 if ( ! function_exists('html_select')){
 	function html_select($params){
 		$select = null;
-		$options = $params['options'];unset($params['options']);
+		$options = $params['options'];
 		if(!empty($options)){			
-			$selected = $params['selected'];unset($params['selected']);
+			$selected = $params['selected'];
 			$params['id'] = $params['id'] ? $params['id'] : $params['name'];
 			$select .= '<select ';
-			$select .= html_join($params);		
-			$select .= '>';
-			if (isset($params['default']) && is_array($params['default']))
-			{
-				$select .= '<option value="'.$params['default']['key'].'"';
-				$select .= $params['default']['key'] == $selected ? ' selected="selected"' : null;
-				$select .= '>'.$params['default']['value'].'</option>';
-			}
+			$select .= html_join($params,array('options','selected'));		
+			$select .= '>';			
 			foreach ($options as $key => $val) {
-			  $select .= '<option value="'.$key.'"';
-			  $select .= $key == $selected ? ' selected="selected"' : null;
-			  $select .= '>'.$val.'</option>';
+				$optionValue = $params['skey'] ? $val[$params['skey']] : $key;
+				$optionText = $params['sval'] ? $val[$params['sval']] : $val;
+				$select .= '<option value="'.$optionValue.'"';
+				$select .= $key == $selected ? ' selected="selected"' : null;
+				$select .= '>'.$optionText.'</option>';
 			}
 			$select .= '</select>';
 		}

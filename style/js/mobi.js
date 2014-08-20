@@ -23,8 +23,18 @@
             }
             return flag;
         },
-        alert:function(res){//弹出框        	
-        	alert(res);
+        alert:function(data){//弹出框          
+            var ww = $(window).width();  
+            var wh = $(window).height(); 
+            var dt = $(document).scrollTop();  
+            var dl = $(document).scrollLeft();  
+            var w = (ww-200)/2+dl;
+            var h = (wh-200)/2+dt;        
+            var dialog = $('<div>');
+            dialog.attr('style','border-radius:5px;background:#999999;color:#FFFFFF; position:absolute;z-index: 10;width:200px;padding:1em 2em;text-align:center;').css({'top':h,'left':w}).appendTo('body');
+        	dialog.text(data).slideDown(1000,function(){
+              setTimeout(function(){dialog.slideUp(1000);dialog.remove();},3000);
+             });
         	return false;
         },
     	submit:function(form,url,para,action){//提交表单
@@ -197,8 +207,8 @@ var loading = {
         this.cover = $('<div>');
         var cw = $(document).width();
         var ch = $(document).height();
-        var czi = 1000*1000*1000*1000; 
-        this.cover.css({'width':cw,'height':ch,'backgroundColor':"gray",'position':"absolute",'left':0,'top':0,'zIndex':czi,'filter':"alpha(opacity=30)",'opacity':'.3'});  
+        var czi = obj['z-index'] ? obj['z-index'] : 100*100;  
+        this.cover.css({'width':cw,'height':ch,'backgroundColor':"black",'position':"absolute",'left':0,'top':0,'zIndex':czi,'filter':"alpha(opacity=30)",'opacity':'.3'});  
         var ow = 31;
         var oh = 31;
         var ww = $(window).width();  
@@ -229,7 +239,7 @@ var cover = {
         var options = options instanceof Object ? options : {};//扩展用，暂时无用
         var cw = $(document).width();
         var ch = $(document).height();
-        var czi = options['z-index'] || 1000*1000; 
+        var czi = options['z-index'] || 100*100; 
         var op = 5;
         this.cover = $('<div>');
         var id = options['id'] ? options['id'] : "cover";

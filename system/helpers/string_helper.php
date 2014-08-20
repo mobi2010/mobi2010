@@ -357,3 +357,56 @@ if ( ! function_exists('mobi_string_filter')){
 		return $string;
 	}
 }
+/**
+ * [设置cookie]
+ * @param  [type] $key   	[key]
+ * @param  [type] $value 	[value]
+ * @param  [type] $expire 	[过期时间-秒]
+ * @return [type]        [description]
+ */
+if ( ! function_exists('mobi_setcookie')){
+	function mobi_setcookie($key,$value,$expire,$path='/',$domain=''){	
+		$expire = time()+$expire;	
+		if(!$domain){
+			$domain = $_SERVER['HTTP_HOST'];
+			$parseUrlArr = explode('.', $domain);
+			$cArr = count($parseUrlArr);
+			if($cArr == 3){
+				$domain = $parseUrlArr[1].".".$parseUrlArr[2];
+			}
+		}
+		if('localhost' == $domain){
+			setcookie($key, $value, $expire, '/');//, $domain
+		}else{
+			setcookie($key, $value, $expire, '/', $domain);//, $domain
+		}
+	}			
+}
+/**
+ * [删除cookie]
+ * @param  [type] $key [description]
+ * @return [type]      [description]
+ */
+if ( ! function_exists('mobi_delcookie')){
+	function mobi_delcookie($data){
+		$value = '';
+		$time = time()-3600;
+		if(is_array($data)){
+			foreach ($data as $key) {
+				mobi_setcookie($key,$value,$time);
+			}
+		}else{
+			mobi_setcookie($data,$value,$time);
+		}		
+	}
+}
+/**
+ * [获取cookie]
+ * @param  [type] $key [description]
+ * @return [type]      [description]
+ */
+if ( ! function_exists('mobi_getcookie')){
+	function mobi_getcookie($key){
+		return $_COOKIE[$key];
+	}
+}
