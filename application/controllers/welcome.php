@@ -1,5 +1,9 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-
+/**
+ * 首页
+ *
+ * @author by zsc
+ */
 class Welcome extends MY_Controller {		
 	function __construct($params = array())
 	{

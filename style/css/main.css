@@ -1,6 +1,10 @@
 /**全局**/
 *{padding:0;margin:0;}
-.body{background:#f5f4f3;font-size:13px;color:#333333;font-family: Tahoma, Helvetica, "Microsoft Yahei", "微软雅黑", Arial, STHeiti;height: 1000px;}
+
+.body{background:#f5f4f3;font-size:13px;color:#333333;font-family: Tahoma, Helvetica, "Microsoft Yahei", "微软雅黑", Arial, STHeiti;}
+
+.body-register{background:url(/style/img/register_bg.jpg);font-size:13px;color:#333333;font-family: Tahoma, Helvetica, "Microsoft Yahei", "微软雅黑", Arial, STHeiti;}
+
 a{text-decoration:none; color:#308EB5; }
 a:hover{color:#00B7D6}
 

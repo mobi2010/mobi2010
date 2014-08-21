@@ -2,6 +2,7 @@
 $pineryTitle = $pineryTitle ? $pineryTitle : $initData['pineryTitle'];//标题
 $pineryKeywords = $pineryKeywords ? $pineryKeywords : $pineryTitle;//关键字
 $pineryDescription = $pineryDescription ? $pineryDescription : $initData['pineryDescription'];//描述
+$bodyClass = $bodyClass ? $bodyClass : "body";
 ?>
 <!DOCTYPE html>
 <html>
@@ -14,4 +15,4 @@ $pineryDescription = $pineryDescription ? $pineryDescription : $initData['pinery
 	<script src="/style/js/jquery-1.10.2.min.js"></script>
 	<script src="/style/js/mobi.js"></script>
 </head>
-<body class="body">
+<body class="<?=$bodyClass;?>">

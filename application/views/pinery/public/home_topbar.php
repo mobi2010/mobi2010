@@ -1,7 +1,7 @@
 <div class="home-topbar">
 	<div class="home-topbar-box">
 		<div class="home-topbar-left">
-			<a class="logo-orange" href="<?=base_url('/')?>"></a>
+			<!-- <a class="logo-orange" href="<?=base_url('/')?>"></a> -->
 			<?php
 				echo html_a(array('id'=>'changeCity','class'=>"change-citys",'text'=>$initData['cityName'].'[换]'));
 				echo html_select(array('id'=>'selectCitys','class'=>"change-citys",'options'=>$initData['dataCitys'],'sval'=>'names','selected'=>$initData['cityKey'],'style'=>'display:none;'))."&nbsp;";
@@ -12,9 +12,8 @@
 			<?php
 			echo html_a(array('id'=>'loginBtn','class'=>"btn-green",'text'=>'登录'));
 			echo "&nbsp;";
-			echo html_a(array('id'=>'registerBtn','class'=>"btn-red",'text'=>'注册'));
-			?>
-			
+			echo html_a(array('id'=>'registerBtn','href'=>base_url('register'),'class'=>"btn-red",'text'=>'注册'));
+			?>			
 			<!-- <a href="" title="微博登陆"><img src="/style/img/loginbtn_sinawb.jpg" class="login-btn" /></a>&nbsp;
 			<a href="" title="QQ登陆"><img src="/style/img/loginbtn_qq.jpg" class="login-btn"/></a> -->
 		</div>	
@@ -48,10 +47,13 @@
 			return false;
 		})
 		//登录
-		$('#loginBtn').click(function(){
-			var $cover = cover.init({'id':'loginCover','z-index':1,'opacity':1});
-			$cover.show();
+		$('#loginBtn').click(function(){		
+			var $loading = loading.init({'id':'loginLoading','z-index':1,'opacity':1});	
+			$loading.show();
 			$.post("<?=base_url('login/popWin')?>",function(dt){
+				$loading.remove();
+				var $cover = cover.init({'id':'loginCover','z-index':1,'opacity':1});
+				$cover.show();
 				$(dt).center({'y':-90}).appendTo("body");
 			})
 		})

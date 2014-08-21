@@ -1,5 +1,9 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-
+/**
+ * 登录
+ *
+ * @author by zsc
+ */
 class Login extends MY_Controller {	
 	function __construct($params = array())
 	{
