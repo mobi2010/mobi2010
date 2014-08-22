@@ -3,7 +3,7 @@
 
 .body{background:#f5f4f3;font-size:13px;color:#333333;font-family: Tahoma, Helvetica, "Microsoft Yahei", "微软雅黑", Arial, STHeiti;}
 
-.body-register{background:url(/style/img/register_bg.jpg);font-size:13px;color:#333333;font-family: Tahoma, Helvetica, "Microsoft Yahei", "微软雅黑", Arial, STHeiti;}
+.body-register{ background:url(/style/img/register_bg.jpg);font-size:13px;color:#333333;font-family: Tahoma, Helvetica, "Microsoft Yahei", "微软雅黑", Arial, STHeiti;}
 
 a{text-decoration:none; color:#308EB5; }
 a:hover{color:#00B7D6}
@@ -39,11 +39,15 @@ a:hover{color:#00B7D6}
 .home-body-box .title{width: 150px; text-align:center;}
 
 
-.home-bottombar{width:100%;background:#f5f4f3;}
+.home-bottombar{width:100%;}
 .home-bottombar-box{width:980px;margin: 0 auto;text-align:center;padding:2em 0;}
 .home-bottombar-box a{text-decoration:none; color:#666;}
 .home-bottombar-box a:hover{text-decoration:underline; color:#FF0000;}
 
+
+.register-step1{background:#fff;width: 980px;padding: 2em 0;margin: 2em auto 0;}
+.register-step1-right{display:inline-block; width: 480px;padding: 1em; text-align: left; }
+.register-step1-left{display:inline-block; width: 480px;padding: 1em; text-align: right;}
 
 /**channel**/
 
