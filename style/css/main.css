@@ -45,9 +45,10 @@ a:hover{color:#00B7D6}
 .home-bottombar-box a:hover{text-decoration:underline; color:#FF0000;}
 
 
-.register-step1{background:#fff;width: 980px;padding: 2em 0;margin: 2em auto 0;}
-.register-step1-left{display:inline-block; width: 400px;padding: 1em 0; text-align: right;}
-.register-step1-right{display:inline-block; width: 550px;padding: 1em 0; text-align: left;margin-left: 10px;}
+.register{background:#fff;width: 980px;padding: 2em 0;margin: 2em auto 0;}
+.register-step1{background:#fff;width: 680px;padding: 2em 0;margin: 2em auto 0;}
+.register-step1-left{display:inline-block; width: 40%;padding: 1em 0; text-align: right;}
+.register-step1-right{display:inline-block; width: 50%;padding: 1em 0; text-align: left;margin-left: 10px;}
 
 /**channel**/
 
