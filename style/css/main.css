@@ -3,7 +3,7 @@
 
 .body{background:#f5f4f3;font-size:13px;color:#333333;font-family: Tahoma, Helvetica, "Microsoft Yahei", "微软雅黑", Arial, STHeiti;}
 
-.body-register{ background:url(/style/img/register_bg.jpg);font-size:13px;color:#333333;font-family: Tahoma, Helvetica, "Microsoft Yahei", "微软雅黑", Arial, STHeiti;}
+.body-nologin{ background:url(/style/img/register_bg.jpg);font-size:13px;color:#333333;font-family: Tahoma, Helvetica, "Microsoft Yahei", "微软雅黑", Arial, STHeiti;}
 
 a{text-decoration:none; color:#308EB5; }
 a:hover{color:#00B7D6}
@@ -61,7 +61,7 @@ a:hover{color:#00B7D6}
 
 /**input-text**/
 
-.input-text,.input-password{width: 16em;height: 2em;border: 1px solid #ccc;padding-left: 5px;padding-right: 5px;outline: none;box-shadow: 2px 2px 2px #eee inset;-moz-box-shadow: 2px 2px 2px #eee inset;-webkit-box-shadow: 2px 2px 2px #eee inset;}
+.input-text,.input-password{width: 16em;height: 2em;border: 1px solid #ccc;padding-left: 5px;padding-right: 5px;outline: none;box-shadow: 2px 2px 2px #eee inset;-moz-box-shadow: 2px 2px 2px #eee inset;-webkit-box-shadow: 2px 2px 2px #eee inset;color: #666;}
 
 input[type="text"]:focus, textarea:focus, input[type="password"]:focus {
     border-color: #00aeca;

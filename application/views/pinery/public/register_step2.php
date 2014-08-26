@@ -1,10 +1,9 @@
 <div class="login-popwin">
-	<div class="login-popwin-title">完善信息</div>
+	<div class="login-popwin-title">注册-step2</div>
 	帐号：<input id="uname" type="text" class="input-text" /><br/><br/>
 	密码：<input id="upwd" type="password" class="input-password" /><br/><br/>
 	<div style="text-align:center;">
-		<a id="registerSure" class="btn-blue">提交</a>&nbsp;
-		<a id="registerCancel" class="btn-grey">取消</a>
+		<a id="registerSure" class="btn-blue">完成</a>
 	</div>
 	<script type="text/javascript">
 	$(document).ready(function() {
@@ -37,12 +36,6 @@
 					})
 				}				
 			})
-			return false;
-		})
-		//取消
-		$('#registerCancel').click(function(){
-			$('.login-popwin').remove();
-			$('#registerCover').remove();
 			return false;
 		})
 	})

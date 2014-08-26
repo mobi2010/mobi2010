@@ -43,6 +43,9 @@ class Welcome extends MY_Controller {
 	function changeCity(){
 		$id =$_POST['id'];
 		if($this->initData['dataCitys'][$id]){
+			if($this->userId){
+				$this->pineryModel->dataUpdate(array('table'=>'pinery_member','data'=>array('city_id'=>$id),'where'=>$this->userId));
+			}
 			mobi_setcookie('cityKey',$id,3600*24*30);
 			echo 1;
 		}else{

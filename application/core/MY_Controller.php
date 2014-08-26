@@ -1,17 +1,21 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+header("Pragma:no-cache");//不缓存页面
 /**
  * 控制器
  */
 class MY_Controller extends CI_Controller
 {	
-	public $uriEntity = null;//uri 实体
+	public $uriEntity;//uri 实体
 	public $initData;//初始数据
+	public $userId;
+	public $userEntity;//user 实体
 	function __construct($params = array())
 	{
 		parent::__construct();
 		$this->load->model('Pinery_model', 'pineryModel');//	
 		$this->load->library('gycrypt');	
 		$this->uriEntity();//uri实体数据
+
 		$params['auth'] !== false && $this->auth();//验证
 
 		$this->init();//初始数据
@@ -21,8 +25,17 @@ class MY_Controller extends CI_Controller
 	* @return [type] [description]
 	*/
 	protected function init(){
+		//user
+		$auth = mobi_getcookie('auth');
+		if($auth && $userId = intval($this->gycrypt->decrypt($auth))){
+			$this->userId = $userId;
+			$this->userEntity = $this->pineryModel->dataFetchRow(array('table'=>'pinery_member','where'=>$userId));
+			$this->load->vars('userEntity',$this->userEntity);//映射到模板
+			$cityKey = $this->userEntity['city_id'];
+		}
+		//site
 		$this->initData['dataCitys'] = $dataCitys = require(APPPATH.'/config/data_citys.php');
-		$cityKey = mobi_getcookie('cityKey');
+		!$cityKey && $cityKey = mobi_getcookie('cityKey');
 		$this->initData['cityKey'] = $cityKey = $dataCitys[$cityKey] ? $cityKey : 1;
 		$this->initData['cityName'] = $cityName = $dataCitys[$cityKey]['names'];
 		$this->initData['pineryTitle'] =  $cityName.'分类信息';
@@ -35,7 +48,23 @@ class MY_Controller extends CI_Controller
 	 * [验证]
 	 * @return [type] [description]
 	 */
-	protected function auth(){
+	protected function auth($type = null){
+		switch ($type) {
+			case 'register':			
+				$step = intval($this->userEntity['step']);	
+				if($step < 9){
+					$step = "step".($step+1);
+					if($this->uriEntity['method'] != $step){
+						redirect('register/'.$step);
+					}
+				}
+				break;			
+			default:
+				if(!$this->userId){
+					redirect('login');		
+				}
+				break;
+		}
 		return true;
 	}
 	/**

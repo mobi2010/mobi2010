@@ -154,7 +154,7 @@
             dialog.attr('class','alert');
             dialog.attr('style','border-radius:5px;background:#000000;color:#FFFFFF; position:absolute;width:200px;padding:1em 2em;text-align:center;filter:alpha(opacity=70);opacity:0.7');
             dialog.css({'top':h,'left':w,'z-index':zIndex}).appendTo('body');
-        	dialog.slideDown(500,function(){setTimeout(function(){dialog.slideUp(1000);},2000);});
+        	dialog.slideDown(500,function(){setTimeout(function(){dialog.slideUp(1000);},500);});
         	return false;
         },
     	submit:function(form,url,para,action){//提交表单

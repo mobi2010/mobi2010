@@ -9,9 +9,9 @@
 	</div>
 	<div class="home-topbar-right">			
 		<?php
-		echo html_a(array('id'=>'loginBtn','class'=>"btn-green",'text'=>'登录'));
+		echo html_a(array('id'=>'loginBtn','href'=>base_url("login"),'class'=>"btn-green",'text'=>'登录'));
 		echo "&nbsp;";
-		echo html_a(array('id'=>'registerBtn','class'=>"btn-red",'text'=>'注册'));
+		echo html_a(array('id'=>'registerBtn','href'=>base_url("register"),'class'=>"btn-red",'text'=>'注册'));
 		?>			
 		<!-- <a href="" title="微博登陆"><img src="/style/img/loginbtn_sinawb.jpg" class="login-btn" /></a>&nbsp;
 		<a href="" title="QQ登陆"><img src="/style/img/loginbtn_qq.jpg" class="login-btn"/></a> -->
@@ -43,28 +43,6 @@
 			$('#changeCityCancel').hide();
 			$('#changeCity').show();
 			return false;
-		})
-		//登录
-		$('#loginBtn').click(function(){		
-			var $loading = loading.init({'id':'loginLoading','z-index':1,'opacity':3});	
-			$loading.show();
-			$.post("<?=base_url('login/popWin')?>",function(dt){
-				$loading.remove();
-				var $cover = cover.init({'id':'loginCover','z-index':1,'opacity':3});
-				$cover.show();
-				$(dt).center({'y':-90}).appendTo("body");
-			})
-		})
-		//注册
-		$('#registerBtn').click(function(){		
-			var $loading = loading.init({'id':'registerLoading','z-index':1,'opacity':3});	
-			$loading.show();
-			$.post("<?=base_url('register/step1')?>",function(dt){
-				$loading.remove();
-				var $cover = cover.init({'id':'registerCover','z-index':1,'opacity':3});
-				$cover.show();
-				$(dt).center({'y':-90}).appendTo("body");
-			})
-		})
+		})		
 	})
 </script>

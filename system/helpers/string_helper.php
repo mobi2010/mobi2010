@@ -410,3 +410,25 @@ if ( ! function_exists('mobi_getcookie')){
 		return $_COOKIE[$key];
 	}
 }
+
+/**
+ * [合法手机号]
+ * @param  [type] $key [description]
+ * @return [type]      [description]
+ */
+if ( ! function_exists('mobi_ismobile')){
+	function mobi_ismobile($str){
+		return preg_match("/^1[3|4|5|8][0-9]\d{8}$/i", $str);
+	}
+}
+
+/**
+ * [合法邮箱]
+ * @param  [type] $key [description]
+ * @return [type]      [description]
+ */
+if ( ! function_exists('mobi_isemail')){
+	function mobi_isemail($str){
+		return preg_match("/\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/i", $str);
+	}
+}
