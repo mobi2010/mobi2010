@@ -27,10 +27,10 @@ class Login extends MY_Controller {
 		$upwd = mobi_string_filter($_POST['upwd']);
 
 		if($uname != "zsc"){
-			$this->printer(array('msg'=>'帐号错误','status'=>403));
+			$this->printer(array('msg'=>'帐号错误','code'=>403));
 		}
 		if($upwd != "123"){
-			$this->printer(array('msg'=>'密码错误','status'=>403));
+			$this->printer(array('msg'=>'密码错误','code'=>403));
 		}
 		$this->printer();
 	}

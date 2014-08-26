@@ -25,7 +25,7 @@ class Gycrypt {
 	 * @param  integer $code [description]
 	 * @return [type]        [description]
 	 */
-    public function decrypt($str,$code=20131027){
+    public function decrypt($str,$code=20140823){
 		$nstr = null;
 		$str = base64_decode($str);
 		$length = strlen($str);
@@ -42,7 +42,7 @@ class Gycrypt {
 	 * @param  integer $code [description]
 	 * @return [type]        [description]
 	 */
-	public function encrypt($str,$code=20131027){
+	public function encrypt($str,$code=20140823){
 		$nstr = null;	
 		$str = base64_encode($str);	
 		$length = strlen($str);

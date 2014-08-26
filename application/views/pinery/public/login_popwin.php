@@ -1,4 +1,5 @@
 <div class="login-popwin">
+	<div class="login-popwin-title">登录</div>
 	帐号：<input id="uname" type="text" class="input-text" /><br/><br/>
 	密码：<input id="upwd" type="password" class="input-password" /><br/><br/>
 	<div style="text-align:center;">

@@ -16,8 +16,7 @@ class Welcome extends MY_Controller {
 		// $data['pineryDescription'] = 'pineryDescription';
 		$this->load->view('pinery/header',$data);
 		$this->load->view('pinery/public/home_topbar',$data);
-		//$this->load->view('pinery/public/login_popwin',$data);
-		//$this->load->view('welcome',$data);
+		$this->load->view('welcome',$data);
 		$this->load->view('pinery/footer',$data);
 	}	
 	/**

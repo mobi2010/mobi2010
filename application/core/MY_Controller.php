@@ -9,7 +9,8 @@ class MY_Controller extends CI_Controller
 	function __construct($params = array())
 	{
 		parent::__construct();
-		$this->load->model('Pinery_model', 'pineryModel');//		
+		$this->load->model('Pinery_model', 'pineryModel');//	
+		$this->load->library('gycrypt');	
 		$this->uriEntity();//uri实体数据
 		$params['auth'] !== false && $this->auth();//验证
 
