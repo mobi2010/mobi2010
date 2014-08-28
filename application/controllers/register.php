@@ -22,7 +22,7 @@ class Register extends MY_Controller {
 	 */
 	public function step1()
 	{	
-		$this->auth('register');
+		//$this->auth('register');
 		$data['bodyClass'] = 'body-nologin';
 		$this->load->view('pinery/header',$data);
 		$this->load->view('pinery/public/nologin_topbar',$data);
@@ -72,7 +72,8 @@ class Register extends MY_Controller {
 	 */
 	public function step2()
 	{
-		$this->auth('register');
+		//$this->auth('register');
+		$data['sourceData'] = array('个人','机构');
 		$data['bodyClass'] = 'body-nologin';
 		$this->load->view('pinery/header',$data);
 		$this->load->view('pinery/public/nologin_topbar',$data);

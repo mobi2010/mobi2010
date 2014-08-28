@@ -1,11 +1,30 @@
-<div class="home-body">
-	<div class="home-body-box">
-		<fieldset class="register">
-			<legend>快速注册</legend>
-			<div class="register-tr">帐号：<input id="account" type="text" class="input-text" value="手机号或邮箱" /></div>
-			<div class="register-tr">密码：<input id="password" type="password" class="input-password" /></div>
-			<div class="register-tr"><a id="registerSure" class="btn-blue">提交</a></div>
-		</fieldset>	
+<div class="member-body">
+	<?php $this->load->view('pinery/member/menu');?>
+	<div class="member-content">
+		<table width="255" border="0" >
+			<tr>
+				<td colspan="2" class="title">我的资料</td>
+			</tr>
+			<tr>
+				<td class="left">来源:</td>
+				<td><?=$initData['sourceData'][$userEntity['source']];?></td>
+			</tr>
+			<tr>
+				<td class="left">手机:</td>
+				<td><?=html_text(array('value'=>$userEntity['mobile'],'class'=>'wp200'))?></td>
+			</tr>
+			<tr>
+				<td class="left">邮箱:</td>
+				<td><?=html_text(array('value'=>$userEntity['email'],'class'=>'wp200'))?></td>
+			</tr>
+			<tr>
+				<td class="left">姓名:</td>
+				<td><?=html_text(array('value'=>$userEntity['names'],'class'=>'wp200'))?></td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center"><?=html_a(array('class'=>'btn-blue',"href"=>base_url(''),'text'=>'提交'))?></td>
+			</tr>
+		</table>
 	</div>
 </div>
 <script type="text/javascript">

@@ -1,11 +1,14 @@
-<div class="login-popwin">
-	<div class="login-popwin-title">注册-step2</div>
-	帐号：<input id="uname" type="text" class="input-text" /><br/><br/>
-	密码：<input id="upwd" type="password" class="input-password" /><br/><br/>
-	<div style="text-align:center;">
-		<a id="registerSure" class="btn-blue">完成</a>
+<div class="home-body">
+	<div class="home-body-box">
+		<fieldset class="register">
+			<legend>完善信息</legend>
+			<div class="register-tr">来源：<?=html_radios(array('options'=>$sourceData,'name'=>'source'))?></div>
+			<div class="register-tr">密码：<input id="password" type="password" class="input-password" /></div>
+			<div class="register-tr"><a id="registerSure" class="btn-blue">下一步</a></div>
+		</fieldset>	
 	</div>
-	<script type="text/javascript">
+</div>
+<script type="text/javascript">
 	$(document).ready(function() {
 		$('#registerSure').click(function(){
 			var uname = $('#uname').val();
@@ -39,5 +42,4 @@
 			return false;
 		})
 	})
-	</script>
-</div>
+</script>

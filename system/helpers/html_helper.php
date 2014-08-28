@@ -499,22 +499,17 @@ if ( ! function_exists('html_radio')){
 if ( ! function_exists('html_radios')){
    function html_radios($params){
 	  	$html = null;
-	  	$checked = $params["checked"];
-	  	$classs = $params['classs'];
-	    $styles = $params['styles'];
-	    if(!empty($params['values'])) {
-	    	foreach ($params['values'] as $key => $val) {	    		
+	  	if(!empty($params['options'])) {
+	    	foreach ($params['options'] as $key => $val) {	
+	    		$rparams = array();    		
 	    		$rparams['name'] = $params['name'];
-	    		$rparams['text'] = $params['texts'][$key];
-	    		$rparams['class'] = $classs ? $classs[$key] : null;
-	    		$rparams['style'] = $styles ? $styles[$key] : null;
-	    		$rparams['id'] =  $params['ids'] ? $params['ids'][$key] : $params['name']."_".$key;
-	    		$rparams['value'] = $val;
-	    		$rparams['checked'] = $checked == $val ? 'checked' : null;
+	    		$rparams['text'] = $params['sval'] ? $val[$params['sval']] : $val;
+	    		$rparams['value'] = $params['skey'] ? $val[$params['skey']] : $key;
+	    		$rparams['id'] = $params['name']."_".$rparams['value'];
+	    		$rparams['checked'] = $params['checked'] == $rparams['value'] ? 'checked' : null;
 	    		$html .= html_radio($rparams);
 	    	}
-
-	    }
+	    }	
 	    return $html;
 	  }
 }

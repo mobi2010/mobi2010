@@ -9,9 +9,15 @@
 	</div>
 	<div class="home-topbar-right">			
 		<?php
-		echo html_a(array('id'=>'loginBtn','href'=>base_url("login"),'class'=>"btn-green",'text'=>'登录'));
-		echo "&nbsp;";
-		echo html_a(array('id'=>'registerBtn','href'=>base_url("register"),'class'=>"btn-red",'text'=>'注册'));
+		if(empty($userEntity)){
+			echo html_a(array('id'=>'loginBtn','href'=>base_url("login"),'class'=>"btn-green",'text'=>'登录'));
+			echo "&nbsp;";
+			echo html_a(array('id'=>'registerBtn','href'=>base_url("register"),'class'=>"btn-red",'text'=>'注册'));
+		}else{
+			echo html_a(array('id'=>'memberName','href'=>base_url("member/index"),'text'=>$userEntity['names']));
+			echo "&nbsp;";
+			echo html_a(array('id'=>'loginOut','href'=>base_url("login/out"),'text'=>'退出'));
+		}
 		?>			
 		<!-- <a href="" title="微博登陆"><img src="/style/img/loginbtn_sinawb.jpg" class="login-btn" /></a>&nbsp;
 		<a href="" title="QQ登陆"><img src="/style/img/loginbtn_qq.jpg" class="login-btn"/></a> -->
