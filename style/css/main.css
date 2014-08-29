@@ -53,10 +53,7 @@ a:hover{color:#00B7D6}
 .home-bottombar a:hover{text-decoration:underline; color:#FF0000;}
 
 
-.register-step1{background:#fff;width: 580px;font-size:18px;padding: 2em 0;margin: 2em auto 0;text-align:center;}
-.register-step1 .title{font-size:24px; font-weight:bold}
-.register-step1-left{display:inline-block; width: 30%;padding: .5em 0; text-align: right;}
-.register-step1-right{display:inline-block; width: 50%;padding: .5em 0; text-align: left;margin-left: 10px;}
+
 
 /**channel**/
 
@@ -64,7 +61,7 @@ a:hover{color:#00B7D6}
 .member-body{clear:both;width:980px;margin:0 auto;}
 .member-content{border-top: 1px solid #ccc; width:980px;}
 .member-content table{margin:0 auto;}
-.member-content table .title{font-size:18px; font-weight:bold;text-align: center;height: 50px;}
+.member-content table .title{font-size:18px; font-weight:bold;height: 50px;}
 .member-content table .right{text-align: left;}
 .member-content table .left{text-align: right;}
 .member-content table td{height: 30px;}
@@ -105,9 +102,17 @@ input[type="text"]:focus, textarea:focus, input[type="password"]:focus {
 .btn-orange:hover,.btn-orange.on{background:#FC9442;color: #fff;text-decoration:none;}
 
 /**plugins**/
-.login-popwin{border: 1px solid #ccc;  padding:1em 2em 2em; background: #fff;z-index: 2}
-.login-popwin-title{margin-bottom:1em;font-size:18px; font-weight:bold;}
+
+
+.login{width:500px;margin:100px auto;padding: 50px;}
+.login legend{font-size:18px; font-weight:bold;}
+.login-tr{text-align:center;margin-bottom:1em }
+
 
 .register{width:500px;margin:100px auto;padding: 50px;}
 .register legend{font-size:18px; font-weight:bold;}
-.register-tr{text-align:center;margin-bottom:1em }
+.register table{margin:0 auto;}
+.register table .title{font-size:18px; font-weight:bold;text-align: center;height: 50px;}
+.register table .right{text-align: left;}
+.register table .left{text-align: right;}
+.register table td{height: 30px;}

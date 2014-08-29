@@ -62,17 +62,16 @@ class MY_Controller extends CI_Controller
 	protected function auth($type = null){
 		switch ($type) {
 			case 'register':			
-				// $step = intval($this->userEntity['step']);	
-				// if($step < 9){
-				// 	$step = "step".($step+1);
-				// 	if($this->uriEntity['method'] != $step){
-				// 		redirect('register/'.$step);
-				// 	}
-				// }
+				
 				break;			
 			default:
-				if(!$this->userId){
+				if(!$this->userId && $this->uriEntity['class'] != "login"){
 					redirect('login');		
+				}
+				if($this->userEntity['step'] < 9 && 
+					!($this->uriEntity['class'] == "account" && 
+						in_array($this->uriEntity['method'], array("info","infoSave")))){
+					redirect('member/account/info');
 				}
 				break;
 		}

@@ -34,28 +34,19 @@ class Register extends MY_Controller {
 	 * @return [type] [description]
 	 */
 	public function save1()
-	{
-		$account = mobi_string_filter($_POST['account']);
+	{		
 		$password = mobi_string_filter($_POST['password']);
-		if(is_numeric($account)){
-			if(mobi_ismobile($account)){
-				$data['mobile'] = $account;
-				$where = "mobile='{$account}'";
-			}else{
-				$this->printer(array('msg'=>'手机号不合法','code'=>403));
-			}
+		$accountRes = $this->pineryModel->account($_POST['account']);
+		if($accountRes['code'] == 200){
+			$data = $accountRes['data'];
+			$where = $accountRes['where'];
+			$account = $accountRes['account'];
 		}else{
-			if(mobi_isemail($account)){
-				$data['email'] = $account;
-				$where = "email='{$account}'";
-			}else{
-				$this->printer(array('msg'=>'邮箱不合法','code'=>403));
-			}
+			$this->printer($accountRes);
 		}
-
 		$data['password'] = md5($password);
-		$account = $this->pineryModel->dataFetchRow(array('table'=>'pinery_member','where'=>$where));
 		if(empty($account)){
+			$data['source'] = intval($_POST['source']);
 			$data['addtime'] = $data['logintime'] = time();
 			$data['step'] = 1;
 			$data['city_id'] = $this->initData['cityKey'];
@@ -63,7 +54,7 @@ class Register extends MY_Controller {
 			mobi_setcookie('auth',$this->gycrypt->encrypt($accountId),3600*24*30);
 			$this->printer(array('data'=>$accountId));
 		}else{
-			$this->printer(array('msg'=>'帐号已存在','code'=>403));
+			$this->printer(array('msg'=>'帐号已存在','code'=>400));
 		}
 	}
 	/**

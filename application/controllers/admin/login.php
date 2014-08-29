@@ -31,7 +31,7 @@ class Login extends Admin_Controller {
 				$this->printer($res);
 			}
 		}
-		$res['code'] = 403;
+		$res['code'] = 400;
 		$res['msg'] = 'Account or Password is error';
 		$this->printer($res);
 	}

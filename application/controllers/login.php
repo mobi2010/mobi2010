@@ -17,33 +17,47 @@ class Login extends MY_Controller {
 		$data['bodyClass'] = 'body-nologin';
 		$this->load->view('pinery/header',$data);
 		$this->load->view('pinery/public/nologin_topbar',$data);
-		$this->load->view('pinery/public/login_popwin',$data);
-		$this->load->view('pinery/footer',array('footerInfo'=>'no'));		
+		$this->load->view('pinery/public/login',$data);
+		$this->load->view('pinery/footer',array('footerInfo'=>'no'));
 	}
 	/**
-	 * [弹出窗口]
+	 * [登录动作]
 	 * @return [type] [description]
 	 */
-	public function popWin()
-	{
-		$this->load->view('pinery/public/login_popwin',$data);
-	}
-	/**
-	 * [登陆确定]
-	 * @return [type] [description]
-	 */
-	public function popWinSure()
-	{
-		$uname = mobi_string_filter($_POST['uname']);
-		$upwd = mobi_string_filter($_POST['upwd']);
+	public function in()
+	{			
+		$accountRes = $this->pineryModel->account($_POST['account']);
+		if($accountRes['code'] == 200){
+			$data = $accountRes['data'];
+			$where = $accountRes['where'];
+			$account = $accountRes['account'];
+		}else{
+			$this->printer($accountRes);
+		}
 
-		if($uname != "zsc"){
-			$this->printer(array('msg'=>'帐号错误','code'=>403));
+		if(empty($account)){
+			$this->printer(array('msg'=>'帐号不存在','code'=>400));
 		}
-		if($upwd != "123"){
-			$this->printer(array('msg'=>'密码错误','code'=>403));
+
+		$password = md5(mobi_string_filter($_POST['password']));
+
+		if($account['password'] != $password){
+			$this->printer(array('msg'=>'密码错误','code'=>400));
 		}
+
+
+		mobi_setcookie('auth',$this->gycrypt->encrypt($account['id']),3600*24*30);
+		$this->printer(array('data'=>$account['id']));
 		$this->printer();
+	}
+	/**
+	 * [退出登录]
+	 * @return [type] [description]
+	 */
+	public function out()
+	{
+		mobi_delcookie('auth');
+		redirect('/');		
 	}
 	/**
 	 * [email description]
