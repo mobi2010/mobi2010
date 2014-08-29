@@ -532,6 +532,20 @@ if ( ! function_exists('html_text')){
 * @param  [type] $params [description]
 * @return [type]         [description]
 */
+if ( ! function_exists('html_password')){
+   function html_password($params){
+  	$params['id'] = $params['id'] ? $params['id'] : $params['name'];
+    $text = '<input type="password" ';
+    $text .= html_join($params);
+    $text .= '/>';
+  	return $text; 
+  }
+}
+/**
+* [text description]
+* @param  [type] $params [description]
+* @return [type]         [description]
+*/
 if ( ! function_exists('html_hidden')){
 	function html_hidden($params){
 		$params['id'] = $params['id'] ? $params['id'] : $params['name'];

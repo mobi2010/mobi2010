@@ -33,7 +33,7 @@ class Account extends MY_Controller {
 		$data['mobile'] = mobi_string_filter($_POST['mobile']);
 		$data['email'] = mobi_string_filter($_POST['email']);
 		$id = $this->userId;
-		if($userEntity['source'] && !$data['org_name']){
+		if($this->userEntity['source'] && !$data['org_name']){
 			$res['msg'] = '机构名称不能为空';
 			$res['code'] = 400;
 			$this->printer($res);
@@ -72,18 +72,39 @@ class Account extends MY_Controller {
 		$data['step'] = 9;
 		$this->pineryModel->dataUpdate(array('table'=>'pinery_member','data'=>$data,'where'=>$id));
 
-		$this->printer($res);
-		
+		$this->printer($res);		
 	}
 	/**
-	 * [安全中心]
+	 * [修改密码]
 	 * @return [type] [description]
 	 */
-	function safe(){
+	function updatePwd(){
 		$this->load->view('pinery/header',$data);
 		$this->load->view('pinery/public/home_topbar',$data);
 		$this->load->view('pinery/member/nav',$data);
-		$this->load->view('pinery/member/index',$data);
+		$this->load->view('pinery/member/account_updatepwd',$data);
 		$this->load->view('pinery/footer',array('footerInfo'=>'no'));
+	}
+	/**
+	 * [修改密码-保存]
+	 * @return [type] [description]
+	 */
+	function updatePwdSave(){
+		$password = mobi_string_filter($_POST['password']);
+		$new_password = mobi_string_filter($_POST['new_password']);
+		if($this->userEntity['password'] != md5($password)){
+			$res['msg'] = '原密码错误';
+			$res['code'] = 400;
+			$this->printer($res);
+		}
+		if(!$new_password){
+			$res['msg'] = '新密码不能为空';
+			$res['code'] = 400;
+			$this->printer($res);
+		}
+		$this->pineryModel->dataUpdate(array('table'=>'pinery_member','data'=>array('password'=>md5($new_password)),'where'=>$this->userId));
+		$res['msg'] = '修改成功请重新登录';
+		$res['data'] = urlencode(base_url('login'));
+		$this->printer($res);
 	}
 }

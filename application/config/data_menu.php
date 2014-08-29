@@ -6,7 +6,7 @@ return array(
 				),
 			'account'=>array(
 				'title'=>'账户',
-				'child'=>array('info'=>'我的资料','safe'=>'安全中心')
+				'child'=>array('info'=>'基本信息','updatePwd'=>'修改密码')
 				),
 			'info'=>array(
 				'title'=>'信息',

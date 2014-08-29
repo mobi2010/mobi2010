@@ -48,7 +48,6 @@ class Login extends MY_Controller {
 
 		mobi_setcookie('auth',$this->gycrypt->encrypt($account['id']),3600*24*30);
 		$this->printer(array('data'=>$account['id']));
-		$this->printer();
 	}
 	/**
 	 * [退出登录]
@@ -57,7 +56,8 @@ class Login extends MY_Controller {
 	public function out()
 	{
 		mobi_delcookie('auth');
-		redirect('/');		
+		$callback = $_REQUEST['callback'] ? urldecode($_REQUEST['callback']) : '/';
+		redirect($callback);
 	}
 	/**
 	 * [email description]

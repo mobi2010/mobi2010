@@ -4,7 +4,7 @@
 		<table width="280" border="0" >
 			<tr>
 				<td class="left"></td>
-				<td class="title">我的资料</td>
+				<td class="title">基本信息</td>
 			</tr>
 			<tr>
 				<td class="left">来源:</td>
