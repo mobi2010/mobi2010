@@ -1,7 +1,7 @@
 <?php
 /**
  * 图片类
- * @author zsc <zuoshichao@getarts.cn> 
+ * @author zsc <zuoshichao@pinery.cn> 
  * @version (1.0) 2013/12/11
  */
 if ( ! defined('BASEPATH')) exit('No direct script access allowed');
@@ -521,7 +521,7 @@ class Image {
 		    	return $res;
 		    }
 		    $res = $this->expand($tempFile);
-			$upyun = new UpYun('getarts', 'getarts', 'getartscn');
+			$upyun = new UpYun('pinery', 'pinery', 'mobi2010');
 		    $fh = fopen($tempFile, 'rb');
 		    //文件名称
 			$fileName = $this->fileName($params['fileName']).$fileExtStr;
@@ -531,7 +531,7 @@ class Image {
 		    if($rsp){
 		    	$res['error'] = 0;
 		    	$res['msg'] = "上传成功";
-		    	$res['filePath'] = "http://getarts.b0.upaiyun.com".$filePath;		    	
+		    	$res['filePath'] = "http://pinery.b0.upaiyun.com".$filePath;		    	
 	    	}else{
 	    		$res['msg'] = "上传失败";
 	    	}
@@ -545,10 +545,10 @@ class Image {
     /**
      * [又拍云删除文件接口]
      * $file 
-     * 		string http://getarts.b0.upaiyun.com//demo/sample_thumb_2.jpeg
+     * 		string http://pinery.b0.upaiyun.com//demo/sample_thumb_2.jpeg
      * 		array(
-     * 			'http://getarts.b0.upaiyun.com//demo/sample_thumb_2.jpeg',
-     * 		 	'http://getarts.b0.upaiyun.com//demo/sample_thumb_2.jpeg',
+     * 			'http://pinery.b0.upaiyun.com//demo/sample_thumb_2.jpeg',
+     * 		 	'http://pinery.b0.upaiyun.com//demo/sample_thumb_2.jpeg',
      * 		) 
      * @return [type] [description]
      * error 1错误，0成功
@@ -589,9 +589,9 @@ class Image {
      */
     private function _ypyDeleteFile($file){
     	require_once(APPPATH.'third_party/upyun.class.php');
-    	$file = str_replace('http://getarts.b0.upaiyun.com', '', $file);    	
+    	$file = str_replace('http://pinery.b0.upaiyun.com', '', $file);    	
     	try {
-    		$upyun = new UpYun('getarts', 'getarts', 'getartscn');
+    		$upyun = new UpYun('pinery', 'pinery', 'mobi2010');
     		$res = $upyun->deleteFile($file); 
     		if($res == true || $res == 'NULL' || is_null($res)){
     			$res = 'true';
@@ -821,7 +821,7 @@ class Image {
     		
 		    $fileExtStr = $this->fileExt($file); //.jpg 后缀
 		   
-			$upyun = new UpYun('getarts', 'getarts', 'getartscn');
+			$upyun = new UpYun('pinery', 'pinery', 'mobi2010');
 		    $fh = fopen($file, 'rb');
 		    //文件名称
 			$fileName = $this->fileName($params['fileName']).$fileExtStr;
@@ -830,7 +830,7 @@ class Image {
 		    fclose($fh);
 		    $res['status'] = 200;
 		    $res['msg'] = "上传成功";
-		    $res['filePath'] = "http://getarts.b0.upaiyun.com".$filePath;
+		    $res['filePath'] = "http://pinery.b0.upaiyun.com".$filePath;
 	    	$res['sourceFile'] = $file;
 		}catch(Exception $e) {
 			$res['status'] = 503;

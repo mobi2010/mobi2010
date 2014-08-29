@@ -357,7 +357,7 @@ var loading = {
         var w = (ww-ow)/2+dl;
         var h = (wh-oh)/2+dt-50;
         this.img = $("<img>");
-        this.img.attr('src','/style/img/loading.gif');
+        this.img.attr({'src':'/style/img/loading.gif','id':obj['id']+'_img'});
         this.img.css({'position':"absolute",'left':w,'top':h,'zIndex':czi+1});
         return this;            
     },
