@@ -8,6 +8,7 @@ class Account extends MY_Controller {
 	function __construct($params = array())
 	{
 		parent::__construct(array('auth'=>true));
+		$this->load->library('image');
 	}
 	function index(){
 		redirect('member/account/info');
@@ -42,7 +43,7 @@ class Account extends MY_Controller {
 		$data['org_name'] = mobi_string_filter($_POST['org_name']);
 		$data['names'] = mobi_string_filter($_POST['names']);
 		$data['mobile'] = mobi_string_filter($_POST['mobile']);
-		$data['email'] = mobi_string_filter($_POST['email']);
+		$data['email'] = mobi_string_filter($_POST['email']);		
 		$id = $this->userId;
 		if($this->userEntity['source'] && !$data['org_name']){
 			$res['msg'] = '机构名称不能为空';
@@ -81,6 +82,14 @@ class Account extends MY_Controller {
 			$this->printer($res);
 		}
 		$data['step'] = 9;
+		$avatar = mobi_string_filter($_POST['avatar']);
+
+		if($avatar != $this->userEntity['avatar']){
+			$avatarImg = $this->image->ypyUpload(array('file'=>$avatar));
+			$data['avatar'] = $avatarImg['filePath'];
+		}
+
+		
 		$this->pineryModel->dataUpdate(array('table'=>'pinery_member','data'=>$data,'where'=>$id));
 
 		$this->printer($res);		

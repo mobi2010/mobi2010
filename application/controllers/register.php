@@ -50,6 +50,7 @@ class Register extends MY_Controller {
 			$data['addtime'] = $data['logintime'] = time();
 			$data['step'] = 1;
 			$data['city_id'] = $this->initData['cityKey'];
+			$data['avatar'] = 'http://pinery.b0.upaiyun.com/web/avatar.jpg';
 			$accountId = $this->pineryModel->dataInsert(array('table'=>'pinery_member','data'=>$data));
 			mobi_setcookie('auth',$this->gycrypt->encrypt($accountId),3600*24*30);
 			$this->printer(array('data'=>$accountId));

@@ -16,7 +16,7 @@ class Uploadify extends MY_Controller {
 	 */
 	function avatar(){
 		$uploadImg = $this->image->upload();
-		$thumbImg = $this->image->thumb(array('file'=>$uploadImg['filePath'],'width'=>400,'height'=>300));
+		$thumbImg = $this->image->thumb(array('file'=>$uploadImg['filePath'],'width'=>120,'height'=>120,'bgcolor'=>'black'));
 		$res['data'] = $thumbImg['filePath'];
 		$this->printer($res);
 	}
