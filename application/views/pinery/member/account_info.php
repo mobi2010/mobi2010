@@ -3,42 +3,69 @@
 <div class="member-body">
 	<?php $this->load->view('pinery/member/menu');?>
 	<div class="member-content">
-		<table width="280" border="0" >			
+		<table width="300" border="0" >			
 			<tr>
 				<td class="left">头像:</td>
-				<td><input id="avatarUpload" value="<?=$userEntity["avatar"];?>" name="avatarUpload" type="file" multiple="true"></td>
+				<td colspan="2">
+					<input id="avatarUpload" name="avatarUpload" type="file" multiple="true">
+					<?=html_hidden(array('name'=>'avatarPath','value'=>$userEntity["avatar"]));?>
+				</td>
 			</tr>
 			<tr>
 				<td class="left">来源:</td>
-				<td><?=$initData['sourceData'][$userEntity['source']];?></td>
+				<td colspan="2"><?=$initData['sourceData'][$userEntity['source']];?></td>
 			</tr>
 			<?php
 			if($userEntity['source'] == 1):
 			?>
-				<td class="left">机构名称:</td>
-				<td><?=html_text(array('value'=>$userEntity['org_name'],'name'=>'org_name','class'=>'wp200'))?></td>
+				<td class="left"><span style="color: red">*</span>机构名称:</td>
+				<td colspan="2"><?=html_text(array('value'=>$userEntity['org_name'],'name'=>'org_name','class'=>'wp200'))?></td>
 			<?php endif;?>
 			<tr>
-				<td class="left">姓名:</td>
-				<td><?=html_text(array('name'=>'names','value'=>$userEntity['names'],'class'=>'wp200'))?></td>
+				<td class="left"><span style="color: red">*</span>姓名:</td>
+				<td colspan="2"><?=html_text(array('name'=>'names','value'=>$userEntity['names'],'class'=>'wp200'))?></td>
 			</tr>
 			<tr>
-				<td class="left">手机:</td>
+				<td class="left"><span style="color: red">*</span>手机:</td>
 				<td><?=html_text(array('name'=>'mobile','value'=>$userEntity['mobile'] ? $userEntity['mobile'] : "",'class'=>'wp200'))?></td>
+				<td><?=html_checkbox(array('name'=>'mobile_is','checked'=>$userEntity['mobile_is'],'text'=>'隐藏'));?></td>
 			</tr>
 			<tr>
-				<td class="left">邮箱:</td>
+				<td class="left"><span style="color: red">*</span>邮箱:</td>
 				<td><?=html_text(array('name'=>'email','value'=>$userEntity['email'],'class'=>'wp200'))?></td>
+				<td><?=html_checkbox(array('name'=>'email_is','checked'=>$userEntity['email_is'],'text'=>'隐藏'));?></td>
+			</tr>
+			<tr>
+				<td class="left">座机:</td>
+				<td><?=html_text(array('name'=>'tel','value'=>$userEntity['tel'] ? $userEntity['tel'] : "如:0312-3861234",'class'=>'wp200'))?></td>
+				<td><?=html_checkbox(array('name'=>'tel_is','checked'=>$userEntity['tel_is'],'text'=>'隐藏'));?></td>
+			</tr>
+			<tr>
+				<td class="left">QQ:</td>
+				<td><?=html_text(array('name'=>'qq','value'=>$userEntity['qq'] ? $userEntity['qq'] : "",'class'=>'wp200'))?></td>
+				<td><?=html_checkbox(array('name'=>'qq_is','checked'=>$userEntity['qq_is'],'text'=>'隐藏'));?></td>
+			</tr>
+			<tr>
+				<td class="left">微信:</td>
+				<td><?=html_text(array('name'=>'weixin','value'=>$userEntity['weixin'],'class'=>'wp200'))?></td>
+				<td><?=html_checkbox(array('name'=>'weixin_is','checked'=>$userEntity['weixin_is'],'text'=>'隐藏'));?></td>
+			</tr>
+			<tr>
+				<td class="left">微博:</td>
+				<td><?=html_text(array('name'=>'weibo','value'=>$userEntity['weibo'],'class'=>'wp200'))?></td>
+				<td><?=html_checkbox(array('name'=>'weibo_is','checked'=>$userEntity['weibo_is'],'text'=>'隐藏'));?></td>
 			</tr>
 			<tr>
 				<td class="left"></td>
-				<td><?=html_a(array('class'=>'btn-blue','id'=>'sureBtn','text'=>'提交'))?></td>
+				<td colspan="2"><?=html_a(array('class'=>'btn-blue','id'=>'sureBtn','text'=>'保存'))?></td>
 			</tr>
 		</table>
 	</div>
 </div>
 <script type="text/javascript">
-	$(document).ready(function() {			
+	$(document).ready(function() {	
+		$('#tel').inputToggle('如:0312-3861234');
+		
 		var verify = function(){			
 			var obj = {};
 			var vdata = {};
@@ -68,8 +95,29 @@
 				obj['msg'] = '邮箱不正确';
 				return obj;
 			}		
-			vdata['email'] = $('#email').val();			
-			vdata['avatar'] = $('#avatarUpload').val();
+			vdata['email'] = $('#email').val();		
+
+			if(!$.mobi.isnull($('#tel').val(),'如:0312-3861234') && !$.mobi.istel($('#tel').val())){
+				obj['msg'] = '座机不正确';
+				return obj;
+			}
+			vdata['tel'] = $('#tel').val();
+
+			if($('#qq').val() && !$.mobi.isnumber($('#qq').val())){
+				obj['msg'] = 'QQ号不正确';
+				return obj;
+			}
+			vdata['qq'] = $('#qq').val();	
+
+
+			vdata['weixin'] = $('#weixin').val();	
+			vdata['weibo'] = $('#weibo').val();
+
+			var is=['weibo_is','weixin_is','qq_is','tel_is','email_is','mobile_is'];
+			for(var key in is){
+				vdata[is[key]] = $('#'+is[key]).prop("checked") == true ? 1 : 0;
+			}
+			vdata['avatar'] = $('#avatarPath').val();
 
 			obj['code'] = 200;
 			obj['vdata'] = vdata;
@@ -118,7 +166,7 @@
 				'onUploadSuccess' : function(file, data, response) {
 					var $dt = $.parseJSON(data);  	
 		            $('#avatarUpload-button').css('background-image','url("'+$dt['data']+'")');
-		            $('#avatarUpload').val($dt['data']);
+		            $('#avatarPath').val($dt['data']);
 	      		} 
 			});
 		

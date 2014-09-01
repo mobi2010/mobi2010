@@ -17,7 +17,7 @@ $this->load->view('admin/footer');
 
 			$.post('<?=base_url("admin/login/checked");?>',{'uname':uname,'upwd':upwd},function(dt){
 				if(dt['code'] == 200){
-					$.mobi.location('<?=base_url("admin/welcome");?>');
+					$.mobi.location('<?=base_url("admin/index");?>');
 				}else{
 					alert(dt.msg);
 				}

@@ -32,7 +32,7 @@
 	$(document).ready(function() {
 		//$('.register-popwin').center();
 		$('#account').inputToggle('手机号或邮箱');
-		$('#registerSure').click(function(){
+		var registerSure = function(){
 			var account = $('#account').val();
 			var password = $('#password').val();
 			if($.mobi.isnull(account,'手机号或邮箱')){
@@ -66,6 +66,17 @@
 				}				
 			})
 			return false;
+		}
+		$('#registerSure').click(function(){
+			registerSure();
+			return false;
 		})
+	    $('#password').focus(function(){
+	        $(document).bind('keyup',function(e){
+	            if(e.keyCode == 13){
+	                registerSure();
+	            }            
+	        })
+	    })
 	})
 </script>

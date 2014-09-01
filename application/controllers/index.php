@@ -4,7 +4,7 @@
  *
  * @author by zsc
  */
-class Welcome extends MY_Controller {		
+class Index extends MY_Controller {		
 	function __construct($params = array())
 	{
 		parent::__construct(array('auth'=>false));		
@@ -16,7 +16,7 @@ class Welcome extends MY_Controller {
 		// $data['pineryDescription'] = 'pineryDescription';
 		$this->load->view('pinery/header',$data);
 		$this->load->view('pinery/public/home_topbar',$data);
-		$this->load->view('welcome',$data);
+		$this->load->view('index',$data);
 		$this->load->view('pinery/footer',$data);
 	}	
 	/**

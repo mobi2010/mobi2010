@@ -238,6 +238,15 @@
 		ismobile:function(val){//验证手机
 			return /^1[3|4|5|8][0-9]\d{8}$/.test(val);
 		},
+        istel:function(val){//验证座机
+            var nas = val.split('-');
+            for(var key in nas){
+                if(!/^[0-9]*$/.test(nas[key])){
+                    return false;
+                }
+            }
+            return true;
+        },
 		isemail:function(val){//验证邮箱
 			return /\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/.test(val);
 		},

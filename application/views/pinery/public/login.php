@@ -16,7 +16,7 @@
 	$(document).ready(function() {
 		$('.login-popwin').center({'y':-90});
 		$('#account').inputToggle('手机号或邮箱');
-		$('#loginSure').click(function(){
+		var loginSure = function(){
 			var account = $('#account').val();
 			var password = $('#password').val();
 			if(!account){
@@ -35,7 +35,18 @@
 				}
 			})
 			return false;
+		}
+		$('#loginSure').click(function(){
+			loginSure();
+			return false;
 		})
+	    $('#password').focus(function(){
+	        $(document).bind('keyup',function(e){
+	            if(e.keyCode == 13){
+	                loginSure();
+	            }            
+	        })
+	    })
 		//取消
 		$('#loginCancel').click(function(){
 			$.mobi.location("<?=base_url('/')?>");

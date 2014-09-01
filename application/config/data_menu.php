@@ -2,12 +2,11 @@
 return array(
 			'index'=>array(
 				'title'=>'首页',
-				'child'=>array('index'=>'欢迎')
+				'child'=>array('index'=>'欢迎','property'=>'房产','car'=>'车辆','market'=>'集市','services'=>'服务')
 				),
-			
-			'info'=>array(
+			'publish'=>array(
 				'title'=>'发布',
-				'child'=>array('publish'=>'发布的信息','receive'=>'收到的消息')
+				'child'=>array('index'=>'欢迎','property'=>'房产','car'=>'车辆','market'=>'集市','services'=>'服务')
 				),
 			'account'=>array(
 				'title'=>'账户',

@@ -81,6 +81,12 @@ class Account extends MY_Controller {
 			$res['code'] = 400;
 			$this->printer($res);
 		}
+
+		$otherInfo = array('tel','qq','weixin','weibo','mobile_is','email_is','tel_is','qq_is','weixin_is','weibo_is');
+		foreach ($otherInfo as $key => $value) {
+			$data[$value] = $_POST[$value];
+		}
+
 		$data['step'] = 9;
 		$avatar = mobi_string_filter($_POST['avatar']);
 

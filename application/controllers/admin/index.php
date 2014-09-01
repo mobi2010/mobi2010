@@ -3,7 +3,7 @@ require('Admin_Controller.php');
 /**
  * 主页
  */
-class Welcome extends Admin_Controller {	
+class Index extends Admin_Controller {	
 	function __construct()
 	{
 		parent::__construct();
@@ -15,7 +15,7 @@ class Welcome extends Admin_Controller {
 	public function index()
 	{	
 		$data['menu'] = $this->menu();
-		$this->load->view('/admin/welcome',$data);
+		$this->load->view('/admin/index',$data);
 	}
 	/**
 	 * [menu description]

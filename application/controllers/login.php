@@ -47,6 +47,11 @@ class Login extends MY_Controller {
 
 
 		mobi_setcookie('auth',$this->gycrypt->encrypt($account['id']),3600*24*30);
+
+		$upData['logintime'] = time();
+		$upData['long2ip'] = ip2long($_SERVER['REMOTE_ADDR']);
+		$this->pineryModel->dataUpdate(array('table'=>'pinery_member','data'=>$upData));
+
 		$this->printer(array('data'=>$account['id']));
 	}
 	/**

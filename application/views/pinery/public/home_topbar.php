@@ -37,7 +37,7 @@
 			var id = $(this).val();			
 			var $loading = loading.init();
 			$loading.show();
-			$.post("<?=base_url('welcome/changeCity')?>",{'id':id},function(dt){
+			$.post("<?=base_url('index/changeCity')?>",{'id':id},function(dt){
 				$loading.remove();
 				if(dt == 1){$.mobi.refresh();}
 			})
