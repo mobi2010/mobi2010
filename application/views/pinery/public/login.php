@@ -2,8 +2,8 @@
 	<div class="home-body-box">
 		<fieldset class="login">
 			<legend>登录</legend>
-			<div class="login-tr">帐号：<input id="account" type="text" class="input-text" value="手机号或邮箱" /></div>
-			<div class="login-tr">密码：<input id="password" type="password" class="input-password" /></div>
+			<div class="login-tr">帐号：<input id="account" type="text" class="wp200 input-text" value="手机号或邮箱" /></div>
+			<div class="login-tr">密码：<input id="password" type="password" class="wp200 input-password" /></div>
 			<div class="login-tr">
 			<a id="loginSure" class="btn-blue">登录</a>&nbsp;
 			<a id="loginCancel" class="btn-grey">取消</a></div>
