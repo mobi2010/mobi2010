@@ -11,14 +11,18 @@ a:hover{color:#00B7D6}
 
 /**base**/
 
+.wp20{width:20px}
+.wp50{width:50px}
 .wp100{width:100px}
 .wp200{width:200px}
 .wp300{width:300px}
 .wp400{width:400px}
 .wp500{width:500px}
 .wp600{width:600px}
+.wp700{width:700px}
+.wp800{width:800px}
 
-
+.hp100{height:100px}
 .hp200{height:200px}
 .hp300{height:300px}
 .hp400{height:400px}

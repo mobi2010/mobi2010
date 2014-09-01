@@ -29,7 +29,7 @@
 			}
 			$.post("<?=base_url('login/in')?>",{'account':account,'password':password},function(dt){
 				if(dt.code == 200){
-					$.mobi.location("<?=base_url('member/info/index')?>");
+					$.mobi.location("<?=base_url('member/index')?>");
 				}else{
 					$.mobi.alert(dt.msg);
 				}

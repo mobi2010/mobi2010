@@ -7,11 +7,11 @@
 				<td class="title">修改密码</td>
 			</tr>			
 			<tr>
-				<td class="left">原密码:</td>
+				<td class="left">原密码：</td>
 				<td><?=html_password(array('name'=>'password','class'=>'wp200'))?></td>
 			</tr>
 			<tr>
-				<td class="left">新密码:</td>
+				<td class="left">新密码：</td>
 				<td><?=html_password(array('name'=>'new_password','class'=>'wp200'))?></td>
 			</tr>			
 			<tr>

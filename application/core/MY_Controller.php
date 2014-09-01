@@ -34,22 +34,22 @@ class MY_Controller extends CI_Controller
 			$cityKey = $this->userEntity['city_id'];
 		}
 
-
 		//网站头信息
 		$this->initData['dataCitys'] = $dataCitys = require(APPPATH.'/config/data_citys.php');
 		!$cityKey && $cityKey = mobi_getcookie('cityKey');
 		$this->initData['cityKey'] = $cityKey = $dataCitys[$cityKey] ? $cityKey : 1;
 		$this->initData['cityName'] = $cityName = $dataCitys[$cityKey]['names'];
 		$this->initData['pineryTitle'] =  $cityName.'分类信息';
-		$this->initData['pineryDescription'] = "{$cityName}分类信息网，为你提供房产、二手、车辆、服务等海量分类信息，充分满足您免费查看发布信息的需求。";
-
-		
+		$this->initData['pineryDescription'] = "{$cityName}分类信息网，为你提供房产、二手、车辆、服务等海量分类信息，充分满足您免费查看发布信息的需求。";		
 
 		//导航
 		$this->initData['menuData'] = require(APPPATH.'/config/data_menu.php');
 
 		//来源
 		$this->initData['sourceData'] = array('个人','机构');
+
+		//房产
+		$this->initData['propertyData'] = require(APPPATH.'/config/data_property.php');
 
 
 		$this->load->vars('initData',$this->initData);//映射到模板

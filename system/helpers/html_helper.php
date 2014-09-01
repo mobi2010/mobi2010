@@ -488,11 +488,11 @@ if ( ! function_exists('html_radio')){
 /**
 * [radios description]
 * @param  [type] $params [description]
-*  $radios['values'] = array(0,1);
-*  $radios['texts'] = array('原创','转载');
-*  $radios['ids'] = array('radios_0','radios_1');
+*  $radios['options'] =  array('原创','转载');
+*  $radios['options'] =  array('原创','转载');
 *  $radios['name'] = 'radios';
 *  $radios['checked'] = 1;
+*  $radios['blank'] = “&nbsp”;//间隔
 *  html_radios($radios);   
 * @return [type]         [description]
 */
@@ -507,7 +507,7 @@ if ( ! function_exists('html_radios')){
 	    		$rparams['value'] = $params['skey'] ? $val[$params['skey']] : $key;
 	    		$rparams['id'] = $params['name']."_".$rparams['value'];
 	    		$rparams['checked'] = $params['checked'] == $rparams['value'] ? 'checked' : null;
-	    		$html .= html_radio($rparams);
+	    		$html .= html_radio($rparams).$params['blank'];
 	    	}
 	    }	
 	    return $html;
