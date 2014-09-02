@@ -23,7 +23,7 @@ $propertyData = $initData['propertyData'];
             </tr>
             <tr id="community_tr">
                 <td class="left"><span style="color: red">*</span>小区：</td>
-                <td ><?=html_text(array('value'=>'','name'=>'community','class'=>'wp200'))?></td>
+                <td ><?=html_text(array('value'=>'','name'=>'community','class'=>'wp400'))?><dl class="address-item-container"></dl></td>
             </tr> 
             <tr id="floors_tr">
                 <td class="left"><span style="color: red">*</span>楼层：</td>
@@ -43,11 +43,11 @@ $propertyData = $initData['propertyData'];
             </tr>
             <tr>
                 <td class="left"><span style="color: red">*</span>朝向：</td>
-                <td><?=html_radios(array('name'=>'toward','options'=>$propertyData["toward"],'blank'=>'&nbsp;&nbsp;'));?></td>
+                <td><?=html_radios(array('name'=>'toward','options'=>$propertyData["toward"],'checked'=>4,'blank'=>'&nbsp;&nbsp;'));?></td>
             </tr>
             <tr>
                 <td class="left"><span style="color: red">*</span>装修：</td>
-                <td><?=html_radios(array('name'=>'decoration','options'=>$propertyData["decoration"],'blank'=>'&nbsp;&nbsp;'));?></td>
+                <td><?=html_radios(array('name'=>'decoration','options'=>$propertyData["decoration"],'checked'=>2,'blank'=>'&nbsp;&nbsp;'));?></td>
             </tr>
             
             <tr>
@@ -74,32 +74,41 @@ $propertyData = $initData['propertyData'];
 </div>
 <script type="text/javascript">
     $(document).ready(function() {  
-       $('#propertyImages').uploadify({
-                'formData'     : {                  
-                },
-                'swf'      : '/style/js/uploadify/uploadify.swf',
-                'uploader' : '<?=base_url("member/uploadify/avatar")?>',
-                'removeCompleted' : false,
-                'queueSizeLimit': 8, 
-                'debug': false,
-                'fileTypeExts':'*.gif;*.jpg;*.jpeg;*.png',//允许上传的文件类型，使用分号(”;)”分割 例如:*.jpg;*.gif,默认为null(所有文件类型)
-                'fileSizeLimit': 1024*10,  //允许上传的文件大小(kb)  此为2M
-                'onInit': function () {//载入时触发，将flash设置到最小
-                    //$("#propertyImages-queue").hide();
-                },
+        $('.radio-text').click(function(){
+            var radioName = $(this).attr('data-name');
+            var radioId = $(this).attr('data-id');
+            $("input[name='"+radioName+"']").prop("checked",false);
+            $("#"+radioId).prop("checked",true);
+            return false;
+        })
+        $('#propertyImages').uploadify({
+            'formData'     : {                  
+            },
+            'swf'      : '/style/js/uploadify/uploadify.swf',
+            'uploader' : '<?=base_url("util/uploadify/avatar")?>',
+            'removeCompleted' : false,
+            'queueSizeLimit': 8, 
+            'debug': false,
+            'fileTypeExts':'*.gif;*.jpg;*.jpeg;*.png',//允许上传的文件类型，使用分号(”;)”分割 例如:*.jpg;*.gif,默认为null(所有文件类型)
+            'fileSizeLimit': 1024*10,  //允许上传的文件大小(kb)  此为2M
+            'onInit': function () {//载入时触发，将flash设置到最小
+                //$("#propertyImages-queue").hide();
+            },
 
-                'onSelect' : function(){
-                   
-                },
-                'onUploadComplete' :function (file) {   //当文件上传完成时触发  
-                    
-                },
-                'onUploadSuccess' : function(file, data, response) {
-                    var $dt = $.parseJSON(data);    
-                    //$('#propertyImages-button').css('background-image','url("'+$dt['data']+'")');
-                    //$('#avatarPath').val($dt['data']);
-                } 
-            });
+            'onSelect' : function(){
+               
+            },
+            'onUploadComplete' :function (file) {   //当文件上传完成时触发  
+                
+            },
+            'onUploadSuccess' : function(file, data, response) {
+                var $dt = $.parseJSON(data);    
+                //$('#propertyImages-button').css('background-image','url("'+$dt['data']+'")');
+                //$('#avatarPath').val($dt['data']);
+            } 
+        });
+        //检索
+        $('#community').autoSearch({'uri':"<?=base_url('util/map/search')?>",'container':$(".address-item-container")});
         
     })
 </script>

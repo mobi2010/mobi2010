@@ -16,4 +16,13 @@ class Test extends MY_Controller {
 	function index(){
 		$this->load->view('test/map2',$data);
 	}	
+	/**
+	 * [map]
+	 * @return [type] [description]
+	 */
+	function map3(){		
+		$this->load->view('pinery/header',$data);
+		$this->load->view('test/map3',$data);
+		$this->load->view('pinery/footer',array('footerInfo'=>'no'));
+	}
 }	

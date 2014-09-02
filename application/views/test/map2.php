@@ -37,7 +37,7 @@
 		}
 	};
 	var local = new BMap.LocalSearch(map, options);
-	local.search("保定市 涿州市 物资");
+	local.search("保定市涿州市联合小区");
 	//添加默认缩放平移控件
     map.addControl(new BMap.NavigationControl());  
     //滚轮

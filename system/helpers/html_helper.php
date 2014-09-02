@@ -477,10 +477,10 @@ if ( ! function_exists('html_img')){
 if ( ! function_exists('html_radio')){
    function html_radio($params){
     $params['id'] = $params['id'] ? $params['id'] : $params['name'];
-    $text = $params['text'];unset($params['text']);
+    $text = html_a(array('text'=>$params['text'],'class'=>'radio-text','data-id'=>$params['id'],'data-name'=>$params['name']));
     $position = $params['position'];//0默认后边，1前边 
     $radio = '<input type="radio" ';
-    $radio .= html_join($params,array('position'));
+    $radio .= html_join($params,array('position','text'));
     $radio .= ' />';    
     return $position ? $text.$radio : $radio.$text;     
   }

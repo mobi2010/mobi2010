@@ -142,7 +142,7 @@
 				'formData'     : {					
 				},
 				'swf'      : '/style/js/uploadify/uploadify.swf',
-				'uploader' : '<?=base_url("member/uploadify/avatar")?>',
+				'uploader' : '<?=base_url("util/uploadify/avatar")?>',
 				'buttonImage': '<?=$userEntity["avatar"]?>',
 				'width'    : 120,
 				'height'    : 120,

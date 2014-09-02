@@ -117,6 +117,74 @@
                 })
                 return ;
             })
+        },
+        autoSearch:function(obj){//检索提示            
+            var $container = obj['container']; //结果列表容器
+            var uri = obj['uri'];//请求地址 
+            var $keyWord = $(this);//搜索关键字对象
+
+            var itemKey = null; //选项的索引   
+            var searchItem = function(itemIndex){//选项列表
+                itemKey = itemIndex;
+                var itemLength = $container.find('dd').length;//结果长度
+                if(itemKey === null){
+                    $container.hide();
+                    return false;
+                }else if(itemKey < 0){
+                    itemKey = 0;
+                }else if(itemKey >= itemLength){
+                    itemKey = itemLength - 1;
+                }
+                $container.find("dd").removeClass('selected').eq(itemKey).addClass("selected");
+                $container.show();
+            }
+            
+            
+            //选中后，将选项赋值给搜索框，隐藏列表
+            var itemSelected = function (){
+                $keyWord.val($container.find("dd").eq(itemKey).find("lable").text());
+                searchItem(null);
+            }
+            
+            //autocomplete = off 禁用浏览器内置的自动完成机制 
+            $keyWord.attr("autocomplete","off").keyup(function(event){
+                var keyCode = event.keyCode;                
+
+                if(keyCode > 40 || keyCode == 8 || keyCode == 32){
+                    //<=40 特殊键，8退格键 32空格
+                    $.get(uri,{'query':$keyWord.val()},function(data){
+                        $container.empty();
+                        if(data['data'].length){
+                            var searchItemHtml = "";
+                            $.each(data['data'],function(k,v){
+                                searchItemHtml = '<lable>'+v['name']+'</lable>';
+                                searchItemHtml = v['address'] ? searchItemHtml+'<span>--'+v['address']+'</span>' : v['name'];
+                                $('<dd>')
+                                .html(searchItemHtml)
+                                .appendTo($container)
+                                .mouseover(function(){searchItem(k);})
+                                .click(itemSelected);
+                            })
+                            searchItem(0);
+                        }else{
+                            searchItem(null);
+                        }
+                    })
+                }else if(itemKey !== null){
+                    if(keyCode == 38){//上方向键
+                        searchItem(itemKey -1 );
+                    }else if(keyCode == 40){//下方向键
+                        searchItem(itemKey + 1);
+                    }else if(keyCode == 27){//退出键            
+                        searchItem(null);
+                    }else if(keyCode == 13){//回车键            
+                        itemSelected();
+                    }
+                    event.preventDefault();
+                }   
+            }).blur(function(event){
+                setTimeout(function(){searchItem(null);},500);
+            })
         }
     })
   
