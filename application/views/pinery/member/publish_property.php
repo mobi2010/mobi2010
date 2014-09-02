@@ -8,7 +8,13 @@ $propertyData = $initData['propertyData'];
     <?php $this->load->view('pinery/member/menu');?>
     <div class="member-content">
     <form id="property">
-        <table width="500" border="0" >         
+        <table width="500" border="0" >     
+            <tr>
+                <td class="left"><span style="color: red">*</span>方式：</td>
+                <td >
+                    <?=html_radios(array('name'=>'mode','options'=>$propertyData["mode"],'blank'=>'&nbsp;&nbsp;'));?>
+                </td>
+            </tr>    
             <tr>
                 <td class="left"><span style="color: red">*</span>类型：</td>
                 <td >
@@ -54,7 +60,9 @@ $propertyData = $initData['propertyData'];
             </tr>
             <tr>
                 <td class="left">图片：</td>
-                <td><input id="propertyImages" name="propertyImages" type="file" multiple="true"></td>
+                <td><input id="propertyImages" name="propertyImages" type="file" multiple="true">
+                （图片不能超过10张，每张10M以下）
+                </td>
             </tr>
             <tr>
                 <td class="left"></td>
