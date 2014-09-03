@@ -118,11 +118,13 @@
                 return ;
             })
         },
-        autoSearch:function(obj){//检索提示            
+        autoSearch:function(obj,callback){//检索提示            
             var $container = $(this).next("dl"); //结果列表容器
             var uri = obj['uri'];//请求地址 
             var $keyWord = $(this);//搜索关键字对象
             var itemKey = null; //选项的索引   
+            var responseData = {};
+
             var searchItem = function(itemIndex){//选项列表
                 itemKey = itemIndex;
                 var itemLength = $container.find('dd').length;//结果长度
@@ -142,6 +144,7 @@
             //选中后，将选项赋值给搜索框，隐藏列表
             var itemSelected = function (){
                 $keyWord.val($container.find("dd").eq(itemKey).find("lable").text());
+                $('#'+obj['hideValue']).val(JSON.stringify(responseData[itemKey]));
                 searchItem(null);
             }
             
@@ -152,9 +155,10 @@
                 if(keyCode > 40 || keyCode == 8 || keyCode == 32){
                     //<=40 特殊键，8退格键 32空格
                     var query = $keyWord.val();
-                    query && $.get(uri,{'query':query},function(data){
+                    query && $.post(uri,{'query':query},function(data){
                         $container.empty();
                         if(data['data'].length){
+                            responseData = data['data'];
                             var searchItemHtml = "";
                             $.each(data['data'],function(k,v){
                                 searchItemHtml = '<lable>'+v['name']+'</lable>';
@@ -183,7 +187,7 @@
                     event.preventDefault();
                 }   
             }).blur(function(event){
-                setTimeout(function(){searchItem(null);},500);
+                setTimeout(function(){searchItem(null);},300);
             })
         }
     })
@@ -290,6 +294,9 @@
                return false;		
         	}
 		},
+        isint:function(val){//正整数
+            return /^\d+$/.test(val);
+        },
         ischar:function(val){//验证26个字母字符
             return /^[A-Za-z]+$/.test(val);
         },

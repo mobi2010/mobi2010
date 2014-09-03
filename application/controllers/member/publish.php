@@ -28,6 +28,13 @@ class Publish extends MY_Controller {
 		$this->load->view('pinery/footer',array('footerInfo'=>'no'));
 	}
 	/**
+	 * [房产保存]
+	 * @return [type] [description]
+	 */
+	function propertySave(){
+		var_dump($_POST);
+	}
+	/**
 	 * [车辆]
 	 * @return [type] [description]
 	 */
