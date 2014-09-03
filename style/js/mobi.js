@@ -119,10 +119,9 @@
             })
         },
         autoSearch:function(obj){//检索提示            
-            var $container = obj['container']; //结果列表容器
+            var $container = $(this).next("dl"); //结果列表容器
             var uri = obj['uri'];//请求地址 
             var $keyWord = $(this);//搜索关键字对象
-
             var itemKey = null; //选项的索引   
             var searchItem = function(itemIndex){//选项列表
                 itemKey = itemIndex;
@@ -152,7 +151,8 @@
 
                 if(keyCode > 40 || keyCode == 8 || keyCode == 32){
                     //<=40 特殊键，8退格键 32空格
-                    $.get(uri,{'query':$keyWord.val()},function(data){
+                    var query = $keyWord.val();
+                    query && $.get(uri,{'query':query},function(data){
                         $container.empty();
                         if(data['data'].length){
                             var searchItemHtml = "";

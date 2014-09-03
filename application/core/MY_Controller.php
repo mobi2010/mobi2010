@@ -1,5 +1,9 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 header("Pragma:no-cache");//不缓存页面
+// header("Last-Modified:".date('r'));
+// header("Expires:".date('r'));
+// header("ETag:".time());
+// header("Cache-Control: no-cache, must-revalidate"); 
 /**
  * 控制器
  */

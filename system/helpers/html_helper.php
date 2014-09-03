@@ -476,13 +476,37 @@ if ( ! function_exists('html_img')){
 */
 if ( ! function_exists('html_radio')){
    function html_radio($params){
-    $params['id'] = $params['id'] ? $params['id'] : $params['name'];
-    $text = html_a(array('text'=>$params['text'],'class'=>'radio-text','data-id'=>$params['id'],'data-name'=>$params['name']));
+    $params['id'] = $params['id'] ? $params['id'] : $params['name'];    
     $position = $params['position'];//0默认后边，1前边 
     $radio = '<input type="radio" ';
     $radio .= html_join($params,array('position','text'));
     $radio .= ' />';    
-    return $position ? $text.$radio : $radio.$text;     
+    $text = $position ? $params['text'].$radio : $radio.$params['text'];    
+    return html_a(array('text'=>$text,'class'=>'html-radio','data-value'=>$params['value'],'data-id'=>$params['id'],'data-name'=>$params['name']));
+  }
+}
+/**
+* [tags description]
+* @param  [type] $params [description]
+* @return [type]         [description]
+*/
+if ( ! function_exists('html_tags')){
+    function html_tags($params){
+    	$html = null;
+    	$class = $params['class'] ? "html-tags ".$params['class'] : "html-tags";
+	  	if(!empty($params['options'])) {
+	    	foreach ($params['options'] as $key => $val) {	
+	    		$rparams = array();    		
+	    		$rparams['text'] = $params['sval'] ? $val[$params['sval']] : $val;
+	    		$rparams['data-value'] = $params['skey'] ? $val[$params['skey']] : $key;
+	    		$rparams['data-name'] = $params['name'];
+	    		$rparams['id'] = $params['name']."_".$rparams['data-value'];
+	    		$rparams['class'] = isset($params['checked']) && $params['checked'] == $rparams['data-value'] ? $class.' checked' : $class;
+	    		$html .= html_a($rparams).$params['blank'];
+	    	}
+	    }	
+	    $html .= html_hidden(array('name'=>$params['name'],'value'=>$params['checked']));
+		return $html;
   }
 }
 /**

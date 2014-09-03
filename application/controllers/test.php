@@ -13,8 +13,10 @@ class Test extends MY_Controller {
 	 * [登录]
 	 * @return [type] [description]
 	 */
-	function index(){
-		$this->load->view('test/map2',$data);
+	function header(){
+		$this->load->view('pinery/header',$data);
+		$this->load->view('test/header',$data);
+		$this->load->view('pinery/footer',array('footerInfo'=>'no'));		
 	}	
 	/**
 	 * [map]
