@@ -51,11 +51,16 @@ class Property_model extends MY_Model {
 	 */
 	function addProperty($argv=array()){			
 		$mode = intval($argv['mode']);
+		$data['type'] = intval($argv['type']);	
 		switch ($mode) {
 			case 0://出租
 				$data['location_id'] = $this->addLocation($argv);
 				$data['content_id'] = $this->addContent($argv);
-				$intFields = array('floors','floors_total','room','hall','bathroom','area','rent','toward','decoration','userid');
+				if(in_array($data['type'], array(0,1,2))){
+					$intFields = array('floors','floors_total','room','hall','bathroom','area','rent','toward','decoration','userid');
+				}else{
+					$intFields = array('area','rent','userid');
+				}
 				foreach ($intFields as $key => $value) {
 					$data[$value] = intval($argv[$value]);
 				}
@@ -67,8 +72,12 @@ class Property_model extends MY_Model {
 				break;
 			case 2://出售
 				$data['location_id'] = $this->addLocation($argv);
-				$data['content_id'] = $this->addContent($argv);
-				$intFields = array('floors','floors_total','room','hall','bathroom','area','price','toward','decoration','userid','property','building');
+				$data['content_id'] = $this->addContent($argv);				
+				if(in_array($data['type'], array(0,1,2))){
+					$intFields = array('floors','floors_total','room','hall','bathroom','area','price','toward','decoration','userid','property','building');
+				}else{
+					$intFields = array('area','price','userid');
+				}
 				foreach ($intFields as $key => $value) {
 					$data[$value] = intval($argv[$value]);
 				}
