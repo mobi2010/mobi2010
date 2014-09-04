@@ -572,7 +572,8 @@ if ( ! function_exists('html_password')){
 */
 if ( ! function_exists('html_hidden')){
 	function html_hidden($params){
-		$params['id'] = $params['id'] ? $params['id'] : $params['name'];
+		$params['id'] = $params['id'] ? $params['id'] : $params['name'];		
+		$params['autocomplete'] = "off";
 		$text = '<input type="hidden" ';
 		$text .= html_join($params);
 		$text .= '/>';

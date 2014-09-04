@@ -176,28 +176,28 @@ $propertyData = $initData['propertyData'];
 
         //提交
         $('#sureBtn').click(function(){
-             var flag = true;
-            // var strArr = {'address':'地址','community':'小区','title':'标题'};
-            // $.each(strArr,function(k,v){
-            //     if($('#'+k+'_tr').css('display') != 'none' && 
-            //         $.mobi.isnull($('#'+k).val())){
-            //         $.mobi.alert(v+'为必填项');
-            //         flag = false;
-            //         return false;
-            //     }
-            // })
-            // if(!flag){return false;}
-            // var intArr = {'floors':['楼层'],'floors_total':['总楼层','floors'],'room':['户型(室)'],'hall':['户型(厅)','room'],'bathroom':['户型(卫)','room'],'area':['面积'],'rent':['租金'],'price':['售价'],'property':['产权'],'building':['建筑年代']}
-            // var intId = "";
-            // $.each(intArr,function(k,v){
-            //     intId = v[1] ? v[1] : k;
-            //     if($('#'+intId+'_tr').css('display') != 'none' && 
-            //         !$.mobi.isint($('#'+k).val(),'',-1)){
-            //         $.mobi.alert(v[0]+'为必填项且为整数');
-            //         flag = false;
-            //         return false;
-            //     }
-            // })
+            var flag = true;
+            var strArr = {'address':'地址','community':'小区','title':'标题'};
+            $.each(strArr,function(k,v){
+                if($('#'+k+'_tr').css('display') != 'none' && 
+                    $.mobi.isnull($('#'+k).val())){
+                    $.mobi.alert(v+'为必填项');
+                    flag = false;
+                    return false;
+                }
+            })
+            if(!flag){return false;}
+            var intArr = {'floors':['楼层'],'floors_total':['总楼层','floors'],'room':['户型(室)'],'hall':['户型(厅)','room'],'bathroom':['户型(卫)','room'],'area':['面积'],'rent':['租金'],'price':['售价'],'property':['产权'],'building':['建筑年代']}
+            var intId = "";
+            $.each(intArr,function(k,v){
+                intId = v[1] ? v[1] : k;
+                if($('#'+intId+'_tr').css('display') != 'none' && 
+                    !$.mobi.isint($('#'+k).val(),'',-1)){
+                    $.mobi.alert(v[0]+'为必填项且为整数');
+                    flag = false;
+                    return false;
+                }
+            })
             if(!flag){return false;}
             //图片      
             var newImagesData = [];      
@@ -209,10 +209,8 @@ $propertyData = $initData['propertyData'];
             $('#images').val(newImagesData.join('|'));
             var postData = $('#propertyForm').serialize();
             $.post("<?=base_url('member/publish/propertySave')?>",postData,function(dt){
-
-
+                $.mobi.alert(dt['msg']);
             })
-        })
-                
+        })                
     })
 </script>

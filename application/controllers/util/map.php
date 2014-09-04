@@ -19,8 +19,8 @@ class Map extends MY_Controller {
 		$res = array();
 		if($query){
 			$dataCitys = $this->initData['dataCitys'][$this->initData['cityKey']];
-			$data['query'] = $dataCitys['names'].$query;//检索关键字
-			$data['region'] = $dataCitys['parent'];//检索城市
+			$data['query'] = $dataCitys['name'].$query;//检索关键字
+			$data['region'] = $dataCitys['parent']['name'];//检索城市
 			$resData = json_decode($this->maps->search($data));
 			$res['code'] = $resData->status == 0 ? 200 : 500;
 			$res['msg'] = $resData->message;

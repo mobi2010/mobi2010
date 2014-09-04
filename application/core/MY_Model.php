@@ -30,7 +30,12 @@ class MY_Model extends CI_Model {
     function setMemcache($key, $data, $long=3600){
         return $this->cache->memcached->save($key, $data,$long); 
     }
-
+    /**
+    * 执行sql...
+    */
+    function query($sql){
+        return $this->db->query($sql);
+    }
     /**
     * 查询总数...
     * $param["table"] = "table_name";
@@ -160,6 +165,7 @@ class MY_Model extends CI_Model {
             $where = null;
         }
         return $where;
-    }    
+    }   
+
 }
 ?>

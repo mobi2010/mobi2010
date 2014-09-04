@@ -32,7 +32,35 @@ class Publish extends MY_Controller {
 	 * @return [type] [description]
 	 */
 	function propertySave(){
-		var_dump($_POST);
+		$res['code'] = 400;
+		$mode = intval($_POST['mode']);
+		$type = intval($_POST['type']);
+		$argv = $_POST;
+		if(in_array($mode, array(0,2))){
+			if(in_array($type,array(0,1,2))){
+				if(!$_POST['community']){
+					$res['msg'] = "小区不能为空";
+					$this->printer($res);
+				}
+				$argv['map'] = $argv['communityHide'];
+			}else{
+				if(!$_POST['address']){
+					$res['msg'] = "地址不能为空";
+					$this->printer($res);
+				}
+				$argv['map'] = $argv['addressHide'];
+			}
+		}
+		if(!$_POST['title']){
+			$res['msg'] = "标题不能为空";
+			$this->printer($res);
+		}
+		$res['code'] = 200;
+		
+		$argv['userid'] = $this->userId;
+		$argv['city_id'] = $this->initData['cityKey'];
+		$res['data'] = $this->property->addProperty($argv);
+		$this->printer($res);
 	}
 	/**
 	 * [车辆]

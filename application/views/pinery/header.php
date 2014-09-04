@@ -15,4 +15,9 @@ $bodyClass = $bodyClass ? $bodyClass : "body";
 	<script src="/style/js/jquery-1.10.2.min.js"></script>
 	<script src="/style/js/mobi.js"></script>
 </head>
+<script type="text/javascript">
+	$(document).ready(function() { 
+		$.mobi.init();
+	})
+</script>
 <body class="<?=$bodyClass;?>">

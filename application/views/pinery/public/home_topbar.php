@@ -3,7 +3,7 @@
 		<a class="logo-orange" href="<?=base_url('/')?>"></a>
 		<?php
 			echo html_a(array('id'=>'changeCity','class'=>"change-citys",'text'=>$initData['cityName'].'[换]'));
-			echo html_select(array('id'=>'selectCitys','class'=>"change-citys",'options'=>$initData['dataCitys'],'sval'=>'names','selected'=>$initData['cityKey'],'style'=>'display:none;'))."&nbsp;";
+			echo html_select(array('id'=>'selectCitys','class'=>"change-citys",'options'=>$initData['dataCitys'],'sval'=>'name','selected'=>$initData['cityKey'],'style'=>'display:none;'))."&nbsp;";
 			echo html_a(array('id'=>'changeCityCancel','class'=>"change-citys",'text'=>'取消','style'=>'display:none;'));
 		?>
 	</div>

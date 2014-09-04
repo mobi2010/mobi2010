@@ -17,6 +17,7 @@ class MY_Controller extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->model('Pinery_model', 'pineryModel');//	
+		$this->load->model('Property_model', 'property');//	
 		$this->load->library('gycrypt');	
 		$this->uriEntity();//uri实体数据		
 
@@ -41,8 +42,8 @@ class MY_Controller extends CI_Controller
 		//网站头信息
 		$this->initData['dataCitys'] = $dataCitys = require(APPPATH.'/config/data_citys.php');
 		!$cityKey && $cityKey = mobi_getcookie('cityKey');
-		$this->initData['cityKey'] = $cityKey = $dataCitys[$cityKey] ? $cityKey : 1;
-		$this->initData['cityName'] = $cityName = $dataCitys[$cityKey]['names'];
+		$this->initData['cityKey'] = $cityKey = $dataCitys[$cityKey] ? intval($cityKey) : 0;
+		$this->initData['cityName'] = $cityName = $dataCitys[$cityKey]['name'];
 		$this->initData['pineryTitle'] =  $cityName.'分类信息';
 		$this->initData['pineryDescription'] = "{$cityName}分类信息网，为你提供房产、二手、车辆、服务等海量分类信息，充分满足您免费查看发布信息的需求。";		
 

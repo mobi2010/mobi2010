@@ -9,6 +9,7 @@ class Test extends MY_Controller {
 	{
 		parent::__construct(array('auth'=>false));
 	}
+
 	/**
 	 * [登录]
 	 * @return [type] [description]
@@ -22,9 +23,13 @@ class Test extends MY_Controller {
 	 * [map]
 	 * @return [type] [description]
 	 */
-	function map3(){		
-		$this->load->view('pinery/header',$data);
-		$this->load->view('test/map3',$data);
-		$this->load->view('pinery/footer',array('footerInfo'=>'no'));
+	function ctable(){		
+		echo substr(13241234, -1);
+		/*for($i=1;$i<10;$i++){
+			$table = 'pinery_property_content_'.$i;
+			$sql = "create table {$table} like pinery_property_content_0";
+			$this->pineryModel->query($sql);
+		}*/
+		
 	}
 }	
