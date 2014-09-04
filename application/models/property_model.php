@@ -94,4 +94,73 @@ class Property_model extends MY_Model {
 		$params['data'] = $data;
 		return $this->dataInsert($params);		
 	}
+	/**
+	 * [获取位置信息]
+	 * @return [type] [description]
+	 */
+	function getLocationRow($argv=array()){
+		$city_id = intval($argv['city_id']);
+		$id = intval($argv['id']);
+		return $this->dataFetchRow(array('table'=>'pinery_location_'.$city_id,'where'=>$id));
+	}
+	/**
+	 * [获取内容信息]
+	 * @return [type] [description]
+	 */
+	function getContentRow($argv=array()){
+		$userId = intval($argv['userid']);
+		$id = intval($argv['id']);
+		$data = $this->dataFetchRow(array('table'=>'pinery_property_content_'.substr($userId, -1),'where'=>$id));
+		$data['images'] = explode('|', $data['images']);
+		return $data;
+	}
+	/**
+	 * [获取房产信息]
+	 * @param array $argv [description]
+	 */
+	function getPropertyRow($argv=array()){	
+		$id = intval($argv['id']);		
+		$mode = intval($argv['mode']);
+		$city_id = intval($argv['city_id']);
+		$data = $this->dataFetchRow(array('table'=>"pinery_property_{$city_id}_{$mode}",'where'=>$id));
+		if(empty($data)){
+			return array();
+		}
+		if(in_array($mode, array(0,2))){
+			$data += $this->getLocationRow(array('city_id'=>$city_id,'id'=>$data['location_id']));
+			$data += $this->getContentRow(array('userid'=>$data['userid'],'id'=>$data['content_id']));
+		}
+		return $data;		
+	}
+	/**
+	 * [获取房产信息列表]
+	 * @param array $argv [description]
+	 */
+	function getPropertyArray($argv=array()){	
+		$mode = intval($argv['mode']);
+		$city_id = intval($argv['city_id']);
+		$resData = $this->dataFetchArray(array('table'=>"pinery_property_{$city_id}_{$mode}",'where'=>$argv['where'],'order'=>$argv['order'],'limit'=>$argv['limit']));			
+		if(empty($resData)){
+			return array();
+		}
+		if(in_array($mode, array(0,2))){
+			foreach ($resData as $key => $value) {
+				$value += $this->getLocationRow(array('city_id'=>$city_id,'id'=>$value['location_id']));
+				$value += $this->getContentRow(array('userid'=>$value['userid'],'id'=>$value['content_id']));
+				$data[$key] = $value;
+			}			
+		}else{
+			$data = $resData;
+		}
+		return $data;		
+	}
+	/**
+	 * [获取房产信息总数]
+	 * @return [type] [description]
+	 */
+	function getPropertySum($argv){
+		$mode = intval($argv['mode']);
+		$city_id = intval($argv['city_id']);
+		return $this->dataFetchArray(array('table'=>"pinery_property_{$city_id}_{$mode}",'where'=>$argv['where']));	
+	}
 }	

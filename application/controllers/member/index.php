@@ -25,10 +25,11 @@ class Index extends MY_Controller {
 	 * @return [type] [description]
 	 */
 	function property(){
+		$data['propertyList'] = $this->property->getPropertyArray(array('mode'=>0,'city_id'=>$this->initData['cityKey'],'limit'=>3,'order'=>'id desc'));
 		$this->load->view('pinery/header',$data);
 		$this->load->view('pinery/public/home_topbar',$data);
 		$this->load->view('pinery/member/nav',$data);
-		$this->load->view('pinery/member/index',$data);
+		$this->load->view('pinery/member/property_list',$data);
 		$this->load->view('pinery/footer',array('footerInfo'=>'no'));
 	}
 	/**

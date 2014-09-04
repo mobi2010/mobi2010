@@ -108,9 +108,8 @@ $propertyData = $initData['propertyData'];
     $(document).ready(function() {  
         var imagesData={};
         //方式
-        $("a[data-name='mode']").click(function(){      
-            $('#propertyTable tr').show();      
-            var value = parseInt($(this).attr('data-value'));    
+        var modeToggle = function(value){
+            $('#propertyTable tr').show();   
             var hideAttr = ['address','price','property','building'];    
            
             if($.inArray(value, [1,3]) > -1){
@@ -119,7 +118,10 @@ $propertyData = $initData['propertyData'];
                 hideAttr = ['address','rent'];
             }
             for(var hk in hideAttr){ $('#'+hideAttr[hk]+'_tr').hide(); }
-
+        }
+        $("a[data-name='mode']").click(function(){      
+            var value = parseInt($(this).attr('data-value'));  
+            modeToggle(value);
             //类型
             $("a[data-name='type']").removeClass("checked");
             $("#type_0").addClass("checked");
@@ -129,16 +131,12 @@ $propertyData = $initData['propertyData'];
         $("a[data-name='type']").click(function(){
             var mode = parseInt($('#mode').val());
             if($.inArray(mode, [1,3]) > -1){return false;}
-            if(mode == 2){
-                var showAttr = ['address','price','property','building','floors','room','area','toward','decoration','image'];
-                var hideAttr = ['community','rent']; 
-            }else{
-                var showAttr = ['community','floors','room','area','rent','toward','decoration','image'];
-                var hideAttr = ['address','price','property','building'];   
-            }
+            var showAttr = [];
+            var hideAttr = [];
+            modeToggle(mode);
             var value = parseInt($(this).attr('data-value')); 
             if($.inArray(value, [3,4,5]) > -1){
-                showAttr = ['address','area','image'];
+                showAttr = ['address'];
                 hideAttr = ['community','floors','decoration','room','toward','property','building'];
             }
             for(var sk in showAttr){ $('#'+showAttr[sk]+'_tr').show(); }
@@ -208,7 +206,12 @@ $propertyData = $initData['propertyData'];
             })
             $('#images').val(newImagesData.join('|'));
             var postData = $('#propertyForm').serialize();
+            var $loading = loading.init();
+            $loading.show();
             $.post("<?=base_url('member/publish/propertySave')?>",postData,function(dt){
+                $('#propertyForm :text,#propertyForm textarea').val('');
+                $('.uploadify-queue-item').remove();
+                $loading.remove();
                 $.mobi.alert(dt['msg']);
             })
         })                
