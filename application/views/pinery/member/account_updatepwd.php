@@ -27,13 +27,16 @@
 			var obj = {};
 			var password = $('#password').val();
 			var new_password = $('#new_password').val();
+			var dialog = {'code':400};
 			if(!password){
-				$.mobi.alert('请输入原密码');
+				dialog['msg'] = '请输入原密码';
+				$.mobi.alert(dialog);
 				return false;
 			}
 			obj['password'] = password;
 			if(!new_password){
-				$.mobi.alert('请输入新密码');
+				dialog['msg'] = '请输入新密码';
+				$.mobi.alert(dialog);
 				return false;
 			}
 			obj['new_password'] = new_password;
@@ -41,7 +44,7 @@
 			$loading.show();
 			$.post("<?=base_url('member/account/updatePwdSave')?>",obj,function(dt){
 				$loading.remove();
-				$.mobi.alert(dt.msg);
+				$.mobi.alert(dt);
 				if(dt['code'] == 200){
 					$.mobi.location("<?=base_url('login/out')?>?callback="+dt['data']);
 				}			

@@ -107,6 +107,7 @@ $propertyData = $initData['propertyData'];
 <script type="text/javascript">
     $(document).ready(function() {  
         var imagesData={};
+        var dialog = {'code':400};
         //方式
         var modeToggle = function(value){
             $('#propertyTable tr').show();   
@@ -179,7 +180,8 @@ $propertyData = $initData['propertyData'];
             $.each(strArr,function(k,v){
                 if($('#'+k+'_tr').css('display') != 'none' && 
                     $.mobi.isnull($('#'+k).val())){
-                    $.mobi.alert(v+'为必填项');
+                    dialog['msg'] = v+'为必填项';
+                    $.mobi.alert(dialog);
                     flag = false;
                     return false;
                 }
@@ -191,7 +193,8 @@ $propertyData = $initData['propertyData'];
                 intId = v[1] ? v[1] : k;
                 if($('#'+intId+'_tr').css('display') != 'none' && 
                     !$.mobi.isint($('#'+k).val(),'',-1)){
-                    $.mobi.alert(v[0]+'为必填项且为整数');
+                    dialog['msg'] = v[0]+'为必填项且为整数';
+                    $.mobi.alert(dialog);
                     flag = false;
                     return false;
                 }
@@ -212,7 +215,7 @@ $propertyData = $initData['propertyData'];
                 $('#propertyForm :text,#propertyForm textarea').val('');
                 $('.uploadify-queue-item').remove();
                 $loading.remove();
-                $.mobi.alert(dt['msg']);
+                $.mobi.alert(dt);
             })
         })                
     })

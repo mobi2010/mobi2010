@@ -65,7 +65,6 @@
 <script type="text/javascript">
 	$(document).ready(function() {	
 		$('#tel').inputToggle('如:0312-3861234');
-		
 		var verify = function(){			
 			var obj = {};
 			var vdata = {};
@@ -124,17 +123,17 @@
 			return obj;
 		}
 		var obj = verify();
-		if(obj['code'] != 200){$.mobi.alert("请完善信息");}		
+		if(obj['code'] != 200){$.mobi.alert(obj);}		
 
 		$('#sureBtn').click(function(){
 			var obj = verify();
-			if(obj['code'] != 200){$.mobi.alert(obj['msg']);return false;}
+			if(obj['code'] != 200){$.mobi.alert(obj);return false;}
 
 			var $loading = loading.init({'id':'registerLoading','z-index':1,'opacity':3});	
 			$loading.show();
 			$.post("<?=base_url('member/account/infoSave')?>",obj['vdata'],function(dt){
 				$loading.remove();
-				$.mobi.alert(dt.msg);				
+				$.mobi.alert(dt);				
 			})
 			return false;
 		})

@@ -19,19 +19,22 @@
 		var loginSure = function(){
 			var account = $('#account').val();
 			var password = $('#password').val();
+			var dialog = {'code':400};
 			if(!account){
-				$.mobi.alert('帐号不能为空');
+				dialog['msg'] = "帐号不能为空";
+				$.mobi.alert(dialog);
 				return false;
 			}
 			if(!password){
-				$.mobi.alert('密码不能为空');
+				dialog['msg'] = "密码不能为空";
+				$.mobi.alert(dialog);
 				return false;
 			}
 			$.post("<?=base_url('login/in')?>",{'account':account,'password':password},function(dt){
 				if(dt.code == 200){
 					$.mobi.location("<?=base_url('member/index')?>");
 				}else{
-					$.mobi.alert(dt.msg);
+					$.mobi.alert(dt);
 				}
 			})
 			return false;

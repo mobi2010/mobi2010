@@ -228,7 +228,7 @@
             return flag;
         },
         alert:function(data,obj){//弹出框
-            $('.alert').remove();   
+            $('.dialog').remove();   
             var obj = obj || {}; 
             var zIndex = obj['z-index'] || 10; 
             var ww = $(window).width();  
@@ -238,9 +238,17 @@
             var w = (ww-200)/2+dl;
             var h = (wh-200)/2+dt;        
             var dialog = $('<div>');
-            dialog.text(data);
-            dialog.attr('class','alert');
-            dialog.attr('style','border-radius:5px;background:#000000;color:#FFFFFF; position:absolute;width:200px;padding:1em 2em;text-align:center;filter:alpha(opacity=70);opacity:0.7');
+            var styleClass = 'dialog ';
+            var text = "";
+            if(typeof(data) == "object"){
+                text = data.msg;
+                styleClass += data['code'] == 200 ? "success" : "error";
+            }else{                
+                text = data;
+                styleClass += "alert";
+            }            
+            dialog.attr('class',styleClass); 
+            dialog.text(text);
             dialog.css({'top':h,'left':w,'z-index':zIndex}).appendTo('body');
         	dialog.slideDown(500,function(){setTimeout(function(){dialog.slideUp(500);},1000);});
         	return false;

@@ -35,23 +35,28 @@
 		var registerSure = function(){
 			var account = $('#account').val();
 			var password = $('#password').val();
+			var dialog = {'code':400};
 			if($.mobi.isnull(account,'手机号或邮箱')){
-				$.mobi.alert('帐号不能为空');
+				dialog['msg'] = '帐号不能为空';
+				$.mobi.alert(dialog);
 				return false;
 			}
 			if($.mobi.isnumber(account)){
 				if(!$.mobi.ismobile(account)){
-					$.mobi.alert('手机号不正确');
+					dialog['msg'] = '手机号不正确';
+					$.mobi.alert(dialog);
 					return false;
 				}				
 			}else{
 				if(!$.mobi.isemail(account)){
-					$.mobi.alert('邮箱不正确');
+					dialog['msg'] = '邮箱不正确';
+					$.mobi.alert(dialog);
 					return false;
 				}	
 			}
 			if(!password){
-				$.mobi.alert('密码不能为空');
+				dialog['msg'] = '密码不能为空';
+				$.mobi.alert(dialog);
 				return false;
 			}
 			var source = $("input[name='source']:checked").val();;
@@ -60,7 +65,7 @@
 			$.post("<?=base_url('register/save1')?>",{'source':source,'account':account,'password':password},function(dt){
 				$loading.remove();
 				if(dt['code'] != 200){
-					$.mobi.alert(dt.msg);
+					$.mobi.alert(dt);
 				}else{					
 					$.mobi.location("<?=base_url('member/account/info')?>");
 				}				
