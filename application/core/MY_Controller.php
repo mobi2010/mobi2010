@@ -1,4 +1,5 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+date_default_timezone_set('PRC'); 
 header("Pragma:no-cache");//不缓存页面
 header( 'Content-type: text/html;charset=utf-8' );//设置页面编码
 // header("Last-Modified:".date('r'));
@@ -33,9 +34,9 @@ class MY_Controller extends CI_Controller
 	protected function init(){
 		//用户信息
 		$auth = mobi_getcookie('auth');
-		if($auth && $userId = intval($this->gycrypt->decrypt($auth))){
-			$this->userId = $userId;
+		if($auth && $userId = intval($this->gycrypt->decrypt($auth))){			
 			$this->userEntity = $this->pineryModel->dataFetchRow(array('table'=>'pinery_member','where'=>$userId));
+			$this->userId = empty($this->userEntity) ? 0 : $userId;
 			$this->load->vars('userEntity',$this->userEntity);//映射到模板
 			$cityKey = $this->userEntity['city_id'];
 		}

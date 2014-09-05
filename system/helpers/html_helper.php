@@ -502,6 +502,7 @@ if ( ! function_exists('html_tags')){
 	    		$rparams['data-name'] = $params['name'];
 	    		$rparams['id'] = $params['name']."_".$rparams['data-value'];
 	    		$rparams['class'] = isset($params['checked']) && $params['checked'] == $rparams['data-value'] ? $class.' checked' : $class;
+	    		$rparams['href'] = $params['href'] ? $params['href']."&{$params['name']}=".$rparams['data-value'] : $params['href'];
 	    		$html .= html_a($rparams).$params['blank'];
 	    	}
 	    }	
@@ -705,4 +706,79 @@ if ( ! function_exists('html_button')){
 	    $submit .= '/>';
 	    return $submit;
   }
+}
+/**
+* [html_table description]
+* @param  [type] $params [description]
+* @return [type]         [description]
+*/
+if ( ! function_exists('html_table')){
+   function html_table($params=array()){	   
+	    $html ='<table ';
+	    $html .= html_join($params,array('body'));
+	    $html .= '>';
+	    $html .= $params['body'];
+	    $html .= '</table>';
+	    return $html;
+  }
+}
+/**
+* [html_tr description]
+* @param  [type] $params [description]
+* @return [type]         [description]
+*/
+if ( ! function_exists('html_tr')){
+	function html_tr($params=array()){	   
+	    $html ='<tr ';
+	    $html .= html_join($params,array('body'));
+	    $html .= '>';
+	    $html .= $params['body'];
+	    $html .= '</tr>';
+	    return $html;
+	}
+}
+/**
+* [html_th description]
+* @param  [type] $params [description]
+* @return [type]         [description]
+*/
+if ( ! function_exists('html_th')){
+	function html_th($params=array()){	   
+	    $html ='<th ';
+	    $html .= html_join($params,array('body'));
+	    $html .= '>';
+	    $html .= $params['body'];
+	    $html .= '</th>';
+	    return $html;
+	}
+}
+/**
+* [html_td description]
+* @param  [type] $params [description]
+* @return [type]         [description]
+*/
+if ( ! function_exists('html_td')){
+	function html_td($params=array()){	   
+	    $html ='<td ';
+	    $html .= html_join($params,array('body'));
+	    $html .= '>';
+	    $html .= $params['body'];
+	    $html .= '</td>';
+	    return $html;
+	}
+}
+/**
+* [html_form description]
+* @param  [type] $params [description]
+* @return [type]         [description]
+*/
+if ( ! function_exists('html_form')){
+	function html_form($params=array()){	   
+	    $html ='<form ';
+	    $html .= html_join($params,array('body'));
+	    $html .= '>';
+	    $html .= $params['body'];
+	    $html .= '</form>';
+	    return $html;
+	}
 }

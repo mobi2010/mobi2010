@@ -44,7 +44,32 @@ class Property_model extends MY_Model {
 		$params['data'] = $data;
 		return $this->dataInsert($params);
 	}
-
+	/**
+	 * [删除房产信息]
+	 * @param array $argv [description]
+	 */
+	function deleteProperty($argv=array()){			
+		$mode = intval($argv['mode']);		
+		$city_id = intval($argv['city_id']);
+		$ids = implode(',', $argv['ids']);
+		$params['table'] = "pinery_property_{$city_id}_{$mode}";
+		$params['where'] = "id in ({$ids})";
+		return $this->dataDelete($params);		
+	}
+	/**
+	 * [刷新房产信息]
+	 * @param array $argv [description]
+	 */
+	function flashProperty($argv=array()){			
+		$mode = intval($argv['mode']);		
+		$data['update_time'] = time();
+		$city_id = intval($argv['city_id']);
+		$ids = implode(',', $argv['ids']);
+		$params['table'] = "pinery_property_{$city_id}_{$mode}";
+		$params['data'] = $data;
+		$params['where'] = "id in ({$ids})";
+		return $this->dataUpdate($params);		
+	}
 	/**
 	 * [添加房产信息]
 	 * @param array $argv [description]

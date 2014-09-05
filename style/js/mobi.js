@@ -211,7 +211,6 @@
                 $("a[data-name='"+tagsName+"']").removeClass("checked");
                 $("#"+tagsId).addClass("checked");
                 $("input[name='"+tagsName+"']").val(tagsValue);
-                return false;
             })
     	},
         isdate:function(val,format){//验证日期

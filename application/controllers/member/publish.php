@@ -10,11 +10,7 @@ class Publish extends MY_Controller {
 		parent::__construct(array('auth'=>true));
 	}
 	function index(){
-		$this->load->view('pinery/header',$data);
-		$this->load->view('pinery/public/home_topbar',$data);
-		$this->load->view('pinery/member/nav',$data);
-		$this->load->view('pinery/member/index',$data);
-		$this->load->view('pinery/footer',array('footerInfo'=>'no'));
+		redirect('member/publish/property');
 	}
 	/**
 	 * [房产]

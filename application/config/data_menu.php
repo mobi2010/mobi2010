@@ -6,7 +6,7 @@ return array(
 				),
 			'publish'=>array(
 				'title'=>'发布',
-				'child'=>array('index'=>'欢迎','property'=>'房产','car'=>'车辆','market'=>'集市','services'=>'服务')
+				'child'=>array('property'=>'房产','car'=>'车辆','market'=>'集市','services'=>'服务')
 				),
 			'account'=>array(
 				'title'=>'账户',

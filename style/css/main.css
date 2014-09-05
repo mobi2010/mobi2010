@@ -180,3 +180,9 @@ background:#f5f4f3;
 	padding:10px 5px;
 	text-align:center;
 }
+
+.member-table-list{
+	border-collapse:collapse;
+}
+.member-table-list td,.member-table-list th{border:#FCFAF9 1px solid;height: 30px}
+.member-table-list tr:hover{background: #EBEBEB}
