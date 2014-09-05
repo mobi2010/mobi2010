@@ -123,7 +123,7 @@
 			return obj;
 		}
 		var obj = verify();
-		if(obj['code'] != 200){$.mobi.alert(obj);}		
+		if(obj['code'] != 200){obj['msg'] = '请完善个人信息';$.mobi.alert(obj);}		
 
 		$('#sureBtn').click(function(){
 			var obj = verify();

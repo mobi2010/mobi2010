@@ -15,17 +15,26 @@ class Property_model extends MY_Model {
 	function addLocation($argv=array()){	
 		$city_id = intval($argv['city_id']);
 		$map = $argv['map'] ? json_decode($argv['map'],true) : array();
+		$params['table'] = 'pinery_location_'.$city_id;
 		if($argv['community']){
 			$argv['name'] = $argv['community'];
 			$argv['address'] = $map['address'];
+		}elseif($argv['address']){
+			$argv['name'] = $map['name'];
+			$argv['address'] = $map['address'];
 		}
 		$data['name'] = mobi_string_filter($argv['name']);
+		$params['where'] = 'name like binary("'.$data['name'].'")';
+		$row = $this->dataFetchRow($params);
+		if($row['id']){
+			return $row['id'];
+		}
 		$data['address'] = mobi_string_filter($argv['address']);
 		$data['map'] = !empty($map) ? addslashes(json_encode($map)) : "";
 		$data['aliases'] = mobi_string_filter($argv['aliases']);
 		$data['street_id'] = intval($argv['street_id']);
 		$data['road_id'] = intval($argv['road_id']);		
-		$params['table'] = 'pinery_location_'.$city_id;
+		
 		$params['data'] = $data;
 		return $this->dataInsert($params);
 	}

@@ -25,7 +25,8 @@ class Index extends MY_Controller {
 	 * @return [type] [description]
 	 */
 	function property(){
-		$data['modeChecked'] = $mode = intval($_GET['mode']);
+		$mode = intval($_GET['mode']);
+		$data['modeChecked'] = $mode = in_array($mode, array(0,1,2,3)) ? $mode : 0;
 		$data['propertyList'] = $this->property->getPropertyArray(array('mode'=>$mode,'city_id'=>$this->initData['cityKey'],'limit'=>3,'order'=>'id desc'));
 
 		$this->load->view('pinery/header',$data);

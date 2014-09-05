@@ -33,12 +33,12 @@ $propertyData = $initData['propertyData'];
                     $td .= html_td(array('body'=>$propertyData['type'][$value['type']]));
                     $td .= html_td(array('body'=>date('y/m/d H:i:s',$value['update_time'])));
                     $tbody .= html_tr(array('body'=>$td));
-            }            
-        }
-        $td = html_td(array('body'=>html_checkbox(array('name'=>'ckbAll','text'=>'全选'))));
-        $td .= html_td(array('body'=>html_a(array('id'=>'flash','text'=>'刷新','class'=>'btn-green')).'&nbsp;&nbsp;'.html_a(array('id'=>'delete','text'=>'删除','class'=>'btn-red'))));
-        $td .= html_td(array('body'=>html_a(array('id'=>'flash','text'=>'asdfadsf')),'colspan'=>$colspan));
-        $tbody .= html_tr(array('body'=>$td));
+            }   
+            $td = html_td(array('body'=>html_checkbox(array('name'=>'ckbAll','text'=>'全选'))));
+            $td .= html_td(array('body'=>html_a(array('id'=>'flash','text'=>'刷新','class'=>'btn-green')).'&nbsp;&nbsp;'.html_a(array('id'=>'delete','text'=>'删除','class'=>'btn-red'))));
+            $td .= html_td(array('body'=>html_a(array('id'=>'flash','text'=>'asdfadsf')),'colspan'=>$colspan));
+            $tbody .= html_tr(array('body'=>$td));         
+        }        
         $table = html_table(array('class'=>'member-table-list','width'=>'800px','body'=>$tbody));
         echo html_form(array('body'=>$table,'id'=>'propertyListForm'));
         ?>
