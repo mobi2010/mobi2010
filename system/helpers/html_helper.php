@@ -782,3 +782,33 @@ if ( ! function_exists('html_form')){
 	    return $html;
 	}
 }
+/**
+* [html_div description]
+* @param  [type] $params [description]
+* @return [type]         [description]
+*/
+if ( ! function_exists('html_div')){
+	function html_div($params=array()){	   
+	    $html ='<div ';
+	    $html .= html_join($params,array('body'));
+	    $html .= '>';
+	    $html .= $params['body'];
+	    $html .= '</div>';
+	    return $html;
+	}
+}
+/**
+* [html_span description]
+* @param  [type] $params [description]
+* @return [type]         [description]
+*/
+if ( ! function_exists('html_span')){
+	function html_span($params=array()){	   
+	    $html ='<span ';
+	    $html .= html_join($params,array('body'));
+	    $html .= '>';
+	    $html .= $params['body'];
+	    $html .= '</span>';
+	    return $html;
+	}
+}

@@ -1,0 +1,63 @@
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+$cityJsonData = '{"1":{"id":"1","name":"\u71d5\u90ca\u9547","parent_name":"\u5eca\u574a\u5e02","sort":"0"},"2":{"id":"2","name":"\u6dbf\u5dde\u5e02","parent_name":"\u4fdd\u5b9a\u5e02","sort":"0"},"3":{"id":"3","name":"\u4e09\u6cb3\u5e02","parent_name":"\u5eca\u574a\u5e02","sort":"0"},"4":{"id":"4","name":"\u56fa\u5b89\u53bf","parent_name":"\u5eca\u574a\u5e02","sort":"0"},"5":{"id":"5","name":"\u9999\u6cb3\u53bf","parent_name":"\u5eca\u574a\u5e02","sort":"0"},"6":{"id":"6","name":"\u6d9e\u6c34\u53bf","parent_name":"\u4fdd\u5b9a\u5e02","sort":"0"},"7":{"id":"7","name":"\u6dbf\u9e7f\u53bf","parent_name":"\u5f20\u5bb6\u53e3\u5e02","sort":"0"},"8":{"id":"8","name":"\u6000\u6765\u53bf","parent_name":"\u5f20\u5bb6\u53e3\u5e02","sort":"0"},"9":{"id":"9","name":"\u8d64\u57ce\u53bf","parent_name":"\u5f20\u5bb6\u53e3\u5e02","sort":"0"},"10":{"id":"10","name":"\u6ee6\u5e73\u53bf","parent_name":"\u627f\u5fb7\u5e02","sort":"0"},"11":{"id":"11","name":"\u5e7f\u9633\u533a","parent_name":"\u5eca\u574a\u5e02","sort":"0"},"12":{"id":"12","name":"\u5b89\u6b21\u533a","parent_name":"\u5eca\u574a\u5e02","sort":"0"},"13":{"id":"13","name":"\u4e30\u5b81\u6ee1\u65cf\u81ea\u6cbb\u53bf","parent_name":"\u627f\u5fb7\u5e02","sort":"0"},"14":{"id":"14","name":"\u5927\u5382\u56de\u65cf\u81ea\u6cbb\u53bf","parent_name":"\u5eca\u574a\u5e02","sort":"0"}}';
+return json_decode($cityJsonData,true);
+
+
+// return array(		    
+// 			array(
+// 				'name'=>'燕郊镇',
+// 				'parent'=>array('name'=>'廊坊市'),
+// 			),
+// 			array(
+// 				'name'=>'涿州市',
+// 				'parent'=>array('name'=>'保定市'),
+// 			),
+// 			array(
+// 				'name'=>'三河市',
+// 				'parent'=>array('name'=>'廊坊市'),
+// 				),
+// 			array(
+// 				'name'=>'固安县',
+// 				'parent'=>array('name'=>'廊坊市'),
+// 			),
+// 			array(
+// 				'name'=>'香河县',
+// 				'parent'=>array('name'=>'廊坊市'),
+// 			),
+// 			array(
+// 				'name'=>'涞水县',
+// 				'parent'=>array('name'=>'保定市'),
+// 			),
+// 			array(
+// 				'name'=>'涿鹿县',
+// 				'parent'=>array('name'=>'张家口市'),
+// 			),
+// 			array(
+// 				'name'=>'怀来县',
+// 				'parent'=>array('name'=>'张家口市'),
+// 			),
+// 			array(
+// 				'name'=>'赤城县',
+// 				'parent'=>array('name'=>'张家口市'),
+// 			),
+// 			array(
+// 				'name'=>'滦平县',
+// 				'parent'=>array('name'=>'承德市'),
+// 			),
+// 			array(
+// 				'name'=>'广阳区',
+// 				'parent'=>array('name'=>'廊坊市'),
+// 			),
+// 			array(
+// 				'name'=>'安次区',
+// 				'parent'=>array('name'=>'廊坊市'),
+// 			),
+// 			array(
+// 				'name'=>'丰宁满族自治县',
+// 				'parent'=>array('name'=>'承德市'),
+// 			),
+// 			array(
+// 				'name'=>'大厂回族自治县',
+// 				'parent'=>array('name'=>'廊坊市'),
+// 			)					
+// 	);

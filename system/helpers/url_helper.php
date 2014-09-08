@@ -622,3 +622,29 @@ if ( ! function_exists('wbsina_expandurl')){
 		return $json[0]->url_long;
 	}
 }
+
+/**
+ * [mobi_query_string description]
+ * @param  array  $unset [description]
+ * @return [type]        [description]
+ */
+if ( ! function_exists('mobi_query_string')){
+	function mobi_query_string($unset=array()){
+		$queryStirng = $_GET;
+		foreach ($unset as $k=>$v){
+			unset($queryStirng[$v]);
+		}    
+		return http_build_query($queryStirng);
+	}
+}
+/**
+ * [mobi_url description]
+ * @return [type] [description]
+ */
+if ( ! function_exists('mobi_url')){
+	function mobi_query_url($url,$unset=array()){		
+		$queryStirng = mobi_query_string($unset);
+		$url = base_url($url)."?".$queryStirng;
+		return $url; 
+	}
+}

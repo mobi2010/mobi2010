@@ -25,10 +25,20 @@ class Index extends MY_Controller {
 	 * @return [type] [description]
 	 */
 	function property(){
-		$mode = intval($_GET['mode']);
-		$data['modeChecked'] = $mode = in_array($mode, array(0,1,2,3)) ? $mode : 0;
-		$data['propertyList'] = $this->property->getPropertyArray(array('mode'=>$mode,'city_id'=>$this->initData['cityKey'],'limit'=>3,'order'=>'id desc'));
+		$mode = intval($_GET['mid']);
+		$data['city_id'] = $this->initData['cityId'];
+		$data['modeChecked'] = $mode = $this->initData['dataProperty']['mode'][$mode] ? $mode : 1;
+		$data['property_id'] = $data['city_id'].'_'.$mode.'_';
 
+		$page = intval($_GET['p']) > 0 ? intval($_GET['p']) : 1;
+		$size = 2;
+		$start = ($page-1)*$size;
+
+		$total = $this->property->getPropertyCount(array('mode'=>$mode,'city_id'=>$data['city_id']));
+		if($total){
+			$data['propertyList'] = $this->property->getPropertyArray(array('mode'=>$mode,'city_id'=>$data['city_id'],'limit'=>"{$start},{$size}",'order'=>'update_time desc'));
+			$data['pageView'] = $this->load->view('pinery/public/member_page',array('total'=>$total,'pageSize'=>$size),true);
+		}
 		$this->load->view('pinery/header',$data);
 		$this->load->view('pinery/public/home_topbar',$data);
 		$this->load->view('pinery/member/nav',$data);
@@ -36,11 +46,11 @@ class Index extends MY_Controller {
 		$this->load->view('pinery/footer',array('footerInfo'=>'no'));
 	}
 	function flashProperty(){
-		$this->property->flashProperty(array('mode'=>$_POST['mode'],'city_id'=>$this->initData['cityKey'],'ids'=>$_POST['ckbOption']));
+		$this->property->flashProperty(array('mode'=>$_POST['mid'],'city_id'=>$this->initData['cityId'],'ids'=>$_POST['ckbOption']));
 		$this->printer();
 	}
 	function deleteProperty(){
-		$this->property->deleteProperty(array('mode'=>$_POST['mode'],'city_id'=>$this->initData['cityKey'],'ids'=>$_POST['ckbOption']));
+		$this->property->deleteProperty(array('mode'=>$_POST['mid'],'city_id'=>$this->initData['cityId'],'ids'=>$_POST['ckbOption']));
 		$this->printer();
 	}
 	/**

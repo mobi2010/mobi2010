@@ -1,5 +1,5 @@
 <?php
-$propertyData = $initData['propertyData'];
+$dataProperty = $initData['dataProperty'];
 ?>
 <script src="/style/js/uploadify/jquery.uploadify.min.js" type="text/javascript"></script>
 <link rel="stylesheet" type="text/css" href="/style/js/uploadify/uploadify.css">
@@ -12,13 +12,13 @@ $propertyData = $initData['propertyData'];
             <tr id='mode_tr'>
                 <td class="left" width="80"><span style="color: red">*</span>方式：</td>
                 <td >
-                    <?=html_tags(array('checked'=>0,'name'=>'mode','class'=>'btn-grey','options'=>$propertyData["mode"],'blank'=>'&nbsp;'));?>
+                    <?=html_tags(array('checked'=>0,'name'=>'mode','class'=>'btn-grey-s','options'=>$dataProperty["mode"],'blank'=>'&nbsp;','checked'=>1));?>
                 </td>
             </tr>    
             <tr id='type_tr'>
                 <td class="left"><span style="color: red">*</span>类型：</td>
                 <td >
-                    <?=html_tags(array('checked'=>0,'name'=>'type','class'=>'btn-grey','options'=>$propertyData["type"],'blank'=>'&nbsp;'));?>
+                    <?=html_tags(array('checked'=>0,'name'=>'type','class'=>'btn-grey-s','options'=>$dataProperty["type"],'blank'=>'&nbsp;','checked'=>1));?>
                 </td>
             </tr>
             <tr id="community_tr">
@@ -72,13 +72,13 @@ $propertyData = $initData['propertyData'];
             <tr id='toward_tr'>
                 <td class="left"><span style="color: red">*</span>朝向：</td>
                 <td>
-                <?=html_tags(array('checked'=>4,'name'=>'toward','class'=>'btn-grey','options'=>$propertyData["toward"],'blank'=>'&nbsp;'));?>
+                <?=html_tags(array('checked'=>5,'name'=>'toward','class'=>'btn-grey-s','options'=>$dataProperty["toward"],'blank'=>'&nbsp;'));?>
                 </td>
             </tr>
             <tr id='decoration_tr'>
                 <td class="left"><span style="color: red">*</span>装修：</td>
                 <td>
-                    <?=html_tags(array('checked'=>2,'name'=>'decoration','class'=>'btn-grey','options'=>$propertyData["decoration"],'blank'=>'&nbsp;'));?>
+                    <?=html_tags(array('checked'=>3,'name'=>'decoration','class'=>'btn-grey-s','options'=>$dataProperty["decoration"],'blank'=>'&nbsp;'));?>
                 </td>
             </tr>            
             <tr id='title_tr'>
@@ -113,7 +113,7 @@ $propertyData = $initData['propertyData'];
             $('#propertyTable tr').show();   
             var hideAttr = ['address','price','property','building'];    
            
-            if($.inArray(value, [1,3]) > -1){
+            if($.inArray(value, [2,4]) > -1){
                 hideAttr = ['address','community','floors','room','area','rent','price','property','building','toward','decoration','image'];
             }else if(2 == value){
                 hideAttr = ['address','rent'];
@@ -125,18 +125,18 @@ $propertyData = $initData['propertyData'];
             modeToggle(value);
             //类型
             $("a[data-name='type']").removeClass("checked");
-            $("#type_0").addClass("checked");
-            $("#type").val(0);
+            $("#type_1").addClass("checked");
+            $("#type").val(1);
         })
         //类型
         $("a[data-name='type']").click(function(){
             var mode = parseInt($('#mode').val());
-            if($.inArray(mode, [1,3]) > -1){return false;}
+            if($.inArray(mode, [2,4]) > -1){return false;}
             var showAttr = [];
             var hideAttr = [];
             modeToggle(mode);
             var value = parseInt($(this).attr('data-value')); 
-            if($.inArray(value, [3,4,5]) > -1){
+            if($.inArray(value, [4,5,6]) > -1){
                 showAttr = ['address'];
                 hideAttr = ['community','floors','decoration','room','toward','property','building'];
             }

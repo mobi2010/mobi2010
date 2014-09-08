@@ -13,7 +13,7 @@
 			</tr>
 			<tr>
 				<td class="left">来源：</td>
-				<td colspan="2"><?=$initData['sourceData'][$userEntity['source']];?></td>
+				<td colspan="2"><?=$initData['dataSource'][$userEntity['source']];?></td>
 			</tr>
 			<?php
 			if($userEntity['source'] == 1):

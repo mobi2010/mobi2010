@@ -5,7 +5,7 @@
 			<table width="255" border="0" >
 			<tr>
 				<td class="left">来源:</td>
-				<td><?=html_radios(array('options'=>$initData['sourceData'],'name'=>'source'));?></td>
+				<td><?=html_radios(array('options'=>$initData['dataSource'],'name'=>'source','checked'=>1,'blank'=>'&nbsp;&nbsp;'));?><label style="color: red;font-size: 11px">(注册后不能修改)</label></td>
 			</tr>
 			<tr>
 				<td class="left">帐号:</td>
@@ -21,7 +21,7 @@
 		</table>
 
 
-			<!-- <div class="register-tr" style="text-align:left">来源：<?=html_radios(array('options'=>$initData['sourceData'],'name'=>'source'));?></div>
+			<!-- <div class="register-tr" style="text-align:left">来源：<?=html_radios(array('options'=>$initData['dataSource'],'name'=>'source'));?></div>
 			<div class="register-tr">帐号：<input id="account" type="text" class="input-text" value="手机号或邮箱" /></div>
 			<div class="register-tr">密码：<input id="password" type="password" class="input-password" /></div>
 			<div class="register-tr"><a id="registerSure" class="btn-blue">提交</a></div> -->

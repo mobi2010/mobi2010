@@ -90,19 +90,24 @@ input[type="text"]:focus, textarea:focus, input[type="password"]:focus {
 }
 /**button**/
 .btn-grey{cursor: pointer;display: inline-block;vertical-align: middle;text-align:center;padding:.5em 2em;background:#EBEBEB;color:#333333;border:#CCCCCC thin solid;}
-.btn-grey:hover,.btn-grey.on{background:#F4F4F4;color:#333333;text-decoration:none;}
+.btn-grey-s{cursor: pointer;display: inline-block;vertical-align: middle;text-align:center;padding:5px 15px;background:#EBEBEB;color:#333333;border:#CCCCCC thin solid;}
+.btn-grey-s:hover,.btn-grey-s.on,.btn-grey:hover,.btn-grey.on{background:#F4F4F4;color:#333333;text-decoration:none;}
 
 .btn-blue{cursor: pointer;display: inline-block;vertical-align: middle;text-align:center;padding:.5em 2em;background:#308EB5;color: #fff;border:#308EB5 thin solid;}
-.btn-blue:hover,.btn-blue.on{background:#00B7D6;color: #fff;text-decoration:none;}
+.btn-blue-s{cursor: pointer;display: inline-block;vertical-align: middle;text-align:center;padding:5px 15px;background:#308EB5;color: #fff;border:#308EB5 thin solid;}
+.btn-blue-s:hover,.btn-blue-s.on,.btn-blue:hover,.btn-blue.on{background:#00B7D6;color: #fff;text-decoration:none;}
 
 .btn-green{cursor: pointer;display: inline-block;vertical-align: middle;text-align:center;padding:.5em 2em;background:#8DB800;color: #fff;border:#79B800 thin solid;}
-.btn-green:hover,.btn-green.on{background:#AED505;color: #fff;text-decoration:none;}
+.btn-green-s{cursor: pointer;display: inline-block;vertical-align: middle;text-align:center;padding:5px 15px;background:#8DB800;color: #fff;border:#79B800 thin solid;}
+.btn-green-s:hover,.btn-green-s.on,.btn-green:hover,.btn-green.on{background:#AED505;color: #fff;text-decoration:none;}
 
 .btn-red{cursor: pointer;display: inline-block;vertical-align: middle;text-align:center;padding:.5em 2em;background:#E65E42;color: #fff;border:#FA7D17 thin solid;}
-.btn-red:hover,.btn-red.on{background:#FF734A;color: #fff;text-decoration:none;}
+.btn-red-s{cursor: pointer;display: inline-block;vertical-align: middle;text-align:center;padding:5px 15px;background:#E65E42;color: #fff;border:#FA7D17 thin solid;}
+.btn-red-s:hover,.btn-red-s.on,.btn-red:hover,.btn-red.on{background:#FF734A;color: #fff;text-decoration:none;}
 
 .btn-grey.checked,.btn-orange{cursor: pointer;display: inline-block;vertical-align: middle;text-align:center;padding:.5em 2em;background:#FE7203;color: #fff;border:#FE7203 thin solid;}
-.btn-grey.checked:hover,.btn-orange:hover,.btn-orange.on{background:#FC9442;color: #fff;text-decoration:none;}
+.btn-grey-s.checked,.btn-orange-s{cursor: pointer;display: inline-block;vertical-align: middle;text-align:center;padding:5px 15px;background:#FE7203;color: #fff;border:#FE7203 thin solid;}
+.btn-grey-s.on,.btn-grey-s.checked:hover,.btn-grey.checked:hover,.btn-orange:hover,.btn-orange.on{background:#FC9442;color: #fff;text-decoration:none;}
 
 /**plugins**/
 
@@ -150,23 +155,28 @@ background:#f5f4f3;
 }
 
 /**msg**/
+.notice{
+	width:950px;
+	font-size: 13px;
+	margin:0 auto;
+	border-radius:5px;
+}
 .dialog{
 	border-radius:5px;
 	width:200px;
 	font-size: 13px;
 	position:absolute;
 	filter:alpha(opacity=90);
-	opacity:0.9;
-	
+	opacity:0.9;	
 }
-.dialog.success{
+.notice.success,.dialog.success{
 	background:#EBF8A4 url("/style/img/msg_success.png");
     background-position: 5px 50%;
     background-repeat: no-repeat;
 	border:#a2d246 thin solid;
 	padding:5px 0 5px 25px;
 }
-.dialog.error{
+.notice.error,.dialog.error{
 	background:#FFC0CB url("/style/img/msg_error.png");
     background-position: 5px 50%;
     background-repeat: no-repeat;
@@ -181,8 +191,16 @@ background:#f5f4f3;
 	text-align:center;
 }
 
+/**会员后台**/
 .member-table-list{
 	border-collapse:collapse;
 }
 .member-table-list td,.member-table-list th{border:#FCFAF9 1px solid;height: 30px}
 .member-table-list tr:hover{background: #EBEBEB}
+
+.member-page{
+	display:inline-block;
+}
+.member-page a{cursor: pointer;display: inline-block;vertical-align: middle;text-align:center;padding:5px 10px;background:#EBEBEB;color:#333333;border:#CCCCCC thin solid;}
+
+.member-page a.on{background:#FE7203;color: #fff;border:#FE7203 thin solid;}

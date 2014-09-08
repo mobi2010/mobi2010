@@ -41,7 +41,7 @@ class MY_Model extends CI_Model {
     * $param["table"] = "table_name";
     * $param["where"] = "id=1";
     */
-    function dataFetchSum($param=array()){     
+    function dataFetchCount($param=array()){     
         $table = $param['table'];   
         $where = $this->dataWhere($param['where']);        
         $this->sqls[] = $sql = "select count(*) as sum from {$table} $where limit 1";

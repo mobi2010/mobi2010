@@ -18,9 +18,9 @@ class Map extends MY_Controller {
 		$query = mobi_string_filter($_REQUEST['query']);
 		$res = array();
 		if($query){
-			$dataCitys = $this->initData['dataCitys'][$this->initData['cityKey']];
-			$data['query'] = $dataCitys['name'].$query;//检索关键字
-			$data['region'] = $dataCitys['parent']['name'];//检索城市
+			$dataCity = $this->initData['dataCity'][$this->initData['cityId']];
+			$data['query'] = $dataCity['name'].$query;//检索关键字
+			$data['region'] = $dataCity['parent']['name'];//检索城市
 			$resData = json_decode($this->maps->search($data));
 			$res['code'] = $resData->status == 0 ? 200 : 500;
 			$res['msg'] = $resData->message;

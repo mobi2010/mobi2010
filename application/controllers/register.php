@@ -49,7 +49,7 @@ class Register extends MY_Controller {
 			$data['source'] = intval($_POST['source']);
 			$data['addtime'] = $data['logintime'] = time();
 			$data['step'] = 1;
-			$data['city_id'] = $this->initData['cityKey'];
+			$data['city_id'] = $this->initData['cityId'];
 			$data['avatar'] = 'http://pinery.b0.upaiyun.com/web/avatar.jpg';
 			$data['long2ip'] = ip2long($_SERVER['REMOTE_ADDR']);
 			$accountId = $this->pineryModel->dataInsert(array('table'=>'pinery_member','data'=>$data));
@@ -66,7 +66,7 @@ class Register extends MY_Controller {
 	public function step2()
 	{
 		//$this->auth('register');
-		$data['sourceData'] = array('个人','机构');
+		$data['dataSource'] = array('个人','机构');
 		$data['bodyClass'] = 'body-nologin';
 		$this->load->view('pinery/header',$data);
 		$this->load->view('pinery/public/nologin_topbar',$data);

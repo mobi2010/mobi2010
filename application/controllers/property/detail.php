@@ -14,9 +14,18 @@ class Detail extends MY_Controller {
 	 * @return [type] [description]
 	 */
 	function index(){
-		var_dump($_GET);
+		$ids = explode('_', $_GET['id']);
+		$city_id = $this->initData['dataCity'][$ids[0]] ? intval($ids[0]) : 1; 
+		$mode = $this->initData['dataProperty']['mode'][$ids[1]] ? intval($ids[1]) : 1;
+		$id = intval($ids[2]);
+		$data['propertyRow'] = $this->property->getPropertyRow(array('city_id'=>$city_id,'mode'=>$mode,'id'=>$id));
 		$this->load->view('pinery/header',$data);
 		$this->load->view('pinery/public/home_topbar',$data);
+		if(empty($data['propertyRow'])){
+			$this->load->view('pinery/property/detail_error',$data);
+		}else{
+			$this->load->view('pinery/property/detail',$data);
+		}
 		$this->load->view('pinery/footer');
 	}
 }	
