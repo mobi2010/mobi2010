@@ -34,7 +34,10 @@ a:hover{color:#00B7D6}
 .hide{display:none;}
 .show{display:'';}
 
-.center{text-align:center}
+.text-center{text-align:center}
+.text-left{text-align:left}
+.text-right{text-align:right}
+
 /**home**/
 .home-body{clear:both;width:980px;margin:0 auto;}
 
@@ -107,7 +110,7 @@ input[type="text"]:focus, textarea:focus, input[type="password"]:focus {
 
 .btn-grey.checked,.btn-orange{cursor: pointer;display: inline-block;vertical-align: middle;text-align:center;padding:.5em 2em;background:#FE7203;color: #fff;border:#FE7203 thin solid;}
 .btn-grey-s.checked,.btn-orange-s{cursor: pointer;display: inline-block;vertical-align: middle;text-align:center;padding:5px 15px;background:#FE7203;color: #fff;border:#FE7203 thin solid;}
-.btn-grey-s.on,.btn-grey-s.checked:hover,.btn-grey.checked:hover,.btn-orange:hover,.btn-orange.on{background:#FC9442;color: #fff;text-decoration:none;}
+.btn-orange-s:hover,.btn-grey-s.on,.btn-grey-s.checked:hover,.btn-grey.checked:hover,.btn-orange:hover,.btn-orange.on{background:#FC9442;color: #fff;text-decoration:none;}
 
 /**plugins**/
 

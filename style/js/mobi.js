@@ -127,7 +127,7 @@
 
             var searchItem = function(itemIndex){//选项列表
                 itemKey = itemIndex;
-                var itemLength = $container.find('dd').length;//结果长度
+                var itemLength = $container.find('dd').length;//结果长度                
                 if(itemKey === null){
                     $container.hide();
                     return false;
@@ -151,7 +151,7 @@
             //autocomplete = off 禁用浏览器内置的自动完成机制 
             $keyWord.attr("autocomplete","off").keyup(function(event){
                 var keyCode = event.keyCode;                
-
+                $('#'+obj['hideValue']).val('');
                 if(keyCode > 40 || keyCode == 8 || keyCode == 32){
                     //<=40 特殊键，8退格键 32空格
                     var query = $keyWord.val();

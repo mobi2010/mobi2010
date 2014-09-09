@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 3.5.2
+-- version 3.4.5
 -- http://www.phpmyadmin.net
 --
 -- 主机: localhost
--- 生成日期: 2014 年 09 月 09 日 02:27
--- 服务器版本: 5.5.25a
--- PHP 版本: 5.4.4
+-- 生成日期: 2014 年 09 月 09 日 13:11
+-- 服务器版本: 5.5.16
+-- PHP 版本: 5.3.8
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -96,6 +96,28 @@ INSERT INTO `pinery_city` (`id`, `name`, `parent_name`, `sort`) VALUES
 (12, '安次区', '廊坊市', 0),
 (13, '丰宁满族自治县', '承德市', 0),
 (14, '大厂回族自治县', '廊坊市', 0);
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_feedback`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_feedback` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `userid` bigint(20) unsigned NOT NULL,
+  `content` text NOT NULL,
+  `add_time` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='反馈表' AUTO_INCREMENT=3 ;
+
+--
+-- 转存表中的数据 `pinery_feedback`
+--
+
+INSERT INTO `pinery_feedback` (`id`, `userid`, `content`, `add_time`) VALUES
+(1, 0, 'adfadf', 1410249310),
+(2, 5, 'adfadf', 1410249631);
 
 -- --------------------------------------------------------
 
@@ -502,6 +524,124 @@ CREATE TABLE IF NOT EXISTS `pinery_property_content_9` (
   PRIMARY KEY (`id`),
   KEY `userid` (`userid`,`title`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='房产内容表_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_decoration`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_decoration` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(10) NOT NULL COMMENT '名称',
+  `sort` int(11) NOT NULL COMMENT '排序',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='房产装修表' AUTO_INCREMENT=6 ;
+
+--
+-- 转存表中的数据 `pinery_property_decoration`
+--
+
+INSERT INTO `pinery_property_decoration` (`id`, `name`, `sort`) VALUES
+(1, '豪华装修', 0),
+(2, '精装修', 0),
+(3, '中等装修', 0),
+(4, '简单装修', 0),
+(5, '毛坯', 0);
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_mode`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_mode` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(10) NOT NULL COMMENT '名称',
+  `sort` int(11) NOT NULL COMMENT '排序',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='房产方式表' AUTO_INCREMENT=5 ;
+
+--
+-- 转存表中的数据 `pinery_property_mode`
+--
+
+INSERT INTO `pinery_property_mode` (`id`, `name`, `sort`) VALUES
+(1, '出租', 0),
+(2, '求租', 0),
+(3, '出售', 0),
+(4, '求购', 0);
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_toward`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_toward` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(10) NOT NULL COMMENT '名称',
+  `sort` int(11) NOT NULL COMMENT '排序',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='房产朝向表' AUTO_INCREMENT=13 ;
+
+--
+-- 转存表中的数据 `pinery_property_toward`
+--
+
+INSERT INTO `pinery_property_toward` (`id`, `name`, `sort`) VALUES
+(1, '东', 0),
+(2, '南', 0),
+(3, '东', 0),
+(4, '南', 0),
+(5, '西', 0),
+(6, '北', 0),
+(7, '南北', 0),
+(8, '东西', 0),
+(9, '东南', 0),
+(10, '西南', 0),
+(11, '东北', 0),
+(12, '西北', 0);
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_type`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_type` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(10) NOT NULL COMMENT '名称',
+  `sort` int(11) NOT NULL COMMENT '排序',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='房产类型表' AUTO_INCREMENT=7 ;
+
+--
+-- 转存表中的数据 `pinery_property_type`
+--
+
+INSERT INTO `pinery_property_type` (`id`, `name`, `sort`) VALUES
+(1, '住宅楼', 0),
+(2, '别墅', 0),
+(3, '商住两用', 0),
+(4, '写字楼', 0),
+(5, '商铺', 0),
+(6, '自建房/厂房/仓库', 0);
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_road_street`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_road_street` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(20) NOT NULL COMMENT '名称',
+  `type` tinyint(4) NOT NULL COMMENT '类型1路2街',
+  `city_id` int(11) NOT NULL COMMENT '城市id',
+  `sort` int(11) NOT NULL COMMENT '排序',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='路和街信息表' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 

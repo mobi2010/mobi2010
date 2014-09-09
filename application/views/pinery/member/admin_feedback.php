@@ -5,7 +5,7 @@
 	<div class="member-content">
 		<table width="500" border="0" >
 			<tr>
-				<td>内容：</td>
+				<td>留言内容：</td>
 				<td><?=html_textarea(array('name'=>'content','class'=>'wp400 hp100'));?></td>
 			</tr>
 			<tr>

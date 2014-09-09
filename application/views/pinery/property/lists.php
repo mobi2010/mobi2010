@@ -7,7 +7,8 @@ $dataProperty = $initData['dataProperty'];
 <div class="home-body">
     <div class="home-body-box">
         <?php
-        echo html_div(array('style'=>'margin-bottom:5px','body'=>'类型：'.html_tags(array('checked'=>$typeChecked,'name'=>'tid','class'=>'btn-grey-s','options'=>array(0=>'全部')+$dataProperty["type"],'blank'=>'&nbsp;','href'=>mobi_query_url('property/lists',array('tid'))))));
+        echo html_div(array('body'=>html_text(array('name'=>'q')).html_a(array('class'=>'btn-orange-s','text'=>'搜索','id'=>'search')),'class'=>'text-right'));
+        echo html_div(array('style'=>'margin-bottom:5px','body'=>'类型：'.html_tags(array('checked'=>$typeChecked,'name'=>'tid','sval'=>'name','class'=>'btn-grey-s','options'=>array(0=>array('name'=>'全部'))+$dataProperty["type"],'blank'=>'&nbsp;','href'=>mobi_query_url('property/lists',array('tid'))))));
         
         echo html_div(array('style'=>'margin-bottom:5px','body'=>'卧室：'.html_tags(array('checked'=>$roomChecked,'name'=>'rid','class'=>'btn-grey-s','options'=>$roomData,'blank'=>'&nbsp;','href'=>mobi_query_url('property/lists',array('rid'))))));
         
@@ -31,7 +32,7 @@ $dataProperty = $initData['dataProperty'];
                         $td .= html_td(array('body'=>$value['area']));
                         $td .= $modeChecked == 1 ? html_td(array('body'=>$value['rent'])) : html_td(array('body'=>$value['price']));
                     }
-                    $td .= html_td(array('body'=>$dataProperty['type'][$value['type']]));
+                    $td .= html_td(array('body'=>$dataProperty['type'][$value['type']]['name']));
                     $td .= html_td(array('body'=>date('y/m/d H:i:s',$value['update_time'])));
                     $tbody .= html_tr(array('body'=>$td));
             }   
@@ -45,6 +46,11 @@ $dataProperty = $initData['dataProperty'];
 </div>
 <script type="text/javascript">
     $(document).ready(function() {  
+        $('#search').click(function(){
+            var q = $('#q').val();           
+            $.mobi.location("<?=mobi_query_url('property/lists',array('q'))?>&q="+q);
+            return false;
+        })
         $('#ckbAll').click(function(){
             $("input[name='ckbOption[]']").prop("checked",$(this).prop('checked'));
         })  

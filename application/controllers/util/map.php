@@ -20,7 +20,7 @@ class Map extends MY_Controller {
 		if($query){
 			$dataCity = $this->initData['dataCity'][$this->initData['cityId']];
 			$data['query'] = $dataCity['name'].$query;//检索关键字
-			$data['region'] = $dataCity['parent']['name'];//检索城市
+			$data['region'] = $dataCity['parent_name'];//检索城市
 			$resData = json_decode($this->maps->search($data));
 			$res['code'] = $resData->status == 0 ? 200 : 500;
 			$res['msg'] = $resData->message;
