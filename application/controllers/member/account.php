@@ -12,18 +12,7 @@ class Account extends MY_Controller {
 	}
 	function index(){
 		redirect('member/account/info');
-	}
-	/**
-	 * [头像]
-	 * @return [type] [description]
-	 */
-	function avatar(){
-		$this->load->view('pinery/header',$data);
-		$this->load->view('pinery/public/home_topbar',$data);
-		$this->load->view('pinery/member/nav',$data);
-		$this->load->view('pinery/member/account_avatar',$data);
-		$this->load->view('pinery/footer',array('footerInfo'=>'no'));
-	}
+	}	
 	/**
 	 * [个人资料]
 	 * @return [type] [description]

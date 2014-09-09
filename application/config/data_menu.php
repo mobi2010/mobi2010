@@ -11,5 +11,9 @@ return array(
 			'account'=>array(
 				'title'=>'账户',
 				'child'=>array('info'=>'基本信息','updatePwd'=>'修改密码')
+				),
+			'admin'=>array(
+				'title'=>'管理员',
+				'child'=>array('feedback'=>'留言')
 				)
 		);

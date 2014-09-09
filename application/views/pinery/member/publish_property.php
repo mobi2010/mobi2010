@@ -12,13 +12,13 @@ $dataProperty = $initData['dataProperty'];
             <tr id='mode_tr'>
                 <td class="left" width="80"><span style="color: red">*</span>方式：</td>
                 <td >
-                    <?=html_tags(array('checked'=>0,'name'=>'mode','class'=>'btn-grey-s','options'=>$dataProperty["mode"],'blank'=>'&nbsp;','checked'=>1));?>
+                    <?=html_tags(array('name'=>'mode','class'=>'btn-grey-s','options'=>$dataProperty["mode"],'sval'=>'name','blank'=>'&nbsp;','checked'=>1));?>
                 </td>
             </tr>    
             <tr id='type_tr'>
                 <td class="left"><span style="color: red">*</span>类型：</td>
                 <td >
-                    <?=html_tags(array('checked'=>0,'name'=>'type','class'=>'btn-grey-s','options'=>$dataProperty["type"],'blank'=>'&nbsp;','checked'=>1));?>
+                    <?=html_tags(array('name'=>'type','class'=>'btn-grey-s','options'=>$dataProperty["type"],'sval'=>'name','blank'=>'&nbsp;','checked'=>1));?>
                 </td>
             </tr>
             <tr id="community_tr">
@@ -72,13 +72,13 @@ $dataProperty = $initData['dataProperty'];
             <tr id='toward_tr'>
                 <td class="left"><span style="color: red">*</span>朝向：</td>
                 <td>
-                <?=html_tags(array('checked'=>5,'name'=>'toward','class'=>'btn-grey-s','options'=>$dataProperty["toward"],'blank'=>'&nbsp;'));?>
+                <?=html_tags(array('checked'=>5,'name'=>'toward','class'=>'btn-grey-s','options'=>$dataProperty["toward"],'sval'=>'name','blank'=>'&nbsp;'));?>
                 </td>
             </tr>
             <tr id='decoration_tr'>
                 <td class="left"><span style="color: red">*</span>装修：</td>
                 <td>
-                    <?=html_tags(array('checked'=>3,'name'=>'decoration','class'=>'btn-grey-s','options'=>$dataProperty["decoration"],'blank'=>'&nbsp;'));?>
+                    <?=html_tags(array('checked'=>3,'name'=>'decoration','class'=>'btn-grey-s','options'=>$dataProperty["decoration"],'sval'=>'name','blank'=>'&nbsp;'));?>
                 </td>
             </tr>            
             <tr id='title_tr'>
