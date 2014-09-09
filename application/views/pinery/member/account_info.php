@@ -3,9 +3,9 @@
 <div class="member-body">
 	<?php $this->load->view('pinery/member/menu');?>
 	<div class="member-content">
-		<table width="320" border="0" >			
+		<table width="350" border="0" >			
 			<tr>
-				<td class="left">头像：</td>
+				<td class="left" width="80px">头像：</td>
 				<td colspan="2">
 					<input id="avatarUpload" name="avatarUpload" type="file" multiple="true">
 					<?=html_hidden(array('name'=>'avatarPath','value'=>$userEntity["avatar"]));?>
@@ -16,7 +16,7 @@
 				<td colspan="2"><?=$initData['dataSource'][$userEntity['source']];?></td>
 			</tr>
 			<?php
-			if($userEntity['source'] == 1):
+			if($userEntity['source'] == 2):
 			?>
 				<td class="left"><span style="color: red">*</span>机构名称：</td>
 				<td colspan="2"><?=html_text(array('value'=>$userEntity['org_name'],'name'=>'org_name','class'=>'wp200'))?></td>
@@ -100,7 +100,7 @@
 				obj['msg'] = '座机不正确';
 				return obj;
 			}
-			vdata['tel'] = $('#tel').val();
+			vdata['tel'] = $.mobi.isnull($('#tel').val(),'如:0312-3861234') ? '' : $('#tel').val();
 
 			if($('#qq').val() && !$.mobi.isnumber($('#qq').val())){
 				obj['msg'] = 'QQ号不正确';

@@ -7,7 +7,19 @@ class Property_model extends MY_Model {
 	{
 		parent::__construct();
 	}
+	/**
+	 * [修改浏览数]
+	 * @return [type] [description]
+	 */
+	function updateViewnum($argv=array()){
+		$mode = intval($argv['mode']);
+		$city_id = intval($argv['city_id']);
+		$id = intval($argv['id']);
+		$viewNum = mt_rand(1, 3);
+		$sql = "update pinery_property_{$city_id}_{$mode} set view_num=view_num+{$viewNum} where id={$id} limit 1";
+		return $this->query($sql);
 
+	}
 	/**
 	 * [添加位置]
 	 * @param array $argv [description]

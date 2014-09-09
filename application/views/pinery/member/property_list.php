@@ -9,13 +9,14 @@ $dataProperty = $initData['dataProperty'];
     <div class="member-content">
         <?php
         $colspan = 6;
-        $th = html_th(array('colspan'=>$colspan,'body'=>html_tags(array('checked'=>$modeChecked,'name'=>'mid','class'=>'btn-grey-s','options'=>$dataProperty["mode"],'blank'=>'&nbsp;','href'=>base_url('member/index/property/?')))));
+        $th = html_th(array('colspan'=>$colspan,'body'=>html_tags(array('sval'=>'name','checked'=>$modeChecked,'name'=>'mid','class'=>'btn-grey-s','options'=>$dataProperty["mode"],'blank'=>'&nbsp;','href'=>base_url('member/index/property/?')))));
         $tbody = html_tr(array('body'=>$th));
         if(empty($propertyList)){
             $th = html_th(array('colspan'=>$colspan,'body'=>"没有数据,去".html_a(array('text'=>'发布信息','href'=>base_url('member/publish/property')))));
             $tbody .= html_tr(array('body'=>$th));
         }else{
-            $th = html_th(array('colspan'=>2,'body'=>'标题'));
+            $th = html_th(array('width'=>'50px'));
+            $th .= html_th(array('body'=>'标题'));
             if(in_array($modeChecked, array(1,3))){
                 $th .= html_th(array('body'=>'面积(㎡)'));
                 $th .= $modeChecked == 1 ? html_th(array('body'=>'租金(元/月)')) : html_th(array('body'=>'售价(万元)'));
@@ -25,13 +26,13 @@ $dataProperty = $initData['dataProperty'];
             $tbody .= html_tr(array('body'=>$th));
             foreach ($propertyList as $key => $value) {
                     $td = html_td(array('body'=>html_checkbox(array('name'=>'ckbOption[]','value'=>$value['id']))));
-                    $td .= html_td(array('body'=>html_a(array('text'=>$value['title'],'href'=>base_url('property/detail/?id='.$property_id.$value['id']),'target'=>"_blank"))));
+                    $td .= html_td(array('body'=>html_a(array('text'=>$value['title'],'href'=>base_url('property/detail/?id='.$property_id.$value['id']),'target'=>"_blank")),'align'=>'center'));
                     if(in_array($modeChecked, array(1,3))){
-                        $td .= html_td(array('body'=>$value['area']));
-                        $td .= $modeChecked == 1 ? html_td(array('body'=>$value['rent'])) : html_td(array('body'=>$value['price']));
+                        $td .= html_td(array('body'=>$value['area'],'align'=>'center'));
+                        $td .= $modeChecked == 1 ? html_td(array('body'=>$value['rent'],'align'=>'center')) : html_td(array('body'=>$value['price'],'align'=>'center'));
                     }
-                    $td .= html_td(array('body'=>$dataProperty['type'][$value['type']]));
-                    $td .= html_td(array('body'=>date('y/m/d H:i:s',$value['update_time'])));
+                    $td .= html_td(array('body'=>$dataProperty['type'][$value['type']]['name'],'align'=>'center'));
+                    $td .= html_td(array('body'=>date('y/m/d H:i:s',$value['update_time']),'align'=>'center'));
                     $tbody .= html_tr(array('body'=>$td));
             }   
             $td = html_td(array('body'=>html_checkbox(array('name'=>'ckbAll','text'=>'全选'))));

@@ -1,13 +1,11 @@
 <?php
 $dataProperty = $initData['dataProperty'];
 ?>
-<script src="/style/js/uploadify/jquery.uploadify.min.js" type="text/javascript"></script>
-<link rel="stylesheet" type="text/css" href="/style/js/uploadify/uploadify.css">
 
 <div class="home-body">
     <div class="home-body-box">
         <?php
-        echo html_div(array('body'=>html_text(array('name'=>'q')).html_a(array('class'=>'btn-orange-s','text'=>'搜索','id'=>'search')),'class'=>'text-right'));
+        echo html_div(array('body'=>html_text(array('name'=>'q','value'=>$q)).html_a(array('class'=>'btn-orange-s','text'=>'搜索','id'=>'search')),'class'=>'text-right'));
         echo html_div(array('style'=>'margin-bottom:5px','body'=>'类型：'.html_tags(array('checked'=>$typeChecked,'name'=>'tid','sval'=>'name','class'=>'btn-grey-s','options'=>array(0=>array('name'=>'全部'))+$dataProperty["type"],'blank'=>'&nbsp;','href'=>mobi_query_url('property/lists',array('tid'))))));
         
         echo html_div(array('style'=>'margin-bottom:5px','body'=>'卧室：'.html_tags(array('checked'=>$roomChecked,'name'=>'rid','class'=>'btn-grey-s','options'=>$roomData,'blank'=>'&nbsp;','href'=>mobi_query_url('property/lists',array('rid'))))));
@@ -51,35 +49,5 @@ $dataProperty = $initData['dataProperty'];
             $.mobi.location("<?=mobi_query_url('property/lists',array('q'))?>&q="+q);
             return false;
         })
-        $('#ckbAll').click(function(){
-            $("input[name='ckbOption[]']").prop("checked",$(this).prop('checked'));
-        })  
-        $("input[name='ckbOption[]']").click(function(){
-            $('#ckbAll').prop("checked",false);
-        })     
-        $('#flash,#delete').click(function(){
-            var dialog = {'code':400};
-            if($("input[name='ckbOption[]']:checked").length == 0){
-                dialog['msg'] = '请选择信息';
-                $.mobi.alert(dialog);
-                return false;
-            }
-            var id = $(this).attr('id');
-            if(id == 'delete' && confirm("确定删除?")){
-                $.post("<?=base_url('member/index/deleteProperty');?>",$('#propertyListForm').serialize(),function(dt){
-                    $.mobi.alert(dt);
-                    $.mobi.refresh();
-                })                
-                return false;
-            }
-            if(id == 'flash'){
-                $.post("<?=base_url('member/index/flashProperty');?>",$('#propertyListForm').serialize(),function(dt){
-                    $.mobi.alert(dt);
-                    $.mobi.refresh();
-                }) 
-                return false;
-            }
-        })
-
     })
 </script>

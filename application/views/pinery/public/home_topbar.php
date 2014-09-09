@@ -14,7 +14,9 @@
 			echo "&nbsp;";
 			echo html_a(array('id'=>'registerBtn','href'=>base_url("register"),'class'=>"btn-red",'text'=>'注册'));
 		}else{
-			echo html_a(array('id'=>'memberName','href'=>base_url("member/index"),'text'=>$userEntity['names']));
+			$showName = $userEntity['names'] ? $userEntity['names'] : $userEntity['email'];
+			$showName = $showName ? $showName : $userEntity['mobile'];
+			echo html_a(array('id'=>'memberName','href'=>base_url("member/index"),'text'=>$showName));
 			echo "&nbsp;";
 			echo html_a(array('id'=>'loginOut','href'=>base_url("login/out"),'text'=>'退出'));
 		}

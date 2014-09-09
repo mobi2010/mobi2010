@@ -32,8 +32,8 @@ class Publish extends MY_Controller {
 		$mode = intval($_POST['mode']);
 		$type = intval($_POST['type']);
 		$argv = $_POST;
-		if(in_array($mode, array(0,2))){
-			if(in_array($type,array(0,1,2))){
+		if(in_array($mode, array(1,3))){
+			if(in_array($type,array(1,2,3))){
 				if(!$_POST['community']){
 					$res['msg'] = "小区不能为空";
 					$this->printer($res);

@@ -37,6 +37,7 @@ class Lists extends MY_Controller {
 			if(!empty($locationIds)){
 				$where[] = 'location_id in('.implode(',', $locationIds).')';
 			}
+			$data['q'] = $q;
 		}
 		if($q && !empty($locationIds) || !$q){
 			if($type){

@@ -34,7 +34,7 @@ class Account extends MY_Controller {
 		$data['mobile'] = mobi_string_filter($_POST['mobile']);
 		$data['email'] = mobi_string_filter($_POST['email']);		
 		$id = $this->userId;
-		if($this->userEntity['source'] && !$data['org_name']){
+		if($this->userEntity['source'] == 2 && !$data['org_name']){
 			$res['msg'] = '机构名称不能为空';
 			$res['code'] = 400;
 			$this->printer($res);

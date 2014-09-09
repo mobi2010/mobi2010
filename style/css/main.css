@@ -38,6 +38,9 @@ a:hover{color:#00B7D6}
 .text-left{text-align:left}
 .text-right{text-align:right}
 
+.color-grey{color:#999;}
+
+.font-size-12{font-size: 12px}
 /**home**/
 .home-body{clear:both;width:980px;margin:0 auto;}
 

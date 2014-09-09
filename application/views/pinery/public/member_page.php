@@ -35,8 +35,7 @@
             }
             $pageHtml .= "&nbsp;";
         }   
-        $pageHtml .= ($pageG+$pageShowSize-1) < $pageTotal ? '...&nbsp;'.html_a(array('href'=>"{$pageUrl}&{$pageName}={$pageTotal}",'text'=>$pageTotal)) : null;  
-        $pageHtml .= "&nbsp;";
+        $pageHtml .= ($pageG+$pageShowSize-1) < $pageTotal ? '...&nbsp;'.html_a(array('href'=>"{$pageUrl}&{$pageName}={$pageTotal}",'text'=>$pageTotal))."&nbsp;" : null;  
         //上页
         $upPageUrl =  $pageIndex > 1 ? $pageUrl.'&'.$pageName.'='.($pageIndex - 1) : null;
         $pageHtml .= html_a(array('href'=>$upPageUrl,'text'=>'上页'));

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 3.4.5
+-- version 3.5.2
 -- http://www.phpmyadmin.net
 --
 -- 主机: localhost
--- 生成日期: 2014 年 09 月 09 日 13:11
--- 服务器版本: 5.5.16
--- PHP 版本: 5.3.8
+-- 生成日期: 2014 年 09 月 09 日 21:08
+-- 服务器版本: 5.5.25a
+-- PHP 版本: 5.4.4
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS `admin` (
   `uname` varchar(50) NOT NULL COMMENT '用户名',
   `upwd` varchar(50) NOT NULL COMMENT '密码',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='后台管理员表' AUTO_INCREMENT=2 ;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='后台管理员表' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -45,7 +45,7 @@ CREATE TABLE IF NOT EXISTS `android` (
   `content` varchar(200) NOT NULL COMMENT '描述',
   `addtime` int(10) NOT NULL COMMENT '添加时间',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='android表' AUTO_INCREMENT=7 ;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='android表' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -61,7 +61,7 @@ CREATE TABLE IF NOT EXISTS `android_version` (
   `file` varchar(100) NOT NULL COMMENT '文件地址',
   `android_id` int(10) NOT NULL COMMENT 'android表id',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='android版本表' AUTO_INCREMENT=3 ;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='android版本表' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -109,15 +109,7 @@ CREATE TABLE IF NOT EXISTS `pinery_feedback` (
   `content` text NOT NULL,
   `add_time` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='反馈表' AUTO_INCREMENT=3 ;
-
---
--- 转存表中的数据 `pinery_feedback`
---
-
-INSERT INTO `pinery_feedback` (`id`, `userid`, `content`, `add_time`) VALUES
-(1, 0, 'adfadf', 1410249310),
-(2, 5, 'adfadf', 1410249631);
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='反馈表' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -127,40 +119,24 @@ INSERT INTO `pinery_feedback` (`id`, `userid`, `content`, `add_time`) VALUES
 
 CREATE TABLE IF NOT EXISTS `pinery_location_1` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(100) NOT NULL COMMENT '地名',
+  `name` varchar(50) NOT NULL COMMENT '地名',
   `address` varchar(200) NOT NULL COMMENT '地址',
   `map` text NOT NULL COMMENT '地图信息',
-  `aliases` varchar(50) NOT NULL COMMENT '别名',
-  `street_id` smallint(6) NOT NULL COMMENT '街id',
-  `road_id` smallint(6) NOT NULL COMMENT '路id',
   PRIMARY KEY (`id`),
-  KEY `street_id` (`street_id`),
-  KEY `road_id` (`road_id`),
-  KEY `name` (`name`),
-  KEY `aliases` (`aliases`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='位置表_城市id' AUTO_INCREMENT=39 ;
+  KEY `name` (`name`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='位置表_城市id' AUTO_INCREMENT=7 ;
 
 --
 -- 转存表中的数据 `pinery_location_1`
 --
 
-INSERT INTO `pinery_location_1` (`id`, `name`, `address`, `map`, `aliases`, `street_id`, `road_id`) VALUES
-(23, '鑫星双语幼儿园', '燕郊经济技术开发区福成五期南门底商', '{"name":"\\u946b\\u661f\\u53cc\\u8bed\\u5e7c\\u513f\\u56ed","location":{"lat":39.961313,"lng":116.851258},"address":"\\u71d5\\u90ca\\u7ecf\\u6d4e\\u6280\\u672f\\u5f00\\u53d1\\u533a\\u798f\\u6210\\u4e94\\u671f\\u5357\\u95e8\\u5e95\\u5546","telephone":"13932640995","uid":"976e8876a32d1d028c55eca1"}', '', 0, 0),
-(24, '燕郊镇邮政支局', '汉王路113-115', '{"name":"\\u71d5\\u90ca\\u9547\\u90ae\\u653f\\u652f\\u5c40","location":{"lat":39.95319,"lng":116.833201},"address":"\\u6c49\\u738b\\u8def113-115","uid":"f746bbb0d5047efe725e8024"}', '', 0, 0),
-(25, '雪涟茶庄', '燕郊镇信访办公室附近', '{"name":"\\u96ea\\u6d9f\\u8336\\u5e84","location":{"lat":39.951945,"lng":116.814373},"address":"\\u71d5\\u90ca\\u9547\\u4fe1\\u8bbf\\u529e\\u516c\\u5ba4\\u9644\\u8fd1","uid":"089d95972e978ca0fb0cad92"}', '', 0, 0),
-(26, '三河市燕郊镇纪检委', '京哈公路燕郊镇附近', '{"name":"\\u4e09\\u6cb3\\u5e02\\u71d5\\u90ca\\u9547\\u7eaa\\u68c0\\u59d4","location":{"lat":39.95003,"lng":116.816229},"address":"\\u4eac\\u54c8\\u516c\\u8def\\u71d5\\u90ca\\u9547\\u9644\\u8fd1","uid":"15016fadff08a8a0f03cba8e"}', '', 0, 0),
-(27, '燕郊镇王各庄村民委员会', '汉王路117', '{"name":"\\u71d5\\u90ca\\u9547\\u738b\\u5404\\u5e84\\u6751\\u6c11\\u59d4\\u5458\\u4f1a","location":{"lat":39.953294,"lng":116.833192},"address":"\\u6c49\\u738b\\u8def117","uid":"31fcd89f2fb4a1980a1cc73c"}', '', 0, 0),
-(28, '学院南里小区', '北欧小镇南门对面学院东街附近', '{"name":"\\u5b66\\u9662\\u5357\\u91cc\\u5c0f\\u533a","location":{"lat":39.958057,"lng":116.823015},"address":"\\u5317\\u6b27\\u5c0f\\u9547\\u5357\\u95e8\\u5bf9\\u9762\\u5b66\\u9662\\u4e1c\\u8857\\u9644\\u8fd1","uid":"7c379daa85eb886e130daa90"}', '', 0, 0),
-(29, '', '学院南里小区', '{"name":"\\u5b66\\u9662\\u5357\\u91cc\\u5c0f\\u533a","location":{"lat":39.958057,"lng":116.823015},"address":"\\u5317\\u6b27\\u5c0f\\u9547\\u5357\\u95e8\\u5bf9\\u9762\\u5b66\\u9662\\u4e1c\\u8857\\u9644\\u8fd1","uid":"7c379daa85eb886e130daa90"}', '', 0, 0),
-(30, '', '潮河印业照排中心', '{"name":"\\u6f6e\\u6cb3\\u5370\\u4e1a\\u7167\\u6392\\u4e2d\\u5fc3","location":{"lat":39.95655,"lng":116.806073},"address":"\\u71d5\\u90ca\\u5f00\\u53d1\\u533a\\u4e2d\\u8d75\\u752b\\u6751","uid":"b767d25fb59e334e9122e0cd"}', '', 0, 0),
-(31, '', '北京世纪维他生物技术公司燕郊分公司', '{"name":"\\u5317\\u4eac\\u4e16\\u7eaa\\u7ef4\\u4ed6\\u751f\\u7269\\u6280\\u672f\\u516c\\u53f8\\u71d5\\u90ca\\u5206\\u516c\\u53f8","location":{"lat":39.974377,"lng":116.843455},"address":"\\u4ebf\\u4e30\\u5927\\u8857\\u9644\\u8fd1","uid":"b1ceb779ad34ae90fa42b2fe"}', '', 0, 0),
-(32, '', '爱你·宝贝北京专业儿童摄影', '{"name":"\\u7231\\u4f60\\u00b7\\u5b9d\\u8d1d\\u5317\\u4eac\\u4e13\\u4e1a\\u513f\\u7ae5\\u6444\\u5f71","location":{"lat":39.954967,"lng":116.815244},"address":"\\u884c\\u5bab\\u897f\\u5927\\u8857\\u5b9d\\u5fb7\\u5802\\u836f\\u5e97(\\u884c\\u5bab\\u897f\\u5927\\u8857)\\u9644\\u8fd1","uid":"5c9d0dcf58c78856cafa5f3c"}', '', 0, 0),
-(33, '', '三河市燕郊镇南杨庄村村民委员会', '{"name":"\\u4e09\\u6cb3\\u5e02\\u71d5\\u90ca\\u9547\\u5357\\u6768\\u5e84\\u6751\\u6751\\u6c11\\u59d4\\u5458\\u4f1a","location":{"lat":39.995627,"lng":116.81306},"address":"\\u5eca\\u574a\\u5e02\\u4e09\\u6cb3\\u5e02","uid":"5393d83a4d7a22e4128824f9"}', '', 0, 0),
-(34, '', '东杉第三诊所', '{"name":"\\u4e1c\\u6749\\u7b2c\\u4e09\\u8bca\\u6240","location":{"lat":39.949367,"lng":116.820122},"address":"\\u4eac\\u54c8\\u516c\\u8def\\u9644\\u8fd1","uid":"5c5a09eb6dad80e214948e91"}', '', 0, 0),
-(35, '西时贝快捷酒店', '西时贝快捷酒店', '{"name":"\\u897f\\u65f6\\u8d1d\\u5feb\\u6377\\u9152\\u5e97","location":{"lat":39.966601,"lng":116.80336},"address":"\\u71d5\\u90ca\\u71d5\\u7075\\u8def439\\u53f7","telephone":"(0316)3334249","uid":"93b45e7558a8430b250bd0c7"}', '', 0, 0),
-(36, '雪涟茶庄', '雪涟茶庄', '{"name":"\\u96ea\\u6d9f\\u8336\\u5e84","location":{"lat":39.951945,"lng":116.814373},"address":"\\u71d5\\u90ca\\u9547\\u4fe1\\u8bbf\\u529e\\u516c\\u5ba4\\u9644\\u8fd1","uid":"089d95972e978ca0fb0cad92"}', '', 0, 0),
-(37, '蛋爱饭小吃', '燕郊镇福成五期', '{"name":"\\u86cb\\u7231\\u996d\\u5c0f\\u5403","location":{"lat":39.963269,"lng":116.845158},"address":"\\u71d5\\u90ca\\u9547\\u798f\\u6210\\u4e94\\u671f","uid":"de25bdef7b0150718a36ee1a"}', '', 0, 0),
-(38, '阿道夫', '', '', '', 0, 0);
+INSERT INTO `pinery_location_1` (`id`, `name`, `address`, `map`) VALUES
+(1, '小张各庄村', '', ''),
+(2, '蓝贵坊KTV', '', ''),
+(3, '天洋宝宝童装店', '', ''),
+(4, '云南大理寺过桥米线', '燕郊镇步行街怡景园小区东门底商17号', '{"name":"\\u4e91\\u5357\\u5927\\u7406\\u5bfa\\u8fc7\\u6865\\u7c73\\u7ebf","location":{"lat":39.959274,"lng":116.815273},"address":"\\u71d5\\u90ca\\u9547\\u6b65\\u884c\\u8857\\u6021\\u666f\\u56ed\\u5c0f\\u533a\\u4e1c\\u95e8\\u5e95\\u554617\\u53f7","telephone":"15832689585","uid":"a1d2ce0c5c6b3a1f39221cc6"}'),
+(5, '福成五期', '燕郊经济技术开发区燕郊镇', '{"name":"\\u798f\\u6210\\u4e94\\u671f","location":{"lat":39.963269,"lng":116.845158},"address":"\\u71d5\\u90ca\\u7ecf\\u6d4e\\u6280\\u672f\\u5f00\\u53d1\\u533a\\u71d5\\u90ca\\u9547","uid":"db5ebc181a4440b8601c672c"}'),
+(6, '夏威夷北岸', '燕郊经济技术开发区燕郊镇燕顺路', '{"name":"\\u590f\\u5a01\\u5937\\u5317\\u5cb8","location":{"lat":39.969988,"lng":116.787208},"address":"\\u71d5\\u90ca\\u7ecf\\u6d4e\\u6280\\u672f\\u5f00\\u53d1\\u533a\\u71d5\\u90ca\\u9547\\u71d5\\u987a\\u8def","uid":"76c98d151446e17fc9c3dbd2"}');
 
 -- --------------------------------------------------------
 
@@ -196,14 +172,14 @@ CREATE TABLE IF NOT EXISTS `pinery_member` (
   PRIMARY KEY (`id`),
   KEY `email` (`email`),
   KEY `mobile` (`mobile`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='会员帐号' AUTO_INCREMENT=6 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='会员帐号' AUTO_INCREMENT=2 ;
 
 --
 -- 转存表中的数据 `pinery_member`
 --
 
 INSERT INTO `pinery_member` (`id`, `email`, `mobile`, `password`, `source`, `names`, `city_id`, `addtime`, `logintime`, `step`, `org_name`, `org_id`, `avatar`, `long2ip`, `tel`, `qq`, `weixin`, `weibo`, `mobile_is`, `email_is`, `tel_is`, `qq_is`, `weixin_is`, `weibo_is`) VALUES
-(5, 'ad@adsf.com', 13141083366, 'e10adc3949ba59abbe56e057f20f883e', 0, '超哥', 1, 1409928857, 1410061665, 9, '', 0, 'http://pinery.b0.upaiyun.com/2014/09/05/140992915097406800.png', 2130706433, '如:0312-3861234', 0, '', '', 0, 0, 0, 0, 0, 0);
+(1, 'zsc@2010.mobi', 13141083366, 'e10adc3949ba59abbe56e057f20f883e', 1, '超哥', 1, 1410276161, 1410276161, 9, '', 0, 'http://pinery.b0.upaiyun.com/2014/09/09/141027678288252500.png', 2130706433, '0312-1231234', 0, '', '', 1, 1, 1, 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -228,26 +204,28 @@ CREATE TABLE IF NOT EXISTS `pinery_property_1_1` (
   `content_id` bigint(20) NOT NULL COMMENT '内容id',
   `add_time` int(11) NOT NULL COMMENT '添加时间',
   `update_time` int(11) NOT NULL COMMENT '更新时间',
+  `view_num` int(11) NOT NULL COMMENT '浏览数',
   PRIMARY KEY (`id`),
   KEY `type` (`type`),
   KEY `userid` (`userid`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='房产出租表_城市id_方式id' AUTO_INCREMENT=29 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='房产出租表_城市id_方式id' AUTO_INCREMENT=12 ;
 
 --
 -- 转存表中的数据 `pinery_property_1_1`
 --
 
-INSERT INTO `pinery_property_1_1` (`id`, `type`, `location_id`, `floors`, `floors_total`, `room`, `hall`, `bathroom`, `area`, `rent`, `toward`, `decoration`, `userid`, `content_id`, `add_time`, `update_time`) VALUES
-(19, 0, 23, 1, 6, 3, 2, 1, 120, 1234, 4, 2, 5, 1, 1409929417, 1410169558),
-(20, 1, 24, 2, 5, 1, 2, 3, 12, 123, 2, 1, 5, 2, 1409929535, 1409929535),
-(21, 2, 25, 3, 32, 23, 32, 1, 123, 1324, 4, 3, 5, 3, 1409929619, 1409929619),
-(22, 3, 29, 0, 0, 0, 0, 0, 12, 123, 0, 0, 5, 7, 1409929880, 1409929880),
-(23, 4, 30, 0, 0, 0, 0, 0, 123, 123, 0, 0, 5, 8, 1409929914, 1409929914),
-(24, 5, 31, 0, 0, 0, 0, 0, 43, 12, 0, 0, 5, 9, 1409929937, 1410053564),
-(25, 4, 35, 0, 0, 0, 0, 0, 12, 12, 0, 0, 5, 13, 1409930497, 1409931422),
-(26, 3, 37, 0, 0, 0, 0, 0, 12, 23, 0, 0, 5, 16, 1409931283, 1409931422),
-(27, 3, 37, 0, 0, 0, 0, 0, 43, 1212, 0, 0, 5, 17, 1409931350, 1409931422),
-(28, 1, 38, 12, 23, 12, 2, 2, 2, 34, 5, 3, 5, 18, 1410067659, 1410169558);
+INSERT INTO `pinery_property_1_1` (`id`, `type`, `location_id`, `floors`, `floors_total`, `room`, `hall`, `bathroom`, `area`, `rent`, `toward`, `decoration`, `userid`, `content_id`, `add_time`, `update_time`, `view_num`) VALUES
+(1, 1, 1, 1, 12, 1, 2, 3, 12, 12, 5, 3, 1, 1, 1410278016, 1410278016, 0),
+(2, 2, 2, 12, 12, 23, 12, 12, 12, 123, 5, 3, 1, 2, 1410278113, 1410279446, 0),
+(3, 2, 3, 2, 23, 12, 12, 12, 123, 123, 5, 3, 1, 3, 1410278203, 1410279446, 0),
+(4, 1, 5, 2, 3, 23, 23, 23, 123, 1234, 3, 2, 1, 7, 1410279112, 1410279446, 0),
+(5, 1, 6, 1, 23, 1, 12, 2, 12, 12, 3, 2, 1, 8, 1410279145, 1410279446, 0),
+(6, 3, 5, 1, 2, 12, 12, 12, 12, 12, 7, 4, 1, 9, 1410279181, 1410279446, 0),
+(7, 1, 6, 1, 2, 2, 1, 1, 12, 12, 3, 2, 1, 10, 1410279299, 1410279446, 0),
+(8, 1, 3, 1, 2, 23, 2, 3, 12, 12, 4, 3, 1, 11, 1410279323, 1410279446, 0),
+(9, 1, 3, 2, 3, 12, 3, 2, 12, 12, 3, 2, 1, 12, 1410279345, 1410279446, 0),
+(10, 1, 4, 2, 2, 3, 3, 3, 12, 123, 3, 2, 1, 13, 1410279368, 1410279446, 0),
+(11, 2, 3, 3, 2, 2, 2, 2, 12, 123, 6, 4, 1, 14, 1410279427, 1410279446, 22);
 
 -- --------------------------------------------------------
 
@@ -258,20 +236,21 @@ INSERT INTO `pinery_property_1_1` (`id`, `type`, `location_id`, `floors`, `floor
 CREATE TABLE IF NOT EXISTS `pinery_property_1_2` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `type` tinyint(4) NOT NULL COMMENT '方式',
-  `title` varchar(100) NOT NULL COMMENT '标题',
+  `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '内容',
   `add_time` int(11) NOT NULL COMMENT '添加时间',
   `update_time` int(11) NOT NULL COMMENT '修改时间',
+  `view_num` int(11) NOT NULL COMMENT '浏览数',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='房产求租表_城市id_方式id' AUTO_INCREMENT=9 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='房产求租表_城市id_方式id' AUTO_INCREMENT=3 ;
 
 --
 -- 转存表中的数据 `pinery_property_1_2`
 --
 
-INSERT INTO `pinery_property_1_2` (`id`, `type`, `title`, `content`, `add_time`, `update_time`) VALUES
-(7, 0, '河北什么', '河北什么河北什么河北什么河北什么河北什么河北什么河北什么', 1409930144, 1409931432),
-(8, 3, '河北什么河北什么河北什么河北什么', '河北什么河北什么河北什么河北什么河北什么河北什么河北什么河北什么', 1409930151, 1409931432);
+INSERT INTO `pinery_property_1_2` (`id`, `type`, `title`, `content`, `add_time`, `update_time`, `view_num`) VALUES
+(1, 2, '求租别墅', '求租别墅。。。。。', 1410278852, 1410278852, 0),
+(2, 3, '求租商住两用', '求租商住两用求租商住两用', 1410278881, 1410278881, 0);
 
 -- --------------------------------------------------------
 
@@ -298,24 +277,20 @@ CREATE TABLE IF NOT EXISTS `pinery_property_1_3` (
   `update_time` int(11) NOT NULL COMMENT '更新时间',
   `property` tinyint(4) NOT NULL COMMENT '产权',
   `building` smallint(6) NOT NULL COMMENT '建筑年代',
+  `view_num` int(11) NOT NULL COMMENT '浏览数',
   PRIMARY KEY (`id`),
   KEY `type` (`type`),
   KEY `userid` (`userid`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='房产出售表_城市id_方式id' AUTO_INCREMENT=14 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='房产出售表_城市id_方式id' AUTO_INCREMENT=4 ;
 
 --
 -- 转存表中的数据 `pinery_property_1_3`
 --
 
-INSERT INTO `pinery_property_1_3` (`id`, `type`, `location_id`, `floors`, `floors_total`, `room`, `hall`, `bathroom`, `area`, `price`, `toward`, `decoration`, `userid`, `content_id`, `add_time`, `update_time`, `property`, `building`) VALUES
-(6, 0, 26, 4, 12, 12, 34, 12, 132, 1234, 2, 1, 5, 4, 1409929691, 1409929691, 12, 1233),
-(7, 1, 27, 1, 23, 12, 2, 3, 123, 1234, 4, 3, 5, 5, 1409929731, 1409929731, 56, 12),
-(8, 2, 28, 12, 32, 2, 3, 12, 1234, 65535, 6, 4, 5, 6, 1409929791, 1409929791, 127, 1324),
-(9, 3, 32, 0, 0, 0, 0, 0, 23, 123, 0, 0, 5, 10, 1409929963, 1409929963, 0, 0),
-(10, 3, 33, 0, 0, 0, 0, 0, 12, 12, 0, 0, 5, 11, 1409930010, 1409930010, 0, 0),
-(11, 5, 34, 0, 0, 0, 0, 0, 43, 12, 0, 0, 5, 12, 1409930033, 1409931436, 0, 0),
-(12, 4, 36, 0, 0, 0, 0, 0, 12, 232, 0, 0, 5, 14, 1409930557, 1409931436, 0, 0),
-(13, 4, 37, 0, 0, 0, 0, 0, 43, 21, 0, 0, 5, 15, 1409930719, 1409931436, 0, 0);
+INSERT INTO `pinery_property_1_3` (`id`, `type`, `location_id`, `floors`, `floors_total`, `room`, `hall`, `bathroom`, `area`, `price`, `toward`, `decoration`, `userid`, `content_id`, `add_time`, `update_time`, `property`, `building`, `view_num`) VALUES
+(1, 3, 4, 12, 12, 12, 12, 12, 12, 0, 3, 2, 1, 4, 1410278911, 1410278911, 0, 0, 0),
+(2, 3, 5, 12, 12, 12, 12, 1, 12, 0, 5, 4, 1, 5, 1410278937, 1410278937, 0, 0, 0),
+(3, 5, 5, 0, 0, 0, 0, 0, 1234, 0, 0, 0, 1, 6, 1410278972, 1410278972, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -326,10 +301,11 @@ INSERT INTO `pinery_property_1_3` (`id`, `type`, `location_id`, `floors`, `floor
 CREATE TABLE IF NOT EXISTS `pinery_property_1_4` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `type` tinyint(4) NOT NULL COMMENT '方式',
-  `title` varchar(100) NOT NULL COMMENT '标题',
+  `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '内容',
   `add_time` int(11) NOT NULL COMMENT '添加时间',
   `update_time` int(11) NOT NULL COMMENT '修改时间',
+  `view_num` int(11) NOT NULL COMMENT '浏览数',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='房产求购表_城市id_方式id' AUTO_INCREMENT=3 ;
 
@@ -337,9 +313,9 @@ CREATE TABLE IF NOT EXISTS `pinery_property_1_4` (
 -- 转存表中的数据 `pinery_property_1_4`
 --
 
-INSERT INTO `pinery_property_1_4` (`id`, `type`, `title`, `content`, `add_time`, `update_time`) VALUES
-(1, 0, '燕郊', '燕郊燕郊燕郊燕郊燕郊燕郊燕郊燕郊', 1409930163, 1410007858),
-(2, 4, '燕郊燕郊', '燕郊燕郊燕郊燕郊燕郊燕郊燕郊燕郊燕郊燕郊燕郊燕郊燕郊燕郊燕郊燕郊燕郊燕郊燕郊燕郊燕郊燕郊燕郊燕郊', 1409930171, 1410007858);
+INSERT INTO `pinery_property_1_4` (`id`, `type`, `title`, `content`, `add_time`, `update_time`, `view_num`) VALUES
+(1, 2, '求购别墅', '求购别墅求购别墅求购别墅求购别墅求购别墅', 1410279065, 1410279065, 0),
+(2, 4, '求购写字楼', '12341234', 1410279075, 1410279075, 0);
 
 -- --------------------------------------------------------
 
@@ -349,7 +325,7 @@ INSERT INTO `pinery_property_1_4` (`id`, `type`, `title`, `content`, `add_time`,
 
 CREATE TABLE IF NOT EXISTS `pinery_property_content_0` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `title` varchar(100) NOT NULL COMMENT '标题',
+  `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
   `userid` bigint(20) NOT NULL COMMENT '用户id',
@@ -365,13 +341,33 @@ CREATE TABLE IF NOT EXISTS `pinery_property_content_0` (
 
 CREATE TABLE IF NOT EXISTS `pinery_property_content_1` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `title` varchar(100) NOT NULL COMMENT '标题',
+  `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
   `userid` bigint(20) NOT NULL COMMENT '用户id',
   PRIMARY KEY (`id`),
   KEY `userid` (`userid`,`title`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='房产内容表_用户id最后一位' AUTO_INCREMENT=23 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='房产内容表_用户id最后一位' AUTO_INCREMENT=15 ;
+
+--
+-- 转存表中的数据 `pinery_property_content_1`
+--
+
+INSERT INTO `pinery_property_content_1` (`id`, `title`, `content`, `images`, `userid`) VALUES
+(1, '小张各庄村', '小张各庄村小张各庄村小张各庄村', '', 1),
+(2, '蓝贵坊KTV', '蓝贵坊KTV蓝贵坊KTV蓝贵坊KTV蓝贵坊KTV蓝贵坊KTV', 'http://2010.test/tmp/2014/09/09/141027811102167700.jpg|http://2010.test/tmp/2014/09/09/141027811123415500.png|http://2010.test/tmp/2014/09/09/141027811130862200.jpg', 1),
+(3, '天洋宝宝童装店', '阿呆沙发地方', 'http://2010.test/tmp/2014/09/09/141027820207872300.jpg|http://2010.test/tmp/2014/09/09/141027820226628500.jpg', 1),
+(4, '云南大理寺过桥米线', '云南大理寺过桥米线云南大理寺过桥米线云南大理寺过桥米线', 'http://2010.test/tmp/2014/09/10/141027890960833900.jpg|http://2010.test/tmp/2014/09/10/141027890971218200.jpg', 1),
+(5, '福成五期福成五期福成五期', '福成五期福成五期福成五期福成五期福成五期', '', 1),
+(6, '福成五期福成五期福成五期', '福成五期福成五期福成五期福成五期福成五期福成五期', 'http://2010.test/tmp/2014/09/10/141027897099256200.jpg', 1),
+(7, '福成五期', '福成五期福成五期福成五期福成五期福成五期', '', 1),
+(8, '小区阿斯顿飞', '啊大事发生大幅', '', 1),
+(9, '福成武器', '福成武器福成武器福成武器', 'http://2010.test/tmp/2014/09/10/141027918009675500.jpg', 1),
+(10, '夏威夷好房子', '夏威夷好房子夏威夷好房子夏威夷好房子夏威夷好房子夏威夷好房子', 'http://2010.test/tmp/2014/09/10/141027929801952500.jpg|http://2010.test/tmp/2014/09/10/141027929815204700.jpg', 1),
+(11, '太平洋', '阿斯顿发', '', 1),
+(12, '太平样痒痒', '夏威夷好房子夏威夷好房子夏威夷好房子夏威夷好房子夏威夷好房子夏威夷好房子', '', 1),
+(13, '过桥米线', '过桥米线过桥米线过桥米线过桥米线过桥米线', '', 1),
+(14, '天洋宝宝童装店', '天洋宝宝童装店天洋宝宝童装店天洋宝宝童装店天洋宝宝童装店', '', 1);
 
 -- --------------------------------------------------------
 
@@ -381,7 +377,7 @@ CREATE TABLE IF NOT EXISTS `pinery_property_content_1` (
 
 CREATE TABLE IF NOT EXISTS `pinery_property_content_2` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `title` varchar(100) NOT NULL COMMENT '标题',
+  `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
   `userid` bigint(20) NOT NULL COMMENT '用户id',
@@ -397,7 +393,7 @@ CREATE TABLE IF NOT EXISTS `pinery_property_content_2` (
 
 CREATE TABLE IF NOT EXISTS `pinery_property_content_3` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `title` varchar(100) NOT NULL COMMENT '标题',
+  `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
   `userid` bigint(20) NOT NULL COMMENT '用户id',
@@ -413,7 +409,7 @@ CREATE TABLE IF NOT EXISTS `pinery_property_content_3` (
 
 CREATE TABLE IF NOT EXISTS `pinery_property_content_4` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `title` varchar(100) NOT NULL COMMENT '标题',
+  `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
   `userid` bigint(20) NOT NULL COMMENT '用户id',
@@ -429,37 +425,13 @@ CREATE TABLE IF NOT EXISTS `pinery_property_content_4` (
 
 CREATE TABLE IF NOT EXISTS `pinery_property_content_5` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `title` varchar(100) NOT NULL COMMENT '标题',
+  `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
   `userid` bigint(20) NOT NULL COMMENT '用户id',
   PRIMARY KEY (`id`),
   KEY `userid` (`userid`,`title`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='房产内容表_用户id最后一位' AUTO_INCREMENT=19 ;
-
---
--- 转存表中的数据 `pinery_property_content_5`
---
-
-INSERT INTO `pinery_property_content_5` (`id`, `title`, `content`, `images`, `userid`) VALUES
-(1, '鑫星双语', '鑫星双语幼儿园鑫星双语幼儿园鑫星双语幼儿园', 'http://2010.test/tmp/2014/09/05/140992941436311600.jpg|http://2010.test/tmp/2014/09/05/140992941458870600.jpg|http://2010.test/tmp/2014/09/05/140992941485703500.jpg', 5),
-(2, '燕郊镇邮政支局', '燕郊镇邮政支局', 'http://2010.test/tmp/2014/09/05/140992953379049800.png|http://2010.test/tmp/2014/09/05/140992953389186600.jpg|http://2010.test/tmp/2014/09/05/140992953400325500.jpg', 5),
-(3, '燕郊镇信访办公室', '燕郊镇信访办公室燕郊镇信访办公室燕郊镇信访办公室燕郊镇信访办公室', 'http://2010.test/tmp/2014/09/05/140992961760065600.jpg|http://2010.test/tmp/2014/09/05/140992961770169800.jpg', 5),
-(4, '三河市燕郊镇纪检委', '三河市燕郊镇纪检委三河市燕郊镇纪检委三河市燕郊镇纪检委三河市燕郊镇纪检委', 'http://2010.test/tmp/2014/09/05/140992968999326800.jpg|http://2010.test/tmp/2014/09/05/140992969010244200.jpg', 5),
-(5, '燕郊镇王各庄村民委员会', '燕郊镇王各庄村民委员会燕郊镇王各庄村民委员会燕郊镇王各庄村民委员会', 'http://2010.test/tmp/2014/09/05/140992972956339500.jpg|http://2010.test/tmp/2014/09/05/140992972969908300.jpg', 5),
-(6, '学院南里小区学院南里小区', '学院南里小区学院南里小区学院南里小区学院南里小区学院南里小区学院南里小区学院南里小区学院南里小区', 'http://2010.test/tmp/2014/09/05/140992979011707200.jpg|http://2010.test/tmp/2014/09/05/140992979034788000.png|http://2010.test/tmp/2014/09/05/140992979046129400.jpg|http://2010.test/tmp/2014/09/05/140992979071688900.jpg', 5),
-(7, '学院南里小区学院南里小区学院南里小区', '学院南里小区学院南里小区学院南里小区学院南里小区学院南里小区学院南里小区', 'http://2010.test/tmp/2014/09/05/140992987894513000.png|http://2010.test/tmp/2014/09/05/140992987904615300.jpg', 5),
-(8, '中赵甫村中赵甫村中赵甫村中赵甫村中赵甫村', '中赵甫村中赵甫村中赵甫村中赵甫村中赵甫村中赵甫村中赵甫村中赵甫村中赵甫村中赵甫村', 'http://2010.test/tmp/2014/09/05/140992991301860500.jpg|http://2010.test/tmp/2014/09/05/140992991315019900.png', 5),
-(9, '北京世纪维他生物技术公司燕郊分公司', '北京世纪维他生物技术公司燕郊分公司北京世纪维他生物技术公司燕郊分公司北京世纪维他生物技术公司燕郊分公司', 'http://2010.test/tmp/2014/09/05/140992993622380600.jpg|http://2010.test/tmp/2014/09/05/140992993633575600.jpg', 5),
-(10, '爱你·宝贝北京专业儿童摄影', '爱你·宝贝北京专业儿童摄影爱你·宝贝北京专业儿童摄影爱你·宝贝北京专业儿童摄影', 'http://2010.test/tmp/2014/09/05/140992996236174500.png', 5),
-(11, '三河市燕郊镇南杨庄村村民委员会', '三河市燕郊镇南杨庄村村民委员会三河市燕郊镇南杨庄村村民委员会三河市燕郊镇南杨庄村村民委员会', '', 5),
-(12, '东杉第三诊所', '东杉第三诊所东杉第三诊所东杉第三诊所东杉第三诊所东杉第三诊所', 'http://2010.test/tmp/2014/09/05/140993003247344800.jpg', 5),
-(13, '西时贝快捷酒店', '西时贝快捷酒店西时贝快捷酒店西时贝快捷酒店西时贝快捷酒店西时贝快捷酒店', 'http://2010.test/tmp/2014/09/05/140993049358781300.png|http://2010.test/tmp/2014/09/05/140993049367372900.jpg', 5),
-(14, '雪涟茶庄雪涟', '雪涟茶庄雪涟茶庄雪涟茶庄雪涟茶庄雪涟茶庄雪涟茶庄雪涟茶庄雪涟茶庄', '', 5),
-(15, '蛋爱饭小吃蛋爱饭小吃蛋爱饭小吃蛋爱饭小吃蛋爱饭小吃', '蛋爱饭小吃蛋爱饭小吃蛋爱饭小吃蛋爱饭小吃蛋爱饭小吃蛋爱饭小吃蛋爱饭小吃蛋爱饭小吃蛋爱饭小吃蛋爱饭小吃蛋爱饭小吃蛋爱饭小吃', '', 5),
-(16, '蛋爱饭小吃', '蛋爱饭小吃蛋爱饭小吃蛋爱饭小吃蛋爱饭小吃', '', 5),
-(17, '又来一个啊', '又来一个啊又来一个啊又来一个啊又来一个啊又来一个啊', '', 5),
-(18, 'test', '阿呆沙发发', '', 5);
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='房产内容表_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -469,7 +441,7 @@ INSERT INTO `pinery_property_content_5` (`id`, `title`, `content`, `images`, `us
 
 CREATE TABLE IF NOT EXISTS `pinery_property_content_6` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `title` varchar(100) NOT NULL COMMENT '标题',
+  `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
   `userid` bigint(20) NOT NULL COMMENT '用户id',
@@ -485,7 +457,7 @@ CREATE TABLE IF NOT EXISTS `pinery_property_content_6` (
 
 CREATE TABLE IF NOT EXISTS `pinery_property_content_7` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `title` varchar(100) NOT NULL COMMENT '标题',
+  `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
   `userid` bigint(20) NOT NULL COMMENT '用户id',
@@ -501,7 +473,7 @@ CREATE TABLE IF NOT EXISTS `pinery_property_content_7` (
 
 CREATE TABLE IF NOT EXISTS `pinery_property_content_8` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `title` varchar(100) NOT NULL COMMENT '标题',
+  `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
   `userid` bigint(20) NOT NULL COMMENT '用户id',
@@ -517,7 +489,7 @@ CREATE TABLE IF NOT EXISTS `pinery_property_content_8` (
 
 CREATE TABLE IF NOT EXISTS `pinery_property_content_9` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `title` varchar(100) NOT NULL COMMENT '标题',
+  `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
   `userid` bigint(20) NOT NULL COMMENT '用户id',
@@ -583,25 +555,23 @@ CREATE TABLE IF NOT EXISTS `pinery_property_toward` (
   `name` varchar(10) NOT NULL COMMENT '名称',
   `sort` int(11) NOT NULL COMMENT '排序',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='房产朝向表' AUTO_INCREMENT=13 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='房产朝向表' AUTO_INCREMENT=11 ;
 
 --
 -- 转存表中的数据 `pinery_property_toward`
 --
 
 INSERT INTO `pinery_property_toward` (`id`, `name`, `sort`) VALUES
-(1, '东', 0),
-(2, '南', 0),
-(3, '东', 0),
-(4, '南', 0),
-(5, '西', 0),
-(6, '北', 0),
-(7, '南北', 0),
-(8, '东西', 0),
-(9, '东南', 0),
-(10, '西南', 0),
-(11, '东北', 0),
-(12, '西北', 0);
+(1, '东', 1),
+(2, '南', 2),
+(3, '西', 3),
+(4, '北', 4),
+(5, '南北', 5),
+(6, '东西', 6),
+(7, '东南', 7),
+(8, '西南', 8),
+(9, '东北', 9),
+(10, '西北', 10);
 
 -- --------------------------------------------------------
 

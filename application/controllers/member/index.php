@@ -31,7 +31,7 @@ class Index extends MY_Controller {
 		$data['property_id'] = $data['city_id'].'_'.$mode.'_';
 
 		$page = intval($_GET['p']) > 0 ? intval($_GET['p']) : 1;
-		$size = 2;
+		$size = 10;
 		$start = ($page-1)*$size;
 
 		$total = $this->property->getPropertyCount(array('mode'=>$mode,'city_id'=>$data['city_id']));

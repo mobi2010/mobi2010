@@ -34,7 +34,7 @@ class Data extends MY_Controller {
 	 * 房产朝向
 	 */
 	function propertyToward(){
-		$data = $this->pineryModel->dataFetchArray(array('table'=>'pinery_property_toward','skey'=>'id','field'=>'id,name','order'=>'sort desc'));
+		$data = $this->pineryModel->dataFetchArray(array('table'=>'pinery_property_toward','skey'=>'id','field'=>'id,name','order'=>'sort asc'));
 		echo json_encode($data);
 	}
 	/**
@@ -43,5 +43,12 @@ class Data extends MY_Controller {
 	function propertyDecoration(){
 		$data = $this->pineryModel->dataFetchArray(array('table'=>'pinery_property_decoration','skey'=>'id','field'=>'id,name','order'=>'sort desc'));
 		echo json_encode($data);
+	}
+	function updateTable(){
+		for($i=0;$i<10;$i++){
+			$sql = "ALTER TABLE `pinery_property_content_{$i}` CHANGE `title` `title` VARCHAR( 30 ) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '标题'";
+			$this->pineryModel->query($sql);
+		}
+		
 	}
 }
