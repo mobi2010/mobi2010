@@ -56,11 +56,20 @@ class Property_model extends MY_Model {
 	 * @param array $argv [description]
 	 */
 	function addContent($argv=array()){	
+		$imagesStr = mobi_string_filter($argv['images']);
+		$imagesArr = explode('|', $imagesStr);
+		$imagesData = array();
+		if(!empty($imagesArr)){
+			foreach ($imagesArr as $key => $value) {
+				$ypyUpload = $this->image->ypyUpload(array('file'=>$value));
+				$imagesData[] = $ypyUpload['filePath'];
+			}
+		}
 		$userId = intval($argv['userid']);	
 		$data['title'] = mobi_string_filter($argv['title']);
 		$data['content'] = mobi_string_filter($argv['content']);
 		$data['userid'] = $userId;
-		$data['images'] = mobi_string_filter($argv['images']);
+		$data['images'] = implode('|', $imagesData);
 		$params['table'] = 'pinery_property_content_'.substr($userId, -1);
 		$params['data'] = $data;
 		return $this->dataInsert($params);

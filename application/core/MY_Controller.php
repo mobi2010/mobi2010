@@ -18,9 +18,11 @@ class MY_Controller extends CI_Controller
 	function __construct($params = array())
 	{
 		parent::__construct();
-		$this->load->model('Pinery_model', 'pineryModel');//	
+		$this->load->model('Pinery_model', 'pineryModel');//
+		$this->load->model('Member_model', 'member');//		
 		$this->load->model('Property_model', 'property');//	
 		$this->load->library('gycrypt');	
+		$this->load->library('image');
 		$this->uriEntity();//uri实体数据		
 
 		$this->init();//初始数据
@@ -35,7 +37,7 @@ class MY_Controller extends CI_Controller
 		//用户信息
 		$auth = mobi_getcookie('auth');
 		if($auth && $userId = intval($this->gycrypt->decrypt($auth))){			
-			$this->userEntity = $this->pineryModel->dataFetchRow(array('table'=>'pinery_member','where'=>$userId));
+			$this->userEntity = $this->member->info($userId);
 			$this->userId = empty($this->userEntity) ? 0 : $userId;
 			$this->load->vars('userEntity',$this->userEntity);//映射到模板
 			$cityId = $this->userEntity['city_id'];

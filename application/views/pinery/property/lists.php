@@ -24,8 +24,8 @@ $dataProperty = $initData['dataProperty'];
             $th .= html_th(array('align'=>'left','body'=>'更新时间'));
             $tbody .= html_tr(array('body'=>$th));
             foreach ($propertyList as $key => $value) {
-                    
-                    $td = html_td(array('body'=>html_a(array('text'=>$value['title'],'href'=>base_url('property/detail/?id='.$property_id.$value['id']),'target'=>"_blank"))));
+                    $imgSrc = $value['images'][0] ? $value['images'][0] : "";
+                    $td = html_td(array('body'=>html_a(array('text'=>html_img(array('src'=>$imgSrc,'width'=>'80px')).$value['title'],'href'=>base_url('property/detail/?id='.$property_id.$value['id']),'target'=>"_blank"))));
                     if(in_array($modeChecked, array(1,3))){
                         $td .= html_td(array('body'=>$value['area']));
                         $td .= $modeChecked == 1 ? html_td(array('body'=>$value['rent'])) : html_td(array('body'=>$value['price']));
@@ -49,5 +49,8 @@ $dataProperty = $initData['dataProperty'];
             $.mobi.location("<?=mobi_query_url('property/lists',array('q'))?>&q="+q);
             return false;
         })
+        $("img").error(function(){
+            $(this).attr('src','/style/img/img_error.jpg');
+        });
     })
 </script>

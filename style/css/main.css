@@ -55,10 +55,8 @@ a:hover{color:#00B7D6}
 
 
 
-.home-body-box{border: #CCCCCC thin solid;padding:2em;background:#fff;margin:1em 0;}
-.home-body-box dd{display:inline-block;margin:0 1px 20px 0;}
-.home-body-box img{width: 150px;}
-.home-body-box .title{width: 150px; text-align:center;}
+.home-body-box{border: #CCCCCC thin solid;background:#fff;margin:1em 0;}
+
 
 
 .home-bottombar{clear: both;width:980px;margin: 2em auto 0;text-align:center;}

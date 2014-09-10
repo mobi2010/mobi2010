@@ -36,7 +36,7 @@ class Register extends MY_Controller {
 	public function save1()
 	{		
 		$password = mobi_string_filter($_POST['password']);
-		$accountRes = $this->pineryModel->account($_POST['account']);
+		$accountRes = $this->member->account($_POST['account']);
 		if($accountRes['code'] == 200){
 			$data = $accountRes['data'];
 			$where = $accountRes['where'];

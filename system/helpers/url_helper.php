@@ -630,6 +630,7 @@ if ( ! function_exists('wbsina_expandurl')){
  */
 if ( ! function_exists('mobi_query_string')){
 	function mobi_query_string($unset=array()){
+		$queryStirng = array();
 		foreach ($_GET as $key => $value) {
 			if(isset($value) && !in_array($key, $unset)){
 				$queryStirng[$key] = $value;

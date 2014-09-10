@@ -26,7 +26,7 @@ class Login extends MY_Controller {
 	 */
 	public function in()
 	{			
-		$accountRes = $this->pineryModel->account($_POST['account']);
+		$accountRes = $this->member->account($_POST['account']);
 		if($accountRes['code'] == 200){
 			$data = $accountRes['data'];
 			$where = $accountRes['where'];

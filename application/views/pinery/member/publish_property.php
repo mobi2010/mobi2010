@@ -147,7 +147,7 @@ $dataProperty = $initData['dataProperty'];
             'formData'     : {                  
             },
             'swf'      : '/style/js/uploadify/uploadify.swf',
-            'uploader' : '<?=base_url("util/uploadify/avatar")?>',
+            'uploader' : '<?=base_url("util/uploadify/image")?>',
             'removeCompleted' : false,
             'queueSizeLimit': 8, 
             'debug': false,
