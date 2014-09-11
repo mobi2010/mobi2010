@@ -149,10 +149,10 @@ class Image {
 		$dst_x = 0; //设定需要载入的图片在新图中的x坐标
 		$dst_y = 0; //设定需要载入的图片在新图中的y坐标
 		$scale = $params['scale'] == 'false' ? false : true;//按比例
-		if(!$width || !$height){
-			$res['msg'] = 'Some of the required parameters are missing.';
-			return $res;
-		}
+		// if(!$width || !$height){
+		// 	$res['msg'] = 'Some of the required parameters are missing.';
+		// 	return $res;
+		// }
 		//验证GD库
 		if(! extension_loaded('gd')){
 			$res['msg'] =  "The GD extension is not installed on the server.";

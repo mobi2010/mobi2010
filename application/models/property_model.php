@@ -43,9 +43,9 @@ class Property_model extends MY_Model {
 		}
 		$data['address'] = mobi_string_filter($argv['address']);
 		$data['map'] = !empty($map) ? addslashes(json_encode($map)) : "";
-		$data['aliases'] = mobi_string_filter($argv['aliases']);
-		$data['street_id'] = intval($argv['street_id']);
-		$data['road_id'] = intval($argv['road_id']);		
+		// $data['aliases'] = mobi_string_filter($argv['aliases']);
+		// $data['street_id'] = intval($argv['street_id']);
+		// $data['road_id'] = intval($argv['road_id']);		
 		
 		$params['data'] = $data;
 		return $this->dataInsert($params);

@@ -27,6 +27,23 @@ class Uploadify extends MY_Controller {
 		$uploadImg = $this->image->upload();	
 		$res['data'] = $uploadImg['filePath'];
 		$this->printer($res);
+	}	
+	/**
+	 * [房产图片]
+	 * @return [type] [description]
+	 */
+	function propertyImg(){
+		$uploadImg = $this->image->upload();	
+		$imgInfo = getimagesize($uploadImg['filePath']);
+		$width = $imgInfo[0];
+		//$sourceImageheight = $imgInfo[1];
+		if($width<900){//直接输出
+			$res['data'] = $uploadImg['filePath'];
+			$this->printer($res);
+		}
+		$thumbImg = $this->image->thumb(array('file'=>$uploadImg['filePath'],'width'=>900));
+		$res['data'] = $thumbImg['filePath'];
+		$this->printer($res);
 	}
 	/**
 	 * [文字图片]

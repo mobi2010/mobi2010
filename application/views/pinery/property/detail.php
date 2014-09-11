@@ -2,21 +2,24 @@
 $dataProperty = $initData['dataProperty'];
 ?>
 <style type="text/css">
-.info{height: 360px;}
+.info{height: 360px;padding: 20px;}
 
 .info-member{border-right: #666666 1px dotted;width:160px;float:left;padding: 20px; word-wrap:break-word; overflow:hidden;}
 .member-attr{}
-.member-attr div{line-height: 25px;}
+.member-attr div{line-height: 30px; height:30px; vertical-align:middle; }
 .member-attr .name{width:40px; display:inline-block}
 .info-property{width:690px;float:right;padding: 20px;}
+
+.property-nav{text-align: left;border-bottom:solid 1px #666666;}
 .property-title{font-size: 20px;font-weight: bold}
 .property-attr{margin-top: 10px;}
-.property-attr div{line-height: 30px;}
+.property-attr div{line-height: 30px;height:30px;}
 .property-attr span{color:#FE7203;font-size: 16px;font-weight: bold}
+.property-content{padding: 20px}
 </style>
 
 <div class="home-body">
-    <div class="home-body-box" style="padding: 20px">
+    <div class="home-body-box">
         <div class="info">
             <div class="info-member">
                 <div style="text-align: center;"><?=html_img(array('src'=>$memberInfo['avatar']));?></div>
@@ -33,7 +36,13 @@ $dataProperty = $initData['dataProperty'];
                         $info = "隐藏";
                     }else{
                         if($memberInfo[$key]){
-                            $info = $key == 'mobile' ? html_img(array('src'=>mobi_url('util/uploadify/textImage',array('text'=>$memberInfo[$key])))) : $memberInfo[$key];
+                            if($key == 'mobile'){
+                                $info = html_img(array('src'=>mobi_url('util/uploadify/textImage',array('text'=>$memberInfo[$key]))));
+                            }elseif($key == 'qq'){
+                                $info = html_a(array('href'=>'http://wpa.qq.com/msgrd?v=3&uin='.$memberInfo[$key].'&site=qq&menu=yes','target'=>'_blank','text'=>html_img(array('src'=>'/style/img/online_qq.gif','alt'=>'QQ:'.$memberInfo[$key],'title'=>'QQ:'.$memberInfo[$key]))));
+                            }else{
+                                $info = $memberInfo[$key];
+                            }                            
                         }else{
                             $info = '暂无';
                         }
@@ -43,7 +52,7 @@ $dataProperty = $initData['dataProperty'];
                 echo html_div(array('body'=>$memberAttr,'class'=>'member-attr'));
                 ?>    
             </div>
-            <div class="info-property">
+            <div class="info-property">                
                 <?php
                     echo html_div(array('body'=>$propertyRow['title'],'class'=>'property-title'));
                     echo html_div(array('body'=>date('Y-m-d',$propertyRow['update_time']).'发布&nbsp;&nbsp;浏览&nbsp;'.$propertyRow['view_num'].'&nbsp;次','class'=>'color-grey'));
@@ -60,35 +69,34 @@ $dataProperty = $initData['dataProperty'];
                 ?>
             </div>
         </div>
-    	<div class="property-content">
-            <div style="text-align: left;border-bottom:solid 1px #666666;" id="conNav">
+    	
+            <div class="property-nav">
                 <?php
-                $contentMenu = array('content'=>'描述','photo'=>'照片','comment'=>'评论');
+                $photoNum = count($propertyRow['images']);
+                $contentMenu = array('content'=>'描述','photo'=>"照片({$photoNum})");
                 foreach ($contentMenu as $key => $value) {
                     $class = "con-nav-btn btn-grey";
                     $class .= $key == 'content' ? ' checked' : '';
-                    echo "&nbsp;".html_a(array('class'=>$class,'text'=>$value,'data-value'=>$key,'href'=>'#conNav','style'=>'border-bottom:none'));
+                    echo "&nbsp;".html_a(array('class'=>$class,'text'=>$value,'data-value'=>'property_'.$key,'style'=>'border-bottom:none'));
                 }
                 ?>
             </div>
-            <div class="property-nav-content" id='content' style="margin-top: 10px;">
-            <?php 
-            echo $propertyRow['content'];        
-            ?>
-            </div>
-            <div class="property-nav-content" id='photo' style="margin-top: 10px;display: none">
-    		<?php 
-            if(!empty($propertyRow['images'])){
-                foreach ($propertyRow['images'] as $key => $value) {
-                    echo html_img(array('src'=>$value.'!m01'));
-                }
-            }            
-            ?>
-            </div>
-            <div class="property-nav-content" id='comment' style="margin-top: 10px;display: none">
-            评论。评论。评论。评论。评论。
-            </div>
-    	</div>
+            <div class="property-content">
+                <div class="property-nav-content" id='property_content' >
+                <?php 
+                echo str_replace(array(chr(10),chr(32)), array('<br/>','&nbsp;'), $propertyRow['content']); 
+                ?>
+                </div>
+                <div class="property-nav-content" id='property_photo' style="display: none">
+        		<?php 
+                if(!empty($propertyRow['images'])){
+                    foreach ($propertyRow['images'] as $key => $value) {
+                        echo html_img(array('src'=>$value.'!m01'));
+                    }
+                }            
+                ?>
+                </div>
+    	    </div>
     </div>
 </div>    
 <script type="text/javascript">
@@ -99,6 +107,7 @@ $dataProperty = $initData['dataProperty'];
             var id = $(this).attr('data-value');
             $('.property-nav-content').hide();
             $('#'+id).show();
+            return false;
         })
     })
 </script>
