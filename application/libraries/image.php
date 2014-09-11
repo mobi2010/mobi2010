@@ -637,9 +637,9 @@ class Image {
 				break;					
 		}
 		$res = array();
-		for ($x=1; $x<=$width; $x++) {
-			for ($y=1; $y<=$height; $y++) {
-				$rgb = imagecolorat($handleImage, $x, $y);
+		for ($x2=1; $x2<=$width; $x2++) {
+			for ($y2=1; $y2<=$height; $y2++) {
+				$rgb = imagecolorat($handleImage, $x2, $y2);
 				$r = ($rgb >> 16) & 0xFF;
 				$g = ($rgb >> 8) & 0xFF;
 				$b = $rgb & 0xFF;
@@ -849,5 +849,40 @@ class Image {
 	        }
 	    }
 	    return $filearr;
+	}
+	/**
+	 * [文字图片]
+	 * @param  array  $argv [description]
+	 * @return [type]       [description]
+	 */
+	function textImage($argv=array()){
+		$text = $argv['text'];//内容
+		if(!$text){return false;}
+		//画布宽
+		$width = $argv['width'] ? $argv['width'] : 10*strlen(preg_replace('/[\x{4e00}-\x{9fa5}]/iu', '00', $text))+1;
+		$height = $argv['height'] ? $argv['height'] : 18;//画布高
+		$y2 = $argv['y2'] ? $argv['y2'] : $width;//矩形纵坐标
+		$x2 = $argv['x2'] ? $argv['x2'] : $height;//矩形横坐标
+		$size = $argv['size'] ? $argv['size'] : 13;//字体大小
+		$left = $argv['left'] ? $argv['left'] : 1;//字符中点靠左
+		$top = $argv['top'] ? $argv['top'] : 6;//字符中点靠下
+		$border = $argv['border'];//边框
+		// 设置内容类型标头 —— 这个例子里是 image/jpeg
+		header('Content-Type: image/jpeg');
+		$image = imagecreate($width,$height);//创建画布
+		$img_x = imagesx($image);//所代表的图像的宽度
+		$img_y = imagesy($image);//所代表的图像的高度
+		$color = ImageColorAllocate($image,254,114,3);//为一幅图像分配黑色
+		$white = ImageColorAllocate($image,255,255,255);//为一幅图像分配白色	
+		ImageFilledRectangle($image,0,0,$y2,$x2,$white);//画一个矩形白色背景并填充
+		if($border){			
+		    ImageRectangle($image,0,0,$img_x-1,$img_y-1,$color);//红边不填充
+		}
+		imagettftext($image,$size,0,$left, $img_y/2+($top), $color, './style/img/msyh.ttf', $text);//用 TrueType 字体向图像写入文本
+		// $textcolor = imagecolorallocate($image, 0, 0, 255);
+		// imagestring($image,2,50,30,$text,$textcolor);//水平地画一行字符串		
+		// imagegif($image);//以 GIF 格式将图像输出到浏览器或文件		
+		imagejpeg($image);// 输出图像
+		ImageDestroy($image);// 关闭之前使用的图片缓冲
 	}
 }

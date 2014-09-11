@@ -640,13 +640,32 @@ if ( ! function_exists('mobi_query_string')){
 	}
 }
 /**
+ * [mobi_query_url description]
+ * @return [type] [description]
+ */
+if ( ! function_exists('mobi_query_url')){
+	function mobi_query_url($url,$unset=array()){		
+		$queryStirng = mobi_query_string($unset);
+		$url = base_url($url)."?".$queryStirng;
+		return $url; 
+	}
+}
+/**
  * [mobi_url description]
  * @return [type] [description]
  */
 if ( ! function_exists('mobi_url')){
-	function mobi_query_url($url,$unset=array()){		
-		$queryStirng = mobi_query_string($unset);
-		$url = base_url($url)."?".$queryStirng;
+	function mobi_url($url,$query=array()){
+		$url = base_url($url);
+		$queryStirng = array();
+		if(!empty($query)){
+			foreach ($query as $key => $value) {
+				if(isset($value)){
+					$queryStirng[$key] = $value;
+				}	
+			}
+			$url .= '?'.http_build_query($queryStirng);
+		}
 		return $url; 
 	}
 }

@@ -28,4 +28,12 @@ class Uploadify extends MY_Controller {
 		$res['data'] = $uploadImg['filePath'];
 		$this->printer($res);
 	}
+	/**
+	 * [文字图片]
+	 * @return [type] [description]
+	 */
+	function textImage(){
+		$text = $_GET['text'];
+		echo $this->image->textImage(array('text'=>$text));
+	}
 }
