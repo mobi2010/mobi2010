@@ -863,7 +863,7 @@ if ( ! function_exists('html_dl')){
 * @return [type]         [description]
 */
 if ( ! function_exists('html_qq')){
-	function html_qq($qq){
-		return html_a(array('href'=>'http://wpa.qq.com/msgrd?v=3&uin='.$qq.'&site=qq&menu=yes','target'=>'_blank','text'=>html_img(array('src'=>'/style/img/online_qq.gif','alt'=>'QQ:'.$qq,'title'=>'QQ:'.$qq))));
+	function html_qq($qq,$text='在线交谈'){
+		return html_a(array('href'=>'http://wpa.qq.com/msgrd?v=3&uin='.$qq.'&site=qq&menu=yes','target'=>'_blank','class'=>'online-qq','text'=>html_img(array('class'=>'online-qq-img','src'=>'/style/img/qq_avatar.jpg','alt'=>'QQ:'.$qq,'title'=>'QQ:'.$qq)).'&nbsp;'.$text));
 	}
 }

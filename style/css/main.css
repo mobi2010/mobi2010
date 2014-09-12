@@ -5,7 +5,8 @@
 
 .body-nologin{ background:url(/style/img/register_bg.jpg);font-size:13px;color:#333333;font-family: Tahoma, Helvetica, "Microsoft Yahei", "微软雅黑", Arial, STHeiti;}
 
-a{text-decoration:none; color:#308EB5; }
+a{text-decoration:none; color:#308EB5; bblr:expression(this.onFocus=this.blur());
+       outline:none;}
 a:hover{color:#00B7D6}
 
 
@@ -211,8 +212,11 @@ background:#f5f4f3;
 
 
 /**online**/
-.online{border:#308EB5 1px solid;width: 150px;position:fixed;top:100px;}
+.online{border:#FE7203 2px solid;width: 150px;position:fixed;top:100px;}
 
-.online dt{cursor: pointer;text-align:center;padding:5px 0;background:#308EB5;color: #fff;border:#308EB5 thin solid;}
-.online dt:hover{background:#00B7D6;color: #fff;}
-.online dd{background:#fff;text-align:center;padding:5px 0 0;}
+.online dt{cursor: pointer;text-align:center;padding:5px 0;background:#FE7203;color: #fff;border:#FE7203 thin solid;}
+.online dd{background:#fff;text-align:center;line-height: 40px;height: 40px}
+
+.online-qq{color:#333333; font-weight:bold;padding:0 10px; display:inline-block; border:#CCCCCC thin solid;background:#FCFCFC;border-radius:5px;font-size: 13px; height: 25px;line-height: 25px}
+.online-qq:hover{color:#666;}
+.online-qq-img{position:relative;top:2px;width:16px;height:16px}
