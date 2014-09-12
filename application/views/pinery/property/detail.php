@@ -20,6 +20,7 @@ $dataProperty = $initData['dataProperty'];
 
 <div class="home-body">
     <div class="home-body-box">
+        <?php $this->load->view('pinery/public/bread_nav',array('breadNavData'=>$breadNavData));?>
         <div class="info">
             <div class="info-member">
                 <div style="text-align: center;"><?=html_img(array('src'=>$memberInfo['avatar']));?></div>
@@ -91,7 +92,7 @@ $dataProperty = $initData['dataProperty'];
         		<?php 
                 if(!empty($propertyRow['images'])){
                     foreach ($propertyRow['images'] as $key => $value) {
-                        echo html_img(array('src'=>$value.'!m01'));
+                        echo html_img(array('src'=>$value.'!m01'))."<br/>";
                     }
                 }            
                 ?>

@@ -15,10 +15,13 @@ class Lists extends MY_Controller {
 	 */
 	function index(){
 		$mode = intval($_GET['mid']);
-
-
-		$data['city_id'] = $this->initData['cityId'];
+		$data['city_id'] = $this->initData['cityId'];		
 		$data['modeChecked'] = $mode = $this->initData['dataProperty']['mode'][$mode] ? $mode : 1;
+		$propertyMode = $this->initData['dataProperty']['mode'][$mode];
+
+		$data['breadNavData'] = array('首页'=>base_url('/'),'房产'=>base_url('property/channel'),$propertyMode['name']=>'text');
+
+
 		$data['typeChecked'] = $type = intval($_GET['tid']);
 
 		$data['roomData'] = array('全部','一室','两室','三室','四室','五室','五室以上');

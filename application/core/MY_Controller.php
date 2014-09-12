@@ -19,8 +19,8 @@ class MY_Controller extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->model('Pinery_model', 'pineryModel');//
-		$this->load->model('Member_model', 'member');//		
-		$this->load->model('Property_model', 'property');//	
+		$this->load->model('Member_model', 'member');//
+		$this->load->model('Property_model', 'property');//
 		$this->load->library('gycrypt');	
 		$this->load->library('image');
 		$this->uriEntity();//uri实体数据		

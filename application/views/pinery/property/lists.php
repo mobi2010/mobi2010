@@ -4,7 +4,8 @@ $dataProperty = $initData['dataProperty'];
 
 <div class="home-body">
     <div class="home-body-box">
-        <?php
+        <?php        
+        $this->load->view('pinery/public/bread_nav',array('breadNavData'=>$breadNavData));
         echo html_div(array('body'=>html_text(array('name'=>'q','value'=>$q)).html_a(array('class'=>'btn-orange-s','text'=>'搜索','id'=>'search')),'class'=>'text-right'));
         echo html_div(array('style'=>'margin-bottom:5px','body'=>'类型：'.html_tags(array('checked'=>$typeChecked,'name'=>'tid','sval'=>'name','class'=>'btn-grey-s','options'=>array(0=>array('name'=>'全部'))+$dataProperty["type"],'blank'=>'&nbsp;','href'=>mobi_query_url('property/lists',array('tid'))))));
         

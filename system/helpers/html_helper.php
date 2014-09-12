@@ -812,3 +812,48 @@ if ( ! function_exists('html_span')){
 	    return $html;
 	}
 }
+/**
+* [html_dd description]
+* @param  [type] $params [description]
+* @return [type]         [description]
+*/
+if ( ! function_exists('html_dd')){
+	function html_dd($params=array()){	   
+	    $html ='<dd ';
+	    $html .= html_join($params,array('body'));
+	    $html .= '>';
+	    $html .= $params['body'];
+	    $html .= '</dd>';
+	    return $html;
+	}
+}
+/**
+* [html_dt description]
+* @param  [type] $params [description]
+* @return [type]         [description]
+*/
+if ( ! function_exists('html_dt')){
+	function html_dt($params=array()){	   
+	    $html ='<dt ';
+	    $html .= html_join($params,array('body'));
+	    $html .= '>';
+	    $html .= $params['body'];
+	    $html .= '</dt>';
+	    return $html;
+	}
+}
+/**
+* [html_dl description]
+* @param  [type] $params [description]
+* @return [type]         [description]
+*/
+if ( ! function_exists('html_dl')){
+	function html_dl($params=array()){	   
+	    $html ='<dl ';
+	    $html .= html_join($params,array('body'));
+	    $html .= '>';
+	    $html .= $params['body'];
+	    $html .= '</dl>';
+	    return $html;
+	}
+}
