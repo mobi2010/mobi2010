@@ -857,3 +857,13 @@ if ( ! function_exists('html_dl')){
 	    return $html;
 	}
 }
+/**
+* [html_qq description]
+* @param  [type] $params [description]
+* @return [type]         [description]
+*/
+if ( ! function_exists('html_qq')){
+	function html_qq($qq){
+		return html_a(array('href'=>'http://wpa.qq.com/msgrd?v=3&uin='.$qq.'&site=qq&menu=yes','target'=>'_blank','text'=>html_img(array('src'=>'/style/img/online_qq.gif','alt'=>'QQ:'.$qq,'title'=>'QQ:'.$qq))));
+	}
+}

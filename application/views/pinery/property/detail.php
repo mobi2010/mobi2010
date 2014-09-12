@@ -40,7 +40,7 @@ $dataProperty = $initData['dataProperty'];
                             if($key == 'mobile'){
                                 $info = html_img(array('src'=>mobi_url('util/uploadify/textImage',array('text'=>$memberInfo[$key]))));
                             }elseif($key == 'qq'){
-                                $info = html_a(array('href'=>'http://wpa.qq.com/msgrd?v=3&uin='.$memberInfo[$key].'&site=qq&menu=yes','target'=>'_blank','text'=>html_img(array('src'=>'/style/img/online_qq.gif','alt'=>'QQ:'.$memberInfo[$key],'title'=>'QQ:'.$memberInfo[$key]))));
+                                $info = html_qq($memberInfo[$key]);
                             }else{
                                 $info = $memberInfo[$key];
                             }                            

@@ -208,3 +208,11 @@ background:#f5f4f3;
 .member-page a{cursor: pointer;display: inline-block;vertical-align: middle;text-align:center;padding:5px 10px;background:#EBEBEB;color:#333333;border:#CCCCCC thin solid;}
 
 .member-page a.on{background:#FE7203;color: #fff;border:#FE7203 thin solid;}
+
+
+/**online**/
+.online{border:#308EB5 1px solid;width: 150px;position:fixed;top:100px;}
+
+.online dt{cursor: pointer;text-align:center;padding:5px 0;background:#308EB5;color: #fff;border:#308EB5 thin solid;}
+.online dt:hover{background:#00B7D6;color: #fff;}
+.online dd{background:#fff;text-align:center;padding:5px 0 0;}

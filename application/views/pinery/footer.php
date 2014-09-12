@@ -8,6 +8,42 @@
 	endif;
 ?>
 
+<?php
+
+$onlineData = array(
+	array(
+		'title'=>'技术支持',
+		'children'=>array(
+				array('qq'=>'574833141','tel'=>13141083366),
+				array('qq'=>'574833141','tel'=>13141083366)
+			)
+	),
+	array(
+		'title'=>'在线客服',
+		'children'=>array(
+				array('qq'=>'574833141','tel'=>13141083366),
+				array('qq'=>'574833141','tel'=>13141083366)
+			)
+	)
+	);
+?>
+
+<div class="online">
+	<?php
+	foreach ($onlineData as $key => $value) {
+		$dt = html_dt(array('body'=>$value['title']));
+		$dd = "";
+		foreach ($value['children'] as $ck => $cv) {
+			$dd .= html_dd(array('body'=>html_qq($cv['qq'])));
+		}
+		echo html_dl(array('body'=>$dt.$dd));
+	}
+
+	?>
+</div>
+
+
+
 
 </body>
 </html>
