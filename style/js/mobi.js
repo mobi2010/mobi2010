@@ -211,6 +211,9 @@
                 $("#"+tagsId).addClass("checked");
                 $("input[name='"+tagsName+"']").val(tagsValue);
             })
+            $("img").error(function(){
+                $(this).attr('src','/style/img/notfind.jpg');
+            });
     	},
         isdate:function(val,format){//验证日期
             var format = format ? format : '-';

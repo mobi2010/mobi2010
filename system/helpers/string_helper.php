@@ -432,3 +432,25 @@ if ( ! function_exists('mobi_isemail')){
 		return preg_match("/\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/i", $str);
 	}
 }
+/**
+ * [时间格式化]
+ * @param  [type] $key [description]
+ * @return [type]      [description]
+ */
+if ( ! function_exists('mobi_time')){
+	function mobi_time($ptime){
+		$dtime = time();
+		$ctime = $dtime-$ptime;
+		$res = "";
+		if($ctime<60){
+			$res = "刚刚";
+		}elseif($ctime<3600){
+			$res = floor($ctime/60)."分钟前";
+		}elseif($ctime<86400){
+			$res = floor($ctime/3600)."小时前";
+		}else{
+			$res = date('y/m/d H:i',$ptime);
+		}
+		return $res;
+	}
+}
