@@ -115,7 +115,7 @@ $dataProperty = $initData['dataProperty'];
            
             if($.inArray(value, [2,4]) > -1){
                 hideAttr = ['address','community','floors','room','area','rent','price','property','building','toward','decoration','image'];
-            }else if(2 == value){
+            }else if(3 == value){
                 hideAttr = ['address','rent'];
             }
             for(var hk in hideAttr){ $('#'+hideAttr[hk]+'_tr').hide(); }

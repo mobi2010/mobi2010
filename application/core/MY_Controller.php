@@ -61,6 +61,9 @@ class MY_Controller extends CI_Controller
 		//房产
 		$this->initData['dataProperty'] = require(APPPATH.'/config/data_property.php');
 
+		//车辆
+		$this->initData['dataCar'] = require(APPPATH.'/config/data_car.php');
+
 
 		$this->load->vars('initData',$this->initData);//映射到模板
 		return $this->initData;

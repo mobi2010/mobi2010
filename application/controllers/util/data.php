@@ -10,6 +10,14 @@ class Data extends MY_Controller {
 		parent::__construct(array('auth'=>false));
 	}
 	/**
+	 * [车辆类型]
+	 * @return [type] [description]
+	 */
+	function carType(){
+		$data = $this->pineryModel->dataFetchArray(array('table'=>'pinery_car_type','skey'=>'id','field'=>'id,name','order'=>'sort desc'));
+		echo json_encode($data);
+	}
+	/**
 	 * 城市数据
 	 */
 	function dataCity(){

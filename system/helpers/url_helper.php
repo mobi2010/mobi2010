@@ -629,13 +629,14 @@ if ( ! function_exists('wbsina_expandurl')){
  * @return [type]        [description]
  */
 if ( ! function_exists('mobi_query_string')){
-	function mobi_query_string($unset=array()){
-		$queryStirng = array();
+	function mobi_query_string($unset=array(),$query=array()){
+		$queryStirng = array();		
 		foreach ($_GET as $key => $value) {
 			if(isset($value) && !in_array($key, $unset)){
 				$queryStirng[$key] = $value;
 			}			
-		} 
+		} 		
+		$queryStirng = $queryStirng+$query;
 		return http_build_query($queryStirng);
 	}
 }
@@ -644,8 +645,8 @@ if ( ! function_exists('mobi_query_string')){
  * @return [type] [description]
  */
 if ( ! function_exists('mobi_query_url')){
-	function mobi_query_url($url,$unset=array()){		
-		$queryStirng = mobi_query_string($unset);
+	function mobi_query_url($url,$unset=array(),$query=array()){		
+		$queryStirng = mobi_query_string($unset,$query);
 		$url = base_url($url)."?".$queryStirng;
 		return $url; 
 	}
@@ -655,12 +656,12 @@ if ( ! function_exists('mobi_query_url')){
  * @return [type] [description]
  */
 if ( ! function_exists('mobi_url')){
-	function mobi_url($url,$query=array()){
+	function mobi_url($url,$query=array(),$unset=array()){
 		$url = base_url($url);
 		$queryStirng = array();
 		if(!empty($query)){
 			foreach ($query as $key => $value) {
-				if(isset($value)){
+				if(isset($value) && !in_array($key, $unset)){
 					$queryStirng[$key] = $value;
 				}	
 			}
