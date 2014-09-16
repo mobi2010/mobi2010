@@ -1,8 +1,6 @@
 <?php
 $dataProperty = $initData['dataProperty'];
 ?>
-<script src="/style/js/uploadify/jquery.uploadify.min.js" type="text/javascript"></script>
-<link rel="stylesheet" type="text/css" href="/style/js/uploadify/uploadify.css">
 
 <div class="member-body">
     <?php $this->load->view('pinery/member/menu');?>

@@ -1,5 +1,5 @@
-<script src="/style/js/uploadify/jquery.uploadify.min.js" type="text/javascript"></script>
-<link rel="stylesheet" type="text/css" href="/style/js/uploadify/uploadify.css">
+<script src="/style/plugins/uploadify/jquery.uploadify.min.js" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="/style/plugins/uploadify/uploadify.css">
 <div class="member-body">
 	<?php $this->load->view('pinery/member/menu');?>
 	<div class="member-content">
@@ -140,7 +140,7 @@
 		$('#avatarUpload').uploadify({
 				'formData'     : {					
 				},
-				'swf'      : '/style/js/uploadify/uploadify.swf',
+				'swf'      : '/style/plugins/uploadify/uploadify.swf',
 				'uploader' : '<?=base_url("util/uploadify/avatar")?>',
 				'buttonImage': '<?=$userEntity["avatar"]?>',
 				'width'    : 120,
