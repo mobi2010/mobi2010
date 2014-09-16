@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 3.5.2
+-- version 3.4.5
 -- http://www.phpmyadmin.net
 --
 -- 主机: localhost
--- 生成日期: 2014 年 09 月 09 日 21:08
--- 服务器版本: 5.5.25a
--- PHP 版本: 5.4.4
+-- 生成日期: 2014 年 09 月 16 日 13:24
+-- 服务器版本: 5.5.16
+-- PHP 版本: 5.3.8
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -62,6 +62,30 @@ CREATE TABLE IF NOT EXISTS `android_version` (
   `android_id` int(10) NOT NULL COMMENT 'android表id',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='android版本表' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_car_type`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_car_type` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(10) NOT NULL COMMENT '名称',
+  `sort` int(11) NOT NULL COMMENT '排序',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='车辆类型表' AUTO_INCREMENT=6 ;
+
+--
+-- 转存表中的数据 `pinery_car_type`
+--
+
+INSERT INTO `pinery_car_type` (`id`, `name`, `sort`) VALUES
+(1, '汽车', 0),
+(2, '自行车', 0),
+(3, '电动车', 0),
+(4, '摩托车', 0),
+(5, '农用车', 0);
 
 -- --------------------------------------------------------
 
@@ -179,7 +203,7 @@ CREATE TABLE IF NOT EXISTS `pinery_member` (
 --
 
 INSERT INTO `pinery_member` (`id`, `email`, `mobile`, `password`, `source`, `names`, `city_id`, `addtime`, `logintime`, `step`, `org_name`, `org_id`, `avatar`, `long2ip`, `tel`, `qq`, `weixin`, `weibo`, `mobile_is`, `email_is`, `tel_is`, `qq_is`, `weixin_is`, `weibo_is`) VALUES
-(1, 'zsc@2010.mobi', 13141083366, 'e10adc3949ba59abbe56e057f20f883e', 1, '超哥', 1, 1410276161, 1410276161, 9, '', 0, 'http://pinery.b0.upaiyun.com/2014/09/09/141027678288252500.png', 2130706433, '0312-1231234', 0, '', '', 1, 1, 1, 1, 1, 1);
+(1, 'zsc@2010.mobi', 13141083366, 'e10adc3949ba59abbe56e057f20f883e', 1, '超哥', 1, 1410276161, 1410321296, 9, '', 0, 'http://pinery.b0.upaiyun.com/2014/09/09/141027678288252500.png', 2130706433, '0312-1231234', 213412341234, 'adsfadsflihjadsf', 'http://www.adsfasdfasd.faf', 0, 0, 1, 0, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -208,7 +232,7 @@ CREATE TABLE IF NOT EXISTS `pinery_property_1_1` (
   PRIMARY KEY (`id`),
   KEY `type` (`type`),
   KEY `userid` (`userid`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='房产出租表_城市id_方式id' AUTO_INCREMENT=12 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='房产出租表_城市id_方式id' AUTO_INCREMENT=15 ;
 
 --
 -- 转存表中的数据 `pinery_property_1_1`
@@ -221,11 +245,14 @@ INSERT INTO `pinery_property_1_1` (`id`, `type`, `location_id`, `floors`, `floor
 (4, 1, 5, 2, 3, 23, 23, 23, 123, 1234, 3, 2, 1, 7, 1410279112, 1410279446, 0),
 (5, 1, 6, 1, 23, 1, 12, 2, 12, 12, 3, 2, 1, 8, 1410279145, 1410279446, 0),
 (6, 3, 5, 1, 2, 12, 12, 12, 12, 12, 7, 4, 1, 9, 1410279181, 1410279446, 0),
-(7, 1, 6, 1, 2, 2, 1, 1, 12, 12, 3, 2, 1, 10, 1410279299, 1410279446, 0),
+(7, 1, 6, 1, 2, 2, 1, 1, 12, 12, 3, 2, 1, 10, 1410279299, 1410279446, 2),
 (8, 1, 3, 1, 2, 23, 2, 3, 12, 12, 4, 3, 1, 11, 1410279323, 1410279446, 0),
-(9, 1, 3, 2, 3, 12, 3, 2, 12, 12, 3, 2, 1, 12, 1410279345, 1410279446, 0),
-(10, 1, 4, 2, 2, 3, 3, 3, 12, 123, 3, 2, 1, 13, 1410279368, 1410279446, 0),
-(11, 2, 3, 3, 2, 2, 2, 2, 12, 123, 6, 4, 1, 14, 1410279427, 1410279446, 22);
+(9, 1, 3, 2, 3, 12, 3, 2, 12, 12, 3, 2, 1, 12, 1410279345, 1410279446, 7),
+(10, 1, 4, 2, 2, 3, 3, 3, 12, 123, 3, 2, 1, 13, 1410279368, 1410279446, 5),
+(11, 2, 3, 3, 2, 2, 2, 2, 12, 123, 6, 4, 1, 14, 1410279427, 1410279446, 169),
+(12, 3, 5, 12, 23, 12, 12, 12, 12, 12, 2, 1, 1, 15, 1410340110, 1410340110, 5),
+(13, 2, 5, 2, 32, 23, 12, 12, 123, 132, 2, 1, 1, 16, 1410340271, 1410340271, 12),
+(14, 1, 5, 1, 32, 2, 3, 3, 12, 12, 3, 2, 1, 17, 1410340374, 1410340374, 407);
 
 -- --------------------------------------------------------
 
@@ -235,12 +262,13 @@ INSERT INTO `pinery_property_1_1` (`id`, `type`, `location_id`, `floors`, `floor
 
 CREATE TABLE IF NOT EXISTS `pinery_property_1_2` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `type` tinyint(4) NOT NULL COMMENT '方式',
+  `type` tinyint(4) NOT NULL COMMENT '类型',
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '内容',
   `add_time` int(11) NOT NULL COMMENT '添加时间',
   `update_time` int(11) NOT NULL COMMENT '修改时间',
   `view_num` int(11) NOT NULL COMMENT '浏览数',
+  `userid` bigint(20) NOT NULL COMMENT '用户id',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='房产求租表_城市id_方式id' AUTO_INCREMENT=3 ;
 
@@ -248,9 +276,9 @@ CREATE TABLE IF NOT EXISTS `pinery_property_1_2` (
 -- 转存表中的数据 `pinery_property_1_2`
 --
 
-INSERT INTO `pinery_property_1_2` (`id`, `type`, `title`, `content`, `add_time`, `update_time`, `view_num`) VALUES
-(1, 2, '求租别墅', '求租别墅。。。。。', 1410278852, 1410278852, 0),
-(2, 3, '求租商住两用', '求租商住两用求租商住两用', 1410278881, 1410278881, 0);
+INSERT INTO `pinery_property_1_2` (`id`, `type`, `title`, `content`, `add_time`, `update_time`, `view_num`, `userid`) VALUES
+(1, 2, '求租别墅', '求租别墅。。。。。', 1410278852, 1410278852, 0, 1),
+(2, 3, '求租商住两用', '求租商住两用求租商住两用', 1410278881, 1410278881, 2, 1);
 
 -- --------------------------------------------------------
 
@@ -288,9 +316,9 @@ CREATE TABLE IF NOT EXISTS `pinery_property_1_3` (
 --
 
 INSERT INTO `pinery_property_1_3` (`id`, `type`, `location_id`, `floors`, `floors_total`, `room`, `hall`, `bathroom`, `area`, `price`, `toward`, `decoration`, `userid`, `content_id`, `add_time`, `update_time`, `property`, `building`, `view_num`) VALUES
-(1, 3, 4, 12, 12, 12, 12, 12, 12, 0, 3, 2, 1, 4, 1410278911, 1410278911, 0, 0, 0),
-(2, 3, 5, 12, 12, 12, 12, 1, 12, 0, 5, 4, 1, 5, 1410278937, 1410278937, 0, 0, 0),
-(3, 5, 5, 0, 0, 0, 0, 0, 1234, 0, 0, 0, 1, 6, 1410278972, 1410278972, 0, 0, 0);
+(1, 3, 4, 12, 12, 12, 12, 12, 12, 133, 3, 2, 1, 4, 1410278911, 1410278911, 0, 0, 0),
+(2, 3, 5, 12, 12, 12, 12, 1, 12, 0, 5, 4, 1, 5, 1410278937, 1410278937, 0, 0, 1),
+(3, 5, 5, 0, 0, 0, 0, 0, 1234, 0, 0, 0, 1, 6, 1410278972, 1410278972, 0, 0, 22);
 
 -- --------------------------------------------------------
 
@@ -300,12 +328,13 @@ INSERT INTO `pinery_property_1_3` (`id`, `type`, `location_id`, `floors`, `floor
 
 CREATE TABLE IF NOT EXISTS `pinery_property_1_4` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `type` tinyint(4) NOT NULL COMMENT '方式',
+  `type` tinyint(4) NOT NULL COMMENT '类型',
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '内容',
   `add_time` int(11) NOT NULL COMMENT '添加时间',
   `update_time` int(11) NOT NULL COMMENT '修改时间',
   `view_num` int(11) NOT NULL COMMENT '浏览数',
+  `userid` bigint(20) NOT NULL COMMENT '用户id',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='房产求购表_城市id_方式id' AUTO_INCREMENT=3 ;
 
@@ -313,9 +342,9 @@ CREATE TABLE IF NOT EXISTS `pinery_property_1_4` (
 -- 转存表中的数据 `pinery_property_1_4`
 --
 
-INSERT INTO `pinery_property_1_4` (`id`, `type`, `title`, `content`, `add_time`, `update_time`, `view_num`) VALUES
-(1, 2, '求购别墅', '求购别墅求购别墅求购别墅求购别墅求购别墅', 1410279065, 1410279065, 0),
-(2, 4, '求购写字楼', '12341234', 1410279075, 1410279075, 0);
+INSERT INTO `pinery_property_1_4` (`id`, `type`, `title`, `content`, `add_time`, `update_time`, `view_num`, `userid`) VALUES
+(1, 2, '求购别墅', '求购别墅求购别墅求购别墅求购别墅求购别墅', 1410279065, 1410279065, 0, 1),
+(2, 4, '求购写字楼', '12341234', 1410279075, 1410279075, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -347,7 +376,7 @@ CREATE TABLE IF NOT EXISTS `pinery_property_content_1` (
   `userid` bigint(20) NOT NULL COMMENT '用户id',
   PRIMARY KEY (`id`),
   KEY `userid` (`userid`,`title`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='房产内容表_用户id最后一位' AUTO_INCREMENT=15 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='房产内容表_用户id最后一位' AUTO_INCREMENT=18 ;
 
 --
 -- 转存表中的数据 `pinery_property_content_1`
@@ -367,7 +396,10 @@ INSERT INTO `pinery_property_content_1` (`id`, `title`, `content`, `images`, `us
 (11, '太平洋', '阿斯顿发', '', 1),
 (12, '太平样痒痒', '夏威夷好房子夏威夷好房子夏威夷好房子夏威夷好房子夏威夷好房子夏威夷好房子', '', 1),
 (13, '过桥米线', '过桥米线过桥米线过桥米线过桥米线过桥米线', '', 1),
-(14, '天洋宝宝童装店', '天洋宝宝童装店天洋宝宝童装店天洋宝宝童装店天洋宝宝童装店', '', 1);
+(14, '天洋宝宝童装店', '天洋宝宝童装店天洋宝宝童装店天洋宝宝童装店天洋宝宝童装店', '', 1),
+(15, '无常武器', '无常武器无常武器无常武器无常武器无常武器无常武器', 'http://pinery.b0.upaiyun.com/2014/09/10/141034010946489300.jpg|http://pinery.b0.upaiyun.com/2014/09/10/141034010962982000.jpg|http://pinery.b0.upaiyun.com/2014/09/10/141034010975369900.jpg|http://pinery.b0.upaiyun.com/2014/09/10/141034010991905600.jpg', 1),
+(16, '福成五期', '福成五期福成五期福成五期福成五期', 'http://pinery.b0.upaiyun.com/2014/09/10/141034027137556000.jpg|http://pinery.b0.upaiyun.com/2014/09/10/141034027154299800.jpg', 1),
+(17, '福成五期', '福成五期福成五期', 'http://pinery.b0.upaiyun.com/2014/09/10/141034036929585700.jpg|http://pinery.b0.upaiyun.com/2014/09/10/141034036970720400.jpg|http://pinery.b0.upaiyun.com/2014/09/10/141034037010350100.jpg|http://pinery.b0.upaiyun.com/2014/09/10/141034037051104600.jpg|http://pinery.b0.upaiyun.com/2014/09/10/141034037089200400.jpg|http://pinery.b0.upaiyun.com/2014/09/10/141034037140183900.jpg|http://pinery.b0.upaiyun.com/2014/09/10/141034037182712200.jpg|http://pinery.b0.upaiyun.com/2014/09/10/141034037251164100.jpg|http://pinery.b0.upaiyun.com/2014/09/10/141034037311132600.jpg|http://pinery.b0.upaiyun.com/2014/09/10/141034037354286000.jpg|http://pinery.b0.upaiyun.com/2014/09/10/141034037390921400.jpg|http://pinery.b0.upaiyun.com/2014/09/10/141034037443415900.jpg', 1);
 
 -- --------------------------------------------------------
 
