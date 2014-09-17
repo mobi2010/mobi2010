@@ -9,6 +9,19 @@ class Uploadify extends MY_Controller {
 	{
 		parent::__construct(array('auth'=>false));		
 	}
+	function ueditor(){
+		$res['state'] = 'SUCCESS';
+		$uploadImg = $this->image->upload(array('fileKey'=>'upfile'));	
+		$imgInfo = getimagesize($uploadImg['filePath']);
+		$width = $imgInfo[0];
+		if($width<700){//直接输出
+			$res['url'] = $uploadImg['filePath'];
+			$this->printer($res);
+		}
+		$thumbImg = $this->image->thumb(array('file'=>$uploadImg['filePath'],'width'=>700));
+		$res['url'] = $thumbImg['filePath'];
+		$this->printer($res);
+	}
 	/**
 	 * [头像]
 	 * @return [type] [description]

@@ -8,7 +8,7 @@ $dataCar = $initData['dataCar'];
     <?php $this->load->view('pinery/member/menu');?>
     <div class="member-content">
     <form id="propertyForm">
-        <table id="propertyTable" width="780" border="0" >
+        <table id="propertyTable" width="810" border="0" >
             <tr id='type_tr'>
                 <td class="left"><span style="color: red">*</span>类型：</td>
                 <td >
@@ -21,7 +21,7 @@ $dataCar = $initData['dataCar'];
             </tr>
             <tr id='content_tr'>
                 <td class="left">描述：</td>
-                <td><script id="editor" type="text/plain" style="width:600px;height:250px;"></script></td>
+                <td><script id="editor" type="text/plain" style="width:750px;height:300px;"></script></td>
             </tr>            
             <tr>
                 <td class="left"></td>
