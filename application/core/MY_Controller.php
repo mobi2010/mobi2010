@@ -21,6 +21,7 @@ class MY_Controller extends CI_Controller
 		$this->load->model('Pinery_model', 'pineryModel');//
 		$this->load->model('Member_model', 'member');//
 		$this->load->model('Property_model', 'property');//
+		$this->load->model('Car_model', 'car');//
 		$this->load->library('gycrypt');	
 		$this->load->library('image');
 		$this->uriEntity();//uri实体数据		

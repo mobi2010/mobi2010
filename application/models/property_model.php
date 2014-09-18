@@ -18,7 +18,6 @@ class Property_model extends MY_Model {
 		$viewNum = mt_rand(1, 3);
 		$sql = "update pinery_property_{$city_id}_{$mode} set view_num=view_num+{$viewNum} where id={$id} limit 1";
 		return $this->query($sql);
-
 	}
 	/**
 	 * [添加位置]
@@ -82,6 +81,10 @@ class Property_model extends MY_Model {
 		$mode = intval($argv['mode']);		
 		$city_id = intval($argv['city_id']);
 		$ids = implode(',', $argv['ids']);
+		foreach ($ids as $key => $value) {
+			$data = $this->dataFetchRow(array('table'=>"pinery_property_{$city_id}_{$mode}",'where'=>$value));
+			$this->dataDelete(array('table'=>'pinery_property_content_'.substr($data['userid'], -1),'where'=>$data['content_id']));	
+		}
 		$params['table'] = "pinery_property_{$city_id}_{$mode}";
 		$params['where'] = "id in ({$ids})";
 		return $this->dataDelete($params);		
@@ -218,4 +221,4 @@ class Property_model extends MY_Model {
 		$city_id = intval($argv['city_id']);
 		return $this->dataFetchCount(array('table'=>"pinery_property_{$city_id}_{$mode}",'where'=>$argv['where']));	
 	}
-  }	
+}	

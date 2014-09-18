@@ -58,10 +58,22 @@ class Index extends MY_Controller {
 	 * @return [type] [description]
 	 */
 	function car(){
+		$data['city_id'] = $this->initData['cityId'];
+		$data['car_id'] = $data['city_id'].'_';
+
+		$page = intval($_GET['p']) > 0 ? intval($_GET['p']) : 1;
+		$size = 10;
+		$start = ($page-1)*$size;
+
+		$total = $this->car->getCarCount(array('city_id'=>$data['city_id']));
+		if($total){
+			$data['listData'] = $this->car->getCarArray(array('city_id'=>$data['city_id'],'limit'=>"{$start},{$size}",'order'=>'update_time desc'));
+			$data['pageView'] = $this->load->view('pinery/public/member_page',array('total'=>$total,'pageSize'=>$size),true);
+		}
 		$this->load->view('pinery/header',$data);
 		$this->load->view('pinery/public/home_topbar',$data);
 		$this->load->view('pinery/member/nav',$data);
-		$this->load->view('pinery/member/index',$data);
+		$this->load->view('pinery/member/car_list',$data);
 		$this->load->view('pinery/footer',array('footerInfo'=>'no'));
 	}
 	/**

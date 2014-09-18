@@ -21,71 +21,25 @@
 			<div class="line">
 				<?php
 
-				$text = '出租';
+				$text = '车辆';
 				$dd = "";
 				$key = 1;
-				$dt = html_dt(array('body'=>html_a(array('text'=>$text,'href'=>mobi_url('property/lists',array('mid'=>$key))))));
+				$dt = html_dt(array('body'=>html_a(array('text'=>$text,'href'=>mobi_url('car/lists',array('mid'=>$key))))));
 				$value = $channelData[$key];
 				if(empty($value)){
 						$dd .= html_dd(array('body'=>'暂无'));
 					}else{
 						foreach ($value as $ck => $cv) {
-							$dd .= html_dd(array('body'=>html_a(array('href'=>mobi_url('property/detail',array('id'=>$initData['cityId'].'_'.$key.'_'.$cv['id'])),'text'=>$cv['title'],'target'=>'_blank'))));
+							$dd .= html_dd(array('body'=>html_a(array('href'=>mobi_url('car/detail',array('id'=>$initData['cityId'].'_'.$cv['id'])),'text'=>$cv['title'],'target'=>'_blank'))));
 						}
 					}	
 				echo html_dl(array('body'=>$dt.$dd,'class'=>'left'));	
 
 
-				$text = '出售';
-				$dd = "";
-				$key = 3;
-				$dt = html_dt(array('body'=>html_a(array('text'=>$text,'href'=>mobi_url('property/lists',array('mid'=>$key))))));				
-				$value = $channelData[$key];
-				if(empty($value)){
-						$dd .= html_dd(array('body'=>'暂无'));
-					}else{
-						foreach ($value as $ck => $cv) {
-							$dd .= html_dd(array('body'=>html_a(array('href'=>mobi_url('property/detail',array('id'=>$initData['cityId'].'_'.$key.'_'.$cv['id'])),'text'=>$cv['title'],'target'=>'_blank'))));
-						}
-					}	
-				echo html_dl(array('body'=>$dt.$dd,'class'=>'right'));	
 				?>
 			</div>
 
-			<div class="line">
-				<?php
-
-				$text = '求租';
-				$dd = "";
-				$key = 2;
-				$dt = html_dt(array('body'=>html_a(array('text'=>$text,'href'=>mobi_url('property/lists',array('mid'=>$key))))));
-				$value = $channelData[$key];
-				if(empty($value)){
-						$dd .= html_dd(array('body'=>'暂无'));
-					}else{
-						foreach ($value as $ck => $cv) {
-							$dd .= html_dd(array('body'=>html_a(array('href'=>mobi_url('property/detail',array('id'=>$initData['cityId'].'_'.$key.'_'.$cv['id'])),'text'=>$cv['title'],'target'=>'_blank'))));
-						}
-					}	
-				echo html_dl(array('body'=>$dt.$dd,'class'=>'left'));	
-
-
-				$text = '求购';
-				$dd = "";
-				$key = 4;
-				$dt = html_dt(array('body'=>html_a(array('text'=>$text,'href'=>mobi_url('property/lists',array('mid'=>$key))))));				
-				$value = $channelData[$key];
-				if(empty($value)){
-						$dd .= html_dd(array('body'=>'暂无'));
-					}else{
-						foreach ($value as $ck => $cv) {
-							$dd .= html_dd(array('body'=>html_a(array('href'=>mobi_url('property/detail',array('id'=>$initData['cityId'].'_'.$key.'_'.$cv['id'])),'text'=>$cv['title'],'target'=>'_blank'))));
-						}
-					}	
-				echo html_dl(array('body'=>$dt.$dd,'class'=>'right'));	
-				?>
-			</div>
-
+			
 		</div>
 	</div>
 </div>

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主机: localhost
--- 生成日期: 2014 年 09 月 17 日 11:59
+-- 生成日期: 2014 年 09 月 18 日 13:01
 -- 服务器版本: 5.5.16
 -- PHP 版本: 5.3.8
 
@@ -62,6 +62,69 @@ CREATE TABLE IF NOT EXISTS `android_version` (
   `android_id` int(10) NOT NULL COMMENT 'android表id',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='android版本表' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_car_1`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_car_1` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `update_time` int(11) NOT NULL COMMENT '修改时间',
+  `add_time` int(11) NOT NULL COMMENT '添加时间',
+  `type` tinyint(4) NOT NULL COMMENT '类型',
+  `userid` bigint(20) NOT NULL COMMENT '用户id',
+  `view_num` int(11) NOT NULL COMMENT '浏览量',
+  `content_id` bigint(20) NOT NULL COMMENT '内容id',
+  `price` int(11) NOT NULL COMMENT '价格',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='车辆表' AUTO_INCREMENT=10 ;
+
+--
+-- 转存表中的数据 `pinery_car_1`
+--
+
+INSERT INTO `pinery_car_1` (`id`, `title`, `update_time`, `add_time`, `type`, `userid`, `view_num`, `content_id`, `price`) VALUES
+(1, '阿斯顿发生的发', 1411022000, 1411022000, 1, 1, 0, 2, 0),
+(2, '阿斯顿发达省份', 1411022068, 1411022068, 2, 1, 0, 3, 0),
+(3, '阿德发大水发', 1411022874, 1411022874, 1, 1, 0, 4, 0),
+(4, '房产信息', 1411023434, 1411023434, 1, 1, 0, 5, 0),
+(5, '房产信息', 1411023558, 1411023558, 1, 1, 0, 6, 0),
+(6, '阿德发大水发', 1411023591, 1411023591, 1, 1, 1, 7, 0),
+(7, '房产信息', 1411023620, 1411023620, 1, 1, 0, 8, 0),
+(8, '阿斯顿发生的发', 1411023660, 1411023660, 1, 1, 6, 9, 0),
+(9, '房产信息', 1411024709, 1411024709, 1, 1, 1, 10, 0);
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_car_content`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_car_content` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `content` text NOT NULL COMMENT '内容',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='车辆内容表' AUTO_INCREMENT=11 ;
+
+--
+-- 转存表中的数据 `pinery_car_content`
+--
+
+INSERT INTO `pinery_car_content` (`id`, `content`, `images`) VALUES
+(1, '<p><img alt="" src="http://2010.test/tmp/2014/09/18/141102194016733600.jpg" title=""/></p>', ''),
+(2, '<p><img alt="" src="http://2010.test/tmp/2014/09/18/141102194016733600.jpg" title=""/></p>', ''),
+(3, '<p><img alt="" src="http://2010.test/tmp/2014/09/18/141102206128331600.jpg" title=""/><img src="http://api.map.baidu.com/staticimage?center=116.404,39.915&zoom=10&width=530&height=340&markers=116.404,39.915" width="530" height="340"/></p>', ''),
+(4, '<p><img alt="" src="http://2010.test/tmp/2014/09/18/141102283734294200.png" title=""/></p>', ''),
+(5, '<p>阿呆沙发时代发<img src="http://api.map.baidu.com/staticimage?center=116.404,39.915&zoom=10&width=530&height=340&markers=116.404,39.915" width="530" height="340"/><img alt="" src="http://2010.test/tmp/2014/09/18/141102343067003600.jpg" title=""/></p>', ''),
+(6, '<p>阿德发大水发<img alt="" src="http://2010.test/tmp/2014/09/18/141102355640847500.jpg" title=""/><br/></p>', ''),
+(7, '<p>阿呆沙发第三方<img alt="" src="http://2010.test/tmp/2014/09/18/141102358928008700.jpg" title=""/></p>', ''),
+(8, '<p>阿呆沙发第三方<img alt="" src="http://2010.test/tmp/2014/09/18/141102361767356200.jpg" title=""/></p>', ''),
+(9, '<p><img alt="" src="http://2010.test/tmp/2014/09/18/141102365358358600.jpg" title=""/><img src="http://api.map.baidu.com/staticimage?center=116.404,39.915&zoom=10&width=530&height=340&markers=116.404,39.915" width="530" height="340"/></p>', ''),
+(10, '<p><strong><span style="color: rgb(73, 68, 41);">asdfasdf</span></strong></p><p><span style="background-color: rgb(255, 0, 0);"><em>adsfadsf</em></span></p><p><br/><span style="background-color: rgb(255, 0, 0);"></span></p><p><span style="background-color: rgb(255, 0, 0);"><em><img alt="" src="http://2010.test/tmp/2014/09/18/141102468212472500.jpg" title=""/></em></span></p><p><span style="background-color: rgb(255, 0, 0);"><em><iframe class="ueditor_baidumap" src="http://2010.test/style/plugins/ueditor/dialogs/map/show.html#center=116.387982,39.905415&zoom=13&width=530&height=340&markers=116.405948,39.923456&markerStyles=l,A" width="534" height="344" frameborder="0"></iframe></em></span></p>', '');
 
 -- --------------------------------------------------------
 
@@ -167,6 +230,71 @@ INSERT INTO `pinery_location_1` (`id`, `name`, `address`, `map`) VALUES
 -- --------------------------------------------------------
 
 --
+-- 表的结构 `pinery_market_1`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_market_1` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `update_time` int(11) NOT NULL COMMENT '修改时间',
+  `add_time` int(11) NOT NULL COMMENT '添加时间',
+  `type` tinyint(4) NOT NULL COMMENT '类型',
+  `userid` bigint(20) NOT NULL COMMENT '用户id',
+  `view_num` int(11) NOT NULL COMMENT '浏览量',
+  `content_id` bigint(20) NOT NULL COMMENT '内容id',
+  `price` int(11) NOT NULL COMMENT '价格',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='集市表' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_market_content`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_market_content` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `content` text NOT NULL COMMENT '内容',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='集市内容表' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_market_type`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_market_type` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(10) NOT NULL COMMENT '名称',
+  `sort` int(11) NOT NULL COMMENT '排序',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='集市类型表' AUTO_INCREMENT=15 ;
+
+--
+-- 转存表中的数据 `pinery_market_type`
+--
+
+INSERT INTO `pinery_market_type` (`id`, `name`, `sort`) VALUES
+(1, '手机/电脑/数码', 0),
+(2, '虚拟物品', 0),
+(3, '家具', 0),
+(4, '家用电器', 0),
+(5, '家居百货', 0),
+(6, '设备/办公用品', 0),
+(7, '母婴/儿童用品', 0),
+(8, '老年用品', 0),
+(9, '服饰/箱包', 0),
+(10, '美容护肤/化妆品', 0),
+(11, '图书/音乐/运动', 0),
+(12, '收藏品/工艺品', 0),
+(13, '食品/保健品', 0),
+(14, '其他物品', 0);
+
+-- --------------------------------------------------------
+
+--
 -- 表的结构 `pinery_member`
 --
 
@@ -254,7 +382,7 @@ INSERT INTO `pinery_property_1_1` (`id`, `type`, `location_id`, `floors`, `floor
 (11, 2, 3, 3, 2, 2, 2, 2, 12, 123, 6, 4, 1, 14, 1410279427, 1410279446, 169),
 (12, 3, 5, 12, 23, 12, 12, 12, 12, 12, 2, 1, 1, 15, 1410340110, 1410340110, 5),
 (13, 2, 5, 2, 32, 23, 12, 12, 123, 132, 2, 1, 1, 16, 1410340271, 1410340271, 12),
-(14, 1, 5, 1, 32, 2, 3, 3, 12, 12, 3, 2, 1, 17, 1410340374, 1410340374, 408);
+(14, 1, 5, 1, 32, 2, 3, 3, 12, 12, 3, 2, 1, 17, 1410340374, 1410340374, 410);
 
 -- --------------------------------------------------------
 
@@ -646,6 +774,65 @@ CREATE TABLE IF NOT EXISTS `pinery_road_street` (
   `sort` int(11) NOT NULL COMMENT '排序',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='路和街信息表' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_services_1`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_services_1` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `update_time` int(11) NOT NULL COMMENT '修改时间',
+  `add_time` int(11) NOT NULL COMMENT '添加时间',
+  `type` tinyint(4) NOT NULL COMMENT '类型',
+  `userid` bigint(20) NOT NULL COMMENT '用户id',
+  `view_num` int(11) NOT NULL COMMENT '浏览量',
+  `content_id` bigint(20) NOT NULL COMMENT '内容id',
+  `price` int(11) NOT NULL COMMENT '价格',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='服务表' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_services_content`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_services_content` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `content` text NOT NULL COMMENT '内容',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='服务内容表' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_services_type`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_services_type` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(10) NOT NULL COMMENT '名称',
+  `sort` int(11) NOT NULL COMMENT '排序',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='服务类型表' AUTO_INCREMENT=9 ;
+
+--
+-- 转存表中的数据 `pinery_services_type`
+--
+
+INSERT INTO `pinery_services_type` (`id`, `name`, `sort`) VALUES
+(1, '招聘', 0),
+(2, '搬家', 0),
+(3, '家政', 0),
+(4, '物流', 0),
+(5, '便民', 0),
+(6, '装修', 0),
+(7, '婚庆摄影', 0),
+(8, '旅游休闲', 0);
 
 -- --------------------------------------------------------
 

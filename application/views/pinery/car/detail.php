@@ -55,17 +55,17 @@ $dataProperty = $initData['dataProperty'];
             </div>
             <div class="info-property">                
                 <?php
-                    echo html_div(array('body'=>$propertyRow['title'],'class'=>'property-title'));
-                    echo html_div(array('body'=>date('Y-m-d',$propertyRow['update_time']).'发布&nbsp;&nbsp;浏览&nbsp;'.$propertyRow['view_num'].'&nbsp;次','class'=>'color-grey'));
+                    echo html_div(array('body'=>$carData['title'],'class'=>'property-title'));
+                    echo html_div(array('body'=>date('Y-m-d',$carData['update_time']).'发布&nbsp;&nbsp;浏览&nbsp;'.$carData['view_num'].'&nbsp;次','class'=>'color-grey'));
 
-                    $propertyAttr = html_div(array('body'=>'小区：'.$propertyRow['name']));
-                    $propertyAttr .= html_div(array('body'=>'租金：'.html_span(array('body'=>$propertyRow['rent'])).'元/月'));
-                    $propertyAttr .= html_div(array('body'=>"户型：{$propertyRow['room']}室{$propertyRow['hall']}厅{$propertyRow['bathroom']}卫"));
-                    $propertyAttr .= html_div(array('body'=>"面积：{$propertyRow['area']}平米"));
-                    $propertyAttr .= html_div(array('body'=>"楼层：{$propertyRow['floors']}F/{$propertyRow['floors_total']}F"));
-                    $propertyAttr .= html_div(array('body'=>"装修：{$dataProperty['decoration'][$propertyRow['decoration']]['name']}"));
-                    $propertyAttr .= html_div(array('body'=>"朝向：{$dataProperty['toward'][$propertyRow['toward']]['name']}"));
-                    $propertyAttr .= html_div(array('body'=>"地址：{$propertyRow['address']}"));
+                    $propertyAttr = html_div(array('body'=>'小区：'.$carData['name']));
+                    $propertyAttr .= html_div(array('body'=>'租金：'.html_span(array('body'=>$carData['rent'])).'元/月'));
+                    $propertyAttr .= html_div(array('body'=>"户型：{$carData['room']}室{$carData['hall']}厅{$carData['bathroom']}卫"));
+                    $propertyAttr .= html_div(array('body'=>"面积：{$carData['area']}平米"));
+                    $propertyAttr .= html_div(array('body'=>"楼层：{$carData['floors']}F/{$carData['floors_total']}F"));
+                    $propertyAttr .= html_div(array('body'=>"装修：{$dataProperty['decoration'][$carData['decoration']]['name']}"));
+                    $propertyAttr .= html_div(array('body'=>"朝向：{$dataProperty['toward'][$carData['toward']]['name']}"));
+                    $propertyAttr .= html_div(array('body'=>"地址：{$carData['address']}"));
                     echo html_div(array('body'=>$propertyAttr,'class'=>'property-attr'));
                 ?>
             </div>
@@ -73,7 +73,7 @@ $dataProperty = $initData['dataProperty'];
     	
             <div class="property-nav">
                 <?php
-                $photoNum = count($propertyRow['images']);
+                $photoNum = count($carData['images']);
                 $contentMenu = array('content'=>'描述','photo'=>"照片({$photoNum})");
                 foreach ($contentMenu as $key => $value) {
                     $class = "con-nav-btn btn-grey";
@@ -85,13 +85,13 @@ $dataProperty = $initData['dataProperty'];
             <div class="property-content">
                 <div class="property-nav-content" id='property_content' >
                 <?php 
-                echo str_replace(array(chr(10),chr(32)), array('<br/>','&nbsp;'), $propertyRow['content']); 
+                echo $carData['content']; 
                 ?>
                 </div>
                 <div class="property-nav-content" id='property_photo' style="display: none">
         		<?php 
-                if(!empty($propertyRow['images'])){
-                    foreach ($propertyRow['images'] as $key => $value) {
+                if(!empty($carData['images'])){
+                    foreach ($carData['images'] as $key => $value) {
                         echo html_img(array('src'=>$value.'!m01'))."<br/>";
                     }
                 }            

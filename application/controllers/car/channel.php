@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 /**
- * 房产详情页
+ * 车辆详情页
  *
  * @author by zsc
  */
@@ -15,16 +15,16 @@ class Channel extends MY_Controller {
 	 */
 	function index(){		
 		$data['breadNavData'] = array('首页'=>base_url('/'),'车辆'=>'text');
-		$propertyMode = $this->initData['dataProperty']['mode'];
+		$carType = $this->initData['dataCar']['type'];
 		$city_id = $this->initData['cityId'];
-		foreach ($propertyMode as $mode => $value) {
-			$channelData[$mode] = mobi_array_rand($this->property->getPropertyArray(array('mode'=>$mode,'city_id'=>$city_id,'limit'=>"50",'order'=>'id desc')),5);
+		foreach ($carType as $type => $value) {
+			$channelData[$type] = mobi_array_rand($this->car->getCarArray(array('city_id'=>$city_id,'where'=>'type='.$type,'limit'=>"50",'order'=>'id desc')),5);
 		}
 		$data['channelData'] = $channelData;
 
 		$this->load->view('pinery/header',$data);
 		$this->load->view('pinery/public/home_topbar',$data);
-		$this->load->view('pinery/property/channel',$data);
+		$this->load->view('pinery/car/channel',$data);
 		$this->load->view('pinery/footer');
 	}
 }	

@@ -14,9 +14,9 @@ class Lists extends MY_Controller {
 	 * @return [type] [description]
 	 */
 	function index(){
-		$params['mode'] = $mode = intval($_GET['mid']);
+		$mode = intval($_GET['mid']);
 		$params['city_id'] = $data['city_id'] = $this->initData['cityId'];		
-		$data['modeChecked'] = $mode = $this->initData['dataProperty']['mode'][$mode] ? $mode : 1;
+		$params['mode'] = $data['modeChecked'] = $mode = $this->initData['dataProperty']['mode'][$mode] ? $mode : 1;
 		$propertyMode = $this->initData['dataProperty']['mode'][$mode];
 
 		$data['breadNavData'] = array('首页'=>base_url('/'),'房产'=>base_url('property/channel'),$propertyMode['name']=>'text');

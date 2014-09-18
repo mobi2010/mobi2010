@@ -71,6 +71,26 @@ class Publish extends MY_Controller {
 		$this->load->view('pinery/footer',array('footerInfo'=>'no'));
 	}
 	/**
+	 * [车辆保存]
+	 * @return [type] [description]
+	 */
+	function carSave(){
+		$res['code'] = 400;
+		$type = intval($_POST['type']);
+		$argv = $_POST;
+		if(!$_POST['title']){
+			$res['msg'] = "标题不能为空";
+			$this->printer($res);
+		}
+		$res['code'] = 200;
+		
+		$argv['userid'] = $this->userId;
+		$argv['city_id'] = $this->initData['cityId'];
+		$res['data'] = $this->car->addCar($argv);
+		$this->property->sqls;
+		$this->printer($res);
+	}
+	/**
 	 * [集市]
 	 * @return [type] [description]
 	 */
