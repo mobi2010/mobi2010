@@ -27,5 +27,8 @@ class Map extends MY_Controller {
 			$res['data'] = $resData->results;
 		}
 		$this->printer($res);
+	}
+	function baidu(){
+		$this->load->view('pinery/public/map',$data);
 	}	
 }

@@ -21,7 +21,7 @@ class Data extends MY_Controller {
 	 * 城市数据
 	 */
 	function dataCity(){
-		$data = $this->pineryModel->dataFetchArray(array('table'=>'pinery_city','skey'=>'id','field'=>'id,name,parent_name'));
+		$data = $this->pineryModel->dataFetchArray(array('table'=>'pinery_city','skey'=>'id','field'=>'id,name,parent_name,lng,lat'));
 		echo json_encode($data);
 	}	
 	/**
