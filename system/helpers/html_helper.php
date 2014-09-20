@@ -864,6 +864,36 @@ if ( ! function_exists('html_dl')){
 */
 if ( ! function_exists('html_qq')){
 	function html_qq($qq,$text='在线交谈'){
-		return html_a(array('href'=>'http://wpa.qq.com/msgrd?v=3&uin='.$qq.'&site=qq&menu=yes','target'=>'_blank','class'=>'online-qq','text'=>html_img(array('class'=>'online-qq-img','src'=>'/style/img/qq_avatar.jpg','alt'=>'QQ:'.$qq,'title'=>'QQ:'.$qq)).'&nbsp;'.$text));
+		return html_a(array('href'=>'http://wpa.qq.com/msgrd?v=3&uin='.$qq.'&site=qq&menu=yes','target'=>'_blank','class'=>'online-qq','text'=>html_span(array('class'=>'third-icons qq','body'=>"&nbsp;")).$text,'title'=>'QQ:'.$qq));
+	}
+}
+/**
+* [html_weibo description]
+* @param  [type] $params [description]
+* @return [type]         [description]
+*/
+if ( ! function_exists('html_weibo')){
+	function html_weibo($weibo,$text='微博交流'){
+		return html_a(array('href'=>mobi_format_url($weibo),'target'=>'_blank','class'=>'online-qq','text'=>html_span(array('class'=>'third-icons weibo','body'=>"&nbsp;")).$text,'title'=>'微博:'.$weibo));
+	}
+}
+/**
+* [html_weixin description]
+* @param  [type] $params [description]
+* @return [type]         [description]
+*/
+if ( ! function_exists('html_weixin')){
+	function html_weixin($weixin,$text='微信交流'){
+		return html_a(array('href'=>mobi_format_url($weixin),'target'=>'_blank','class'=>'online-qq','text'=>html_span(array('class'=>'third-icons weixin','body'=>"&nbsp;")).$text,'title'=>'微信:'.$weixin));
+	}
+}
+/**
+* [html_email description]
+* @param  [type] $params [description]
+* @return [type]         [description]
+*/
+if ( ! function_exists('html_email')){
+	function html_email($email,$text='邮箱交流'){
+		return html_a(array('href'=>"mailto:".$email,'target'=>'_blank','class'=>'online-qq','text'=>html_span(array('class'=>'third-icons email','body'=>"&nbsp;")).$text,'title'=>'邮箱:'.$email));
 	}
 }

@@ -1,14 +1,14 @@
 <?php
 $dataProperty = $initData['dataProperty'];
 ?>
-<script src="/style/plugins/uploadify/jquery.uploadify.min.js" type="text/javascript"></script>
-<link rel="stylesheet" type="text/css" href="/style/plugins/uploadify/uploadify.css">
+<script type="text/javascript" charset="utf-8" src="/style/plugins/ueditor/ueditor.config.js"></script>
+<script type="text/javascript" charset="utf-8" src="/style/plugins/ueditor/ueditor.all.min.js"></script>
 
 <div class="member-body">
     <?php $this->load->view('pinery/member/menu');?>
     <div class="member-content">
     <form id="propertyForm">
-        <table id="propertyTable" width="740" border="0" >     
+        <table id="propertyTable" width="810" border="0" >     
             <tr id='mode_tr'>
                 <td class="left" width="80"><span style="color: red">*</span>方式：</td>
                 <td >
@@ -87,15 +87,8 @@ $dataProperty = $initData['dataProperty'];
             </tr>
             <tr id='content_tr'>
                 <td class="left">描述：</td>
-                <td><?=html_textarea(array('name'=>'content','value'=>'','class'=>"wp400 hp100"))?></td>
-            </tr>
-            <tr id="image_tr">
-                <td class="left">图片：</td>
-                <td><input id="propertyImages" name="propertyImages" type="file" multiple="true">
-                （图片不能超过10张，每张10M以下）
-                <?=html_hidden(array('name'=>'images'));?>
-                </td>
-            </tr>
+                <td><script id="editor" type="text/plain" style="width:750px;height:300px;"></script></td>
+            </tr>            
             <tr>
                 <td class="left"></td>
                 <td ><?=html_a(array('class'=>'btn-blue','id'=>'sureBtn','text'=>'保存'))?></td>
@@ -106,8 +99,10 @@ $dataProperty = $initData['dataProperty'];
 </div>
 <script type="text/javascript">
     $(document).ready(function() {  
-        var imagesData={};
+        var ue = UE.getEditor('editor');
         var dialog = {'code':400};
+        var dialogSet = {'z-index':1000};
+        var imagesData={};
         //方式
         var modeToggle = function(value){
             $('#propertyTable tr').show();   
@@ -143,32 +138,32 @@ $dataProperty = $initData['dataProperty'];
             for(var sk in showAttr){ $('#'+showAttr[sk]+'_tr').show(); }
             for(var hk in hideAttr){ $('#'+hideAttr[hk]+'_tr').hide(); }
         })
-        $('#propertyImages').uploadify({
-            'formData'     : {                  
-            },
-            'swf'      : '/style/plugins/uploadify/uploadify.swf',
-            'uploader' : '<?=base_url("util/uploadify/propertyImg")?>',
-            'removeCompleted' : false,
-            'queueSizeLimit': 8, 
-            'debug': false,
-            'fileTypeExts':'*.gif;*.jpg;*.jpeg;*.png',//允许上传的文件类型，使用分号(”;)”分割 例如:*.jpg;*.gif,默认为null(所有文件类型)
-            'fileSizeLimit': 1024*10,  //允许上传的文件大小(kb)  此为2M
-            'onInit': function () {//载入时触发，将flash设置到最小
-                //$("#propertyImages-queue").hide();
-            },
-            'onSelect' : function(){
+        // $('#propertyImages').uploadify({
+        //     'formData'     : {                  
+        //     },
+        //     'swf'      : '/style/plugins/uploadify/uploadify.swf',
+        //     'uploader' : '<?=base_url("util/uploadify/propertyImg")?>',
+        //     'removeCompleted' : false,
+        //     'queueSizeLimit': 8, 
+        //     'debug': false,
+        //     'fileTypeExts':'*.gif;*.jpg;*.jpeg;*.png',//允许上传的文件类型，使用分号(”;)”分割 例如:*.jpg;*.gif,默认为null(所有文件类型)
+        //     'fileSizeLimit': 1024*10,  //允许上传的文件大小(kb)  此为2M
+        //     'onInit': function () {//载入时触发，将flash设置到最小
+        //         //$("#propertyImages-queue").hide();
+        //     },
+        //     'onSelect' : function(){
                
-            },
-            'onUploadComplete' :function (file) {   //当文件上传完成时触发  
+        //     },
+        //     'onUploadComplete' :function (file) {   //当文件上传完成时触发  
                 
-            },
-            'onUploadSuccess' : function(file, data, response) {
-                var $dt = $.parseJSON(data);   
-                imagesData[file['id']] = $dt['data'];
-                //$('#propertyImages-button').css('background-image','url("'+$dt['data']+'")');
-                //$('#avatarPath').val($dt['data']);
-            } 
-        });
+        //     },
+        //     'onUploadSuccess' : function(file, data, response) {
+        //         var $dt = $.parseJSON(data);   
+        //         imagesData[file['id']] = $dt['data'];
+        //         //$('#propertyImages-button').css('background-image','url("'+$dt['data']+'")');
+        //         //$('#avatarPath').val($dt['data']);
+        //     } 
+        // });
         //检索
         $('#community').autoSearch({'uri':"<?=base_url('util/map/search')?>",'hideValue':'communityHide'});
         $('#address').autoSearch({'uri':"<?=base_url('util/map/search')?>",'hideValue':'addressHide'});
@@ -181,7 +176,7 @@ $dataProperty = $initData['dataProperty'];
                 if($('#'+k+'_tr').css('display') != 'none' && 
                     $.mobi.isnull($('#'+k).val())){
                     dialog['msg'] = v+'为必填项';
-                    $.mobi.alert(dialog);
+                    $.mobi.alert(dialog,dialogSet);
                     flag = false;
                     return false;
                 }
@@ -194,7 +189,7 @@ $dataProperty = $initData['dataProperty'];
                 if($('#'+intId+'_tr').css('display') != 'none' && 
                     !$.mobi.isint($('#'+k).val(),'',-1)){
                     dialog['msg'] = v[0]+'为必填项且为整数';
-                    $.mobi.alert(dialog);
+                    $.mobi.alert(dialog,dialogSet);
                     flag = false;
                     return false;
                 }
@@ -208,14 +203,13 @@ $dataProperty = $initData['dataProperty'];
                 } 
             })
             $('#images').val(newImagesData.join('|'));
-            var postData = $('#propertyForm').serialize();
-            var $loading = loading.init();
-            $loading.show();
-            $.post("<?=base_url('member/publish/propertySave')?>",postData,function(dt){
-                $('#propertyForm :text,#propertyForm textarea').val('');
-                $('.uploadify-queue-item').remove();
-                $loading.remove();
-                $.mobi.alert(dt);
+            var postData = $('#propertyForm').serialize()+"&content="+UE.getEditor('editor').getContent();
+            $.post("<?=base_url('member/publish/propertySave')?>",postData,function(dt){                
+                setTimeout(function(){
+                    UE.getEditor('editor').setContent('');
+                    $('#propertyForm :text,#propertyForm textarea').val('');
+                },1000);
+                $.mobi.alert(dt,dialogSet);
             })
         })                
     })

@@ -1,4 +1,4 @@
-<div style="border-bottom:solid 1px #EDEDEF;line-height: 30px; height:30px;padding:0 20px;">
+<div class="bread-nav">
 	<?php
 	$breadNavDataArray = array();
 	foreach ($breadNavData as $key => $value) {

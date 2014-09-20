@@ -28,19 +28,24 @@ $dataProperty = $initData['dataProperty'];
                 $memberAttr = html_div(array('body'=>html_span(array('class'=>'attribute-name','body'=>'姓名：')).$memberInfo['names']));
                 if($memberInfo['source'] == 2){
                     $memberAttr .= html_div(array('body'=>html_span(array('class'=>'attribute-name','body'=>'机构：')).$memberInfo['org_name']));
-                }
+                }     
                 
-                
-                $otherInfo = array('mobile'=>'手机','email'=>'邮箱','tel'=>'座机','qq'=>'&nbsp;&nbsp;QQ','weixin'=>'微信','weibo'=>'微博');
+                $otherInfo = array('mobile'=>'手机','tel'=>'座机','qq'=>'&nbsp;&nbsp;QQ','email'=>'邮箱','weixin'=>'微信','weibo'=>'微博');
                 foreach ($otherInfo as $key => $value) {
                     if($memberInfo[$key.'_is']){
                         $info = "隐藏";
                     }else{
                         if($memberInfo[$key]){
                             if($key == 'mobile'){
-                                $info = html_img(array('src'=>mobi_url('util/uploadify/textImage',array('text'=>$memberInfo[$key]))));
+                                $info = html_img(array('class'=>'mobile-img','src'=>mobi_url('util/uploadify/textImage',array('text'=>$memberInfo[$key]))));
                             }elseif($key == 'qq'){
                                 $info = html_qq($memberInfo[$key]);
+                            }elseif($key == 'weibo'){
+                                $info = html_weibo($memberInfo[$key]);
+                            }elseif($key == 'weixin'){
+                                $info = html_weixin($memberInfo[$key]);
+                            }elseif($key == 'email'){
+                                $info = html_email($memberInfo[$key]);
                             }else{
                                 $info = $memberInfo[$key];
                             }                            
@@ -74,7 +79,7 @@ $dataProperty = $initData['dataProperty'];
             <div class="property-nav">
                 <?php
                 $photoNum = count($propertyRow['images']);
-                $contentMenu = array('content'=>'描述','photo'=>"照片({$photoNum})");
+                $contentMenu = array('content'=>'描述');
                 foreach ($contentMenu as $key => $value) {
                     $class = "con-nav-btn btn-grey";
                     $class .= $key == 'content' ? ' checked' : '';
@@ -85,18 +90,10 @@ $dataProperty = $initData['dataProperty'];
             <div class="property-content">
                 <div class="property-nav-content" id='property_content' >
                 <?php 
-                echo str_replace(array(chr(10),chr(32)), array('<br/>','&nbsp;'), $propertyRow['content']); 
+                echo $propertyRow['content']; 
                 ?>
                 </div>
-                <div class="property-nav-content" id='property_photo' style="display: none">
-        		<?php 
-                if(!empty($propertyRow['images'])){
-                    foreach ($propertyRow['images'] as $key => $value) {
-                        echo html_img(array('src'=>$value.'!m01'))."<br/>";
-                    }
-                }            
-                ?>
-                </div>
+               
     	    </div>
     </div>
 </div>    

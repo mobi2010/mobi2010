@@ -56,7 +56,6 @@ class Publish extends MY_Controller {
 		$argv['userid'] = $this->userId;
 		$argv['city_id'] = $this->initData['cityId'];
 		$res['data'] = $this->property->addProperty($argv);
-		$this->property->sqls;
 		$this->printer($res);
 	}
 	/**

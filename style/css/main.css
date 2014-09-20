@@ -1,6 +1,6 @@
 /**全局**/
 *{padding:0;margin:0;}
-
+img{border: 0}
 .body{background:#f5f4f3;font-size:13px;color:#333333;font-family: Tahoma, Helvetica, "Microsoft Yahei", "微软雅黑", Arial, STHeiti;}
 
 .body-nologin{ background:url(/style/img/register_bg.jpg);font-size:13px;color:#333333;font-family: Tahoma, Helvetica, "Microsoft Yahei", "微软雅黑", Arial, STHeiti;}
@@ -9,7 +9,7 @@ a{text-decoration:none; color:#308EB5; bblr:expression(this.onFocus=this.blur())
        outline:none;}
 a:hover{color:#00B7D6}
 
-
+.bread-nav{line-height: 30px; height:30px;padding:0 20px;background: #fff;}
 /**base**/
 
 .wp20{width:20px}
@@ -217,6 +217,15 @@ background:#f5f4f3;
 .online dt{cursor: pointer;text-align:center;padding:5px 0;background:#FE7203;color: #fff;border:#FE7203 thin solid;}
 .online dd{background:#fff;text-align:center;line-height: 40px;height: 40px}
 
-.online-qq{color:#333333; font-weight:bold;padding:0 10px; display:inline-block; border:#CCCCCC thin solid;background:#FCFCFC;border-radius:5px;font-size: 13px; height: 25px;line-height: 25px}
-.online-qq:hover{color:#666;}
-.online-qq-img{position:relative;top:2px;width:16px;height:16px}
+.online-qq{color:#666;background:#ffeeff; font-weight:bold;padding:0 10px; display:inline-block; border:#CCCCCC thin solid;border-radius:5px;font-size: 13px; height: 25px;line-height: 25px;}
+.online-qq:hover{color:#333333;background:#fff;}
+
+/**third-icons**/
+
+.third-icons{ background-image:url(/style/img/icons.png);background-repeat: no-repeat;display:inline-block; width:17px;position:relative;top:5px;}
+.third-icons.qq{background-position: 0 -2652px; }
+.third-icons.weibo{ background-position: 0 -104px;}
+.third-icons.weixin{ background-position: 0 -1612px;}
+.third-icons.email{background-position: 0 -2340px;}
+
+.mobile-img{position:relative;top:5px;}

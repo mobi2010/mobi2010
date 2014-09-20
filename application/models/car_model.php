@@ -24,10 +24,13 @@ class Car_model extends MY_Model {
 	 */
 	function addContent($argv=array()){
 		$content = $argv['content'] ? $argv['content'] : "";
+		$userId = intval($argv['userid']);
+		$city_id = intval($argv['city_id']);
+		$data['title'] = mobi_string_filter($argv['title']);
 		$data['content'] = addslashes($content);
-		preg_match_all('/http:\/\/pinery.b0.upaiyun.com(.*?)"/isu', $content, $matches);
-		$data['images'] = str_replace('"', "", implode('|', $matches[0]));
-		$params['table'] = 'pinery_car_content';
+		$data['images'] = mobi_content_images($content);
+		$data['userid'] = $userId;
+		$params['table'] = "pinery_car_content_{$city_id}_".substr($userId, -1);
 		$params['data'] = $data;
 		return $this->dataInsert($params);
 	}
@@ -40,7 +43,8 @@ class Car_model extends MY_Model {
 		$ids = implode(',', $argv['ids']);
 		foreach ($ids as $key => $value) {
 			$data = $this->dataFetchRow(array('table'=>"pinery_car_{$city_id}",'where'=>$value));
-			$this->dataDelete(array('table'=>'pinery_car_content','where'=>$data['content_id']));	
+			$userId = intval($value['userid']);
+			$this->dataDelete(array('table'=>"pinery_car_content_{$city_id}_".substr($userId, -1),'where'=>$data['content_id']));	
 		}
 		$params['table'] = "pinery_car_{$city_id}";
 		$params['where'] = "id in ({$ids})";
@@ -66,7 +70,6 @@ class Car_model extends MY_Model {
 	function addCar($argv=array()){			
 		$data['type'] = intval($argv['type']);	
 		$data['content_id'] = $this->addContent($argv);
-		$data['title'] = mobi_string_filter($argv['title']);
 		$data['type'] = intval($argv['type']);	
 		$data['userid'] = intval($argv['userid']);	
 		$data['price'] = intval($argv['price']);
@@ -82,7 +85,9 @@ class Car_model extends MY_Model {
 	 */
 	function getContentRow($argv=array()){
 		$id = intval($argv['id']);
-		$data = $this->dataFetchRow(array('table'=>'pinery_car_content','where'=>$id));
+		$userId = intval($argv['userid']);
+		$city_id = intval($argv['city_id']);
+		$data = $this->dataFetchRow(array('table'=>"pinery_car_content_{$city_id}_".substr($userId, -1),'where'=>$id));
 		$data['images'] = $data['images'] ? explode('|', $data['images']) : array();
 		return $data;
 	}
@@ -94,7 +99,7 @@ class Car_model extends MY_Model {
 		$id = intval($argv['id']);		
 		$city_id = intval($argv['city_id']);
 		$data = $this->dataFetchRow(array('table'=>"pinery_car_{$city_id}",'where'=>$id));
-		$data += $this->getContentRow(array('userid'=>$data['userid'],'id'=>$data['content_id']));
+		$data += $this->getContentRow(array('userid'=>$data['userid'],'id'=>$data['content_id'],'city_id'=>$city_id));
 		return $data;		
 	}
 	/**
@@ -108,7 +113,7 @@ class Car_model extends MY_Model {
 			return array();
 		}
 		foreach ($resData as $key => $value) {
-			$value += $this->getContentRow(array('userid'=>$value['userid'],'id'=>$value['content_id']));
+			$value += $this->getContentRow(array('userid'=>$value['userid'],'id'=>$value['content_id'],'city_id'=>$city_id));
 			$data[$key] = $value;
 		}
 		return $data;		

@@ -454,3 +454,19 @@ if ( ! function_exists('mobi_time')){
 		return $res;
 	}
 }
+/**
+ * [内容图片]
+ * @param  [type] $key [description]
+ * @return [type]      [description]
+ */
+if ( ! function_exists('mobi_content_images')){
+	function mobi_content_images($content){
+		if($content){
+			preg_match_all('/http:\/\/pinery.b0.upaiyun.com(.*?)"/isu', $content, $matches);
+			$images = str_replace('"', "", implode('|', $matches[0]));
+		}else{
+			$images = "";
+		}
+		return $images;
+	}
+}

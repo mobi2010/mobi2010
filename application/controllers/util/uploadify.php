@@ -15,11 +15,13 @@ class Uploadify extends MY_Controller {
 		$imgInfo = getimagesize($uploadImg['filePath']);
 		$width = $imgInfo[0];
 		if($width<700){//直接输出
-			$res['url'] = $uploadImg['filePath'];
-			$this->printer($res);
-		}
-		$thumbImg = $this->image->thumb(array('file'=>$uploadImg['filePath'],'width'=>700));
-		$res['url'] = $thumbImg['filePath'];
+			$file = $uploadImg['filePath'];
+		}else{
+			$thumbImg = $this->image->thumb(array('file'=>$uploadImg['filePath'],'width'=>700));
+			$file = $thumbImg['filePath'];
+		}		
+		$ypyImg = $this->image->ypyUpload(array('file'=>$file));
+		$res['url'] = $ypyImg['filePath']."!m01";
 		$this->printer($res);
 	}
 	/**

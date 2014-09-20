@@ -670,3 +670,16 @@ if ( ! function_exists('mobi_url')){
 		return $url; 
 	}
 }
+/**
+ * [mobi_format_url description]
+ * @return [type] [description]
+ */
+if ( ! function_exists('mobi_format_url')){
+	function mobi_format_url($url){
+		if(preg_match("/^(http|https)\:\/\/(.*?)/is", $url)){
+			return $url;
+		}else{
+			return "http://".$url;
+		}
+	}
+}

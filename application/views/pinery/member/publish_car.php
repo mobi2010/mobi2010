@@ -43,6 +43,12 @@ $dataCar = $initData['dataCar'];
         var postData = {};
         $('#sureBtn').click(function(){
             var title = $('#title').val();           
+            
+            if(!$.mobi.isint($('#price').val(),'',-1)){   
+                dialog['msg'] = '价格为必填项且为整数';             
+                $.mobi.alert(dialog,dialogSet);
+                return false;
+            }
             if(!title){
                 dialog['msg'] = '标题为必填项';
                 $.mobi.alert(dialog,dialogSet);
@@ -55,7 +61,7 @@ $dataCar = $initData['dataCar'];
                 $.mobi.alert(dt,dialogSet);
                 setTimeout(function(){
                     UE.getEditor('editor').setContent('');
-                    $('#title').val('');
+                    $('#carForm :text,#carForm textarea').val('');
                 },1000);
             })
             return false;
