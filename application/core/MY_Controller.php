@@ -1,7 +1,7 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 date_default_timezone_set('PRC'); 
 header("Pragma:no-cache");//不缓存页面
-header( 'Content-type: text/html;charset=utf-8' );//设置页面编码
+header('Content-type: text/html;charset=utf-8');//设置页面编码
 // header("Last-Modified:".date('r'));
 // header("Expires:".date('r'));
 // header("ETag:".time());
@@ -19,9 +19,11 @@ class MY_Controller extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->model('Pinery_model', 'pineryModel');//
-		$this->load->model('Member_model', 'member');//
-		$this->load->model('Property_model', 'property');//
-		$this->load->model('Car_model', 'car');//
+		$this->load->model('Member_model', 'member');//会员
+		$this->load->model('Property_model', 'property');//房产
+		$this->load->model('Car_model', 'car');//车辆
+		$this->load->model('Market_model', 'market');//集市
+		$this->load->model('Services_model', 'services');//服务
 		$this->load->library('gycrypt');	
 		$this->load->library('image');
 		$this->uriEntity();//uri实体数据		
@@ -65,6 +67,11 @@ class MY_Controller extends CI_Controller
 		//车辆
 		$this->initData['dataCar'] = require(APPPATH.'/config/data_car.php');
 
+		//集市
+		$this->initData['dataMarket'] = require(APPPATH.'/config/data_market.php');
+
+		//服务
+		$this->initData['dataServices'] = require(APPPATH.'/config/data_services.php');
 
 		$this->load->vars('initData',$this->initData);//映射到模板
 		return $this->initData;

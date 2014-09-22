@@ -18,16 +18,18 @@ class Detail extends MY_Controller {
 		$city_id = $this->initData['dataCity'][$ids[0]] ? intval($ids[0]) : 1; 
 		$id = intval($ids[1]);
 
-		
+		 
 
 		$this->car->updateViewnum(array('city_id'=>$city_id,'id'=>$id));//浏览数
 
 		$data['carData'] = $this->car->getCarRow(array('city_id'=>$city_id,'id'=>$id));
 		
+		$type = $data['carData']['type'];
+		$typeText = $this->initData['dataCar']['type'][$type]['name'];
+
 		$data['pineryTitle'] = $data['carData']['title'];
 		$data['memberInfo'] = $data['carData']['userid'] == $this->userId ? $this->userEntity : $this->member->info($data['carData']['userid']);
-
-		$data['breadNavData'] = array('首页'=>base_url('/'),'车辆'=>base_url('car/channel'),$carMode['name']=>mobi_url('car/lists'),$data['carData']['title']=>'text');
+		$data['breadNavData'] = array('首页'=>base_url('/'),'车辆'=>base_url('car/channel'),$typeText=>mobi_url('car/lists',array('tid'=>$type)),$data['carData']['title']=>'text');
 
 
 		$this->load->view('pinery/header',$data);

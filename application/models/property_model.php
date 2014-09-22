@@ -72,8 +72,10 @@ class Property_model extends MY_Model {
 	function deleteProperty($argv=array()){			
 		$mode = intval($argv['mode']);		
 		$city_id = intval($argv['city_id']);
+		if(empty($argv['ids'])){return false;}
+
 		$ids = implode(',', $argv['ids']);
-		foreach ($ids as $key => $value) {
+		foreach ($argv['ids'] as $key => $value) {
 			$data = $this->dataFetchRow(array('table'=>"pinery_property_{$city_id}_{$mode}",'where'=>$value));
 			$this->dataDelete(array('table'=>"pinery_property_content_{$city_id}_".substr($data['userid'], -1),'where'=>$data['content_id']));	
 		}
@@ -88,6 +90,7 @@ class Property_model extends MY_Model {
 	function flashProperty($argv=array()){			
 		$mode = intval($argv['mode']);		
 		$data['update_time'] = time();
+		if(empty($argv['ids'])){return false;}
 		$city_id = intval($argv['city_id']);
 		$ids = implode(',', $argv['ids']);
 		$params['table'] = "pinery_property_{$city_id}_{$mode}";

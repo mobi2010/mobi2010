@@ -86,7 +86,6 @@ class Publish extends MY_Controller {
 		$argv['userid'] = $this->userId;
 		$argv['city_id'] = $this->initData['cityId'];
 		$res['data'] = $this->car->addCar($argv);
-		$this->property->sqls;
 		$this->printer($res);
 	}
 	/**
@@ -101,6 +100,25 @@ class Publish extends MY_Controller {
 		$this->load->view('pinery/footer',array('footerInfo'=>'no'));
 	}
 	/**
+	 * [集市保存]
+	 * @return [type] [description]
+	 */
+	function marketSave(){
+		$res['code'] = 400;
+		$type = intval($_POST['type']);
+		$argv = $_POST;
+		if(!$_POST['title']){
+			$res['msg'] = "标题不能为空";
+			$this->printer($res);
+		}
+		$res['code'] = 200;
+		
+		$argv['userid'] = $this->userId;
+		$argv['city_id'] = $this->initData['cityId'];
+		$res['data'] = $this->market->addMarket($argv);
+		$this->printer($res);
+	}
+	/**
 	 * [服务]
 	 * @return [type] [description]
 	 */
@@ -110,5 +128,24 @@ class Publish extends MY_Controller {
 		$this->load->view('pinery/member/nav',$data);
 		$this->load->view('pinery/member/publish_services',$data);
 		$this->load->view('pinery/footer',array('footerInfo'=>'no'));
+	}
+	/**
+	 * [服务保存]
+	 * @return [type] [description]
+	 */
+	function servicesSave(){
+		$res['code'] = 400;
+		$type = intval($_POST['type']);
+		$argv = $_POST;
+		if(!$_POST['title']){
+			$res['msg'] = "标题不能为空";
+			$this->printer($res);
+		}
+		$res['code'] = 200;
+		
+		$argv['userid'] = $this->userId;
+		$argv['city_id'] = $this->initData['cityId'];
+		$res['data'] = $this->services->addServices($argv);
+		$this->printer($res);
 	}
 }
