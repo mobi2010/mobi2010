@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 /**
- * 车辆列表
+ * 集市列表
  *
  * @author by zsc
  */
@@ -16,12 +16,12 @@ class Lists extends MY_Controller {
 	function index(){
 		$city_id = $data['city_id'] = $this->initData['cityId'];		
 		$type = $data['typeChecked'] = intval($_GET['tid']);
-		$data['car_id'] = $city_id."_";
-		$data['breadNavData'] = array('首页'=>base_url('/'),'车辆'=>base_url('car/channel'),'列表'=>'text');
+		$data['market_id'] = $city_id."_";
+		$data['breadNavData'] = array('首页'=>base_url('/'),'集市'=>base_url('market/channel'),'列表'=>'text');
 		$where = null;	
 		$q = mobi_string_filter($_GET['q']);
 		if($q){
-			$ids = $this->car->dataFetchArray(array('table'=>'pinery_car_content_'.$city_id,'skey'=>'id','sval'=>'id','where'=>'title like binary "%'.$q.'%"'));
+			$ids = $this->market->dataFetchArray(array('table'=>'pinery_market_content_'.$city_id,'skey'=>'id','sval'=>'id','where'=>'title like binary "%'.$q.'%"'));
 			if(!empty($ids)){
 				$where[] = 'content_id in('.implode(',', $ids).')';
 			}
@@ -36,7 +36,7 @@ class Lists extends MY_Controller {
 			$where = implode(' and ', $where);	
 		}
 		
-		$total = $this->car->getCarCount(array('where'=>$where,'city_id'=>$city_id));
+		$total = $this->market->getMarketCount(array('where'=>$where,'city_id'=>$city_id));
 
 		if($total){
 			$page = intval($_GET['p']) > 0 ? intval($_GET['p']) : 1;
@@ -57,12 +57,12 @@ class Lists extends MY_Controller {
 
 			$order = $orderBy[$ob]." ".$orderUd[$ud];
 
-			$data['dataList'] = $this->car->getCarArray(array('where'=>$where,'city_id'=>$city_id,'limit'=>"{$start},{$size}",'order'=>$order));
+			$data['dataList'] = $this->market->getMarketArray(array('where'=>$where,'city_id'=>$city_id,'limit'=>"{$start},{$size}",'order'=>$order));
 			$data['pageView'] = $this->load->view('pinery/public/member_page',array('total'=>$total,'pageSize'=>$size),true);
 		}
 		$this->load->view('pinery/header',$data);
 		$this->load->view('pinery/public/home_topbar',$data);
-		$this->load->view('pinery/car/lists',$data);
+		$this->load->view('pinery/market/lists',$data);
 		$this->load->view('pinery/footer');
 	}	
 }	

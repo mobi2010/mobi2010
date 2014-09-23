@@ -1,5 +1,5 @@
 <?php
-$datacar = $initData['datacar'];
+$datamarket = $initData['datamarket'];
 ?>
 <style type="text/css">
 .info{background: #fff}
@@ -10,10 +10,10 @@ $datacar = $initData['datacar'];
 .member-attr .name{width:40px;}
 
 
-.info-car{float: right;padding: 20px;width:740px; background: #fff}
-.car-title{font-size: 20px;font-weight: bold}
+.info-market{float: right;padding: 20px;width:740px; background: #fff}
+.market-title{font-size: 20px;font-weight: bold}
 
-.car-content{margin-top: 10px;}
+.market-content{margin-top: 10px;}
 </style>
 
 <div class="home-body">
@@ -56,22 +56,22 @@ $datacar = $initData['datacar'];
                 echo html_div(array('body'=>$memberAttr,'class'=>'member-attr'));
                 ?>    
             </div>
-            <div class="info-car">                
+            <div class="info-market">                
                 <?php
-                    echo html_div(array('body'=>$carData['title'],'class'=>'car-title'));
-                    echo html_div(array('body'=>date('Y-m-d',$carData['update_time']).'发布&nbsp;&nbsp;浏览&nbsp;'.$carData['view_num'].'&nbsp;次','class'=>'color-grey'));                   
-                    $carAttr = html_div(array('body'=>$carData['content']));
-                    echo html_div(array('body'=>$carAttr,'class'=>'car-content'));
+                    echo html_div(array('body'=>$marketData['title'],'class'=>'market-title'));
+                    echo html_div(array('body'=>date('Y-m-d',$marketData['update_time']).'发布&nbsp;&nbsp;浏览&nbsp;'.$marketData['view_num'].'&nbsp;次','class'=>'color-grey'));                   
+                    $marketAttr = html_div(array('body'=>$marketData['content']));
+                    echo html_div(array('body'=>$marketAttr,'class'=>'market-content'));
                 ?>
             </div>
         </div>
 </div>    
 <script type="text/javascript">
     $(document).ready(function() {  
-        if($('.info-car').height() > $('.info-member').height()){
-            $('.info-member').height($('.info-car').height())
+        if($('.info-market').height() > $('.info-member').height()){
+            $('.info-member').height($('.info-market').height())
         }else{
-            $('.info-car').height($('.info-member').height())
+            $('.info-market').height($('.info-member').height())
         }
     })
 </script>

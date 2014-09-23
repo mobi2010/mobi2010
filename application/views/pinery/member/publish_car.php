@@ -43,7 +43,7 @@ $dataCar = $initData['dataCar'];
         var postData = {};
         $('#sureBtn').click(function(){
             var title = $('#title').val();           
-            
+            var price = $('#price').val();
             if(!$.mobi.isint($('#price').val(),'',-1)){   
                 dialog['msg'] = '价格为必填项且为整数';             
                 $.mobi.alert(dialog,dialogSet);
@@ -56,6 +56,7 @@ $dataCar = $initData['dataCar'];
             }
             postData['type'] = $('#type').val();
             postData['title'] = title;            
+            postData['price'] = price;      
             postData['content'] = UE.getEditor('editor').getContent();
             $.post("<?=base_url('member/publish/carSave')?>",postData,function(dt){                
                 $.mobi.alert(dt,dialogSet);
