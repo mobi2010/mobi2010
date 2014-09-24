@@ -29,7 +29,6 @@ class Market_model extends MY_Model {
 		$data['title'] = mobi_string_filter($argv['title']);
 		$data['content'] = addslashes($content);
 		$data['images'] = mobi_content_images($content);
-		$data['userid'] = $userId;
 		$params['table'] = "pinery_market_content_{$city_id}_".substr($userId, -1);
 		$params['data'] = $data;
 		return $this->dataInsert($params);

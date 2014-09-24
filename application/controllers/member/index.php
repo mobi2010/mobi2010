@@ -26,17 +26,20 @@ class Index extends MY_Controller {
 	 */
 	function property(){
 		$mode = intval($_GET['mid']);
-		$data['city_id'] = $this->initData['cityId'];
-		$data['modeChecked'] = $mode = $this->initData['dataProperty']['mode'][$mode] ? $mode : 1;
+		$params['city_id'] = $data['city_id'] = $this->initData['cityId'];
+		$params['mode'] = $data['modeChecked'] = $mode = $this->initData['dataProperty']['mode'][$mode] ? $mode : 1;
 		$data['property_id'] = $data['city_id'].'_'.$mode.'_';
 
 		$page = intval($_GET['p']) > 0 ? intval($_GET['p']) : 1;
 		$size = 10;
 		$start = ($page-1)*$size;
 
-		$total = $this->property->getPropertyCount(array('mode'=>$mode,'city_id'=>$data['city_id']));
+		$params['where'] = 'source=0 and userid='.$this->userId; 
+		$total = $this->property->getPropertyCount($params);
 		if($total){
-			$data['propertyList'] = $this->property->getPropertyArray(array('mode'=>$mode,'city_id'=>$data['city_id'],'limit'=>"{$start},{$size}",'order'=>'update_time desc'));
+			$params['limit'] = "{$start},{$size}";
+			$params['order'] = 'update_time desc';
+			$data['propertyList'] = $this->property->getPropertyArray($params);
 			$data['pageView'] = $this->load->view('pinery/public/member_page',array('total'=>$total,'pageSize'=>$size),true);
 		}
 		$this->load->view('pinery/header',$data);
@@ -66,16 +69,19 @@ class Index extends MY_Controller {
 	 * @return [type] [description]
 	 */
 	function car(){
-		$data['city_id'] = $this->initData['cityId'];
+		$params['city_id'] = $data['city_id'] = $this->initData['cityId'];
 		$data['car_id'] = $data['city_id'].'_';
 
 		$page = intval($_GET['p']) > 0 ? intval($_GET['p']) : 1;
 		$size = 10;
 		$start = ($page-1)*$size;
 
-		$total = $this->car->getCarCount(array('city_id'=>$data['city_id']));
+		$params['where'] = 'source=0 and userid='.$this->userId; 
+		$total = $this->car->getCarCount($params);
 		if($total){
-			$data['listData'] = $this->car->getCarArray(array('city_id'=>$data['city_id'],'limit'=>"{$start},{$size}",'order'=>'update_time desc'));
+			$params['limit'] = "{$start},{$size}";
+			$params['order'] = 'update_time desc';
+			$data['listData'] = $this->car->getCarArray($params);
 			$data['pageView'] = $this->load->view('pinery/public/member_page',array('total'=>$total,'pageSize'=>$size),true);
 		}
 		$this->load->view('pinery/header',$data);
@@ -105,16 +111,19 @@ class Index extends MY_Controller {
 	 * @return [type] [description]
 	 */
 	function market(){
-		$data['city_id'] = $this->initData['cityId'];
+		$params['city_id'] = $data['city_id'] = $this->initData['cityId'];
 		$data['market_id'] = $data['city_id'].'_';
 
 		$page = intval($_GET['p']) > 0 ? intval($_GET['p']) : 1;
 		$size = 10;
 		$start = ($page-1)*$size;
 
-		$total = $this->market->getMarketCount(array('city_id'=>$data['city_id']));
+		$params['where'] = 'source=0 and userid='.$this->userId; 
+		$total = $this->market->getMarketCount($params);
 		if($total){
-			$data['listData'] = $this->market->getMarketArray(array('city_id'=>$data['city_id'],'limit'=>"{$start},{$size}",'order'=>'update_time desc'));
+			$params['limit'] = "{$start},{$size}";
+			$params['order'] = 'update_time desc';
+			$data['listData'] = $this->market->getMarketArray($params);
 			$data['pageView'] = $this->load->view('pinery/public/member_page',array('total'=>$total,'pageSize'=>$size),true);
 		}
 		$this->load->view('pinery/header',$data);
@@ -144,16 +153,19 @@ class Index extends MY_Controller {
 	 * @return [type] [description]
 	 */
 	function services(){
-		$data['city_id'] = $this->initData['cityId'];
+		$params['city_id'] = $data['city_id'] = $this->initData['cityId'];
 		$data['services_id'] = $data['city_id'].'_';
 
 		$page = intval($_GET['p']) > 0 ? intval($_GET['p']) : 1;
 		$size = 10;
 		$start = ($page-1)*$size;
 
-		$total = $this->services->getServicesCount(array('city_id'=>$data['city_id']));
+		$params['where'] = 'source=0 and userid='.$this->userId; 
+		$total = $this->services->getServicesCount($params);
 		if($total){
-			$data['listData'] = $this->services->getServicesArray(array('city_id'=>$data['city_id'],'limit'=>"{$start},{$size}",'order'=>'update_time desc'));
+			$params['limit'] = "{$start},{$size}";
+			$params['order'] = "update_time desc";
+			$data['listData'] = $this->services->getServicesArray($params);
 			$data['pageView'] = $this->load->view('pinery/public/member_page',array('total'=>$total,'pageSize'=>$size),true);
 		}
 		$this->load->view('pinery/header',$data);

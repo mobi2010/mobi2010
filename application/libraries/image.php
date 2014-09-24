@@ -115,7 +115,7 @@ class Image {
 		//文件名称		
 		$fileName = $this->fileName($params['fileName']).$fileExtStr;
 		$filePath .= $fileName;
-		$res = $this->expand($tempFile);
+		//$res = $this->expand($tempFile);
 	    if(move_uploaded_file($tempFile,$filePath)){
 	    	$res['error'] = 0;	
 	    	$res['filePath'] = $this->imagePath($filePath);	    	
@@ -229,21 +229,29 @@ class Image {
 				return $res;
 				break;
 		}
-
 		if($scale == false){//比例
 			$dest_width = $width;
 			$dest_height = $height;		
 		}else{
 			//计算基于所选择的区域和最小值的新的大小		
-			if($sourceImageWidth > $sourceImageheight) {//宽大于高
+			// if($sourceImageWidth > $sourceImageheight) {//宽大于高
+			// 	$dest_width = $width;
+			// 	$dest_height = round($sourceImageheight*$width/$sourceImageWidth);
+			// 	$dst_y = $bgcolor ? round(($height-$dest_height)/2) : $dst_y;
+			// } else {//高大于宽
+			// 	$dest_width = round($sourceImageWidth*$height/$sourceImageheight);
+			// 	$dest_height = $height;
+			// 	$dst_x = $bgcolor ? round(($width-$dest_width)/2) : $dst_x;
+			// }		
+			if(($width/$sourceImageWidth) < ($height/$sourceImageheight)) {//定宽
 				$dest_width = $width;
 				$dest_height = round($sourceImageheight*$width/$sourceImageWidth);
 				$dst_y = $bgcolor ? round(($height-$dest_height)/2) : $dst_y;
-			} else {//高大于宽
+			} else {//定高
 				$dest_width = round($sourceImageWidth*$height/$sourceImageheight);
 				$dest_height = $height;
 				$dst_x = $bgcolor ? round(($width-$dest_width)/2) : $dst_x;
-			}			
+			}	
 		}		
 		if($bgcolor){//背景颜色
 			//$dest_image = imagecreate($width,$height);			
@@ -520,7 +528,7 @@ class Image {
 		    	$res['msg'] = '文件不合法!';
 		    	return $res;
 		    }
-		    $res = $this->expand($tempFile);
+		    //$res = $this->expand($tempFile);
 			$upyun = new UpYun('pinery', 'pinery', 'mobi2010');
 		    $fh = fopen($tempFile, 'rb');
 		    //文件名称

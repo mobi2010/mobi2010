@@ -10,7 +10,7 @@ $dataProperty = $initData['dataProperty'];
 .member-attr .name{width:40px; display:inline-block}
 .info-property{width:690px;float:right;padding: 20px;}
 
-.property-nav{text-align: left;border-bottom:solid 1px #666666;}
+.property-nav{text-align: left;border-bottom:solid 1px #666666;clear:both;}
 .property-title{font-size: 20px;font-weight: bold}
 .property-attr{margin-top: 10px;}
 .property-attr div{line-height: 30px;height:30px;}

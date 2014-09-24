@@ -12,14 +12,20 @@ class Uploadify extends MY_Controller {
 	function ueditor(){
 		$res['state'] = 'SUCCESS';
 		$uploadImg = $this->image->upload(array('fileKey'=>'upfile'));	
+		if(!$uploadImg['filePath']){
+			$this->printer($res);
+		}
 		$imgInfo = getimagesize($uploadImg['filePath']);
 		$width = $imgInfo[0];
 		if($width<700){//直接输出
 			$file = $uploadImg['filePath'];
 		}else{
-			$thumbImg = $this->image->thumb(array('file'=>$uploadImg['filePath'],'width'=>700));
+			$thumbImg = $this->image->thumb(array('file'=>$uploadImg['filePath'],'width'=>700,'height'=>1500));
 			$file = $thumbImg['filePath'];
-		}		
+		}	
+		if(!$file){
+			$this->printer($res);
+		}	
 		$ypyImg = $this->image->ypyUpload(array('file'=>$file));
 		$res['url'] = $ypyImg['filePath']."!m01";
 		$this->printer($res);

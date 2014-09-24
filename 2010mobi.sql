@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主机: localhost
--- 生成日期: 2014 年 09 月 20 日 13:45
+-- 生成日期: 2014 年 09 月 24 日 17:16
 -- 服务器版本: 5.5.25a
 -- PHP 版本: 5.4.4
 
@@ -35,18 +35,18 @@ CREATE TABLE IF NOT EXISTS `pinery_car_1` (
   `view_num` int(11) NOT NULL COMMENT '浏览量',
   `content_id` bigint(20) NOT NULL COMMENT '内容id',
   `price` int(11) NOT NULL COMMENT '价格',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='车辆表_城市id' AUTO_INCREMENT=5 ;
+  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
+  PRIMARY KEY (`id`),
+  KEY `type` (`type`),
+  KEY `source` (`source`,`userid`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='车辆表_城市id' AUTO_INCREMENT=2 ;
 
 --
 -- 转存表中的数据 `pinery_car_1`
 --
 
-INSERT INTO `pinery_car_1` (`id`, `update_time`, `add_time`, `type`, `userid`, `view_num`, `content_id`, `price`) VALUES
-(1, 1411201225, 1411201225, 1, 1, 121, 2, 0),
-(2, 1411205695, 1411205695, 2, 1, 19, 3, 0),
-(3, 1411205951, 1411205951, 2, 1, 9, 4, 0),
-(4, 1411206178, 1411206178, 2, 1, 38, 5, 0);
+INSERT INTO `pinery_car_1` (`id`, `update_time`, `add_time`, `type`, `userid`, `view_num`, `content_id`, `price`, `source`) VALUES
+(1, 1411567176, 1411567176, 1, 1, 8, 1, 1234, 0);
 
 -- --------------------------------------------------------
 
@@ -63,7 +63,10 @@ CREATE TABLE IF NOT EXISTS `pinery_car_2` (
   `view_num` int(11) NOT NULL COMMENT '浏览量',
   `content_id` bigint(20) NOT NULL COMMENT '内容id',
   `price` int(11) NOT NULL COMMENT '价格',
-  PRIMARY KEY (`id`)
+  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
+  PRIMARY KEY (`id`),
+  KEY `type` (`type`),
+  KEY `source` (`source`,`userid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='车辆表_城市id' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -81,7 +84,10 @@ CREATE TABLE IF NOT EXISTS `pinery_car_3` (
   `view_num` int(11) NOT NULL COMMENT '浏览量',
   `content_id` bigint(20) NOT NULL COMMENT '内容id',
   `price` int(11) NOT NULL COMMENT '价格',
-  PRIMARY KEY (`id`)
+  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
+  PRIMARY KEY (`id`),
+  KEY `type` (`type`),
+  KEY `source` (`source`,`userid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='车辆表_城市id' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -99,7 +105,10 @@ CREATE TABLE IF NOT EXISTS `pinery_car_4` (
   `view_num` int(11) NOT NULL COMMENT '浏览量',
   `content_id` bigint(20) NOT NULL COMMENT '内容id',
   `price` int(11) NOT NULL COMMENT '价格',
-  PRIMARY KEY (`id`)
+  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
+  PRIMARY KEY (`id`),
+  KEY `type` (`type`),
+  KEY `source` (`source`,`userid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='车辆表_城市id' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -117,7 +126,10 @@ CREATE TABLE IF NOT EXISTS `pinery_car_5` (
   `view_num` int(11) NOT NULL COMMENT '浏览量',
   `content_id` bigint(20) NOT NULL COMMENT '内容id',
   `price` int(11) NOT NULL COMMENT '价格',
-  PRIMARY KEY (`id`)
+  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
+  PRIMARY KEY (`id`),
+  KEY `type` (`type`),
+  KEY `source` (`source`,`userid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='车辆表_城市id' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -135,7 +147,10 @@ CREATE TABLE IF NOT EXISTS `pinery_car_6` (
   `view_num` int(11) NOT NULL COMMENT '浏览量',
   `content_id` bigint(20) NOT NULL COMMENT '内容id',
   `price` int(11) NOT NULL COMMENT '价格',
-  PRIMARY KEY (`id`)
+  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
+  PRIMARY KEY (`id`),
+  KEY `type` (`type`),
+  KEY `source` (`source`,`userid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='车辆表_城市id' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -153,7 +168,10 @@ CREATE TABLE IF NOT EXISTS `pinery_car_7` (
   `view_num` int(11) NOT NULL COMMENT '浏览量',
   `content_id` bigint(20) NOT NULL COMMENT '内容id',
   `price` int(11) NOT NULL COMMENT '价格',
-  PRIMARY KEY (`id`)
+  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
+  PRIMARY KEY (`id`),
+  KEY `type` (`type`),
+  KEY `source` (`source`,`userid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='车辆表_城市id' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -171,7 +189,10 @@ CREATE TABLE IF NOT EXISTS `pinery_car_8` (
   `view_num` int(11) NOT NULL COMMENT '浏览量',
   `content_id` bigint(20) NOT NULL COMMENT '内容id',
   `price` int(11) NOT NULL COMMENT '价格',
-  PRIMARY KEY (`id`)
+  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
+  PRIMARY KEY (`id`),
+  KEY `type` (`type`),
+  KEY `source` (`source`,`userid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='车辆表_城市id' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -189,7 +210,10 @@ CREATE TABLE IF NOT EXISTS `pinery_car_9` (
   `view_num` int(11) NOT NULL COMMENT '浏览量',
   `content_id` bigint(20) NOT NULL COMMENT '内容id',
   `price` int(11) NOT NULL COMMENT '价格',
-  PRIMARY KEY (`id`)
+  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
+  PRIMARY KEY (`id`),
+  KEY `type` (`type`),
+  KEY `source` (`source`,`userid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='车辆表_城市id' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -207,7 +231,10 @@ CREATE TABLE IF NOT EXISTS `pinery_car_10` (
   `view_num` int(11) NOT NULL COMMENT '浏览量',
   `content_id` bigint(20) NOT NULL COMMENT '内容id',
   `price` int(11) NOT NULL COMMENT '价格',
-  PRIMARY KEY (`id`)
+  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
+  PRIMARY KEY (`id`),
+  KEY `type` (`type`),
+  KEY `source` (`source`,`userid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='车辆表_城市id' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -225,7 +252,10 @@ CREATE TABLE IF NOT EXISTS `pinery_car_11` (
   `view_num` int(11) NOT NULL COMMENT '浏览量',
   `content_id` bigint(20) NOT NULL COMMENT '内容id',
   `price` int(11) NOT NULL COMMENT '价格',
-  PRIMARY KEY (`id`)
+  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
+  PRIMARY KEY (`id`),
+  KEY `type` (`type`),
+  KEY `source` (`source`,`userid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='车辆表_城市id' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -243,7 +273,10 @@ CREATE TABLE IF NOT EXISTS `pinery_car_12` (
   `view_num` int(11) NOT NULL COMMENT '浏览量',
   `content_id` bigint(20) NOT NULL COMMENT '内容id',
   `price` int(11) NOT NULL COMMENT '价格',
-  PRIMARY KEY (`id`)
+  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
+  PRIMARY KEY (`id`),
+  KEY `type` (`type`),
+  KEY `source` (`source`,`userid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='车辆表_城市id' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -261,7 +294,10 @@ CREATE TABLE IF NOT EXISTS `pinery_car_13` (
   `view_num` int(11) NOT NULL COMMENT '浏览量',
   `content_id` bigint(20) NOT NULL COMMENT '内容id',
   `price` int(11) NOT NULL COMMENT '价格',
-  PRIMARY KEY (`id`)
+  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
+  PRIMARY KEY (`id`),
+  KEY `type` (`type`),
+  KEY `source` (`source`,`userid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='车辆表_城市id' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -279,7 +315,10 @@ CREATE TABLE IF NOT EXISTS `pinery_car_14` (
   `view_num` int(11) NOT NULL COMMENT '浏览量',
   `content_id` bigint(20) NOT NULL COMMENT '内容id',
   `price` int(11) NOT NULL COMMENT '价格',
-  PRIMARY KEY (`id`)
+  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
+  PRIMARY KEY (`id`),
+  KEY `type` (`type`),
+  KEY `source` (`source`,`userid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='车辆表_城市id' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -287,16 +326,8 @@ CREATE TABLE IF NOT EXISTS `pinery_car_14` (
 --
 -- 表的结构 `pinery_car_content_1`
 --
-
-CREATE TABLE IF NOT EXISTS `pinery_car_content_1` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `title` varchar(30) NOT NULL COMMENT '标题',
-  `content` text NOT NULL COMMENT '描述',
-  `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
-) ENGINE=MRG_MyISAM DEFAULT CHARSET=utf8 INSERT_METHOD=LAST UNION=(`pinery_car_content_1_0`,`pinery_car_content_1_1`,`pinery_car_content_1_2`,`pinery_car_content_1_3`,`pinery_car_content_1_4`,`pinery_car_content_1_5`,`pinery_car_content_1_6`,`pinery_car_content_1_7`,`pinery_car_content_1_8`,`pinery_car_content_1_9`);
+-- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
+-- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
 
 -- --------------------------------------------------------
 
@@ -309,9 +340,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_1_0` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -325,21 +354,15 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_1_1` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=6 ;
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=2 ;
 
 --
 -- 转存表中的数据 `pinery_car_content_1_1`
 --
 
-INSERT INTO `pinery_car_content_1_1` (`id`, `title`, `content`, `images`, `userid`) VALUES
-(1, '', '<p>asdfadsfadsf<img alt="" src="http://pinery.b0.upaiyun.com/2014/09/20/141120109202311900.jpg!m01" title=""/></p>', 'http://pinery.b0.upaiyun.com/2014/09/20/141120109202311900.jpg!m01', 1),
-(2, 'asdfasddf', '<p>adsfasdfadsf<img alt="" src="http://pinery.b0.upaiyun.com/2014/09/20/141120122267596600.jpg!m01" title=""/></p>', 'http://pinery.b0.upaiyun.com/2014/09/20/141120122267596600.jpg!m01', 1),
-(3, 'aasdfasdfasdfasdfadsf', '<p>1.交通便利：出门就是公交车站，紧邻地铁五号线天通苑站，天通北苑公交总站。十几路公交车，畅通北京。<br/>2. 购物方便：周边有大型购物超市，物美。大型商场，国泰百货。几万平米的大型综合市场。<br/>3，内设：房型多样，单间，套间，两居，三居。独门独院，内设停车场。<br/>4。安全：院内无死角监控覆盖，房门采用酒店式刷卡设备。专业保安人员24小时巡逻。<br/>5。周边配套：银行，幼儿园，小学，中学。<br/></p><p class="clear">联系我时，请说是在赶集网上看到的，谢谢！</p><p>1.交通便利：出门就是公交车站，紧邻地铁五号线天通苑站，天通北苑公交总站。十几路公交车，畅通北京。<br/>2. 购物方便：周边有大型购物超市，物美。大型商场，国泰百货。几万平米的大型综合市场。<br/>3，内设：房型多样，单间，套间，两居，三居。独门独院，内设停车场。<br/>4。安全：院内无死角监控覆盖，房门采用酒店式刷卡设备。专业保安人员24小时巡逻。<br/>5。周边配套：银行，幼儿园，小学，中学。<br/></p><p class="clear">联系我时，请说是在赶集网上看到的，谢谢！</p><p><img alt="" src="http://2010.test/tmp/2014/09/20/141120569071989400.jpg" title=""/></p><p>1.交通便利：出门就是公交车站，紧邻地铁五号线天通苑站，天通北苑公交总站。十几路公交车，畅通北京。<br/>2. 购物方便：周边有大型购物超市，物美。大型商场，国泰百货。几万平米的大型综合市场。<br/>3，内设：房型多样，单间，套间，两居，三居。独门独院，内设停车场。<br/>4。安全：院内无死角监控覆盖，房门采用酒店式刷卡设备。专业保安人员24小时巡逻。<br/>5。周边配套：银行，幼儿园，小学，中学。<br/></p><p class="clear">联系我时，请说是在赶集网上看到的，谢谢！</p><p><br/></p>', '', 1),
-(4, '12341324', '<p><span style="font-size: 24px;"><strong>1.交通便利：出门就是公交车站，紧邻地铁五号线天通苑站，天通北苑公交总站。十几路公交车，畅通北京。<br/>2. 购物方便：周边有大型购物超市，物美。大型商场，国泰百货。几万平米的大型综合市场。<br/>3，内设：房型多样，单间，套间，两居，三居。独门独院，内设停车场。<br/>4。安全：院内无死角监控覆盖，房门采用酒店式刷卡设备。专业保安人员24小时巡逻。<br/>5。周边配套：银行，幼儿园，小学，中学。<br/></strong></span></p><p class="clear"><span style="font-size: 24px;"><strong>联系我时，请说是在赶集网上看到的，谢谢！</strong></span></p><p class="clear"><span style="font-size: 24px;"><strong><img alt="" src="http://2010.test/tmp/2014/09/20/141120593997452800.jpg" title=""/></strong></span></p><p>1.交通便利：出门就是公交车站，紧邻地铁五号线天通苑站，天通北苑公交总站。十几路公交车，畅通北京。<br/>2. 购物方便：周边有大型购物超市，物美。大型商场，国泰百货。几万平米的大型综合市场。<br/>3，内设：房型多样，单间，套间，两居，三居。独门独院，内设停车场。<br/>4。安全：院内无死角监控覆盖，房门采用酒店式刷卡设备。专业保安人员24小时巡逻。<br/>5。周边配套：银行，幼儿园，小学，中学。<br/></p><p class="clear">联系我时，请说是在赶集网上看到的，谢谢！</p><p class="clear"><img alt="" src="http://2010.test/tmp/2014/09/20/141120594889810300.jpg" title=""/><span style="font-size: 24px;"></span><br/></p><p><br/></p>', '', 1),
-(5, '1234123412341234', '<p>asdfadsfadsf<br/></p><p><img alt="" src="http://2010.test/tmp/2014/09/20/141120612697776200.jpg" title=""/></p><p><img alt="" src="http://pinery.b0.upaiyun.com/2014/09/20/141120616498252100.jpg!m01" title=""/></p><p><br/></p>', 'http://pinery.b0.upaiyun.com/2014/09/20/141120616498252100.jpg!m01', 1);
+INSERT INTO `pinery_car_content_1_1` (`id`, `title`, `content`, `images`) VALUES
+(1, '1234', '<p>123412341234<img src="http://pinery.b0.upaiyun.com/2014/09/24/141156717138612800.jpg!m01" title="" alt=""/></p>', 'http://pinery.b0.upaiyun.com/2014/09/24/141156717138612800.jpg!m01');
 
 -- --------------------------------------------------------
 
@@ -352,9 +375,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_1_2` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -368,9 +389,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_1_3` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -384,9 +403,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_1_4` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -400,9 +417,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_1_5` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -416,9 +431,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_1_6` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -432,9 +445,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_1_7` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -448,9 +459,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_1_8` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -464,33 +473,16 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_1_9` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=2 ;
-
---
--- 转存表中的数据 `pinery_car_content_1_9`
---
-
-INSERT INTO `pinery_car_content_1_9` (`id`, `title`, `content`, `images`, `userid`) VALUES
-(1, '', '<p>adsfadsfasdf<br/></p>', '', 1);
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
 -- 表的结构 `pinery_car_content_2`
 --
-
-CREATE TABLE IF NOT EXISTS `pinery_car_content_2` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `title` varchar(30) NOT NULL COMMENT '标题',
-  `content` text NOT NULL COMMENT '描述',
-  `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
-) ENGINE=MRG_MyISAM DEFAULT CHARSET=utf8 INSERT_METHOD=LAST UNION=(`pinery_car_content_2_0`,`pinery_car_content_2_1`,`pinery_car_content_2_2`,`pinery_car_content_2_3`,`pinery_car_content_2_4`,`pinery_car_content_2_5`,`pinery_car_content_2_6`,`pinery_car_content_2_7`,`pinery_car_content_2_8`,`pinery_car_content_2_9`);
+-- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
+-- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
 
 -- --------------------------------------------------------
 
@@ -503,9 +495,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_2_0` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -519,9 +509,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_2_1` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -535,9 +523,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_2_2` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -551,9 +537,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_2_3` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -567,9 +551,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_2_4` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -583,9 +565,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_2_5` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -599,9 +579,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_2_6` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -615,9 +593,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_2_7` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -631,9 +607,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_2_8` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -647,9 +621,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_2_9` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -657,16 +629,8 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_2_9` (
 --
 -- 表的结构 `pinery_car_content_3`
 --
-
-CREATE TABLE IF NOT EXISTS `pinery_car_content_3` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `title` varchar(30) NOT NULL COMMENT '标题',
-  `content` text NOT NULL COMMENT '描述',
-  `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
-) ENGINE=MRG_MyISAM DEFAULT CHARSET=utf8 INSERT_METHOD=LAST UNION=(`pinery_car_content_3_0`,`pinery_car_content_3_1`,`pinery_car_content_3_2`,`pinery_car_content_3_3`,`pinery_car_content_3_4`,`pinery_car_content_3_5`,`pinery_car_content_3_6`,`pinery_car_content_3_7`,`pinery_car_content_3_8`,`pinery_car_content_3_9`);
+-- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
+-- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
 
 -- --------------------------------------------------------
 
@@ -679,9 +643,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_3_0` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -695,9 +657,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_3_1` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -711,9 +671,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_3_2` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -727,9 +685,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_3_3` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -743,9 +699,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_3_4` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -759,9 +713,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_3_5` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -775,9 +727,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_3_6` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -791,9 +741,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_3_7` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -807,9 +755,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_3_8` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -823,9 +769,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_3_9` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -833,16 +777,8 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_3_9` (
 --
 -- 表的结构 `pinery_car_content_4`
 --
-
-CREATE TABLE IF NOT EXISTS `pinery_car_content_4` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `title` varchar(30) NOT NULL COMMENT '标题',
-  `content` text NOT NULL COMMENT '描述',
-  `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
-) ENGINE=MRG_MyISAM DEFAULT CHARSET=utf8 INSERT_METHOD=LAST UNION=(`pinery_car_content_4_0`,`pinery_car_content_4_1`,`pinery_car_content_4_2`,`pinery_car_content_4_3`,`pinery_car_content_4_4`,`pinery_car_content_4_5`,`pinery_car_content_4_6`,`pinery_car_content_4_7`,`pinery_car_content_4_8`,`pinery_car_content_4_9`);
+-- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
+-- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
 
 -- --------------------------------------------------------
 
@@ -855,9 +791,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_4_0` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -871,9 +805,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_4_1` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -887,9 +819,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_4_2` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -903,9 +833,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_4_3` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -919,9 +847,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_4_4` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -935,9 +861,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_4_5` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -951,9 +875,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_4_6` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -967,9 +889,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_4_7` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -983,9 +903,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_4_8` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -999,9 +917,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_4_9` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -1009,16 +925,8 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_4_9` (
 --
 -- 表的结构 `pinery_car_content_5`
 --
-
-CREATE TABLE IF NOT EXISTS `pinery_car_content_5` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `title` varchar(30) NOT NULL COMMENT '标题',
-  `content` text NOT NULL COMMENT '描述',
-  `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
-) ENGINE=MRG_MyISAM DEFAULT CHARSET=utf8 INSERT_METHOD=LAST UNION=(`pinery_car_content_5_0`,`pinery_car_content_5_1`,`pinery_car_content_5_2`,`pinery_car_content_5_3`,`pinery_car_content_5_4`,`pinery_car_content_5_5`,`pinery_car_content_5_6`,`pinery_car_content_5_7`,`pinery_car_content_5_8`,`pinery_car_content_5_9`);
+-- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
+-- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
 
 -- --------------------------------------------------------
 
@@ -1031,9 +939,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_5_0` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -1047,9 +953,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_5_1` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -1063,9 +967,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_5_2` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -1079,9 +981,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_5_3` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -1095,9 +995,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_5_4` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -1111,9 +1009,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_5_5` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -1127,9 +1023,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_5_6` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -1143,9 +1037,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_5_7` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -1159,9 +1051,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_5_8` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -1175,9 +1065,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_5_9` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -1185,16 +1073,8 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_5_9` (
 --
 -- 表的结构 `pinery_car_content_6`
 --
-
-CREATE TABLE IF NOT EXISTS `pinery_car_content_6` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `title` varchar(30) NOT NULL COMMENT '标题',
-  `content` text NOT NULL COMMENT '描述',
-  `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
-) ENGINE=MRG_MyISAM DEFAULT CHARSET=utf8 INSERT_METHOD=LAST UNION=(`pinery_car_content_6_0`,`pinery_car_content_6_1`,`pinery_car_content_6_2`,`pinery_car_content_6_3`,`pinery_car_content_6_4`,`pinery_car_content_6_5`,`pinery_car_content_6_6`,`pinery_car_content_6_7`,`pinery_car_content_6_8`,`pinery_car_content_6_9`);
+-- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
+-- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
 
 -- --------------------------------------------------------
 
@@ -1207,9 +1087,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_6_0` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -1223,9 +1101,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_6_1` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -1239,9 +1115,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_6_2` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -1255,9 +1129,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_6_3` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -1271,9 +1143,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_6_4` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -1287,9 +1157,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_6_5` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -1303,9 +1171,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_6_6` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -1319,9 +1185,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_6_7` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -1335,9 +1199,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_6_8` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -1351,9 +1213,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_6_9` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -1361,16 +1221,8 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_6_9` (
 --
 -- 表的结构 `pinery_car_content_7`
 --
-
-CREATE TABLE IF NOT EXISTS `pinery_car_content_7` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `title` varchar(30) NOT NULL COMMENT '标题',
-  `content` text NOT NULL COMMENT '描述',
-  `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
-) ENGINE=MRG_MyISAM DEFAULT CHARSET=utf8 INSERT_METHOD=LAST UNION=(`pinery_car_content_7_0`,`pinery_car_content_7_1`,`pinery_car_content_7_2`,`pinery_car_content_7_3`,`pinery_car_content_7_4`,`pinery_car_content_7_5`,`pinery_car_content_7_6`,`pinery_car_content_7_7`,`pinery_car_content_7_8`,`pinery_car_content_7_9`);
+-- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
+-- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
 
 -- --------------------------------------------------------
 
@@ -1383,9 +1235,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_7_0` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -1399,9 +1249,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_7_1` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -1415,9 +1263,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_7_2` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -1431,9 +1277,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_7_3` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -1447,9 +1291,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_7_4` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -1463,9 +1305,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_7_5` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -1479,9 +1319,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_7_6` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -1495,9 +1333,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_7_7` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -1511,9 +1347,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_7_8` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -1527,9 +1361,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_7_9` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -1537,16 +1369,8 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_7_9` (
 --
 -- 表的结构 `pinery_car_content_8`
 --
-
-CREATE TABLE IF NOT EXISTS `pinery_car_content_8` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `title` varchar(30) NOT NULL COMMENT '标题',
-  `content` text NOT NULL COMMENT '描述',
-  `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
-) ENGINE=MRG_MyISAM DEFAULT CHARSET=utf8 INSERT_METHOD=LAST UNION=(`pinery_car_content_8_0`,`pinery_car_content_8_1`,`pinery_car_content_8_2`,`pinery_car_content_8_3`,`pinery_car_content_8_4`,`pinery_car_content_8_5`,`pinery_car_content_8_6`,`pinery_car_content_8_7`,`pinery_car_content_8_8`,`pinery_car_content_8_9`);
+-- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
+-- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
 
 -- --------------------------------------------------------
 
@@ -1559,9 +1383,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_8_0` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -1575,9 +1397,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_8_1` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -1591,9 +1411,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_8_2` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -1607,9 +1425,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_8_3` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -1623,9 +1439,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_8_4` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -1639,9 +1453,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_8_5` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -1655,9 +1467,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_8_6` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -1671,9 +1481,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_8_7` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -1687,9 +1495,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_8_8` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -1703,9 +1509,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_8_9` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -1713,16 +1517,8 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_8_9` (
 --
 -- 表的结构 `pinery_car_content_9`
 --
-
-CREATE TABLE IF NOT EXISTS `pinery_car_content_9` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `title` varchar(30) NOT NULL COMMENT '标题',
-  `content` text NOT NULL COMMENT '描述',
-  `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
-) ENGINE=MRG_MyISAM DEFAULT CHARSET=utf8 INSERT_METHOD=LAST UNION=(`pinery_car_content_9_0`,`pinery_car_content_9_1`,`pinery_car_content_9_2`,`pinery_car_content_9_3`,`pinery_car_content_9_4`,`pinery_car_content_9_5`,`pinery_car_content_9_6`,`pinery_car_content_9_7`,`pinery_car_content_9_8`,`pinery_car_content_9_9`);
+-- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
+-- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
 
 -- --------------------------------------------------------
 
@@ -1735,9 +1531,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_9_0` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -1751,9 +1545,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_9_1` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -1767,9 +1559,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_9_2` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -1783,9 +1573,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_9_3` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -1799,9 +1587,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_9_4` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -1815,9 +1601,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_9_5` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -1831,9 +1615,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_9_6` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -1847,9 +1629,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_9_7` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -1863,9 +1643,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_9_8` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -1879,9 +1657,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_9_9` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -1889,16 +1665,8 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_9_9` (
 --
 -- 表的结构 `pinery_car_content_10`
 --
-
-CREATE TABLE IF NOT EXISTS `pinery_car_content_10` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `title` varchar(30) NOT NULL COMMENT '标题',
-  `content` text NOT NULL COMMENT '描述',
-  `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
-) ENGINE=MRG_MyISAM DEFAULT CHARSET=utf8 INSERT_METHOD=LAST UNION=(`pinery_car_content_10_0`,`pinery_car_content_10_1`,`pinery_car_content_10_2`,`pinery_car_content_10_3`,`pinery_car_content_10_4`,`pinery_car_content_10_5`,`pinery_car_content_10_6`,`pinery_car_content_10_7`,`pinery_car_content_10_8`,`pinery_car_content_10_9`);
+-- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
+-- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
 
 -- --------------------------------------------------------
 
@@ -1911,9 +1679,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_10_0` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -1927,9 +1693,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_10_1` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -1943,9 +1707,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_10_2` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -1959,9 +1721,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_10_3` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -1975,9 +1735,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_10_4` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -1991,9 +1749,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_10_5` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -2007,9 +1763,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_10_6` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -2023,9 +1777,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_10_7` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -2039,9 +1791,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_10_8` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -2055,9 +1805,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_10_9` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -2065,16 +1813,8 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_10_9` (
 --
 -- 表的结构 `pinery_car_content_11`
 --
-
-CREATE TABLE IF NOT EXISTS `pinery_car_content_11` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `title` varchar(30) NOT NULL COMMENT '标题',
-  `content` text NOT NULL COMMENT '描述',
-  `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
-) ENGINE=MRG_MyISAM DEFAULT CHARSET=utf8 INSERT_METHOD=LAST UNION=(`pinery_car_content_11_0`,`pinery_car_content_11_1`,`pinery_car_content_11_2`,`pinery_car_content_11_3`,`pinery_car_content_11_4`,`pinery_car_content_11_5`,`pinery_car_content_11_6`,`pinery_car_content_11_7`,`pinery_car_content_11_8`,`pinery_car_content_11_9`);
+-- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
+-- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
 
 -- --------------------------------------------------------
 
@@ -2087,9 +1827,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_11_0` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -2103,9 +1841,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_11_1` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -2119,9 +1855,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_11_2` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -2135,9 +1869,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_11_3` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -2151,9 +1883,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_11_4` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -2167,9 +1897,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_11_5` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -2183,9 +1911,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_11_6` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -2199,9 +1925,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_11_7` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -2215,9 +1939,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_11_8` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -2231,9 +1953,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_11_9` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -2241,16 +1961,8 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_11_9` (
 --
 -- 表的结构 `pinery_car_content_12`
 --
-
-CREATE TABLE IF NOT EXISTS `pinery_car_content_12` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `title` varchar(30) NOT NULL COMMENT '标题',
-  `content` text NOT NULL COMMENT '描述',
-  `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
-) ENGINE=MRG_MyISAM DEFAULT CHARSET=utf8 INSERT_METHOD=LAST UNION=(`pinery_car_content_12_0`,`pinery_car_content_12_1`,`pinery_car_content_12_2`,`pinery_car_content_12_3`,`pinery_car_content_12_4`,`pinery_car_content_12_5`,`pinery_car_content_12_6`,`pinery_car_content_12_7`,`pinery_car_content_12_8`,`pinery_car_content_12_9`);
+-- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
+-- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
 
 -- --------------------------------------------------------
 
@@ -2263,9 +1975,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_12_0` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -2279,9 +1989,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_12_1` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -2295,9 +2003,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_12_2` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -2311,9 +2017,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_12_3` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -2327,9 +2031,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_12_4` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -2343,9 +2045,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_12_5` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -2359,9 +2059,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_12_6` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -2375,9 +2073,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_12_7` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -2391,9 +2087,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_12_8` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -2407,9 +2101,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_12_9` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -2417,16 +2109,8 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_12_9` (
 --
 -- 表的结构 `pinery_car_content_13`
 --
-
-CREATE TABLE IF NOT EXISTS `pinery_car_content_13` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `title` varchar(30) NOT NULL COMMENT '标题',
-  `content` text NOT NULL COMMENT '描述',
-  `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
-) ENGINE=MRG_MyISAM DEFAULT CHARSET=utf8 INSERT_METHOD=LAST UNION=(`pinery_car_content_13_0`,`pinery_car_content_13_1`,`pinery_car_content_13_2`,`pinery_car_content_13_3`,`pinery_car_content_13_4`,`pinery_car_content_13_5`,`pinery_car_content_13_6`,`pinery_car_content_13_7`,`pinery_car_content_13_8`,`pinery_car_content_13_9`);
+-- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
+-- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
 
 -- --------------------------------------------------------
 
@@ -2439,9 +2123,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_13_0` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -2455,9 +2137,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_13_1` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -2471,9 +2151,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_13_2` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -2487,9 +2165,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_13_3` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -2503,9 +2179,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_13_4` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -2519,9 +2193,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_13_5` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -2535,9 +2207,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_13_6` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -2551,9 +2221,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_13_7` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -2567,9 +2235,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_13_8` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -2583,9 +2249,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_13_9` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -2593,16 +2257,8 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_13_9` (
 --
 -- 表的结构 `pinery_car_content_14`
 --
-
-CREATE TABLE IF NOT EXISTS `pinery_car_content_14` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `title` varchar(30) NOT NULL COMMENT '标题',
-  `content` text NOT NULL COMMENT '描述',
-  `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
-) ENGINE=MRG_MyISAM DEFAULT CHARSET=utf8 INSERT_METHOD=LAST UNION=(`pinery_car_content_14_0`,`pinery_car_content_14_1`,`pinery_car_content_14_2`,`pinery_car_content_14_3`,`pinery_car_content_14_4`,`pinery_car_content_14_5`,`pinery_car_content_14_6`,`pinery_car_content_14_7`,`pinery_car_content_14_8`,`pinery_car_content_14_9`);
+-- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
+-- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
 
 -- --------------------------------------------------------
 
@@ -2615,9 +2271,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_14_0` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -2631,9 +2285,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_14_1` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -2647,9 +2299,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_14_2` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -2663,9 +2313,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_14_3` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -2679,9 +2327,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_14_4` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -2695,9 +2341,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_14_5` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -2711,9 +2355,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_14_6` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -2727,9 +2369,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_14_7` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -2743,9 +2383,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_14_8` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -2759,9 +2397,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_14_9` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -2837,14 +2473,15 @@ CREATE TABLE IF NOT EXISTS `pinery_location_1` (
   `map` text NOT NULL COMMENT '地图信息',
   PRIMARY KEY (`id`),
   KEY `name` (`name`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='位置表_城市id' AUTO_INCREMENT=2 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='位置表_城市id' AUTO_INCREMENT=3 ;
 
 --
 -- 转存表中的数据 `pinery_location_1`
 --
 
 INSERT INTO `pinery_location_1` (`id`, `name`, `address`, `map`) VALUES
-(1, '燕郊镇', '', '');
+(1, '燕郊镇信访办公室', '京哈公路附近', '{"name":"\\u71d5\\u90ca\\u9547\\u4fe1\\u8bbf\\u529e\\u516c\\u5ba4","location":{"lat":39.950846,"lng":116.8159},"address":"\\u4eac\\u54c8\\u516c\\u8def\\u9644\\u8fd1","uid":"a0180392a1b5ebf6c4f50d41"}'),
+(2, '燕郊镇邮政支局', '汉王路113-115', '{"name":"\\u71d5\\u90ca\\u9547\\u90ae\\u653f\\u652f\\u5c40","location":{"lat":39.95319,"lng":116.833201},"address":"\\u6c49\\u738b\\u8def113-115","uid":"f746bbb0d5047efe725e8024"}');
 
 -- --------------------------------------------------------
 
@@ -3056,8 +2693,18 @@ CREATE TABLE IF NOT EXISTS `pinery_market_1` (
   `view_num` int(11) NOT NULL COMMENT '浏览量',
   `content_id` bigint(20) NOT NULL COMMENT '内容id',
   `price` int(11) NOT NULL COMMENT '价格',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='集市表_城市id' AUTO_INCREMENT=1 ;
+  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
+  PRIMARY KEY (`id`),
+  KEY `type` (`type`),
+  KEY `source` (`source`,`userid`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='集市表_城市id' AUTO_INCREMENT=2 ;
+
+--
+-- 转存表中的数据 `pinery_market_1`
+--
+
+INSERT INTO `pinery_market_1` (`id`, `update_time`, `add_time`, `type`, `userid`, `view_num`, `content_id`, `price`, `source`) VALUES
+(1, 1411567221, 1411567221, 1, 1, 1, 1, 1234, 0);
 
 -- --------------------------------------------------------
 
@@ -3074,7 +2721,10 @@ CREATE TABLE IF NOT EXISTS `pinery_market_2` (
   `view_num` int(11) NOT NULL COMMENT '浏览量',
   `content_id` bigint(20) NOT NULL COMMENT '内容id',
   `price` int(11) NOT NULL COMMENT '价格',
-  PRIMARY KEY (`id`)
+  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
+  PRIMARY KEY (`id`),
+  KEY `type` (`type`),
+  KEY `source` (`source`,`userid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='集市表_城市id' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -3092,7 +2742,10 @@ CREATE TABLE IF NOT EXISTS `pinery_market_3` (
   `view_num` int(11) NOT NULL COMMENT '浏览量',
   `content_id` bigint(20) NOT NULL COMMENT '内容id',
   `price` int(11) NOT NULL COMMENT '价格',
-  PRIMARY KEY (`id`)
+  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
+  PRIMARY KEY (`id`),
+  KEY `type` (`type`),
+  KEY `source` (`source`,`userid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='集市表_城市id' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -3110,7 +2763,10 @@ CREATE TABLE IF NOT EXISTS `pinery_market_4` (
   `view_num` int(11) NOT NULL COMMENT '浏览量',
   `content_id` bigint(20) NOT NULL COMMENT '内容id',
   `price` int(11) NOT NULL COMMENT '价格',
-  PRIMARY KEY (`id`)
+  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
+  PRIMARY KEY (`id`),
+  KEY `type` (`type`),
+  KEY `source` (`source`,`userid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='集市表_城市id' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -3128,7 +2784,10 @@ CREATE TABLE IF NOT EXISTS `pinery_market_5` (
   `view_num` int(11) NOT NULL COMMENT '浏览量',
   `content_id` bigint(20) NOT NULL COMMENT '内容id',
   `price` int(11) NOT NULL COMMENT '价格',
-  PRIMARY KEY (`id`)
+  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
+  PRIMARY KEY (`id`),
+  KEY `type` (`type`),
+  KEY `source` (`source`,`userid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='集市表_城市id' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -3146,7 +2805,10 @@ CREATE TABLE IF NOT EXISTS `pinery_market_6` (
   `view_num` int(11) NOT NULL COMMENT '浏览量',
   `content_id` bigint(20) NOT NULL COMMENT '内容id',
   `price` int(11) NOT NULL COMMENT '价格',
-  PRIMARY KEY (`id`)
+  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
+  PRIMARY KEY (`id`),
+  KEY `type` (`type`),
+  KEY `source` (`source`,`userid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='集市表_城市id' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -3164,7 +2826,10 @@ CREATE TABLE IF NOT EXISTS `pinery_market_7` (
   `view_num` int(11) NOT NULL COMMENT '浏览量',
   `content_id` bigint(20) NOT NULL COMMENT '内容id',
   `price` int(11) NOT NULL COMMENT '价格',
-  PRIMARY KEY (`id`)
+  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
+  PRIMARY KEY (`id`),
+  KEY `type` (`type`),
+  KEY `source` (`source`,`userid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='集市表_城市id' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -3182,7 +2847,10 @@ CREATE TABLE IF NOT EXISTS `pinery_market_8` (
   `view_num` int(11) NOT NULL COMMENT '浏览量',
   `content_id` bigint(20) NOT NULL COMMENT '内容id',
   `price` int(11) NOT NULL COMMENT '价格',
-  PRIMARY KEY (`id`)
+  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
+  PRIMARY KEY (`id`),
+  KEY `type` (`type`),
+  KEY `source` (`source`,`userid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='集市表_城市id' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -3200,7 +2868,10 @@ CREATE TABLE IF NOT EXISTS `pinery_market_9` (
   `view_num` int(11) NOT NULL COMMENT '浏览量',
   `content_id` bigint(20) NOT NULL COMMENT '内容id',
   `price` int(11) NOT NULL COMMENT '价格',
-  PRIMARY KEY (`id`)
+  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
+  PRIMARY KEY (`id`),
+  KEY `type` (`type`),
+  KEY `source` (`source`,`userid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='集市表_城市id' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -3218,7 +2889,10 @@ CREATE TABLE IF NOT EXISTS `pinery_market_10` (
   `view_num` int(11) NOT NULL COMMENT '浏览量',
   `content_id` bigint(20) NOT NULL COMMENT '内容id',
   `price` int(11) NOT NULL COMMENT '价格',
-  PRIMARY KEY (`id`)
+  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
+  PRIMARY KEY (`id`),
+  KEY `type` (`type`),
+  KEY `source` (`source`,`userid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='集市表_城市id' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -3236,7 +2910,10 @@ CREATE TABLE IF NOT EXISTS `pinery_market_11` (
   `view_num` int(11) NOT NULL COMMENT '浏览量',
   `content_id` bigint(20) NOT NULL COMMENT '内容id',
   `price` int(11) NOT NULL COMMENT '价格',
-  PRIMARY KEY (`id`)
+  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
+  PRIMARY KEY (`id`),
+  KEY `type` (`type`),
+  KEY `source` (`source`,`userid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='集市表_城市id' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -3254,7 +2931,10 @@ CREATE TABLE IF NOT EXISTS `pinery_market_12` (
   `view_num` int(11) NOT NULL COMMENT '浏览量',
   `content_id` bigint(20) NOT NULL COMMENT '内容id',
   `price` int(11) NOT NULL COMMENT '价格',
-  PRIMARY KEY (`id`)
+  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
+  PRIMARY KEY (`id`),
+  KEY `type` (`type`),
+  KEY `source` (`source`,`userid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='集市表_城市id' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -3272,7 +2952,10 @@ CREATE TABLE IF NOT EXISTS `pinery_market_13` (
   `view_num` int(11) NOT NULL COMMENT '浏览量',
   `content_id` bigint(20) NOT NULL COMMENT '内容id',
   `price` int(11) NOT NULL COMMENT '价格',
-  PRIMARY KEY (`id`)
+  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
+  PRIMARY KEY (`id`),
+  KEY `type` (`type`),
+  KEY `source` (`source`,`userid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='集市表_城市id' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -3290,7 +2973,10 @@ CREATE TABLE IF NOT EXISTS `pinery_market_14` (
   `view_num` int(11) NOT NULL COMMENT '浏览量',
   `content_id` bigint(20) NOT NULL COMMENT '内容id',
   `price` int(11) NOT NULL COMMENT '价格',
-  PRIMARY KEY (`id`)
+  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
+  PRIMARY KEY (`id`),
+  KEY `type` (`type`),
+  KEY `source` (`source`,`userid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='集市表_城市id' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -3298,16 +2984,8 @@ CREATE TABLE IF NOT EXISTS `pinery_market_14` (
 --
 -- 表的结构 `pinery_market_content_1`
 --
-
-CREATE TABLE IF NOT EXISTS `pinery_market_content_1` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `title` varchar(30) NOT NULL COMMENT '标题',
-  `content` text NOT NULL COMMENT '描述',
-  `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
-) ENGINE=MRG_MyISAM DEFAULT CHARSET=utf8 INSERT_METHOD=LAST UNION=(`pinery_market_content_1_0`,`pinery_market_content_1_1`,`pinery_market_content_1_2`,`pinery_market_content_1_3`,`pinery_market_content_1_4`,`pinery_market_content_1_5`,`pinery_market_content_1_6`,`pinery_market_content_1_7`,`pinery_market_content_1_8`,`pinery_market_content_1_9`);
+-- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
+-- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
 
 -- --------------------------------------------------------
 
@@ -3320,9 +2998,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_1_0` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -3336,10 +3012,15 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_1_1` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=2 ;
+
+--
+-- 转存表中的数据 `pinery_market_content_1_1`
+--
+
+INSERT INTO `pinery_market_content_1_1` (`id`, `title`, `content`, `images`) VALUES
+(1, '12341234', '<p>123412341234<img src="http://pinery.b0.upaiyun.com/2014/09/24/141156719153808400.jpg!m01" title="" alt=""/></p>', 'http://pinery.b0.upaiyun.com/2014/09/24/141156719153808400.jpg!m01');
 
 -- --------------------------------------------------------
 
@@ -3352,9 +3033,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_1_2` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -3368,9 +3047,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_1_3` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -3384,9 +3061,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_1_4` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -3400,9 +3075,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_1_5` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -3416,9 +3089,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_1_6` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -3432,9 +3103,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_1_7` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -3448,9 +3117,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_1_8` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -3464,9 +3131,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_1_9` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -3474,16 +3139,8 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_1_9` (
 --
 -- 表的结构 `pinery_market_content_2`
 --
-
-CREATE TABLE IF NOT EXISTS `pinery_market_content_2` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `title` varchar(30) NOT NULL COMMENT '标题',
-  `content` text NOT NULL COMMENT '描述',
-  `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
-) ENGINE=MRG_MyISAM DEFAULT CHARSET=utf8 INSERT_METHOD=LAST UNION=(`pinery_market_content_2_0`,`pinery_market_content_2_1`,`pinery_market_content_2_2`,`pinery_market_content_2_3`,`pinery_market_content_2_4`,`pinery_market_content_2_5`,`pinery_market_content_2_6`,`pinery_market_content_2_7`,`pinery_market_content_2_8`,`pinery_market_content_2_9`);
+-- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
+-- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
 
 -- --------------------------------------------------------
 
@@ -3496,9 +3153,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_2_0` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -3512,9 +3167,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_2_1` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -3528,9 +3181,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_2_2` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -3544,9 +3195,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_2_3` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -3560,9 +3209,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_2_4` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -3576,9 +3223,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_2_5` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -3592,9 +3237,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_2_6` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -3608,9 +3251,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_2_7` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -3624,9 +3265,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_2_8` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -3640,9 +3279,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_2_9` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -3650,16 +3287,8 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_2_9` (
 --
 -- 表的结构 `pinery_market_content_3`
 --
-
-CREATE TABLE IF NOT EXISTS `pinery_market_content_3` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `title` varchar(30) NOT NULL COMMENT '标题',
-  `content` text NOT NULL COMMENT '描述',
-  `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
-) ENGINE=MRG_MyISAM DEFAULT CHARSET=utf8 INSERT_METHOD=LAST UNION=(`pinery_market_content_3_0`,`pinery_market_content_3_1`,`pinery_market_content_3_2`,`pinery_market_content_3_3`,`pinery_market_content_3_4`,`pinery_market_content_3_5`,`pinery_market_content_3_6`,`pinery_market_content_3_7`,`pinery_market_content_3_8`,`pinery_market_content_3_9`);
+-- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
+-- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
 
 -- --------------------------------------------------------
 
@@ -3672,9 +3301,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_3_0` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -3688,9 +3315,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_3_1` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -3704,9 +3329,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_3_2` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -3720,9 +3343,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_3_3` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -3736,9 +3357,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_3_4` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -3752,9 +3371,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_3_5` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -3768,9 +3385,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_3_6` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -3784,9 +3399,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_3_7` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -3800,9 +3413,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_3_8` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -3816,9 +3427,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_3_9` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -3826,16 +3435,8 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_3_9` (
 --
 -- 表的结构 `pinery_market_content_4`
 --
-
-CREATE TABLE IF NOT EXISTS `pinery_market_content_4` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `title` varchar(30) NOT NULL COMMENT '标题',
-  `content` text NOT NULL COMMENT '描述',
-  `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
-) ENGINE=MRG_MyISAM DEFAULT CHARSET=utf8 INSERT_METHOD=LAST UNION=(`pinery_market_content_4_0`,`pinery_market_content_4_1`,`pinery_market_content_4_2`,`pinery_market_content_4_3`,`pinery_market_content_4_4`,`pinery_market_content_4_5`,`pinery_market_content_4_6`,`pinery_market_content_4_7`,`pinery_market_content_4_8`,`pinery_market_content_4_9`);
+-- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
+-- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
 
 -- --------------------------------------------------------
 
@@ -3848,9 +3449,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_4_0` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -3864,9 +3463,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_4_1` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -3880,9 +3477,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_4_2` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -3896,9 +3491,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_4_3` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -3912,9 +3505,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_4_4` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -3928,9 +3519,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_4_5` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -3944,9 +3533,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_4_6` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -3960,9 +3547,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_4_7` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -3976,9 +3561,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_4_8` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -3992,9 +3575,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_4_9` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -4002,16 +3583,8 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_4_9` (
 --
 -- 表的结构 `pinery_market_content_5`
 --
-
-CREATE TABLE IF NOT EXISTS `pinery_market_content_5` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `title` varchar(30) NOT NULL COMMENT '标题',
-  `content` text NOT NULL COMMENT '描述',
-  `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
-) ENGINE=MRG_MyISAM DEFAULT CHARSET=utf8 INSERT_METHOD=LAST UNION=(`pinery_market_content_5_0`,`pinery_market_content_5_1`,`pinery_market_content_5_2`,`pinery_market_content_5_3`,`pinery_market_content_5_4`,`pinery_market_content_5_5`,`pinery_market_content_5_6`,`pinery_market_content_5_7`,`pinery_market_content_5_8`,`pinery_market_content_5_9`);
+-- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
+-- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
 
 -- --------------------------------------------------------
 
@@ -4024,9 +3597,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_5_0` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -4040,9 +3611,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_5_1` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -4056,9 +3625,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_5_2` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -4072,9 +3639,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_5_3` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -4088,9 +3653,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_5_4` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -4104,9 +3667,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_5_5` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -4120,9 +3681,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_5_6` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -4136,9 +3695,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_5_7` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -4152,9 +3709,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_5_8` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -4168,9 +3723,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_5_9` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -4178,16 +3731,8 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_5_9` (
 --
 -- 表的结构 `pinery_market_content_6`
 --
-
-CREATE TABLE IF NOT EXISTS `pinery_market_content_6` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `title` varchar(30) NOT NULL COMMENT '标题',
-  `content` text NOT NULL COMMENT '描述',
-  `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
-) ENGINE=MRG_MyISAM DEFAULT CHARSET=utf8 INSERT_METHOD=LAST UNION=(`pinery_market_content_6_0`,`pinery_market_content_6_1`,`pinery_market_content_6_2`,`pinery_market_content_6_3`,`pinery_market_content_6_4`,`pinery_market_content_6_5`,`pinery_market_content_6_6`,`pinery_market_content_6_7`,`pinery_market_content_6_8`,`pinery_market_content_6_9`);
+-- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
+-- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
 
 -- --------------------------------------------------------
 
@@ -4200,9 +3745,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_6_0` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -4216,9 +3759,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_6_1` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -4232,9 +3773,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_6_2` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -4248,9 +3787,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_6_3` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -4264,9 +3801,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_6_4` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -4280,9 +3815,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_6_5` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -4296,9 +3829,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_6_6` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -4312,9 +3843,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_6_7` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -4328,9 +3857,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_6_8` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -4344,9 +3871,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_6_9` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -4354,16 +3879,8 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_6_9` (
 --
 -- 表的结构 `pinery_market_content_7`
 --
-
-CREATE TABLE IF NOT EXISTS `pinery_market_content_7` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `title` varchar(30) NOT NULL COMMENT '标题',
-  `content` text NOT NULL COMMENT '描述',
-  `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
-) ENGINE=MRG_MyISAM DEFAULT CHARSET=utf8 INSERT_METHOD=LAST UNION=(`pinery_market_content_7_0`,`pinery_market_content_7_1`,`pinery_market_content_7_2`,`pinery_market_content_7_3`,`pinery_market_content_7_4`,`pinery_market_content_7_5`,`pinery_market_content_7_6`,`pinery_market_content_7_7`,`pinery_market_content_7_8`,`pinery_market_content_7_9`);
+-- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
+-- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
 
 -- --------------------------------------------------------
 
@@ -4376,9 +3893,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_7_0` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -4392,9 +3907,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_7_1` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -4408,9 +3921,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_7_2` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -4424,9 +3935,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_7_3` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -4440,9 +3949,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_7_4` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -4456,9 +3963,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_7_5` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -4472,9 +3977,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_7_6` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -4488,9 +3991,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_7_7` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -4504,9 +4005,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_7_8` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -4520,9 +4019,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_7_9` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -4530,16 +4027,8 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_7_9` (
 --
 -- 表的结构 `pinery_market_content_8`
 --
-
-CREATE TABLE IF NOT EXISTS `pinery_market_content_8` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `title` varchar(30) NOT NULL COMMENT '标题',
-  `content` text NOT NULL COMMENT '描述',
-  `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
-) ENGINE=MRG_MyISAM DEFAULT CHARSET=utf8 INSERT_METHOD=LAST UNION=(`pinery_market_content_8_0`,`pinery_market_content_8_1`,`pinery_market_content_8_2`,`pinery_market_content_8_3`,`pinery_market_content_8_4`,`pinery_market_content_8_5`,`pinery_market_content_8_6`,`pinery_market_content_8_7`,`pinery_market_content_8_8`,`pinery_market_content_8_9`);
+-- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
+-- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
 
 -- --------------------------------------------------------
 
@@ -4552,9 +4041,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_8_0` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -4568,9 +4055,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_8_1` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -4584,9 +4069,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_8_2` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -4600,9 +4083,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_8_3` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -4616,9 +4097,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_8_4` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -4632,9 +4111,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_8_5` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -4648,9 +4125,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_8_6` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -4664,9 +4139,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_8_7` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -4680,9 +4153,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_8_8` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -4696,9 +4167,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_8_9` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -4706,16 +4175,8 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_8_9` (
 --
 -- 表的结构 `pinery_market_content_9`
 --
-
-CREATE TABLE IF NOT EXISTS `pinery_market_content_9` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `title` varchar(30) NOT NULL COMMENT '标题',
-  `content` text NOT NULL COMMENT '描述',
-  `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
-) ENGINE=MRG_MyISAM DEFAULT CHARSET=utf8 INSERT_METHOD=LAST UNION=(`pinery_market_content_9_0`,`pinery_market_content_9_1`,`pinery_market_content_9_2`,`pinery_market_content_9_3`,`pinery_market_content_9_4`,`pinery_market_content_9_5`,`pinery_market_content_9_6`,`pinery_market_content_9_7`,`pinery_market_content_9_8`,`pinery_market_content_9_9`);
+-- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
+-- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
 
 -- --------------------------------------------------------
 
@@ -4728,9 +4189,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_9_0` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -4744,9 +4203,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_9_1` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -4760,9 +4217,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_9_2` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -4776,9 +4231,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_9_3` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -4792,9 +4245,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_9_4` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -4808,9 +4259,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_9_5` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -4824,9 +4273,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_9_6` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -4840,9 +4287,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_9_7` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -4856,9 +4301,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_9_8` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -4872,9 +4315,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_9_9` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -4882,16 +4323,8 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_9_9` (
 --
 -- 表的结构 `pinery_market_content_10`
 --
-
-CREATE TABLE IF NOT EXISTS `pinery_market_content_10` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `title` varchar(30) NOT NULL COMMENT '标题',
-  `content` text NOT NULL COMMENT '描述',
-  `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
-) ENGINE=MRG_MyISAM DEFAULT CHARSET=utf8 INSERT_METHOD=LAST UNION=(`pinery_market_content_10_0`,`pinery_market_content_10_1`,`pinery_market_content_10_2`,`pinery_market_content_10_3`,`pinery_market_content_10_4`,`pinery_market_content_10_5`,`pinery_market_content_10_6`,`pinery_market_content_10_7`,`pinery_market_content_10_8`,`pinery_market_content_10_9`);
+-- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
+-- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
 
 -- --------------------------------------------------------
 
@@ -4904,9 +4337,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_10_0` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -4920,9 +4351,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_10_1` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -4936,9 +4365,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_10_2` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -4952,9 +4379,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_10_3` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -4968,9 +4393,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_10_4` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -4984,9 +4407,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_10_5` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -5000,9 +4421,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_10_6` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -5016,9 +4435,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_10_7` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -5032,9 +4449,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_10_8` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -5048,9 +4463,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_10_9` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -5058,16 +4471,8 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_10_9` (
 --
 -- 表的结构 `pinery_market_content_11`
 --
-
-CREATE TABLE IF NOT EXISTS `pinery_market_content_11` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `title` varchar(30) NOT NULL COMMENT '标题',
-  `content` text NOT NULL COMMENT '描述',
-  `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
-) ENGINE=MRG_MyISAM DEFAULT CHARSET=utf8 INSERT_METHOD=LAST UNION=(`pinery_market_content_11_0`,`pinery_market_content_11_1`,`pinery_market_content_11_2`,`pinery_market_content_11_3`,`pinery_market_content_11_4`,`pinery_market_content_11_5`,`pinery_market_content_11_6`,`pinery_market_content_11_7`,`pinery_market_content_11_8`,`pinery_market_content_11_9`);
+-- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
+-- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
 
 -- --------------------------------------------------------
 
@@ -5080,9 +4485,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_11_0` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -5096,9 +4499,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_11_1` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -5112,9 +4513,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_11_2` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -5128,9 +4527,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_11_3` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -5144,9 +4541,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_11_4` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -5160,9 +4555,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_11_5` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -5176,9 +4569,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_11_6` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -5192,9 +4583,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_11_7` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -5208,9 +4597,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_11_8` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -5224,9 +4611,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_11_9` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -5234,16 +4619,8 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_11_9` (
 --
 -- 表的结构 `pinery_market_content_12`
 --
-
-CREATE TABLE IF NOT EXISTS `pinery_market_content_12` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `title` varchar(30) NOT NULL COMMENT '标题',
-  `content` text NOT NULL COMMENT '描述',
-  `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
-) ENGINE=MRG_MyISAM DEFAULT CHARSET=utf8 INSERT_METHOD=LAST UNION=(`pinery_market_content_12_0`,`pinery_market_content_12_1`,`pinery_market_content_12_2`,`pinery_market_content_12_3`,`pinery_market_content_12_4`,`pinery_market_content_12_5`,`pinery_market_content_12_6`,`pinery_market_content_12_7`,`pinery_market_content_12_8`,`pinery_market_content_12_9`);
+-- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
+-- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
 
 -- --------------------------------------------------------
 
@@ -5256,9 +4633,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_12_0` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -5272,9 +4647,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_12_1` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -5288,9 +4661,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_12_2` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -5304,9 +4675,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_12_3` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -5320,9 +4689,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_12_4` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -5336,9 +4703,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_12_5` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -5352,9 +4717,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_12_6` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -5368,9 +4731,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_12_7` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -5384,9 +4745,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_12_8` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -5400,9 +4759,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_12_9` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -5410,16 +4767,8 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_12_9` (
 --
 -- 表的结构 `pinery_market_content_13`
 --
-
-CREATE TABLE IF NOT EXISTS `pinery_market_content_13` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `title` varchar(30) NOT NULL COMMENT '标题',
-  `content` text NOT NULL COMMENT '描述',
-  `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
-) ENGINE=MRG_MyISAM DEFAULT CHARSET=utf8 INSERT_METHOD=LAST UNION=(`pinery_market_content_13_0`,`pinery_market_content_13_1`,`pinery_market_content_13_2`,`pinery_market_content_13_3`,`pinery_market_content_13_4`,`pinery_market_content_13_5`,`pinery_market_content_13_6`,`pinery_market_content_13_7`,`pinery_market_content_13_8`,`pinery_market_content_13_9`);
+-- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
+-- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
 
 -- --------------------------------------------------------
 
@@ -5432,9 +4781,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_13_0` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -5448,9 +4795,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_13_1` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -5464,9 +4809,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_13_2` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -5480,9 +4823,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_13_3` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -5496,9 +4837,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_13_4` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -5512,9 +4851,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_13_5` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -5528,9 +4865,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_13_6` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -5544,9 +4879,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_13_7` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -5560,9 +4893,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_13_8` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -5576,9 +4907,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_13_9` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -5586,16 +4915,8 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_13_9` (
 --
 -- 表的结构 `pinery_market_content_14`
 --
-
-CREATE TABLE IF NOT EXISTS `pinery_market_content_14` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `title` varchar(30) NOT NULL COMMENT '标题',
-  `content` text NOT NULL COMMENT '描述',
-  `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
-) ENGINE=MRG_MyISAM DEFAULT CHARSET=utf8 INSERT_METHOD=LAST UNION=(`pinery_market_content_14_0`,`pinery_market_content_14_1`,`pinery_market_content_14_2`,`pinery_market_content_14_3`,`pinery_market_content_14_4`,`pinery_market_content_14_5`,`pinery_market_content_14_6`,`pinery_market_content_14_7`,`pinery_market_content_14_8`,`pinery_market_content_14_9`);
+-- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
+-- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
 
 -- --------------------------------------------------------
 
@@ -5608,9 +4929,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_14_0` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -5624,9 +4943,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_14_1` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -5640,9 +4957,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_14_2` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -5656,9 +4971,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_14_3` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -5672,9 +4985,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_14_4` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -5688,9 +4999,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_14_5` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -5704,9 +5013,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_14_6` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -5720,9 +5027,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_14_7` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -5736,9 +5041,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_14_8` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -5752,9 +5055,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_14_9` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -5824,14 +5125,51 @@ CREATE TABLE IF NOT EXISTS `pinery_member` (
   PRIMARY KEY (`id`),
   KEY `email` (`email`),
   KEY `mobile` (`mobile`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='会员帐号' AUTO_INCREMENT=2 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='会员帐号' AUTO_INCREMENT=3 ;
 
 --
 -- 转存表中的数据 `pinery_member`
 --
 
 INSERT INTO `pinery_member` (`id`, `email`, `mobile`, `password`, `source`, `names`, `city_id`, `addtime`, `logintime`, `step`, `org_name`, `org_id`, `avatar`, `long2ip`, `tel`, `qq`, `weixin`, `weibo`, `mobile_is`, `email_is`, `tel_is`, `qq_is`, `weixin_is`, `weibo_is`) VALUES
-(1, 'zsc@2010.mobi', 13141083366, 'e10adc3949ba59abbe56e057f20f883e', 1, '超哥', 1, 1410276161, 1410321296, 9, '', 0, 'http://pinery.b0.upaiyun.com/2014/09/09/141027678288252500.png', 2130706433, '0312-1231234', 213412341234, 'adsfadsflihjadsfadfasdfasdfasdfadsfadsflihjadsfadf', 'http://www.adsfasdfasd.faf', 0, 0, 0, 0, 0, 0);
+(1, 'zsc@2010.mobi', 13141083366, 'e10adc3949ba59abbe56e057f20f883e', 1, '超哥', 1, 1410276161, 1411566196, 9, '', 0, 'http://pinery.b0.upaiyun.com/2014/09/24/141156359415909600.jpg', 2130706433, '0312-1231234', 213412341234, 'adsfadsflihjadsfadfasdfasdfasdfadsfadsflihjadsfadf', 'http://www.adsfasdfasd.faf', 0, 0, 0, 0, 0, 0),
+(2, 'a@a.a1324', 13141083355, 'e10adc3949ba59abbe56e057f20f883e', 2, 'adsfadsfasdfasdf', 1, 1411566052, 1411566196, 9, 'adfadsfadsfadf', 0, 'http://pinery.b0.upaiyun.com/2014/09/24/141156694421543500.jpg', 2130706433, '', 0, '', '', 0, 0, 0, 0, 0, 0);
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_member_system`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_member_system` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `email` varchar(50) NOT NULL COMMENT '邮箱',
+  `mobile` bigint(20) NOT NULL COMMENT '手机',
+  `password` char(32) NOT NULL COMMENT '密码',
+  `source` tinyint(1) NOT NULL COMMENT '0个人,1机构',
+  `names` varchar(20) NOT NULL COMMENT '姓名',
+  `city_id` tinyint(1) NOT NULL COMMENT '城市id',
+  `addtime` int(10) NOT NULL COMMENT '注册时间',
+  `logintime` int(10) NOT NULL COMMENT '登录时间',
+  `step` tinyint(1) NOT NULL COMMENT '注册步骤,9完成',
+  `org_name` varchar(20) NOT NULL COMMENT '机构名称',
+  `org_id` int(10) NOT NULL COMMENT '机构id',
+  `avatar` varchar(100) NOT NULL COMMENT '头像',
+  `long2ip` int(10) unsigned NOT NULL COMMENT 'ip',
+  `tel` varchar(50) NOT NULL COMMENT '座机',
+  `qq` bigint(20) NOT NULL COMMENT 'qq号',
+  `weixin` varchar(50) NOT NULL COMMENT '微信',
+  `weibo` varchar(50) NOT NULL COMMENT '微博',
+  `mobile_is` tinyint(1) NOT NULL COMMENT '0公开,1隐藏',
+  `email_is` tinyint(1) NOT NULL COMMENT '0公开,1隐藏',
+  `tel_is` tinyint(1) NOT NULL COMMENT '0公开,1隐藏',
+  `qq_is` tinyint(1) NOT NULL COMMENT '0公开,1隐藏',
+  `weixin_is` tinyint(1) NOT NULL COMMENT '0公开,1隐藏',
+  `weibo_is` tinyint(1) NOT NULL COMMENT '0公开,1隐藏',
+  PRIMARY KEY (`id`),
+  KEY `email` (`email`),
+  KEY `mobile` (`mobile`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='会员帐号' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -5857,17 +5195,19 @@ CREATE TABLE IF NOT EXISTS `pinery_property_1_1` (
   `add_time` int(11) NOT NULL COMMENT '添加时间',
   `update_time` int(11) NOT NULL COMMENT '更新时间',
   `view_num` int(11) NOT NULL COMMENT '浏览数',
+  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
   PRIMARY KEY (`id`),
   KEY `type` (`type`),
-  KEY `userid` (`userid`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='房产出租表_城市id_方式id' AUTO_INCREMENT=2 ;
+  KEY `source` (`source`,`userid`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='房产出租表_城市id_方式id' AUTO_INCREMENT=3 ;
 
 --
 -- 转存表中的数据 `pinery_property_1_1`
 --
 
-INSERT INTO `pinery_property_1_1` (`id`, `type`, `location_id`, `floors`, `floors_total`, `room`, `hall`, `bathroom`, `area`, `rent`, `toward`, `decoration`, `userid`, `content_id`, `add_time`, `update_time`, `view_num`) VALUES
-(1, 1, 1, 12, 12, 12, 2, 3, 12, 12, 3, 2, 1, 1, 1411205641, 1411205641, 50);
+INSERT INTO `pinery_property_1_1` (`id`, `type`, `location_id`, `floors`, `floors_total`, `room`, `hall`, `bathroom`, `area`, `rent`, `toward`, `decoration`, `userid`, `content_id`, `add_time`, `update_time`, `view_num`, `source`) VALUES
+(1, 1, 1, 123, 123, 1, 12, 12, 123, 132, 5, 3, 1, 1, 1411565995, 1411565995, 8, 0),
+(2, 1, 2, 12, 12, 1, 2, 3, 123, 123, 5, 3, 2, 1, 1411566136, 1411566136, 38, 0);
 
 -- --------------------------------------------------------
 
@@ -5884,7 +5224,10 @@ CREATE TABLE IF NOT EXISTS `pinery_property_1_2` (
   `update_time` int(11) NOT NULL COMMENT '修改时间',
   `view_num` int(11) NOT NULL COMMENT '浏览数',
   `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`)
+  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
+  PRIMARY KEY (`id`),
+  KEY `type` (`type`),
+  KEY `source` (`source`,`userid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='房产求租表_城市id_方式id' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -5913,9 +5256,10 @@ CREATE TABLE IF NOT EXISTS `pinery_property_1_3` (
   `property` tinyint(4) NOT NULL COMMENT '产权',
   `building` smallint(6) NOT NULL COMMENT '建筑年代',
   `view_num` int(11) NOT NULL COMMENT '浏览数',
+  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
   PRIMARY KEY (`id`),
   KEY `type` (`type`),
-  KEY `userid` (`userid`)
+  KEY `source` (`source`,`userid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='房产出售表_城市id_方式id' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -5933,7 +5277,10 @@ CREATE TABLE IF NOT EXISTS `pinery_property_1_4` (
   `update_time` int(11) NOT NULL COMMENT '修改时间',
   `view_num` int(11) NOT NULL COMMENT '浏览数',
   `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`)
+  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
+  PRIMARY KEY (`id`),
+  KEY `type` (`type`),
+  KEY `source` (`source`,`userid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='房产求购表_城市id_方式id' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -5960,9 +5307,10 @@ CREATE TABLE IF NOT EXISTS `pinery_property_2_1` (
   `add_time` int(11) NOT NULL COMMENT '添加时间',
   `update_time` int(11) NOT NULL COMMENT '更新时间',
   `view_num` int(11) NOT NULL COMMENT '浏览数',
+  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
   PRIMARY KEY (`id`),
   KEY `type` (`type`),
-  KEY `userid` (`userid`)
+  KEY `source` (`source`,`userid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='房产出租表_城市id_方式id' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -5980,7 +5328,10 @@ CREATE TABLE IF NOT EXISTS `pinery_property_2_2` (
   `update_time` int(11) NOT NULL COMMENT '修改时间',
   `view_num` int(11) NOT NULL COMMENT '浏览数',
   `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`)
+  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
+  PRIMARY KEY (`id`),
+  KEY `type` (`type`),
+  KEY `source` (`source`,`userid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='房产求租表_城市id_方式id' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -6009,9 +5360,10 @@ CREATE TABLE IF NOT EXISTS `pinery_property_2_3` (
   `property` tinyint(4) NOT NULL COMMENT '产权',
   `building` smallint(6) NOT NULL COMMENT '建筑年代',
   `view_num` int(11) NOT NULL COMMENT '浏览数',
+  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
   PRIMARY KEY (`id`),
   KEY `type` (`type`),
-  KEY `userid` (`userid`)
+  KEY `source` (`source`,`userid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='房产出售表_城市id_方式id' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -6029,7 +5381,10 @@ CREATE TABLE IF NOT EXISTS `pinery_property_2_4` (
   `update_time` int(11) NOT NULL COMMENT '修改时间',
   `view_num` int(11) NOT NULL COMMENT '浏览数',
   `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`)
+  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
+  PRIMARY KEY (`id`),
+  KEY `type` (`type`),
+  KEY `source` (`source`,`userid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='房产求购表_城市id_方式id' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -6056,9 +5411,10 @@ CREATE TABLE IF NOT EXISTS `pinery_property_3_1` (
   `add_time` int(11) NOT NULL COMMENT '添加时间',
   `update_time` int(11) NOT NULL COMMENT '更新时间',
   `view_num` int(11) NOT NULL COMMENT '浏览数',
+  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
   PRIMARY KEY (`id`),
   KEY `type` (`type`),
-  KEY `userid` (`userid`)
+  KEY `source` (`source`,`userid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='房产出租表_城市id_方式id' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -6076,7 +5432,10 @@ CREATE TABLE IF NOT EXISTS `pinery_property_3_2` (
   `update_time` int(11) NOT NULL COMMENT '修改时间',
   `view_num` int(11) NOT NULL COMMENT '浏览数',
   `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`)
+  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
+  PRIMARY KEY (`id`),
+  KEY `type` (`type`),
+  KEY `source` (`source`,`userid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='房产求租表_城市id_方式id' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -6105,9 +5464,10 @@ CREATE TABLE IF NOT EXISTS `pinery_property_3_3` (
   `property` tinyint(4) NOT NULL COMMENT '产权',
   `building` smallint(6) NOT NULL COMMENT '建筑年代',
   `view_num` int(11) NOT NULL COMMENT '浏览数',
+  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
   PRIMARY KEY (`id`),
   KEY `type` (`type`),
-  KEY `userid` (`userid`)
+  KEY `source` (`source`,`userid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='房产出售表_城市id_方式id' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -6125,7 +5485,10 @@ CREATE TABLE IF NOT EXISTS `pinery_property_3_4` (
   `update_time` int(11) NOT NULL COMMENT '修改时间',
   `view_num` int(11) NOT NULL COMMENT '浏览数',
   `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`)
+  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
+  PRIMARY KEY (`id`),
+  KEY `type` (`type`),
+  KEY `source` (`source`,`userid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='房产求购表_城市id_方式id' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -6152,9 +5515,10 @@ CREATE TABLE IF NOT EXISTS `pinery_property_4_1` (
   `add_time` int(11) NOT NULL COMMENT '添加时间',
   `update_time` int(11) NOT NULL COMMENT '更新时间',
   `view_num` int(11) NOT NULL COMMENT '浏览数',
+  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
   PRIMARY KEY (`id`),
   KEY `type` (`type`),
-  KEY `userid` (`userid`)
+  KEY `source` (`source`,`userid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='房产出租表_城市id_方式id' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -6172,7 +5536,10 @@ CREATE TABLE IF NOT EXISTS `pinery_property_4_2` (
   `update_time` int(11) NOT NULL COMMENT '修改时间',
   `view_num` int(11) NOT NULL COMMENT '浏览数',
   `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`)
+  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
+  PRIMARY KEY (`id`),
+  KEY `type` (`type`),
+  KEY `source` (`source`,`userid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='房产求租表_城市id_方式id' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -6201,9 +5568,10 @@ CREATE TABLE IF NOT EXISTS `pinery_property_4_3` (
   `property` tinyint(4) NOT NULL COMMENT '产权',
   `building` smallint(6) NOT NULL COMMENT '建筑年代',
   `view_num` int(11) NOT NULL COMMENT '浏览数',
+  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
   PRIMARY KEY (`id`),
   KEY `type` (`type`),
-  KEY `userid` (`userid`)
+  KEY `source` (`source`,`userid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='房产出售表_城市id_方式id' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -6221,7 +5589,10 @@ CREATE TABLE IF NOT EXISTS `pinery_property_4_4` (
   `update_time` int(11) NOT NULL COMMENT '修改时间',
   `view_num` int(11) NOT NULL COMMENT '浏览数',
   `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`)
+  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
+  PRIMARY KEY (`id`),
+  KEY `type` (`type`),
+  KEY `source` (`source`,`userid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='房产求购表_城市id_方式id' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -6248,9 +5619,10 @@ CREATE TABLE IF NOT EXISTS `pinery_property_5_1` (
   `add_time` int(11) NOT NULL COMMENT '添加时间',
   `update_time` int(11) NOT NULL COMMENT '更新时间',
   `view_num` int(11) NOT NULL COMMENT '浏览数',
+  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
   PRIMARY KEY (`id`),
   KEY `type` (`type`),
-  KEY `userid` (`userid`)
+  KEY `source` (`source`,`userid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='房产出租表_城市id_方式id' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -6268,7 +5640,10 @@ CREATE TABLE IF NOT EXISTS `pinery_property_5_2` (
   `update_time` int(11) NOT NULL COMMENT '修改时间',
   `view_num` int(11) NOT NULL COMMENT '浏览数',
   `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`)
+  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
+  PRIMARY KEY (`id`),
+  KEY `type` (`type`),
+  KEY `source` (`source`,`userid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='房产求租表_城市id_方式id' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -6297,9 +5672,10 @@ CREATE TABLE IF NOT EXISTS `pinery_property_5_3` (
   `property` tinyint(4) NOT NULL COMMENT '产权',
   `building` smallint(6) NOT NULL COMMENT '建筑年代',
   `view_num` int(11) NOT NULL COMMENT '浏览数',
+  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
   PRIMARY KEY (`id`),
   KEY `type` (`type`),
-  KEY `userid` (`userid`)
+  KEY `source` (`source`,`userid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='房产出售表_城市id_方式id' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -6317,7 +5693,10 @@ CREATE TABLE IF NOT EXISTS `pinery_property_5_4` (
   `update_time` int(11) NOT NULL COMMENT '修改时间',
   `view_num` int(11) NOT NULL COMMENT '浏览数',
   `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`)
+  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
+  PRIMARY KEY (`id`),
+  KEY `type` (`type`),
+  KEY `source` (`source`,`userid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='房产求购表_城市id_方式id' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -6344,9 +5723,10 @@ CREATE TABLE IF NOT EXISTS `pinery_property_6_1` (
   `add_time` int(11) NOT NULL COMMENT '添加时间',
   `update_time` int(11) NOT NULL COMMENT '更新时间',
   `view_num` int(11) NOT NULL COMMENT '浏览数',
+  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
   PRIMARY KEY (`id`),
   KEY `type` (`type`),
-  KEY `userid` (`userid`)
+  KEY `source` (`source`,`userid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='房产出租表_城市id_方式id' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -6364,7 +5744,10 @@ CREATE TABLE IF NOT EXISTS `pinery_property_6_2` (
   `update_time` int(11) NOT NULL COMMENT '修改时间',
   `view_num` int(11) NOT NULL COMMENT '浏览数',
   `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`)
+  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
+  PRIMARY KEY (`id`),
+  KEY `type` (`type`),
+  KEY `source` (`source`,`userid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='房产求租表_城市id_方式id' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -6393,9 +5776,10 @@ CREATE TABLE IF NOT EXISTS `pinery_property_6_3` (
   `property` tinyint(4) NOT NULL COMMENT '产权',
   `building` smallint(6) NOT NULL COMMENT '建筑年代',
   `view_num` int(11) NOT NULL COMMENT '浏览数',
+  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
   PRIMARY KEY (`id`),
   KEY `type` (`type`),
-  KEY `userid` (`userid`)
+  KEY `source` (`source`,`userid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='房产出售表_城市id_方式id' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -6413,7 +5797,10 @@ CREATE TABLE IF NOT EXISTS `pinery_property_6_4` (
   `update_time` int(11) NOT NULL COMMENT '修改时间',
   `view_num` int(11) NOT NULL COMMENT '浏览数',
   `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`)
+  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
+  PRIMARY KEY (`id`),
+  KEY `type` (`type`),
+  KEY `source` (`source`,`userid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='房产求购表_城市id_方式id' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -6440,9 +5827,10 @@ CREATE TABLE IF NOT EXISTS `pinery_property_7_1` (
   `add_time` int(11) NOT NULL COMMENT '添加时间',
   `update_time` int(11) NOT NULL COMMENT '更新时间',
   `view_num` int(11) NOT NULL COMMENT '浏览数',
+  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
   PRIMARY KEY (`id`),
   KEY `type` (`type`),
-  KEY `userid` (`userid`)
+  KEY `source` (`source`,`userid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='房产出租表_城市id_方式id' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -6460,7 +5848,10 @@ CREATE TABLE IF NOT EXISTS `pinery_property_7_2` (
   `update_time` int(11) NOT NULL COMMENT '修改时间',
   `view_num` int(11) NOT NULL COMMENT '浏览数',
   `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`)
+  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
+  PRIMARY KEY (`id`),
+  KEY `type` (`type`),
+  KEY `source` (`source`,`userid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='房产求租表_城市id_方式id' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -6489,9 +5880,10 @@ CREATE TABLE IF NOT EXISTS `pinery_property_7_3` (
   `property` tinyint(4) NOT NULL COMMENT '产权',
   `building` smallint(6) NOT NULL COMMENT '建筑年代',
   `view_num` int(11) NOT NULL COMMENT '浏览数',
+  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
   PRIMARY KEY (`id`),
   KEY `type` (`type`),
-  KEY `userid` (`userid`)
+  KEY `source` (`source`,`userid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='房产出售表_城市id_方式id' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -6509,7 +5901,10 @@ CREATE TABLE IF NOT EXISTS `pinery_property_7_4` (
   `update_time` int(11) NOT NULL COMMENT '修改时间',
   `view_num` int(11) NOT NULL COMMENT '浏览数',
   `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`)
+  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
+  PRIMARY KEY (`id`),
+  KEY `type` (`type`),
+  KEY `source` (`source`,`userid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='房产求购表_城市id_方式id' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -6536,9 +5931,10 @@ CREATE TABLE IF NOT EXISTS `pinery_property_8_1` (
   `add_time` int(11) NOT NULL COMMENT '添加时间',
   `update_time` int(11) NOT NULL COMMENT '更新时间',
   `view_num` int(11) NOT NULL COMMENT '浏览数',
+  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
   PRIMARY KEY (`id`),
   KEY `type` (`type`),
-  KEY `userid` (`userid`)
+  KEY `source` (`source`,`userid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='房产出租表_城市id_方式id' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -6556,7 +5952,10 @@ CREATE TABLE IF NOT EXISTS `pinery_property_8_2` (
   `update_time` int(11) NOT NULL COMMENT '修改时间',
   `view_num` int(11) NOT NULL COMMENT '浏览数',
   `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`)
+  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
+  PRIMARY KEY (`id`),
+  KEY `type` (`type`),
+  KEY `source` (`source`,`userid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='房产求租表_城市id_方式id' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -6585,9 +5984,10 @@ CREATE TABLE IF NOT EXISTS `pinery_property_8_3` (
   `property` tinyint(4) NOT NULL COMMENT '产权',
   `building` smallint(6) NOT NULL COMMENT '建筑年代',
   `view_num` int(11) NOT NULL COMMENT '浏览数',
+  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
   PRIMARY KEY (`id`),
   KEY `type` (`type`),
-  KEY `userid` (`userid`)
+  KEY `source` (`source`,`userid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='房产出售表_城市id_方式id' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -6605,7 +6005,10 @@ CREATE TABLE IF NOT EXISTS `pinery_property_8_4` (
   `update_time` int(11) NOT NULL COMMENT '修改时间',
   `view_num` int(11) NOT NULL COMMENT '浏览数',
   `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`)
+  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
+  PRIMARY KEY (`id`),
+  KEY `type` (`type`),
+  KEY `source` (`source`,`userid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='房产求购表_城市id_方式id' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -6632,9 +6035,10 @@ CREATE TABLE IF NOT EXISTS `pinery_property_9_1` (
   `add_time` int(11) NOT NULL COMMENT '添加时间',
   `update_time` int(11) NOT NULL COMMENT '更新时间',
   `view_num` int(11) NOT NULL COMMENT '浏览数',
+  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
   PRIMARY KEY (`id`),
   KEY `type` (`type`),
-  KEY `userid` (`userid`)
+  KEY `source` (`source`,`userid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='房产出租表_城市id_方式id' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -6652,7 +6056,10 @@ CREATE TABLE IF NOT EXISTS `pinery_property_9_2` (
   `update_time` int(11) NOT NULL COMMENT '修改时间',
   `view_num` int(11) NOT NULL COMMENT '浏览数',
   `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`)
+  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
+  PRIMARY KEY (`id`),
+  KEY `type` (`type`),
+  KEY `source` (`source`,`userid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='房产求租表_城市id_方式id' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -6681,9 +6088,10 @@ CREATE TABLE IF NOT EXISTS `pinery_property_9_3` (
   `property` tinyint(4) NOT NULL COMMENT '产权',
   `building` smallint(6) NOT NULL COMMENT '建筑年代',
   `view_num` int(11) NOT NULL COMMENT '浏览数',
+  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
   PRIMARY KEY (`id`),
   KEY `type` (`type`),
-  KEY `userid` (`userid`)
+  KEY `source` (`source`,`userid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='房产出售表_城市id_方式id' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -6701,7 +6109,10 @@ CREATE TABLE IF NOT EXISTS `pinery_property_9_4` (
   `update_time` int(11) NOT NULL COMMENT '修改时间',
   `view_num` int(11) NOT NULL COMMENT '浏览数',
   `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`)
+  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
+  PRIMARY KEY (`id`),
+  KEY `type` (`type`),
+  KEY `source` (`source`,`userid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='房产求购表_城市id_方式id' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -6728,9 +6139,10 @@ CREATE TABLE IF NOT EXISTS `pinery_property_10_1` (
   `add_time` int(11) NOT NULL COMMENT '添加时间',
   `update_time` int(11) NOT NULL COMMENT '更新时间',
   `view_num` int(11) NOT NULL COMMENT '浏览数',
+  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
   PRIMARY KEY (`id`),
   KEY `type` (`type`),
-  KEY `userid` (`userid`)
+  KEY `source` (`source`,`userid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='房产出租表_城市id_方式id' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -6748,7 +6160,10 @@ CREATE TABLE IF NOT EXISTS `pinery_property_10_2` (
   `update_time` int(11) NOT NULL COMMENT '修改时间',
   `view_num` int(11) NOT NULL COMMENT '浏览数',
   `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`)
+  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
+  PRIMARY KEY (`id`),
+  KEY `type` (`type`),
+  KEY `source` (`source`,`userid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='房产求租表_城市id_方式id' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -6777,9 +6192,10 @@ CREATE TABLE IF NOT EXISTS `pinery_property_10_3` (
   `property` tinyint(4) NOT NULL COMMENT '产权',
   `building` smallint(6) NOT NULL COMMENT '建筑年代',
   `view_num` int(11) NOT NULL COMMENT '浏览数',
+  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
   PRIMARY KEY (`id`),
   KEY `type` (`type`),
-  KEY `userid` (`userid`)
+  KEY `source` (`source`,`userid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='房产出售表_城市id_方式id' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -6797,7 +6213,10 @@ CREATE TABLE IF NOT EXISTS `pinery_property_10_4` (
   `update_time` int(11) NOT NULL COMMENT '修改时间',
   `view_num` int(11) NOT NULL COMMENT '浏览数',
   `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`)
+  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
+  PRIMARY KEY (`id`),
+  KEY `type` (`type`),
+  KEY `source` (`source`,`userid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='房产求购表_城市id_方式id' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -6824,9 +6243,10 @@ CREATE TABLE IF NOT EXISTS `pinery_property_11_1` (
   `add_time` int(11) NOT NULL COMMENT '添加时间',
   `update_time` int(11) NOT NULL COMMENT '更新时间',
   `view_num` int(11) NOT NULL COMMENT '浏览数',
+  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
   PRIMARY KEY (`id`),
   KEY `type` (`type`),
-  KEY `userid` (`userid`)
+  KEY `source` (`source`,`userid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='房产出租表_城市id_方式id' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -6844,7 +6264,10 @@ CREATE TABLE IF NOT EXISTS `pinery_property_11_2` (
   `update_time` int(11) NOT NULL COMMENT '修改时间',
   `view_num` int(11) NOT NULL COMMENT '浏览数',
   `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`)
+  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
+  PRIMARY KEY (`id`),
+  KEY `type` (`type`),
+  KEY `source` (`source`,`userid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='房产求租表_城市id_方式id' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -6873,9 +6296,10 @@ CREATE TABLE IF NOT EXISTS `pinery_property_11_3` (
   `property` tinyint(4) NOT NULL COMMENT '产权',
   `building` smallint(6) NOT NULL COMMENT '建筑年代',
   `view_num` int(11) NOT NULL COMMENT '浏览数',
+  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
   PRIMARY KEY (`id`),
   KEY `type` (`type`),
-  KEY `userid` (`userid`)
+  KEY `source` (`source`,`userid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='房产出售表_城市id_方式id' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -6893,7 +6317,10 @@ CREATE TABLE IF NOT EXISTS `pinery_property_11_4` (
   `update_time` int(11) NOT NULL COMMENT '修改时间',
   `view_num` int(11) NOT NULL COMMENT '浏览数',
   `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`)
+  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
+  PRIMARY KEY (`id`),
+  KEY `type` (`type`),
+  KEY `source` (`source`,`userid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='房产求购表_城市id_方式id' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -6920,9 +6347,10 @@ CREATE TABLE IF NOT EXISTS `pinery_property_12_1` (
   `add_time` int(11) NOT NULL COMMENT '添加时间',
   `update_time` int(11) NOT NULL COMMENT '更新时间',
   `view_num` int(11) NOT NULL COMMENT '浏览数',
+  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
   PRIMARY KEY (`id`),
   KEY `type` (`type`),
-  KEY `userid` (`userid`)
+  KEY `source` (`source`,`userid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='房产出租表_城市id_方式id' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -6940,7 +6368,10 @@ CREATE TABLE IF NOT EXISTS `pinery_property_12_2` (
   `update_time` int(11) NOT NULL COMMENT '修改时间',
   `view_num` int(11) NOT NULL COMMENT '浏览数',
   `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`)
+  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
+  PRIMARY KEY (`id`),
+  KEY `type` (`type`),
+  KEY `source` (`source`,`userid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='房产求租表_城市id_方式id' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -6969,9 +6400,10 @@ CREATE TABLE IF NOT EXISTS `pinery_property_12_3` (
   `property` tinyint(4) NOT NULL COMMENT '产权',
   `building` smallint(6) NOT NULL COMMENT '建筑年代',
   `view_num` int(11) NOT NULL COMMENT '浏览数',
+  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
   PRIMARY KEY (`id`),
   KEY `type` (`type`),
-  KEY `userid` (`userid`)
+  KEY `source` (`source`,`userid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='房产出售表_城市id_方式id' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -6989,7 +6421,10 @@ CREATE TABLE IF NOT EXISTS `pinery_property_12_4` (
   `update_time` int(11) NOT NULL COMMENT '修改时间',
   `view_num` int(11) NOT NULL COMMENT '浏览数',
   `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`)
+  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
+  PRIMARY KEY (`id`),
+  KEY `type` (`type`),
+  KEY `source` (`source`,`userid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='房产求购表_城市id_方式id' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -7016,9 +6451,10 @@ CREATE TABLE IF NOT EXISTS `pinery_property_13_1` (
   `add_time` int(11) NOT NULL COMMENT '添加时间',
   `update_time` int(11) NOT NULL COMMENT '更新时间',
   `view_num` int(11) NOT NULL COMMENT '浏览数',
+  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
   PRIMARY KEY (`id`),
   KEY `type` (`type`),
-  KEY `userid` (`userid`)
+  KEY `source` (`source`,`userid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='房产出租表_城市id_方式id' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -7036,7 +6472,10 @@ CREATE TABLE IF NOT EXISTS `pinery_property_13_2` (
   `update_time` int(11) NOT NULL COMMENT '修改时间',
   `view_num` int(11) NOT NULL COMMENT '浏览数',
   `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`)
+  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
+  PRIMARY KEY (`id`),
+  KEY `type` (`type`),
+  KEY `source` (`source`,`userid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='房产求租表_城市id_方式id' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -7065,9 +6504,10 @@ CREATE TABLE IF NOT EXISTS `pinery_property_13_3` (
   `property` tinyint(4) NOT NULL COMMENT '产权',
   `building` smallint(6) NOT NULL COMMENT '建筑年代',
   `view_num` int(11) NOT NULL COMMENT '浏览数',
+  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
   PRIMARY KEY (`id`),
   KEY `type` (`type`),
-  KEY `userid` (`userid`)
+  KEY `source` (`source`,`userid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='房产出售表_城市id_方式id' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -7085,7 +6525,10 @@ CREATE TABLE IF NOT EXISTS `pinery_property_13_4` (
   `update_time` int(11) NOT NULL COMMENT '修改时间',
   `view_num` int(11) NOT NULL COMMENT '浏览数',
   `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`)
+  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
+  PRIMARY KEY (`id`),
+  KEY `type` (`type`),
+  KEY `source` (`source`,`userid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='房产求购表_城市id_方式id' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -7112,9 +6555,10 @@ CREATE TABLE IF NOT EXISTS `pinery_property_14_1` (
   `add_time` int(11) NOT NULL COMMENT '添加时间',
   `update_time` int(11) NOT NULL COMMENT '更新时间',
   `view_num` int(11) NOT NULL COMMENT '浏览数',
+  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
   PRIMARY KEY (`id`),
   KEY `type` (`type`),
-  KEY `userid` (`userid`)
+  KEY `source` (`source`,`userid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='房产出租表_城市id_方式id' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -7132,7 +6576,10 @@ CREATE TABLE IF NOT EXISTS `pinery_property_14_2` (
   `update_time` int(11) NOT NULL COMMENT '修改时间',
   `view_num` int(11) NOT NULL COMMENT '浏览数',
   `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`)
+  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
+  PRIMARY KEY (`id`),
+  KEY `type` (`type`),
+  KEY `source` (`source`,`userid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='房产求租表_城市id_方式id' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -7161,9 +6608,10 @@ CREATE TABLE IF NOT EXISTS `pinery_property_14_3` (
   `property` tinyint(4) NOT NULL COMMENT '产权',
   `building` smallint(6) NOT NULL COMMENT '建筑年代',
   `view_num` int(11) NOT NULL COMMENT '浏览数',
+  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
   PRIMARY KEY (`id`),
   KEY `type` (`type`),
-  KEY `userid` (`userid`)
+  KEY `source` (`source`,`userid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='房产出售表_城市id_方式id' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -7181,78 +6629,172 @@ CREATE TABLE IF NOT EXISTS `pinery_property_14_4` (
   `update_time` int(11) NOT NULL COMMENT '修改时间',
   `view_num` int(11) NOT NULL COMMENT '浏览数',
   `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`)
+  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
+  PRIMARY KEY (`id`),
+  KEY `type` (`type`),
+  KEY `source` (`source`,`userid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='房产求购表_城市id_方式id' AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- 表的结构 `pinery_property_content_1`
---
-
-CREATE TABLE IF NOT EXISTS `pinery_property_content_1` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `title` varchar(30) NOT NULL COMMENT '标题',
-  `content` text NOT NULL COMMENT '描述',
-  `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
-) ENGINE=MRG_MyISAM DEFAULT CHARSET=utf8 INSERT_METHOD=LAST UNION=(`pinery_property_content_1_0`,`pinery_property_content_1_1`,`pinery_property_content_1_2`,`pinery_property_content_1_3`,`pinery_property_content_1_4`,`pinery_property_content_1_5`,`pinery_property_content_1_6`,`pinery_property_content_1_7`,`pinery_property_content_1_8`,`pinery_property_content_1_9`);
-
--- --------------------------------------------------------
-
---
--- 表的结构 `pinery_property_content_1_0`
---
-
-CREATE TABLE IF NOT EXISTS `pinery_property_content_1_0` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `title` varchar(30) NOT NULL COMMENT '标题',
-  `content` text NOT NULL COMMENT '描述',
-  `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
 -- 表的结构 `pinery_property_content_1_1`
 --
-
-CREATE TABLE IF NOT EXISTS `pinery_property_content_1_1` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `title` varchar(30) NOT NULL COMMENT '标题',
-  `content` text NOT NULL COMMENT '描述',
-  `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=2 ;
-
---
--- 转存表中的数据 `pinery_property_content_1_1`
---
-
-INSERT INTO `pinery_property_content_1_1` (`id`, `title`, `content`, `images`, `userid`) VALUES
-(1, 'adfadsfadsf', '<p>1.交通便利：出门就是公交车站，紧邻地铁五号线天通苑站，天通北苑公交总站。十几路公交车，畅通北京。<br/>2. 购物方便：周边有大型购物超市，物美。大型商场，国泰百货。几万平米的大型综合市场。<br/>3，内设：房型多样，单间，套间，两居，三居。独门独院，内设停车场。<br/>4。安全：院内无死角监控覆盖，房门采用酒店式刷卡设备。专业保安人员24小时巡逻。<br/>5。周边配套：银行，幼儿园，小学，中学。<br/></p><p class="clear">联系我时，请说是在赶集网上看到的，谢谢！</p><p><img alt="" src="http://pinery.b0.upaiyun.com/2014/09/20/141120563196355200.jpg!m01" title=""/><img alt="" src="http://pinery.b0.upaiyun.com/2014/09/20/141120563937262200.jpg!m01" title=""/></p>', 'http://pinery.b0.upaiyun.com/2014/09/20/141120563196355200.jpg!m01|http://pinery.b0.upaiyun.com/2014/09/20/141120563937262200.jpg!m01', 1);
+-- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
+-- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_1_2`
+-- 表的结构 `pinery_property_content_1_1_0`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_1_2` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_1_1_0` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_1_1_1`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_1_1_1` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=2 ;
+
+--
+-- 转存表中的数据 `pinery_property_content_1_1_1`
+--
+
+INSERT INTO `pinery_property_content_1_1_1` (`id`, `title`, `content`, `images`) VALUES
+(1, '123412341234', '<p>123412341234<br/></p>', '');
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_1_1_2`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_1_1_2` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=2 ;
+
+--
+-- 转存表中的数据 `pinery_property_content_1_1_2`
+--
+
+INSERT INTO `pinery_property_content_1_1_2` (`id`, `title`, `content`, `images`) VALUES
+(1, 'asddfasdf', '<p>asdfasdfasdfadsf<br/></p>', '');
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_1_1_3`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_1_1_3` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_1_1_4`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_1_1_4` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_1_1_5`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_1_1_5` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_1_1_6`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_1_1_6` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_1_1_7`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_1_1_7` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_1_1_8`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_1_1_8` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_1_1_9`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_1_1_9` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -7260,152 +6802,147 @@ CREATE TABLE IF NOT EXISTS `pinery_property_content_1_2` (
 --
 -- 表的结构 `pinery_property_content_1_3`
 --
+-- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
+-- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_1_3` (
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_1_3_0`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_1_3_0` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_1_4`
+-- 表的结构 `pinery_property_content_1_3_1`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_1_4` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_1_3_1` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_1_5`
+-- 表的结构 `pinery_property_content_1_3_2`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_1_5` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_1_3_2` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_1_6`
+-- 表的结构 `pinery_property_content_1_3_3`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_1_6` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_1_3_3` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_1_7`
+-- 表的结构 `pinery_property_content_1_3_4`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_1_7` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_1_3_4` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_1_8`
+-- 表的结构 `pinery_property_content_1_3_5`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_1_8` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_1_3_5` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_1_9`
+-- 表的结构 `pinery_property_content_1_3_6`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_1_9` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_1_3_6` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=4 ;
-
---
--- 转存表中的数据 `pinery_property_content_1_9`
---
-
-INSERT INTO `pinery_property_content_1_9` (`id`, `title`, `content`, `images`, `userid`) VALUES
-(1, '12341234啊发达省份', '<p><img alt="" src="http://pinery.b0.upaiyun.com/2014/09/20/141118807486008800.jpg" title=""/></p>', 'http://pinery.b0.upaiyun.com/2014/09/20/141118807486008800.jpg', 1),
-(2, '12341234啊发达省份', '<p><img alt="" src="http://pinery.b0.upaiyun.com/2014/09/20/141118807486008800.jpg" title=""/><br/></p><p><br/></p><p>那天</p><p><br/></p><p><img alt="" src="http://pinery.b0.upaiyun.com/2014/09/20/141118814882098600.jpg" title=""/></p>', 'http://pinery.b0.upaiyun.com/2014/09/20/141118807486008800.jpg|http://pinery.b0.upaiyun.com/2014/09/20/141118814882098600.jpg', 1),
-(3, '12341234啊发达省份', '<p><img alt="" src="http://pinery.b0.upaiyun.com/2014/09/20/141118871459040600.jpg!m01" title=""/></p>', 'http://pinery.b0.upaiyun.com/2014/09/20/141118871459040600.jpg!m01', 1);
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_2`
+-- 表的结构 `pinery_property_content_1_3_7`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_2` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_1_3_7` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
-) ENGINE=MRG_MyISAM DEFAULT CHARSET=utf8 INSERT_METHOD=LAST UNION=(`pinery_property_content_2_0`,`pinery_property_content_2_1`,`pinery_property_content_2_2`,`pinery_property_content_2_3`,`pinery_property_content_2_4`,`pinery_property_content_2_5`,`pinery_property_content_2_6`,`pinery_property_content_2_7`,`pinery_property_content_2_8`,`pinery_property_content_2_9`);
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_2_0`
+-- 表的结构 `pinery_property_content_1_3_8`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_2_0` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_1_3_8` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_1_3_9`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_1_3_9` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -7413,31 +6950,147 @@ CREATE TABLE IF NOT EXISTS `pinery_property_content_2_0` (
 --
 -- 表的结构 `pinery_property_content_2_1`
 --
+-- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
+-- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_2_1` (
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_2_1_0`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_2_1_0` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_2_2`
+-- 表的结构 `pinery_property_content_2_1_1`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_2_2` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_2_1_1` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_2_1_2`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_2_1_2` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_2_1_3`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_2_1_3` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_2_1_4`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_2_1_4` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_2_1_5`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_2_1_5` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_2_1_6`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_2_1_6` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_2_1_7`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_2_1_7` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_2_1_8`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_2_1_8` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_2_1_9`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_2_1_9` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -7445,143 +7098,147 @@ CREATE TABLE IF NOT EXISTS `pinery_property_content_2_2` (
 --
 -- 表的结构 `pinery_property_content_2_3`
 --
+-- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
+-- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_2_3` (
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_2_3_0`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_2_3_0` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_2_4`
+-- 表的结构 `pinery_property_content_2_3_1`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_2_4` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_2_3_1` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_2_5`
+-- 表的结构 `pinery_property_content_2_3_2`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_2_5` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_2_3_2` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_2_6`
+-- 表的结构 `pinery_property_content_2_3_3`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_2_6` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_2_3_3` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_2_7`
+-- 表的结构 `pinery_property_content_2_3_4`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_2_7` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_2_3_4` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_2_8`
+-- 表的结构 `pinery_property_content_2_3_5`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_2_8` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_2_3_5` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_2_9`
+-- 表的结构 `pinery_property_content_2_3_6`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_2_9` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_2_3_6` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_3`
+-- 表的结构 `pinery_property_content_2_3_7`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_3` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_2_3_7` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
-) ENGINE=MRG_MyISAM DEFAULT CHARSET=utf8 INSERT_METHOD=LAST UNION=(`pinery_property_content_3_0`,`pinery_property_content_3_1`,`pinery_property_content_3_2`,`pinery_property_content_3_3`,`pinery_property_content_3_4`,`pinery_property_content_3_5`,`pinery_property_content_3_6`,`pinery_property_content_3_7`,`pinery_property_content_3_8`,`pinery_property_content_3_9`);
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_3_0`
+-- 表的结构 `pinery_property_content_2_3_8`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_3_0` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_2_3_8` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_2_3_9`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_2_3_9` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -7589,31 +7246,147 @@ CREATE TABLE IF NOT EXISTS `pinery_property_content_3_0` (
 --
 -- 表的结构 `pinery_property_content_3_1`
 --
+-- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
+-- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_3_1` (
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_3_1_0`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_3_1_0` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_3_2`
+-- 表的结构 `pinery_property_content_3_1_1`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_3_2` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_3_1_1` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_3_1_2`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_3_1_2` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_3_1_3`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_3_1_3` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_3_1_4`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_3_1_4` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_3_1_5`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_3_1_5` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_3_1_6`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_3_1_6` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_3_1_7`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_3_1_7` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_3_1_8`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_3_1_8` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_3_1_9`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_3_1_9` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -7621,143 +7394,147 @@ CREATE TABLE IF NOT EXISTS `pinery_property_content_3_2` (
 --
 -- 表的结构 `pinery_property_content_3_3`
 --
+-- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
+-- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_3_3` (
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_3_3_0`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_3_3_0` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_3_4`
+-- 表的结构 `pinery_property_content_3_3_1`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_3_4` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_3_3_1` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_3_5`
+-- 表的结构 `pinery_property_content_3_3_2`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_3_5` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_3_3_2` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_3_6`
+-- 表的结构 `pinery_property_content_3_3_3`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_3_6` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_3_3_3` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_3_7`
+-- 表的结构 `pinery_property_content_3_3_4`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_3_7` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_3_3_4` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_3_8`
+-- 表的结构 `pinery_property_content_3_3_5`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_3_8` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_3_3_5` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_3_9`
+-- 表的结构 `pinery_property_content_3_3_6`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_3_9` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_3_3_6` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_4`
+-- 表的结构 `pinery_property_content_3_3_7`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_4` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_3_3_7` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
-) ENGINE=MRG_MyISAM DEFAULT CHARSET=utf8 INSERT_METHOD=LAST UNION=(`pinery_property_content_4_0`,`pinery_property_content_4_1`,`pinery_property_content_4_2`,`pinery_property_content_4_3`,`pinery_property_content_4_4`,`pinery_property_content_4_5`,`pinery_property_content_4_6`,`pinery_property_content_4_7`,`pinery_property_content_4_8`,`pinery_property_content_4_9`);
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_4_0`
+-- 表的结构 `pinery_property_content_3_3_8`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_4_0` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_3_3_8` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_3_3_9`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_3_3_9` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -7765,31 +7542,147 @@ CREATE TABLE IF NOT EXISTS `pinery_property_content_4_0` (
 --
 -- 表的结构 `pinery_property_content_4_1`
 --
+-- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
+-- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_4_1` (
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_4_1_0`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_4_1_0` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_4_2`
+-- 表的结构 `pinery_property_content_4_1_1`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_4_2` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_4_1_1` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_4_1_2`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_4_1_2` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_4_1_3`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_4_1_3` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_4_1_4`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_4_1_4` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_4_1_5`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_4_1_5` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_4_1_6`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_4_1_6` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_4_1_7`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_4_1_7` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_4_1_8`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_4_1_8` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_4_1_9`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_4_1_9` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -7797,143 +7690,147 @@ CREATE TABLE IF NOT EXISTS `pinery_property_content_4_2` (
 --
 -- 表的结构 `pinery_property_content_4_3`
 --
+-- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
+-- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_4_3` (
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_4_3_0`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_4_3_0` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_4_4`
+-- 表的结构 `pinery_property_content_4_3_1`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_4_4` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_4_3_1` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_4_5`
+-- 表的结构 `pinery_property_content_4_3_2`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_4_5` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_4_3_2` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_4_6`
+-- 表的结构 `pinery_property_content_4_3_3`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_4_6` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_4_3_3` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_4_7`
+-- 表的结构 `pinery_property_content_4_3_4`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_4_7` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_4_3_4` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_4_8`
+-- 表的结构 `pinery_property_content_4_3_5`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_4_8` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_4_3_5` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_4_9`
+-- 表的结构 `pinery_property_content_4_3_6`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_4_9` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_4_3_6` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_5`
+-- 表的结构 `pinery_property_content_4_3_7`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_5` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_4_3_7` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
-) ENGINE=MRG_MyISAM DEFAULT CHARSET=utf8 INSERT_METHOD=LAST UNION=(`pinery_property_content_5_0`,`pinery_property_content_5_1`,`pinery_property_content_5_2`,`pinery_property_content_5_3`,`pinery_property_content_5_4`,`pinery_property_content_5_5`,`pinery_property_content_5_6`,`pinery_property_content_5_7`,`pinery_property_content_5_8`,`pinery_property_content_5_9`);
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_5_0`
+-- 表的结构 `pinery_property_content_4_3_8`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_5_0` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_4_3_8` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_4_3_9`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_4_3_9` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -7941,31 +7838,147 @@ CREATE TABLE IF NOT EXISTS `pinery_property_content_5_0` (
 --
 -- 表的结构 `pinery_property_content_5_1`
 --
+-- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
+-- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_5_1` (
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_5_1_0`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_5_1_0` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_5_2`
+-- 表的结构 `pinery_property_content_5_1_1`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_5_2` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_5_1_1` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_5_1_2`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_5_1_2` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_5_1_3`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_5_1_3` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_5_1_4`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_5_1_4` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_5_1_5`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_5_1_5` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_5_1_6`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_5_1_6` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_5_1_7`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_5_1_7` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_5_1_8`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_5_1_8` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_5_1_9`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_5_1_9` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -7973,143 +7986,147 @@ CREATE TABLE IF NOT EXISTS `pinery_property_content_5_2` (
 --
 -- 表的结构 `pinery_property_content_5_3`
 --
+-- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
+-- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_5_3` (
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_5_3_0`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_5_3_0` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_5_4`
+-- 表的结构 `pinery_property_content_5_3_1`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_5_4` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_5_3_1` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_5_5`
+-- 表的结构 `pinery_property_content_5_3_2`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_5_5` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_5_3_2` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_5_6`
+-- 表的结构 `pinery_property_content_5_3_3`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_5_6` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_5_3_3` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_5_7`
+-- 表的结构 `pinery_property_content_5_3_4`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_5_7` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_5_3_4` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_5_8`
+-- 表的结构 `pinery_property_content_5_3_5`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_5_8` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_5_3_5` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_5_9`
+-- 表的结构 `pinery_property_content_5_3_6`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_5_9` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_5_3_6` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_6`
+-- 表的结构 `pinery_property_content_5_3_7`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_6` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_5_3_7` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
-) ENGINE=MRG_MyISAM DEFAULT CHARSET=utf8 INSERT_METHOD=LAST UNION=(`pinery_property_content_6_0`,`pinery_property_content_6_1`,`pinery_property_content_6_2`,`pinery_property_content_6_3`,`pinery_property_content_6_4`,`pinery_property_content_6_5`,`pinery_property_content_6_6`,`pinery_property_content_6_7`,`pinery_property_content_6_8`,`pinery_property_content_6_9`);
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_6_0`
+-- 表的结构 `pinery_property_content_5_3_8`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_6_0` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_5_3_8` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_5_3_9`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_5_3_9` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -8117,31 +8134,147 @@ CREATE TABLE IF NOT EXISTS `pinery_property_content_6_0` (
 --
 -- 表的结构 `pinery_property_content_6_1`
 --
+-- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
+-- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_6_1` (
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_6_1_0`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_6_1_0` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_6_2`
+-- 表的结构 `pinery_property_content_6_1_1`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_6_2` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_6_1_1` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_6_1_2`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_6_1_2` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_6_1_3`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_6_1_3` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_6_1_4`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_6_1_4` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_6_1_5`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_6_1_5` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_6_1_6`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_6_1_6` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_6_1_7`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_6_1_7` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_6_1_8`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_6_1_8` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_6_1_9`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_6_1_9` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -8149,143 +8282,147 @@ CREATE TABLE IF NOT EXISTS `pinery_property_content_6_2` (
 --
 -- 表的结构 `pinery_property_content_6_3`
 --
+-- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
+-- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_6_3` (
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_6_3_0`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_6_3_0` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_6_4`
+-- 表的结构 `pinery_property_content_6_3_1`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_6_4` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_6_3_1` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_6_5`
+-- 表的结构 `pinery_property_content_6_3_2`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_6_5` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_6_3_2` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_6_6`
+-- 表的结构 `pinery_property_content_6_3_3`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_6_6` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_6_3_3` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_6_7`
+-- 表的结构 `pinery_property_content_6_3_4`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_6_7` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_6_3_4` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_6_8`
+-- 表的结构 `pinery_property_content_6_3_5`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_6_8` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_6_3_5` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_6_9`
+-- 表的结构 `pinery_property_content_6_3_6`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_6_9` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_6_3_6` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_7`
+-- 表的结构 `pinery_property_content_6_3_7`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_7` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_6_3_7` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
-) ENGINE=MRG_MyISAM DEFAULT CHARSET=utf8 INSERT_METHOD=LAST UNION=(`pinery_property_content_7_0`,`pinery_property_content_7_1`,`pinery_property_content_7_2`,`pinery_property_content_7_3`,`pinery_property_content_7_4`,`pinery_property_content_7_5`,`pinery_property_content_7_6`,`pinery_property_content_7_7`,`pinery_property_content_7_8`,`pinery_property_content_7_9`);
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_7_0`
+-- 表的结构 `pinery_property_content_6_3_8`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_7_0` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_6_3_8` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_6_3_9`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_6_3_9` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -8293,31 +8430,147 @@ CREATE TABLE IF NOT EXISTS `pinery_property_content_7_0` (
 --
 -- 表的结构 `pinery_property_content_7_1`
 --
+-- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
+-- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_7_1` (
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_7_1_0`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_7_1_0` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_7_2`
+-- 表的结构 `pinery_property_content_7_1_1`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_7_2` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_7_1_1` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_7_1_2`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_7_1_2` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_7_1_3`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_7_1_3` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_7_1_4`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_7_1_4` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_7_1_5`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_7_1_5` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_7_1_6`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_7_1_6` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_7_1_7`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_7_1_7` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_7_1_8`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_7_1_8` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_7_1_9`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_7_1_9` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -8325,143 +8578,147 @@ CREATE TABLE IF NOT EXISTS `pinery_property_content_7_2` (
 --
 -- 表的结构 `pinery_property_content_7_3`
 --
+-- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
+-- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_7_3` (
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_7_3_0`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_7_3_0` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_7_4`
+-- 表的结构 `pinery_property_content_7_3_1`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_7_4` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_7_3_1` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_7_5`
+-- 表的结构 `pinery_property_content_7_3_2`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_7_5` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_7_3_2` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_7_6`
+-- 表的结构 `pinery_property_content_7_3_3`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_7_6` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_7_3_3` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_7_7`
+-- 表的结构 `pinery_property_content_7_3_4`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_7_7` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_7_3_4` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_7_8`
+-- 表的结构 `pinery_property_content_7_3_5`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_7_8` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_7_3_5` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_7_9`
+-- 表的结构 `pinery_property_content_7_3_6`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_7_9` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_7_3_6` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_8`
+-- 表的结构 `pinery_property_content_7_3_7`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_8` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_7_3_7` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
-) ENGINE=MRG_MyISAM DEFAULT CHARSET=utf8 INSERT_METHOD=LAST UNION=(`pinery_property_content_8_0`,`pinery_property_content_8_1`,`pinery_property_content_8_2`,`pinery_property_content_8_3`,`pinery_property_content_8_4`,`pinery_property_content_8_5`,`pinery_property_content_8_6`,`pinery_property_content_8_7`,`pinery_property_content_8_8`,`pinery_property_content_8_9`);
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_8_0`
+-- 表的结构 `pinery_property_content_7_3_8`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_8_0` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_7_3_8` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_7_3_9`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_7_3_9` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -8469,31 +8726,147 @@ CREATE TABLE IF NOT EXISTS `pinery_property_content_8_0` (
 --
 -- 表的结构 `pinery_property_content_8_1`
 --
+-- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
+-- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_8_1` (
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_8_1_0`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_8_1_0` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_8_2`
+-- 表的结构 `pinery_property_content_8_1_1`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_8_2` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_8_1_1` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_8_1_2`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_8_1_2` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_8_1_3`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_8_1_3` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_8_1_4`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_8_1_4` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_8_1_5`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_8_1_5` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_8_1_6`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_8_1_6` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_8_1_7`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_8_1_7` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_8_1_8`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_8_1_8` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_8_1_9`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_8_1_9` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -8501,143 +8874,147 @@ CREATE TABLE IF NOT EXISTS `pinery_property_content_8_2` (
 --
 -- 表的结构 `pinery_property_content_8_3`
 --
+-- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
+-- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_8_3` (
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_8_3_0`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_8_3_0` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_8_4`
+-- 表的结构 `pinery_property_content_8_3_1`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_8_4` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_8_3_1` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_8_5`
+-- 表的结构 `pinery_property_content_8_3_2`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_8_5` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_8_3_2` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_8_6`
+-- 表的结构 `pinery_property_content_8_3_3`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_8_6` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_8_3_3` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_8_7`
+-- 表的结构 `pinery_property_content_8_3_4`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_8_7` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_8_3_4` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_8_8`
+-- 表的结构 `pinery_property_content_8_3_5`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_8_8` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_8_3_5` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_8_9`
+-- 表的结构 `pinery_property_content_8_3_6`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_8_9` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_8_3_6` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_9`
+-- 表的结构 `pinery_property_content_8_3_7`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_9` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_8_3_7` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
-) ENGINE=MRG_MyISAM DEFAULT CHARSET=utf8 INSERT_METHOD=LAST UNION=(`pinery_property_content_9_0`,`pinery_property_content_9_1`,`pinery_property_content_9_2`,`pinery_property_content_9_3`,`pinery_property_content_9_4`,`pinery_property_content_9_5`,`pinery_property_content_9_6`,`pinery_property_content_9_7`,`pinery_property_content_9_8`,`pinery_property_content_9_9`);
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_9_0`
+-- 表的结构 `pinery_property_content_8_3_8`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_9_0` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_8_3_8` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_8_3_9`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_8_3_9` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -8645,31 +9022,147 @@ CREATE TABLE IF NOT EXISTS `pinery_property_content_9_0` (
 --
 -- 表的结构 `pinery_property_content_9_1`
 --
+-- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
+-- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_9_1` (
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_9_1_0`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_9_1_0` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_9_2`
+-- 表的结构 `pinery_property_content_9_1_1`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_9_2` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_9_1_1` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_9_1_2`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_9_1_2` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_9_1_3`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_9_1_3` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_9_1_4`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_9_1_4` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_9_1_5`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_9_1_5` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_9_1_6`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_9_1_6` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_9_1_7`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_9_1_7` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_9_1_8`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_9_1_8` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_9_1_9`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_9_1_9` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -8677,143 +9170,147 @@ CREATE TABLE IF NOT EXISTS `pinery_property_content_9_2` (
 --
 -- 表的结构 `pinery_property_content_9_3`
 --
+-- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
+-- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_9_3` (
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_9_3_0`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_9_3_0` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_9_4`
+-- 表的结构 `pinery_property_content_9_3_1`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_9_4` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_9_3_1` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_9_5`
+-- 表的结构 `pinery_property_content_9_3_2`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_9_5` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_9_3_2` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_9_6`
+-- 表的结构 `pinery_property_content_9_3_3`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_9_6` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_9_3_3` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_9_7`
+-- 表的结构 `pinery_property_content_9_3_4`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_9_7` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_9_3_4` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_9_8`
+-- 表的结构 `pinery_property_content_9_3_5`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_9_8` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_9_3_5` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_9_9`
+-- 表的结构 `pinery_property_content_9_3_6`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_9_9` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_9_3_6` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_10`
+-- 表的结构 `pinery_property_content_9_3_7`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_10` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_9_3_7` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
-) ENGINE=MRG_MyISAM DEFAULT CHARSET=utf8 INSERT_METHOD=LAST UNION=(`pinery_property_content_10_0`,`pinery_property_content_10_1`,`pinery_property_content_10_2`,`pinery_property_content_10_3`,`pinery_property_content_10_4`,`pinery_property_content_10_5`,`pinery_property_content_10_6`,`pinery_property_content_10_7`,`pinery_property_content_10_8`,`pinery_property_content_10_9`);
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_10_0`
+-- 表的结构 `pinery_property_content_9_3_8`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_10_0` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_9_3_8` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_9_3_9`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_9_3_9` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -8821,31 +9318,147 @@ CREATE TABLE IF NOT EXISTS `pinery_property_content_10_0` (
 --
 -- 表的结构 `pinery_property_content_10_1`
 --
+-- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
+-- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_10_1` (
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_10_1_0`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_10_1_0` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_10_2`
+-- 表的结构 `pinery_property_content_10_1_1`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_10_2` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_10_1_1` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_10_1_2`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_10_1_2` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_10_1_3`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_10_1_3` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_10_1_4`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_10_1_4` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_10_1_5`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_10_1_5` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_10_1_6`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_10_1_6` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_10_1_7`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_10_1_7` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_10_1_8`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_10_1_8` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_10_1_9`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_10_1_9` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -8853,143 +9466,147 @@ CREATE TABLE IF NOT EXISTS `pinery_property_content_10_2` (
 --
 -- 表的结构 `pinery_property_content_10_3`
 --
+-- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
+-- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_10_3` (
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_10_3_0`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_10_3_0` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_10_4`
+-- 表的结构 `pinery_property_content_10_3_1`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_10_4` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_10_3_1` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_10_5`
+-- 表的结构 `pinery_property_content_10_3_2`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_10_5` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_10_3_2` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_10_6`
+-- 表的结构 `pinery_property_content_10_3_3`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_10_6` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_10_3_3` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_10_7`
+-- 表的结构 `pinery_property_content_10_3_4`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_10_7` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_10_3_4` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_10_8`
+-- 表的结构 `pinery_property_content_10_3_5`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_10_8` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_10_3_5` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_10_9`
+-- 表的结构 `pinery_property_content_10_3_6`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_10_9` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_10_3_6` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_11`
+-- 表的结构 `pinery_property_content_10_3_7`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_11` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_10_3_7` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
-) ENGINE=MRG_MyISAM DEFAULT CHARSET=utf8 INSERT_METHOD=LAST UNION=(`pinery_property_content_11_0`,`pinery_property_content_11_1`,`pinery_property_content_11_2`,`pinery_property_content_11_3`,`pinery_property_content_11_4`,`pinery_property_content_11_5`,`pinery_property_content_11_6`,`pinery_property_content_11_7`,`pinery_property_content_11_8`,`pinery_property_content_11_9`);
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_11_0`
+-- 表的结构 `pinery_property_content_10_3_8`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_11_0` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_10_3_8` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_10_3_9`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_10_3_9` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -8997,31 +9614,147 @@ CREATE TABLE IF NOT EXISTS `pinery_property_content_11_0` (
 --
 -- 表的结构 `pinery_property_content_11_1`
 --
+-- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
+-- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_11_1` (
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_11_1_0`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_11_1_0` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_11_2`
+-- 表的结构 `pinery_property_content_11_1_1`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_11_2` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_11_1_1` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_11_1_2`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_11_1_2` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_11_1_3`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_11_1_3` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_11_1_4`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_11_1_4` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_11_1_5`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_11_1_5` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_11_1_6`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_11_1_6` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_11_1_7`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_11_1_7` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_11_1_8`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_11_1_8` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_11_1_9`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_11_1_9` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -9029,143 +9762,147 @@ CREATE TABLE IF NOT EXISTS `pinery_property_content_11_2` (
 --
 -- 表的结构 `pinery_property_content_11_3`
 --
+-- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
+-- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_11_3` (
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_11_3_0`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_11_3_0` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_11_4`
+-- 表的结构 `pinery_property_content_11_3_1`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_11_4` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_11_3_1` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_11_5`
+-- 表的结构 `pinery_property_content_11_3_2`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_11_5` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_11_3_2` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_11_6`
+-- 表的结构 `pinery_property_content_11_3_3`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_11_6` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_11_3_3` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_11_7`
+-- 表的结构 `pinery_property_content_11_3_4`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_11_7` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_11_3_4` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_11_8`
+-- 表的结构 `pinery_property_content_11_3_5`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_11_8` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_11_3_5` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_11_9`
+-- 表的结构 `pinery_property_content_11_3_6`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_11_9` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_11_3_6` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_12`
+-- 表的结构 `pinery_property_content_11_3_7`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_12` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_11_3_7` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
-) ENGINE=MRG_MyISAM DEFAULT CHARSET=utf8 INSERT_METHOD=LAST UNION=(`pinery_property_content_12_0`,`pinery_property_content_12_1`,`pinery_property_content_12_2`,`pinery_property_content_12_3`,`pinery_property_content_12_4`,`pinery_property_content_12_5`,`pinery_property_content_12_6`,`pinery_property_content_12_7`,`pinery_property_content_12_8`,`pinery_property_content_12_9`);
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_12_0`
+-- 表的结构 `pinery_property_content_11_3_8`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_12_0` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_11_3_8` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_11_3_9`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_11_3_9` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -9173,31 +9910,147 @@ CREATE TABLE IF NOT EXISTS `pinery_property_content_12_0` (
 --
 -- 表的结构 `pinery_property_content_12_1`
 --
+-- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
+-- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_12_1` (
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_12_1_0`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_12_1_0` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_12_2`
+-- 表的结构 `pinery_property_content_12_1_1`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_12_2` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_12_1_1` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_12_1_2`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_12_1_2` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_12_1_3`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_12_1_3` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_12_1_4`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_12_1_4` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_12_1_5`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_12_1_5` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_12_1_6`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_12_1_6` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_12_1_7`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_12_1_7` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_12_1_8`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_12_1_8` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_12_1_9`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_12_1_9` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -9205,143 +10058,147 @@ CREATE TABLE IF NOT EXISTS `pinery_property_content_12_2` (
 --
 -- 表的结构 `pinery_property_content_12_3`
 --
+-- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
+-- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_12_3` (
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_12_3_0`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_12_3_0` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_12_4`
+-- 表的结构 `pinery_property_content_12_3_1`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_12_4` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_12_3_1` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_12_5`
+-- 表的结构 `pinery_property_content_12_3_2`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_12_5` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_12_3_2` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_12_6`
+-- 表的结构 `pinery_property_content_12_3_3`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_12_6` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_12_3_3` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_12_7`
+-- 表的结构 `pinery_property_content_12_3_4`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_12_7` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_12_3_4` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_12_8`
+-- 表的结构 `pinery_property_content_12_3_5`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_12_8` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_12_3_5` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_12_9`
+-- 表的结构 `pinery_property_content_12_3_6`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_12_9` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_12_3_6` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_13`
+-- 表的结构 `pinery_property_content_12_3_7`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_13` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_12_3_7` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
-) ENGINE=MRG_MyISAM DEFAULT CHARSET=utf8 INSERT_METHOD=LAST UNION=(`pinery_property_content_13_0`,`pinery_property_content_13_1`,`pinery_property_content_13_2`,`pinery_property_content_13_3`,`pinery_property_content_13_4`,`pinery_property_content_13_5`,`pinery_property_content_13_6`,`pinery_property_content_13_7`,`pinery_property_content_13_8`,`pinery_property_content_13_9`);
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_13_0`
+-- 表的结构 `pinery_property_content_12_3_8`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_13_0` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_12_3_8` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_12_3_9`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_12_3_9` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -9349,31 +10206,147 @@ CREATE TABLE IF NOT EXISTS `pinery_property_content_13_0` (
 --
 -- 表的结构 `pinery_property_content_13_1`
 --
+-- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
+-- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_13_1` (
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_13_1_0`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_13_1_0` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_13_2`
+-- 表的结构 `pinery_property_content_13_1_1`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_13_2` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_13_1_1` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_13_1_2`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_13_1_2` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_13_1_3`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_13_1_3` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_13_1_4`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_13_1_4` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_13_1_5`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_13_1_5` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_13_1_6`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_13_1_6` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_13_1_7`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_13_1_7` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_13_1_8`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_13_1_8` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_13_1_9`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_13_1_9` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -9381,143 +10354,147 @@ CREATE TABLE IF NOT EXISTS `pinery_property_content_13_2` (
 --
 -- 表的结构 `pinery_property_content_13_3`
 --
+-- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
+-- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_13_3` (
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_13_3_0`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_13_3_0` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_13_4`
+-- 表的结构 `pinery_property_content_13_3_1`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_13_4` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_13_3_1` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_13_5`
+-- 表的结构 `pinery_property_content_13_3_2`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_13_5` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_13_3_2` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_13_6`
+-- 表的结构 `pinery_property_content_13_3_3`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_13_6` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_13_3_3` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_13_7`
+-- 表的结构 `pinery_property_content_13_3_4`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_13_7` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_13_3_4` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_13_8`
+-- 表的结构 `pinery_property_content_13_3_5`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_13_8` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_13_3_5` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_13_9`
+-- 表的结构 `pinery_property_content_13_3_6`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_13_9` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_13_3_6` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_14`
+-- 表的结构 `pinery_property_content_13_3_7`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_14` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_13_3_7` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
-) ENGINE=MRG_MyISAM DEFAULT CHARSET=utf8 INSERT_METHOD=LAST UNION=(`pinery_property_content_14_0`,`pinery_property_content_14_1`,`pinery_property_content_14_2`,`pinery_property_content_14_3`,`pinery_property_content_14_4`,`pinery_property_content_14_5`,`pinery_property_content_14_6`,`pinery_property_content_14_7`,`pinery_property_content_14_8`,`pinery_property_content_14_9`);
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_14_0`
+-- 表的结构 `pinery_property_content_13_3_8`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_14_0` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_13_3_8` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_13_3_9`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_13_3_9` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -9525,31 +10502,147 @@ CREATE TABLE IF NOT EXISTS `pinery_property_content_14_0` (
 --
 -- 表的结构 `pinery_property_content_14_1`
 --
+-- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
+-- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_14_1` (
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_14_1_0`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_14_1_0` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_14_2`
+-- 表的结构 `pinery_property_content_14_1_1`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_14_2` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_14_1_1` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_14_1_2`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_14_1_2` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_14_1_3`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_14_1_3` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_14_1_4`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_14_1_4` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_14_1_5`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_14_1_5` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_14_1_6`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_14_1_6` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_14_1_7`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_14_1_7` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_14_1_8`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_14_1_8` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_14_1_9`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_14_1_9` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -9557,111 +10650,147 @@ CREATE TABLE IF NOT EXISTS `pinery_property_content_14_2` (
 --
 -- 表的结构 `pinery_property_content_14_3`
 --
+-- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
+-- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_14_3` (
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_14_3_0`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_14_3_0` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_14_4`
+-- 表的结构 `pinery_property_content_14_3_1`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_14_4` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_14_3_1` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_14_5`
+-- 表的结构 `pinery_property_content_14_3_2`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_14_5` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_14_3_2` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_14_6`
+-- 表的结构 `pinery_property_content_14_3_3`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_14_6` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_14_3_3` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_14_7`
+-- 表的结构 `pinery_property_content_14_3_4`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_14_7` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_14_3_4` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_14_8`
+-- 表的结构 `pinery_property_content_14_3_5`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_14_8` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_14_3_5` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_14_9`
+-- 表的结构 `pinery_property_content_14_3_6`
 --
 
-CREATE TABLE IF NOT EXISTS `pinery_property_content_14_9` (
+CREATE TABLE IF NOT EXISTS `pinery_property_content_14_3_6` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_14_3_7`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_14_3_7` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_14_3_8`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_14_3_8` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_property_content_14_3_9`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_property_content_14_3_9` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(30) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '描述',
+  `images` text NOT NULL COMMENT '图片',
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -9780,8 +10909,18 @@ CREATE TABLE IF NOT EXISTS `pinery_services_1` (
   `view_num` int(11) NOT NULL COMMENT '浏览量',
   `content_id` bigint(20) NOT NULL COMMENT '内容id',
   `price` int(11) NOT NULL COMMENT '价格',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='服务表_城市id' AUTO_INCREMENT=1 ;
+  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
+  PRIMARY KEY (`id`),
+  KEY `type` (`type`),
+  KEY `source` (`source`,`userid`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='服务表_城市id' AUTO_INCREMENT=2 ;
+
+--
+-- 转存表中的数据 `pinery_services_1`
+--
+
+INSERT INTO `pinery_services_1` (`id`, `update_time`, `add_time`, `type`, `userid`, `view_num`, `content_id`, `price`, `source`) VALUES
+(1, 1411567149, 1411567149, 1, 1, 1, 1, 123, 0);
 
 -- --------------------------------------------------------
 
@@ -9798,7 +10937,10 @@ CREATE TABLE IF NOT EXISTS `pinery_services_2` (
   `view_num` int(11) NOT NULL COMMENT '浏览量',
   `content_id` bigint(20) NOT NULL COMMENT '内容id',
   `price` int(11) NOT NULL COMMENT '价格',
-  PRIMARY KEY (`id`)
+  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
+  PRIMARY KEY (`id`),
+  KEY `type` (`type`),
+  KEY `source` (`source`,`userid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='服务表_城市id' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -9816,7 +10958,10 @@ CREATE TABLE IF NOT EXISTS `pinery_services_3` (
   `view_num` int(11) NOT NULL COMMENT '浏览量',
   `content_id` bigint(20) NOT NULL COMMENT '内容id',
   `price` int(11) NOT NULL COMMENT '价格',
-  PRIMARY KEY (`id`)
+  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
+  PRIMARY KEY (`id`),
+  KEY `type` (`type`),
+  KEY `source` (`source`,`userid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='服务表_城市id' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -9834,7 +10979,10 @@ CREATE TABLE IF NOT EXISTS `pinery_services_4` (
   `view_num` int(11) NOT NULL COMMENT '浏览量',
   `content_id` bigint(20) NOT NULL COMMENT '内容id',
   `price` int(11) NOT NULL COMMENT '价格',
-  PRIMARY KEY (`id`)
+  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
+  PRIMARY KEY (`id`),
+  KEY `type` (`type`),
+  KEY `source` (`source`,`userid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='服务表_城市id' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -9852,7 +11000,10 @@ CREATE TABLE IF NOT EXISTS `pinery_services_5` (
   `view_num` int(11) NOT NULL COMMENT '浏览量',
   `content_id` bigint(20) NOT NULL COMMENT '内容id',
   `price` int(11) NOT NULL COMMENT '价格',
-  PRIMARY KEY (`id`)
+  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
+  PRIMARY KEY (`id`),
+  KEY `type` (`type`),
+  KEY `source` (`source`,`userid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='服务表_城市id' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -9870,7 +11021,10 @@ CREATE TABLE IF NOT EXISTS `pinery_services_6` (
   `view_num` int(11) NOT NULL COMMENT '浏览量',
   `content_id` bigint(20) NOT NULL COMMENT '内容id',
   `price` int(11) NOT NULL COMMENT '价格',
-  PRIMARY KEY (`id`)
+  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
+  PRIMARY KEY (`id`),
+  KEY `type` (`type`),
+  KEY `source` (`source`,`userid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='服务表_城市id' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -9888,7 +11042,10 @@ CREATE TABLE IF NOT EXISTS `pinery_services_7` (
   `view_num` int(11) NOT NULL COMMENT '浏览量',
   `content_id` bigint(20) NOT NULL COMMENT '内容id',
   `price` int(11) NOT NULL COMMENT '价格',
-  PRIMARY KEY (`id`)
+  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
+  PRIMARY KEY (`id`),
+  KEY `type` (`type`),
+  KEY `source` (`source`,`userid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='服务表_城市id' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -9906,7 +11063,10 @@ CREATE TABLE IF NOT EXISTS `pinery_services_8` (
   `view_num` int(11) NOT NULL COMMENT '浏览量',
   `content_id` bigint(20) NOT NULL COMMENT '内容id',
   `price` int(11) NOT NULL COMMENT '价格',
-  PRIMARY KEY (`id`)
+  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
+  PRIMARY KEY (`id`),
+  KEY `type` (`type`),
+  KEY `source` (`source`,`userid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='服务表_城市id' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -9924,7 +11084,10 @@ CREATE TABLE IF NOT EXISTS `pinery_services_9` (
   `view_num` int(11) NOT NULL COMMENT '浏览量',
   `content_id` bigint(20) NOT NULL COMMENT '内容id',
   `price` int(11) NOT NULL COMMENT '价格',
-  PRIMARY KEY (`id`)
+  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
+  PRIMARY KEY (`id`),
+  KEY `type` (`type`),
+  KEY `source` (`source`,`userid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='服务表_城市id' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -9942,7 +11105,10 @@ CREATE TABLE IF NOT EXISTS `pinery_services_10` (
   `view_num` int(11) NOT NULL COMMENT '浏览量',
   `content_id` bigint(20) NOT NULL COMMENT '内容id',
   `price` int(11) NOT NULL COMMENT '价格',
-  PRIMARY KEY (`id`)
+  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
+  PRIMARY KEY (`id`),
+  KEY `type` (`type`),
+  KEY `source` (`source`,`userid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='服务表_城市id' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -9960,7 +11126,10 @@ CREATE TABLE IF NOT EXISTS `pinery_services_11` (
   `view_num` int(11) NOT NULL COMMENT '浏览量',
   `content_id` bigint(20) NOT NULL COMMENT '内容id',
   `price` int(11) NOT NULL COMMENT '价格',
-  PRIMARY KEY (`id`)
+  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
+  PRIMARY KEY (`id`),
+  KEY `type` (`type`),
+  KEY `source` (`source`,`userid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='服务表_城市id' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -9978,7 +11147,10 @@ CREATE TABLE IF NOT EXISTS `pinery_services_12` (
   `view_num` int(11) NOT NULL COMMENT '浏览量',
   `content_id` bigint(20) NOT NULL COMMENT '内容id',
   `price` int(11) NOT NULL COMMENT '价格',
-  PRIMARY KEY (`id`)
+  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
+  PRIMARY KEY (`id`),
+  KEY `type` (`type`),
+  KEY `source` (`source`,`userid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='服务表_城市id' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -9996,7 +11168,10 @@ CREATE TABLE IF NOT EXISTS `pinery_services_13` (
   `view_num` int(11) NOT NULL COMMENT '浏览量',
   `content_id` bigint(20) NOT NULL COMMENT '内容id',
   `price` int(11) NOT NULL COMMENT '价格',
-  PRIMARY KEY (`id`)
+  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
+  PRIMARY KEY (`id`),
+  KEY `type` (`type`),
+  KEY `source` (`source`,`userid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='服务表_城市id' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -10014,7 +11189,10 @@ CREATE TABLE IF NOT EXISTS `pinery_services_14` (
   `view_num` int(11) NOT NULL COMMENT '浏览量',
   `content_id` bigint(20) NOT NULL COMMENT '内容id',
   `price` int(11) NOT NULL COMMENT '价格',
-  PRIMARY KEY (`id`)
+  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
+  PRIMARY KEY (`id`),
+  KEY `type` (`type`),
+  KEY `source` (`source`,`userid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='服务表_城市id' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -10022,16 +11200,8 @@ CREATE TABLE IF NOT EXISTS `pinery_services_14` (
 --
 -- 表的结构 `pinery_services_content_1`
 --
-
-CREATE TABLE IF NOT EXISTS `pinery_services_content_1` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `title` varchar(30) NOT NULL COMMENT '标题',
-  `content` text NOT NULL COMMENT '描述',
-  `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
-) ENGINE=MRG_MyISAM DEFAULT CHARSET=utf8 INSERT_METHOD=LAST UNION=(`pinery_services_content_1_0`,`pinery_services_content_1_1`,`pinery_services_content_1_2`,`pinery_services_content_1_3`,`pinery_services_content_1_4`,`pinery_services_content_1_5`,`pinery_services_content_1_6`,`pinery_services_content_1_7`,`pinery_services_content_1_8`,`pinery_services_content_1_9`);
+-- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
+-- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
 
 -- --------------------------------------------------------
 
@@ -10044,9 +11214,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_1_0` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -10060,10 +11228,15 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_1_1` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=2 ;
+
+--
+-- 转存表中的数据 `pinery_services_content_1_1`
+--
+
+INSERT INTO `pinery_services_content_1_1` (`id`, `title`, `content`, `images`) VALUES
+(1, '1234', '<p>12341234<img src="http://pinery.b0.upaiyun.com/2014/09/24/141156713787423400.jpg!m01" title="" alt=""/></p>', 'http://pinery.b0.upaiyun.com/2014/09/24/141156713787423400.jpg!m01');
 
 -- --------------------------------------------------------
 
@@ -10076,9 +11249,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_1_2` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -10092,9 +11263,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_1_3` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -10108,9 +11277,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_1_4` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -10124,9 +11291,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_1_5` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -10140,9 +11305,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_1_6` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -10156,9 +11319,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_1_7` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -10172,9 +11333,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_1_8` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -10188,9 +11347,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_1_9` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -10198,16 +11355,8 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_1_9` (
 --
 -- 表的结构 `pinery_services_content_2`
 --
-
-CREATE TABLE IF NOT EXISTS `pinery_services_content_2` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `title` varchar(30) NOT NULL COMMENT '标题',
-  `content` text NOT NULL COMMENT '描述',
-  `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
-) ENGINE=MRG_MyISAM DEFAULT CHARSET=utf8 INSERT_METHOD=LAST UNION=(`pinery_services_content_2_0`,`pinery_services_content_2_1`,`pinery_services_content_2_2`,`pinery_services_content_2_3`,`pinery_services_content_2_4`,`pinery_services_content_2_5`,`pinery_services_content_2_6`,`pinery_services_content_2_7`,`pinery_services_content_2_8`,`pinery_services_content_2_9`);
+-- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
+-- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
 
 -- --------------------------------------------------------
 
@@ -10220,9 +11369,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_2_0` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -10236,9 +11383,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_2_1` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -10252,9 +11397,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_2_2` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -10268,9 +11411,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_2_3` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -10284,9 +11425,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_2_4` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -10300,9 +11439,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_2_5` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -10316,9 +11453,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_2_6` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -10332,9 +11467,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_2_7` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -10348,9 +11481,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_2_8` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -10364,9 +11495,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_2_9` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -10374,16 +11503,8 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_2_9` (
 --
 -- 表的结构 `pinery_services_content_3`
 --
-
-CREATE TABLE IF NOT EXISTS `pinery_services_content_3` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `title` varchar(30) NOT NULL COMMENT '标题',
-  `content` text NOT NULL COMMENT '描述',
-  `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
-) ENGINE=MRG_MyISAM DEFAULT CHARSET=utf8 INSERT_METHOD=LAST UNION=(`pinery_services_content_3_0`,`pinery_services_content_3_1`,`pinery_services_content_3_2`,`pinery_services_content_3_3`,`pinery_services_content_3_4`,`pinery_services_content_3_5`,`pinery_services_content_3_6`,`pinery_services_content_3_7`,`pinery_services_content_3_8`,`pinery_services_content_3_9`);
+-- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
+-- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
 
 -- --------------------------------------------------------
 
@@ -10396,9 +11517,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_3_0` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -10412,9 +11531,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_3_1` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -10428,9 +11545,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_3_2` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -10444,9 +11559,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_3_3` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -10460,9 +11573,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_3_4` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -10476,9 +11587,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_3_5` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -10492,9 +11601,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_3_6` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -10508,9 +11615,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_3_7` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -10524,9 +11629,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_3_8` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -10540,9 +11643,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_3_9` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -10550,16 +11651,8 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_3_9` (
 --
 -- 表的结构 `pinery_services_content_4`
 --
-
-CREATE TABLE IF NOT EXISTS `pinery_services_content_4` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `title` varchar(30) NOT NULL COMMENT '标题',
-  `content` text NOT NULL COMMENT '描述',
-  `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
-) ENGINE=MRG_MyISAM DEFAULT CHARSET=utf8 INSERT_METHOD=LAST UNION=(`pinery_services_content_4_0`,`pinery_services_content_4_1`,`pinery_services_content_4_2`,`pinery_services_content_4_3`,`pinery_services_content_4_4`,`pinery_services_content_4_5`,`pinery_services_content_4_6`,`pinery_services_content_4_7`,`pinery_services_content_4_8`,`pinery_services_content_4_9`);
+-- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
+-- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
 
 -- --------------------------------------------------------
 
@@ -10572,9 +11665,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_4_0` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -10588,9 +11679,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_4_1` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -10604,9 +11693,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_4_2` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -10620,9 +11707,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_4_3` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -10636,9 +11721,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_4_4` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -10652,9 +11735,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_4_5` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -10668,9 +11749,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_4_6` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -10684,9 +11763,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_4_7` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -10700,9 +11777,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_4_8` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -10716,9 +11791,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_4_9` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -10726,16 +11799,8 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_4_9` (
 --
 -- 表的结构 `pinery_services_content_5`
 --
-
-CREATE TABLE IF NOT EXISTS `pinery_services_content_5` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `title` varchar(30) NOT NULL COMMENT '标题',
-  `content` text NOT NULL COMMENT '描述',
-  `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
-) ENGINE=MRG_MyISAM DEFAULT CHARSET=utf8 INSERT_METHOD=LAST UNION=(`pinery_services_content_5_0`,`pinery_services_content_5_1`,`pinery_services_content_5_2`,`pinery_services_content_5_3`,`pinery_services_content_5_4`,`pinery_services_content_5_5`,`pinery_services_content_5_6`,`pinery_services_content_5_7`,`pinery_services_content_5_8`,`pinery_services_content_5_9`);
+-- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
+-- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
 
 -- --------------------------------------------------------
 
@@ -10748,9 +11813,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_5_0` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -10764,9 +11827,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_5_1` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -10780,9 +11841,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_5_2` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -10796,9 +11855,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_5_3` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -10812,9 +11869,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_5_4` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -10828,9 +11883,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_5_5` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -10844,9 +11897,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_5_6` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -10860,9 +11911,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_5_7` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -10876,9 +11925,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_5_8` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -10892,9 +11939,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_5_9` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -10902,16 +11947,8 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_5_9` (
 --
 -- 表的结构 `pinery_services_content_6`
 --
-
-CREATE TABLE IF NOT EXISTS `pinery_services_content_6` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `title` varchar(30) NOT NULL COMMENT '标题',
-  `content` text NOT NULL COMMENT '描述',
-  `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
-) ENGINE=MRG_MyISAM DEFAULT CHARSET=utf8 INSERT_METHOD=LAST UNION=(`pinery_services_content_6_0`,`pinery_services_content_6_1`,`pinery_services_content_6_2`,`pinery_services_content_6_3`,`pinery_services_content_6_4`,`pinery_services_content_6_5`,`pinery_services_content_6_6`,`pinery_services_content_6_7`,`pinery_services_content_6_8`,`pinery_services_content_6_9`);
+-- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
+-- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
 
 -- --------------------------------------------------------
 
@@ -10924,9 +11961,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_6_0` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -10940,9 +11975,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_6_1` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -10956,9 +11989,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_6_2` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -10972,9 +12003,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_6_3` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -10988,9 +12017,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_6_4` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -11004,9 +12031,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_6_5` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -11020,9 +12045,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_6_6` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -11036,9 +12059,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_6_7` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -11052,9 +12073,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_6_8` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -11068,9 +12087,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_6_9` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -11078,16 +12095,8 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_6_9` (
 --
 -- 表的结构 `pinery_services_content_7`
 --
-
-CREATE TABLE IF NOT EXISTS `pinery_services_content_7` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `title` varchar(30) NOT NULL COMMENT '标题',
-  `content` text NOT NULL COMMENT '描述',
-  `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
-) ENGINE=MRG_MyISAM DEFAULT CHARSET=utf8 INSERT_METHOD=LAST UNION=(`pinery_services_content_7_0`,`pinery_services_content_7_1`,`pinery_services_content_7_2`,`pinery_services_content_7_3`,`pinery_services_content_7_4`,`pinery_services_content_7_5`,`pinery_services_content_7_6`,`pinery_services_content_7_7`,`pinery_services_content_7_8`,`pinery_services_content_7_9`);
+-- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
+-- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
 
 -- --------------------------------------------------------
 
@@ -11100,9 +12109,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_7_0` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -11116,9 +12123,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_7_1` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -11132,9 +12137,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_7_2` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -11148,9 +12151,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_7_3` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -11164,9 +12165,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_7_4` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -11180,9 +12179,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_7_5` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -11196,9 +12193,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_7_6` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -11212,9 +12207,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_7_7` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -11228,9 +12221,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_7_8` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -11244,9 +12235,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_7_9` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -11254,16 +12243,8 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_7_9` (
 --
 -- 表的结构 `pinery_services_content_8`
 --
-
-CREATE TABLE IF NOT EXISTS `pinery_services_content_8` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `title` varchar(30) NOT NULL COMMENT '标题',
-  `content` text NOT NULL COMMENT '描述',
-  `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
-) ENGINE=MRG_MyISAM DEFAULT CHARSET=utf8 INSERT_METHOD=LAST UNION=(`pinery_services_content_8_0`,`pinery_services_content_8_1`,`pinery_services_content_8_2`,`pinery_services_content_8_3`,`pinery_services_content_8_4`,`pinery_services_content_8_5`,`pinery_services_content_8_6`,`pinery_services_content_8_7`,`pinery_services_content_8_8`,`pinery_services_content_8_9`);
+-- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
+-- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
 
 -- --------------------------------------------------------
 
@@ -11276,9 +12257,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_8_0` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -11292,9 +12271,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_8_1` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -11308,9 +12285,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_8_2` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -11324,9 +12299,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_8_3` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -11340,9 +12313,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_8_4` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -11356,9 +12327,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_8_5` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -11372,9 +12341,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_8_6` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -11388,9 +12355,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_8_7` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -11404,9 +12369,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_8_8` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -11420,9 +12383,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_8_9` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -11430,16 +12391,8 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_8_9` (
 --
 -- 表的结构 `pinery_services_content_9`
 --
-
-CREATE TABLE IF NOT EXISTS `pinery_services_content_9` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `title` varchar(30) NOT NULL COMMENT '标题',
-  `content` text NOT NULL COMMENT '描述',
-  `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
-) ENGINE=MRG_MyISAM DEFAULT CHARSET=utf8 INSERT_METHOD=LAST UNION=(`pinery_services_content_9_0`,`pinery_services_content_9_1`,`pinery_services_content_9_2`,`pinery_services_content_9_3`,`pinery_services_content_9_4`,`pinery_services_content_9_5`,`pinery_services_content_9_6`,`pinery_services_content_9_7`,`pinery_services_content_9_8`,`pinery_services_content_9_9`);
+-- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
+-- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
 
 -- --------------------------------------------------------
 
@@ -11452,9 +12405,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_9_0` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -11468,9 +12419,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_9_1` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -11484,9 +12433,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_9_2` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -11500,9 +12447,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_9_3` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -11516,9 +12461,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_9_4` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -11532,9 +12475,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_9_5` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -11548,9 +12489,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_9_6` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -11564,9 +12503,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_9_7` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -11580,9 +12517,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_9_8` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -11596,9 +12531,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_9_9` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -11606,16 +12539,8 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_9_9` (
 --
 -- 表的结构 `pinery_services_content_10`
 --
-
-CREATE TABLE IF NOT EXISTS `pinery_services_content_10` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `title` varchar(30) NOT NULL COMMENT '标题',
-  `content` text NOT NULL COMMENT '描述',
-  `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
-) ENGINE=MRG_MyISAM DEFAULT CHARSET=utf8 INSERT_METHOD=LAST UNION=(`pinery_services_content_10_0`,`pinery_services_content_10_1`,`pinery_services_content_10_2`,`pinery_services_content_10_3`,`pinery_services_content_10_4`,`pinery_services_content_10_5`,`pinery_services_content_10_6`,`pinery_services_content_10_7`,`pinery_services_content_10_8`,`pinery_services_content_10_9`);
+-- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
+-- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
 
 -- --------------------------------------------------------
 
@@ -11628,9 +12553,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_10_0` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -11644,9 +12567,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_10_1` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -11660,9 +12581,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_10_2` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -11676,9 +12595,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_10_3` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -11692,9 +12609,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_10_4` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -11708,9 +12623,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_10_5` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -11724,9 +12637,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_10_6` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -11740,9 +12651,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_10_7` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -11756,9 +12665,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_10_8` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -11772,9 +12679,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_10_9` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -11782,16 +12687,8 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_10_9` (
 --
 -- 表的结构 `pinery_services_content_11`
 --
-
-CREATE TABLE IF NOT EXISTS `pinery_services_content_11` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `title` varchar(30) NOT NULL COMMENT '标题',
-  `content` text NOT NULL COMMENT '描述',
-  `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
-) ENGINE=MRG_MyISAM DEFAULT CHARSET=utf8 INSERT_METHOD=LAST UNION=(`pinery_services_content_11_0`,`pinery_services_content_11_1`,`pinery_services_content_11_2`,`pinery_services_content_11_3`,`pinery_services_content_11_4`,`pinery_services_content_11_5`,`pinery_services_content_11_6`,`pinery_services_content_11_7`,`pinery_services_content_11_8`,`pinery_services_content_11_9`);
+-- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
+-- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
 
 -- --------------------------------------------------------
 
@@ -11804,9 +12701,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_11_0` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -11820,9 +12715,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_11_1` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -11836,9 +12729,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_11_2` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -11852,9 +12743,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_11_3` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -11868,9 +12757,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_11_4` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -11884,9 +12771,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_11_5` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -11900,9 +12785,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_11_6` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -11916,9 +12799,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_11_7` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -11932,9 +12813,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_11_8` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -11948,9 +12827,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_11_9` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -11958,16 +12835,8 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_11_9` (
 --
 -- 表的结构 `pinery_services_content_12`
 --
-
-CREATE TABLE IF NOT EXISTS `pinery_services_content_12` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `title` varchar(30) NOT NULL COMMENT '标题',
-  `content` text NOT NULL COMMENT '描述',
-  `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
-) ENGINE=MRG_MyISAM DEFAULT CHARSET=utf8 INSERT_METHOD=LAST UNION=(`pinery_services_content_12_0`,`pinery_services_content_12_1`,`pinery_services_content_12_2`,`pinery_services_content_12_3`,`pinery_services_content_12_4`,`pinery_services_content_12_5`,`pinery_services_content_12_6`,`pinery_services_content_12_7`,`pinery_services_content_12_8`,`pinery_services_content_12_9`);
+-- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
+-- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
 
 -- --------------------------------------------------------
 
@@ -11980,9 +12849,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_12_0` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -11996,9 +12863,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_12_1` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -12012,9 +12877,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_12_2` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -12028,9 +12891,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_12_3` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -12044,9 +12905,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_12_4` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -12060,9 +12919,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_12_5` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -12076,9 +12933,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_12_6` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -12092,9 +12947,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_12_7` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -12108,9 +12961,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_12_8` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -12124,9 +12975,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_12_9` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -12134,16 +12983,8 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_12_9` (
 --
 -- 表的结构 `pinery_services_content_13`
 --
-
-CREATE TABLE IF NOT EXISTS `pinery_services_content_13` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `title` varchar(30) NOT NULL COMMENT '标题',
-  `content` text NOT NULL COMMENT '描述',
-  `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
-) ENGINE=MRG_MyISAM DEFAULT CHARSET=utf8 INSERT_METHOD=LAST UNION=(`pinery_services_content_13_0`,`pinery_services_content_13_1`,`pinery_services_content_13_2`,`pinery_services_content_13_3`,`pinery_services_content_13_4`,`pinery_services_content_13_5`,`pinery_services_content_13_6`,`pinery_services_content_13_7`,`pinery_services_content_13_8`,`pinery_services_content_13_9`);
+-- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
+-- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
 
 -- --------------------------------------------------------
 
@@ -12156,9 +12997,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_13_0` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -12172,9 +13011,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_13_1` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -12188,9 +13025,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_13_2` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -12204,9 +13039,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_13_3` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -12220,9 +13053,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_13_4` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -12236,9 +13067,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_13_5` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -12252,9 +13081,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_13_6` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -12268,9 +13095,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_13_7` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -12284,9 +13109,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_13_8` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -12300,9 +13123,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_13_9` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -12310,16 +13131,8 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_13_9` (
 --
 -- 表的结构 `pinery_services_content_14`
 --
-
-CREATE TABLE IF NOT EXISTS `pinery_services_content_14` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `title` varchar(30) NOT NULL COMMENT '标题',
-  `content` text NOT NULL COMMENT '描述',
-  `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
-) ENGINE=MRG_MyISAM DEFAULT CHARSET=utf8 INSERT_METHOD=LAST UNION=(`pinery_services_content_14_0`,`pinery_services_content_14_1`,`pinery_services_content_14_2`,`pinery_services_content_14_3`,`pinery_services_content_14_4`,`pinery_services_content_14_5`,`pinery_services_content_14_6`,`pinery_services_content_14_7`,`pinery_services_content_14_8`,`pinery_services_content_14_9`);
+-- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
+-- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
 
 -- --------------------------------------------------------
 
@@ -12332,9 +13145,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_14_0` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -12348,9 +13159,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_14_1` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -12364,9 +13173,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_14_2` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -12380,9 +13187,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_14_3` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -12396,9 +13201,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_14_4` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -12412,9 +13215,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_14_5` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -12428,9 +13229,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_14_6` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -12444,9 +13243,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_14_7` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -12460,9 +13257,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_14_8` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -12476,9 +13271,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_14_9` (
   `title` varchar(30) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
-  `userid` bigint(20) NOT NULL COMMENT '用户id',
-  PRIMARY KEY (`id`),
-  KEY `userid` (`userid`,`title`)
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------

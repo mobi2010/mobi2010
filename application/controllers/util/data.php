@@ -88,14 +88,12 @@ class Data extends MY_Controller {
 		// 		if($value == "property"){
 		// 			for($i=1;$i<5;$i++){
 		// 				$params['table'] = "pinery_{$value}_{$cityId}_".$i;
-		// 				//$this->pineryModel->query("drop table ".$params['table']);
 		// 				$params['key'] = "{$value}_{$i}"; 
 		// 				$sql = $this->tableSqls($params);
 		// 				$this->pineryModel->query($sql);
 		// 			}					
 		// 		}else{
 		// 			$params['table'] = "pinery_{$value}_{$cityId}";
-		// 			//$this->pineryModel->query("drop table ".$params['table']);
 		// 			$params['key'] = $value; 
 		// 			$sql = $this->tableSqls($params);
 		// 			$this->pineryModel->query($sql);
@@ -107,45 +105,60 @@ class Data extends MY_Controller {
 		// 	foreach ($tableTypes as $key => $value) {
 		// 		$mtables = array();
 		// 		$params = array();
-		// 		for($i=0;$i<10;$i++){
-		// 			$params = array();
-		// 			$mtables[] = $params['table'] = "pinery_{$value}_content_{$cityId}_".$i;
-		// 			$params['key'] = "content"; 
+		// 		if($value == "property"){
+		// 			foreach (array(1,3) as $key => $mode) {
+		// 				for($i=0;$i<10;$i++){
+		// 					$params = array();
+		// 					$mtables[] = $params['table'] = "pinery_{$value}_content_{$cityId}_{$mode}_".$i;
+		// 					$params['key'] = "content"; 
+		// 					$sql = $this->tableSqls($params);
+		// 					$this->pineryModel->query($sql);
+		// 				}				
+		// 				$params['table'] = "pinery_{$value}_content_{$cityId}_{$mode}";
+		// 				$params['key'] = "content_merge"; 
+		// 				$params['mtables'] = $mtables; 
+		// 				$sql = $this->tableSqls($params);
+		// 				$this->pineryModel->query($sql);
+		// 			}
+		// 		}else{	
+		// 			for($i=0;$i<10;$i++){
+		// 				$params = array();
+		// 				$mtables[] = $params['table'] = "pinery_{$value}_content_{$cityId}_".$i;
+		// 				$params['key'] = "content"; 
+		// 				$sql = $this->tableSqls($params);
+		// 				$this->pineryModel->query($sql);
+		// 			}				
+		// 			$params['table'] = "pinery_{$value}_content_{$cityId}";
+		// 			$params['key'] = "content_merge"; 
+		// 			$params['mtables'] = $mtables; 
 		// 			$sql = $this->tableSqls($params);
 		// 			$this->pineryModel->query($sql);
-		// 		}				
-		// 		$params['table'] = "pinery_{$value}_content_{$cityId}";
-		// 		$params['key'] = "content_merge"; 
-		// 		$params['mtables'] = $mtables; 
-		// 		$sql = $this->tableSqls($params);
-		// 		$this->pineryModel->query($sql);
+		// 		}
 		// 	}
 		// }	
 	}
-	function dropTable(){				
-
+	function dropTable(){
 		// $tables = $this->pineryModel->query("show tables;")->result_array();
-		// $noTables = array('pinery_member','pinery_car_type','pinery_city','pinery_market_type','pinery_property_decoration','pinery_property_mode','pinery_property_toward','pinery_property_type','pinery_services_type');
+		// $noTables = array('pinery_member','pinery_member_system','pinery_car_type','pinery_city','pinery_market_type','pinery_property_decoration','pinery_property_mode','pinery_property_toward','pinery_property_type','pinery_services_type');
 		// foreach ($tables as $key => $value) {
 		// 	$table = $value['Tables_in_2010mobi'];
 		// 	if(!in_array($table, $noTables)){
 		// 		$this->pineryModel->query("drop table ".$table);
-		// 	}
-			
+		// 	}			
 		// }
 	}	
 	function alterTable(){
 	}
 	function truncateTable(){
-		$tables = $this->pineryModel->query("show tables;")->result_array();
-		$noTables = array('pinery_member','pinery_car_type','pinery_city','pinery_market_type','pinery_property_decoration','pinery_property_mode','pinery_property_toward','pinery_property_type','pinery_services_type');
-		foreach ($tables as $key => $value) {
-			$table = $value['Tables_in_2010mobi'];
-			if(!in_array($table, $noTables)){
-				$this->pineryModel->query("truncate table ".$table);
-			}
+		// $tables = $this->pineryModel->query("show tables;")->result_array();
+		// $noTables = array('pinery_member','pinery_member_system','pinery_car_type','pinery_city','pinery_market_type','pinery_property_decoration','pinery_property_mode','pinery_property_toward','pinery_property_type','pinery_services_type');
+		// foreach ($tables as $key => $value) {
+		// 	$table = $value['Tables_in_2010mobi'];
+		// 	if(!in_array($table, $noTables)){
+		// 		$this->pineryModel->query("truncate table ".$table);
+		// 	}
 			
-		}
+		// }
 	}
 	function tableSqls($params){
 		$key = $params['key'];
@@ -168,7 +181,10 @@ class Data extends MY_Controller {
 		  `view_num` int(11) NOT NULL COMMENT '浏览量',
 		  `content_id` bigint(20) NOT NULL COMMENT '内容id',
 		  `price` int(11) NOT NULL COMMENT '价格',
-		  PRIMARY KEY (`id`)
+		  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
+		  PRIMARY KEY (`id`),
+		  KEY `type` (`type`),
+		  KEY `source` (`source`,`userid`)
 		) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='车辆表_城市id' AUTO_INCREMENT=1 ";
 
 		$sqls['market'] = "CREATE TABLE IF NOT EXISTS `{$table}` (
@@ -180,7 +196,10 @@ class Data extends MY_Controller {
 		  `view_num` int(11) NOT NULL COMMENT '浏览量',
 		  `content_id` bigint(20) NOT NULL COMMENT '内容id',
 		  `price` int(11) NOT NULL COMMENT '价格',
-		  PRIMARY KEY (`id`)
+		  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
+		  PRIMARY KEY (`id`),
+		  KEY `type` (`type`),
+		  KEY `source` (`source`,`userid`)
 		) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='集市表_城市id' AUTO_INCREMENT=1";
 		
 		$sqls['property_1'] = "CREATE TABLE IF NOT EXISTS `{$table}` (
@@ -201,9 +220,10 @@ class Data extends MY_Controller {
 		  `add_time` int(11) NOT NULL COMMENT '添加时间',
 		  `update_time` int(11) NOT NULL COMMENT '更新时间',
 		  `view_num` int(11) NOT NULL COMMENT '浏览数',
+		  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
 		  PRIMARY KEY (`id`),
 		  KEY `type` (`type`),
-		  KEY `userid` (`userid`)
+		  KEY `source` (`source`,`userid`)
 		) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='房产出租表_城市id_方式id' AUTO_INCREMENT=1";
 
 		$sqls['property_2'] = "CREATE TABLE IF NOT EXISTS `{$table}` (
@@ -215,7 +235,10 @@ class Data extends MY_Controller {
 		  `update_time` int(11) NOT NULL COMMENT '修改时间',
 		  `view_num` int(11) NOT NULL COMMENT '浏览数',
 		  `userid` bigint(20) NOT NULL COMMENT '用户id',
-		  PRIMARY KEY (`id`)
+		  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
+		  PRIMARY KEY (`id`),
+		  KEY `type` (`type`),
+		  KEY `source` (`source`,`userid`)
 		) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='房产求租表_城市id_方式id' AUTO_INCREMENT=1";
 
 		$sqls['property_3'] = "CREATE TABLE IF NOT EXISTS `{$table}` (
@@ -238,9 +261,10 @@ class Data extends MY_Controller {
 		  `property` tinyint(4) NOT NULL COMMENT '产权',
 		  `building` smallint(6) NOT NULL COMMENT '建筑年代',
 		  `view_num` int(11) NOT NULL COMMENT '浏览数',
+		  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
 		  PRIMARY KEY (`id`),
 		  KEY `type` (`type`),
-		  KEY `userid` (`userid`)
+		  KEY `source` (`source`,`userid`)
 		) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='房产出售表_城市id_方式id' AUTO_INCREMENT=1";
 		
 		$sqls['property_4'] = "CREATE TABLE IF NOT EXISTS `{$table}` (
@@ -252,7 +276,10 @@ class Data extends MY_Controller {
 		  `update_time` int(11) NOT NULL COMMENT '修改时间',
 		  `view_num` int(11) NOT NULL COMMENT '浏览数',
 		  `userid` bigint(20) NOT NULL COMMENT '用户id',
-		  PRIMARY KEY (`id`)
+		  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
+		  PRIMARY KEY (`id`),
+		  KEY `type` (`type`),
+		  KEY `source` (`source`,`userid`)
 		) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='房产求购表_城市id_方式id' AUTO_INCREMENT=1";
 
 		$sqls['services'] = "CREATE TABLE IF NOT EXISTS `{$table}` (
@@ -264,19 +291,23 @@ class Data extends MY_Controller {
 		  `view_num` int(11) NOT NULL COMMENT '浏览量',
 		  `content_id` bigint(20) NOT NULL COMMENT '内容id',
 		  `price` int(11) NOT NULL COMMENT '价格',
-		  PRIMARY KEY (`id`)
+		  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
+		  PRIMARY KEY (`id`),
+		  KEY `type` (`type`),
+		  KEY `source` (`source`,`userid`)
 		) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='服务表_城市id' AUTO_INCREMENT=1";
 
 		
-		$sqls['content'] = "CREATE TABLE IF NOT EXISTS `{$table}` (
-			  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-			  `title` varchar(30) NOT NULL COMMENT '标题',
-			  `content` text NOT NULL COMMENT '描述',
-			  `images` text NOT NULL COMMENT '图片',
-			  `userid` bigint(20) NOT NULL COMMENT '用户id',
-			  PRIMARY KEY (`id`),
-			  KEY `userid` (`userid`,`title`)
-			) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1";
+		$sqls['content'] = "CREATE TABLE IF NOT EXISTS `{$table}`  (
+		  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+		  `title` varchar(30) NOT NULL COMMENT '标题',
+		  `content` text NOT NULL COMMENT '描述',
+		  `images` text NOT NULL COMMENT '图片',
+		  PRIMARY KEY (`id`)
+		) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1";
+
+
+
 		
 		$mtables =  empty($params['mtables']) ? "" : implode(',', $params['mtables']);
 		$sqls['content_merge'] = "CREATE TABLE IF NOT EXISTS `{$table}` (

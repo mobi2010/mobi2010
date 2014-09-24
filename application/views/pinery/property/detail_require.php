@@ -1,5 +1,5 @@
 <?php
-$dataMarket = $initData['dataMarket'];
+$dataProperty = $initData['dataProperty'];
 ?>
 <style type="text/css">
 .info{background: #fff}
@@ -10,10 +10,10 @@ $dataMarket = $initData['dataMarket'];
 .member-attr .name{width:40px;}
 
 
-.info-market{float: right;padding: 20px;width:740px; background: #fff}
-.market-title{font-size: 20px;font-weight: bold}
+.info-property{float: right;padding: 20px;width:740px; background: #fff}
+.property-title{font-size: 20px;font-weight: bold}
 
-.market-content{margin-top: 10px;}
+.property-content{margin-top: 10px;}
 </style>
 
 <div class="home-body">
@@ -56,22 +56,22 @@ $dataMarket = $initData['dataMarket'];
                 echo html_div(array('body'=>$memberAttr,'class'=>'member-attr'));
                 ?>    
             </div>
-            <div class="info-market">                
+            <div class="info-property">                
                 <?php
-                    echo html_div(array('body'=>$marketData['title'],'class'=>'market-title'));
-                    echo html_div(array('body'=>date('Y-m-d',$marketData['update_time']).'发布&nbsp;&nbsp;浏览&nbsp;'.$marketData['view_num'].'&nbsp;次','class'=>'color-grey'));                   
-                    $marketAttr = html_div(array('body'=>$marketData['content']));
-                    echo html_div(array('body'=>$marketAttr,'class'=>'market-content'));
+                    echo html_div(array('body'=>$propertyRow['title'],'class'=>'property-title'));
+                    echo html_div(array('body'=>date('Y-m-d',$propertyRow['update_time']).'发布&nbsp;&nbsp;浏览&nbsp;'.$propertyRow['view_num'].'&nbsp;次','class'=>'color-grey'));                   
+                    $propertyAttr = html_div(array('body'=>$propertyRow['content']));
+                    echo html_div(array('body'=>$propertyAttr,'class'=>'property-content'));
                 ?>
             </div>
         </div>
 </div>    
 <script type="text/javascript">
     $(document).ready(function() {  
-        if($('.info-market').height() > $('.info-member').height()){
-            $('.info-member').height($('.info-market').height())
+        if($('.info-property').height() > $('.info-member').height()){
+            $('.info-member').height($('.info-property').height())
         }else{
-            $('.info-market').height($('.info-member').height())
+            $('.info-property').height($('.info-member').height())
         }
     })
 </script>

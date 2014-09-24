@@ -57,11 +57,11 @@ class Property_model extends MY_Model {
 	function addContent($argv=array()){	
 		$userId = intval($argv['userid']);	
 		$city_id = intval($argv['city_id']);
+		$mode = $argv['mode'];
 		$data['title'] = mobi_string_filter($argv['title']);
 		$data['content'] = addslashes($argv['content']);
-		$data['userid'] = $userId;
 		$data['images'] = mobi_content_images($argv['content']);
-		$params['table'] = "pinery_property_content_{$city_id}_".substr($userId, -1);
+		$params['table'] = "pinery_property_content_{$city_id}_{$mode}_".substr($userId, -1);
 		$params['data'] = $data;
 		return $this->dataInsert($params);
 	}
@@ -74,10 +74,12 @@ class Property_model extends MY_Model {
 		$city_id = intval($argv['city_id']);
 		if(empty($argv['ids'])){return false;}
 
-		$ids = implode(',', $argv['ids']);
-		foreach ($argv['ids'] as $key => $value) {
-			$data = $this->dataFetchRow(array('table'=>"pinery_property_{$city_id}_{$mode}",'where'=>$value));
-			$this->dataDelete(array('table'=>"pinery_property_content_{$city_id}_".substr($data['userid'], -1),'where'=>$data['content_id']));	
+		if(in_array($mode, array(1,3))){
+			$ids = implode(',', $argv['ids']);
+			foreach ($argv['ids'] as $key => $value) {
+				$data = $this->dataFetchRow(array('table'=>"pinery_property_{$city_id}_{$mode}",'where'=>$value));
+				$this->dataDelete(array('table'=>"pinery_property_content_{$city_id}_{$mode}_".substr($data['userid'], -1),'where'=>$data['content_id']));	
+			}
 		}
 		$params['table'] = "pinery_property_{$city_id}_{$mode}";
 		$params['where'] = "id in ({$ids})";
@@ -103,16 +105,17 @@ class Property_model extends MY_Model {
 	 * @param array $argv [description]
 	 */
 	function addProperty($argv=array()){			
-		$mode = intval($argv['mode']);
+		$argv['mode'] = $mode = intval($argv['mode']);
 		$data['type'] = intval($argv['type']);	
+		$data['userid'] = intval($argv['userid']);	
 		switch ($mode) {
 			case 1://出租
 				$data['location_id'] = $this->addLocation($argv);
 				$data['content_id'] = $this->addContent($argv);
 				if(in_array($data['type'], array(1,2,3))){
-					$intFields = array('floors','floors_total','room','hall','bathroom','area','rent','toward','decoration','userid');
+					$intFields = array('floors','floors_total','room','hall','bathroom','area','rent','toward','decoration');
 				}else{
-					$intFields = array('area','rent','userid');
+					$intFields = array('area','rent');
 				}
 				foreach ($intFields as $key => $value) {
 					$data[$value] = intval($argv[$value]);
@@ -127,9 +130,9 @@ class Property_model extends MY_Model {
 				$data['location_id'] = $this->addLocation($argv);
 				$data['content_id'] = $this->addContent($argv);				
 				if(in_array($data['type'], array(1,2,3))){
-					$intFields = array('floors','floors_total','room','hall','bathroom','area','price','toward','decoration','userid','property','building');
+					$intFields = array('floors','floors_total','room','hall','bathroom','area','price','toward','decoration','property','building');
 				}else{
-					$intFields = array('area','price','userid');
+					$intFields = array('area','price');
 				}
 				foreach ($intFields as $key => $value) {
 					$data[$value] = intval($argv[$value]);
@@ -164,7 +167,8 @@ class Property_model extends MY_Model {
 		$userId = intval($argv['userid']);
 		$id = intval($argv['id']);
 		$city_id = intval($argv['city_id']);
-		$data = $this->dataFetchRow(array('table'=>"pinery_property_content_{$city_id}_".substr($userId, -1),'where'=>$id));
+		$mode = $argv['mode'];
+		$data = $this->dataFetchRow(array('table'=>"pinery_property_content_{$city_id}_{$mode}_".substr($userId, -1),'where'=>$id));
 		$data['images'] = $data['images'] ? explode('|', $data['images']) : array();
 		return $data;
 	}
@@ -182,7 +186,7 @@ class Property_model extends MY_Model {
 		}
 		if(in_array($mode, array(1,3))){
 			$data += $this->getLocationRow(array('city_id'=>$city_id,'id'=>$data['location_id']));
-			$data += $this->getContentRow(array('userid'=>$data['userid'],'id'=>$data['content_id'],'city_id'=>$city_id));
+			$data += $this->getContentRow(array('mode'=>$mode,'userid'=>$data['userid'],'id'=>$data['content_id'],'city_id'=>$city_id));
 		}
 		return $data;		
 	}
@@ -200,7 +204,7 @@ class Property_model extends MY_Model {
 		if(in_array($mode, array(1,3))){
 			foreach ($resData as $key => $value) {
 				$value += $this->getLocationRow(array('city_id'=>$city_id,'id'=>$value['location_id']));
-				$value += $this->getContentRow(array('userid'=>$value['userid'],'id'=>$value['content_id'],'city_id'=>$city_id));
+				$value += $this->getContentRow(array('mode'=>$mode,'userid'=>$value['userid'],'id'=>$value['content_id'],'city_id'=>$city_id));
 				$data[$key] = $value;
 			}			
 		}else{

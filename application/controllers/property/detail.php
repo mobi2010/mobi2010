@@ -25,7 +25,6 @@ class Detail extends MY_Controller {
 		$this->property->updateViewnum(array('city_id'=>$city_id,'mode'=>$mode,'id'=>$id));//浏览数
 
 		$data['propertyRow'] = $this->property->getPropertyRow(array('city_id'=>$city_id,'mode'=>$mode,'id'=>$id));
-		
 		$data['pineryTitle'] = $data['propertyRow']['title'].','.$data['propertyRow']['address'];
 		$data['memberInfo'] = $data['propertyRow']['userid'] == $this->userId ? $this->userEntity : $this->member->info($data['propertyRow']['userid']);
 
@@ -36,8 +35,10 @@ class Detail extends MY_Controller {
 		$this->load->view('pinery/public/home_topbar',$data);
 		if(empty($data['propertyRow'])){
 			$this->load->view('pinery/property/detail_error',$data);
-		}else{
+		}elseif(in_array($mode, array(1,3))){
 			$this->load->view('pinery/property/detail',$data);
+		}else{
+			$this->load->view('pinery/property/detail_require',$data);
 		}
 		$this->load->view('pinery/footer');
 	}
