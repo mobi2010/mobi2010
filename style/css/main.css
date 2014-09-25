@@ -10,6 +10,15 @@ a{text-decoration:none; color:#308EB5; bblr:expression(this.onFocus=this.blur())
 a:hover{color:#00B7D6}
 
 .bread-nav{line-height: 30px; height:30px;padding:0 20px;background: #fff;}
+
+.report{color:#999;font-size: 12px;font-weight: normal;}
+.report:hover{color: #FE7203;text-decoration:underline;}
+
+.report-win{background: #fff;width:400px;height: 200px; border-radius:5px;}
+.report-close{background:url(/style/img/close.png) no-repeat;width: 15px;height: 15px;float: right; cursor:pointer;top:10px;right: 10px;position:relative}
+.report-win-div{clear:both;margin:10px auto; width: 360px;}
+.report-text{width: 350px;height: 100px}
+
 /**base**/
 
 .wp20{width:20px}

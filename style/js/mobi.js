@@ -5,8 +5,8 @@
             var obj = obj instanceof Object ? obj : {};//扩展用，暂时无用
             var x = obj['x'] ? obj['x'] : 0;//横坐标偏移量
             var y = obj['y'] ? obj['y'] : 0;//纵坐标偏移量
-            var ow = $(this).width();
-            var oh = $(this).height();
+            var ow = obj['width'] || $(this).width();
+            var oh = obj['height'] || $(this).height();
             var ww = $(window).width();  
             var wh = $(window).height(); 
             var dt = $(document).scrollTop();  
@@ -211,9 +211,24 @@
                 $("#"+tagsId).addClass("checked");
                 $("input[name='"+tagsName+"']").val(tagsValue);
             })
+            //img
             $("img").error(function(){
                 $(this).attr('src','/style/img/notfind.jpg');
             });
+            //report
+            $('.report').unbind('click').bind('click',function(){                
+                $('#reportCover').remove();$('.report-win').remove();
+                var id = $(this).attr('data-id');
+                var table = $(this).attr('data-table');
+                var zindex = 1;
+                var coverObj = cover.init({'id':'reportCover','z-index':zindex});
+                coverObj.show();
+                $.post("/util/common/report",{'id':id,'table':table},function(dt){
+                    $(dt).center({'z-index':(zindex+1),'y':-50,'height':200,'width':400}).appendTo('body');
+                })
+                $.mobi.onmousewheel(false);
+                return false;
+            })
     	},
         isdate:function(val,format){//验证日期
             var format = format ? format : '-';
@@ -285,6 +300,14 @@
         isurl:function(val){//验证合法连接
         	var reg = /^http:\/\/[A-Za-z0-9]+\.[A-Za-z0-9]+[\/=\?%\-&_~`@[\]\':+!]*([^<>\"])*$/;
         	return reg.test(val);
+        },
+        //lg最大的值，st最小的值
+        isZlength:function(val,lg,st){//验证长度
+            var val = val ? val : "";
+            var lh = val.replace(/([^\x00-\xff])/ig,'0').length;   
+            if(st && lh < st){return false;}
+            if(lg && lh > lg){return false;}
+            return true;  
         },
         //lg最大的值，st最小的值
         islength:function(val,lg,st){//验证长度

@@ -28,7 +28,8 @@ class Uploadify extends MY_Controller {
 		}	
 		$ypyImg = $this->image->ypyUpload(array('file'=>$file));
 		$res['url'] = $ypyImg['filePath']."!m01";
-		$this->printer($res);
+		echo json_encode($res);
+		//$this->printer($res);
 	}
 	/**
 	 * [头像]

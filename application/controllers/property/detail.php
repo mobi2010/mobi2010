@@ -21,7 +21,7 @@ class Detail extends MY_Controller {
 		$id = intval($ids[2]);
 
 		
-
+		$data['table'] = "pinery_property_{$city_id}_{$mode}";
 		$this->property->updateViewnum(array('city_id'=>$city_id,'mode'=>$mode,'id'=>$id));//浏览数
 
 		$data['propertyRow'] = $this->property->getPropertyRow(array('city_id'=>$city_id,'mode'=>$mode,'id'=>$id));

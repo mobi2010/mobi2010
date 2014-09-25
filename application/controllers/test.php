@@ -9,7 +9,26 @@ class Test extends MY_Controller {
 	{
 		parent::__construct(array('auth'=>false));
 	}
+	function students(){
+		//源数据
+		$studentsData = $this->pineryModel->dataFetchArray(array('table'=>'students'));
 
+		//整理
+		$formatStudentsData = array();
+		foreach ($studentsData as $key => $value) {
+			$formatStudentsData[$value['class']][] = $value;
+		}
+		
+		//分页
+		$page = 1;//当前页
+		$pageSize = 1;//每页数量
+		$start = ($page-1)*$pageSize;//起始位置
+		$pageStudentsData = array_slice($formatStudentsData, $start, $pageSize, true);
+
+
+		var_dump($pageStudentsData);
+
+	}
 	/**
 	 * [登录]
 	 * @return [type] [description]
