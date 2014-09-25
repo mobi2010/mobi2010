@@ -11,14 +11,60 @@ class Index extends MY_Controller {
 	}
 	public function index()
 	{
-		
-
-		$propertyMode = $this->initData['dataProperty']['mode'];
 		$city_id = $this->initData['cityId'];
+		//房产
+		$propertyMode = $this->initData['dataProperty']['mode'];		
 		foreach ($propertyMode as $mode => $value) {
-			$propertyData[$mode] = mobi_array_rand($this->property->getPropertyArray(array('mode'=>$mode,'city_id'=>$city_id,'limit'=>"50",'order'=>'id desc')),1);
+			$info = mobi_array_rand($this->property->getPropertyArray(array('mode'=>$mode,'city_id'=>$city_id,'limit'=>"50",'order'=>'id desc')),1);
+			$adata['typeName'] = $propertyMode[$mode]['name'];
+			$adata['typeUrl'] = mobi_url('property/lists',array('mid'=>$mode));
+			$adata['title'] = $info[0]['title'] ? $info[0]['title'] : '暂无消息,去发布';
+			$adata['url'] = $info[0]['title'] ? mobi_url('property/detail',array('id'=>$city_id.'_'.$mode.'_'.$info[0]['id'])) : mobi_url('member/publish/property');
+			$propertyData[$mode] = $adata;
 		}
 		$data['propertyData'] = $propertyData;
+		
+		//车辆
+		$carType = mobi_array_rand($this->initData['dataCar']['type'],4);		
+		foreach ($carType as $key => $value) {
+			$info = mobi_array_rand($this->car->getCarArray(array('where'=>'type='.$key,'city_id'=>$city_id,'limit'=>"50",'order'=>'id desc')),1);
+
+			$adata['typeName'] = $carType[$key]['name'];
+			$adata['typeUrl'] = mobi_url('car/lists',array('tid'=>$key));
+			$adata['title'] = $info[0]['title'] ? $info[0]['title'] : '暂无消息,去发布';
+			$adata['url'] = $info[0]['title'] ? mobi_url('car/detail',array('id'=>$city_id.'_'.$info[0]['id'])) : mobi_url('member/publish/car');
+
+			$carData[$key] = $adata;
+		}
+		$data['carData'] = $carData;		
+
+		//集市
+		$marketType = mobi_array_rand($this->initData['dataMarket']['type'],4);	
+		foreach ($marketType as $key => $value) {
+			$info = mobi_array_rand($this->market->getMarketArray(array('where'=>'type='.$key,'city_id'=>$city_id,'limit'=>"50",'order'=>'id desc')),1);
+
+			$adata['typeName'] = $marketType[$key]['name'];
+			$adata['typeUrl'] = mobi_url('market/lists',array('tid'=>$key));
+			$adata['title'] = $info[0]['title'] ? $info[0]['title'] : '暂无消息,去发布';
+			$adata['url'] = $info[0]['title'] ? mobi_url('market/detail',array('id'=>$city_id.'_'.$info[0]['id'])) : mobi_url('member/publish/market');
+
+			$marketData[$key] = $adata;
+		}
+		$data['marketData'] = $marketData;
+
+		//服务
+		$servicesType = mobi_array_rand($this->initData['dataServices']['type'],4);		
+		foreach ($servicesType as $key => $value) {
+			$info = mobi_array_rand($this->services->getServicesArray(array('where'=>'type='.$key,'city_id'=>$city_id,'limit'=>"50",'order'=>'id desc')),1);
+
+			$adata['typeName'] = $servicesType[$key]['name'];
+			$adata['typeUrl'] = mobi_url('services/lists',array('tid'=>$key));
+			$adata['title'] = $info[0]['title'] ? $info[0]['title'] : '暂无消息,去发布';
+			$adata['url'] = $info[0]['title'] ? mobi_url('services/detail',array('id'=>$city_id.'_'.$info[0]['id'])) : mobi_url('member/publish/services');
+
+			$servicesData[$key] = $adata;
+		}
+		$data['servicesData'] = $servicesData;
 
 		$this->load->view('pinery/header',$data);
 		$this->load->view('pinery/public/home_topbar',$data);

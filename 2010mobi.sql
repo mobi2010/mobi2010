@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 3.5.2
+-- version 3.4.5
 -- http://www.phpmyadmin.net
 --
 -- 主机: localhost
--- 生成日期: 2014 年 09 月 24 日 17:16
--- 服务器版本: 5.5.25a
--- PHP 版本: 5.4.4
+-- 生成日期: 2014 年 09 月 25 日 11:14
+-- 服务器版本: 5.5.16
+-- PHP 版本: 5.3.8
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -39,14 +39,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_1` (
   PRIMARY KEY (`id`),
   KEY `type` (`type`),
   KEY `source` (`source`,`userid`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='车辆表_城市id' AUTO_INCREMENT=2 ;
-
---
--- 转存表中的数据 `pinery_car_1`
---
-
-INSERT INTO `pinery_car_1` (`id`, `update_time`, `add_time`, `type`, `userid`, `view_num`, `content_id`, `price`, `source`) VALUES
-(1, 1411567176, 1411567176, 1, 1, 8, 1, 1234, 0);
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='车辆表_城市id' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -324,14 +317,6 @@ CREATE TABLE IF NOT EXISTS `pinery_car_14` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_car_content_1`
---
--- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
--- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
-
--- --------------------------------------------------------
-
---
 -- 表的结构 `pinery_car_content_1_0`
 --
 
@@ -355,14 +340,7 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_1_1` (
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=2 ;
-
---
--- 转存表中的数据 `pinery_car_content_1_1`
---
-
-INSERT INTO `pinery_car_content_1_1` (`id`, `title`, `content`, `images`) VALUES
-(1, '1234', '<p>123412341234<img src="http://pinery.b0.upaiyun.com/2014/09/24/141156717138612800.jpg!m01" title="" alt=""/></p>', 'http://pinery.b0.upaiyun.com/2014/09/24/141156717138612800.jpg!m01');
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -475,14 +453,6 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_1_9` (
   `images` text NOT NULL COMMENT '图片',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- 表的结构 `pinery_car_content_2`
---
--- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
--- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
 
 -- --------------------------------------------------------
 
@@ -627,14 +597,6 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_2_9` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_car_content_3`
---
--- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
--- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
-
--- --------------------------------------------------------
-
---
 -- 表的结构 `pinery_car_content_3_0`
 --
 
@@ -771,14 +733,6 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_3_9` (
   `images` text NOT NULL COMMENT '图片',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- 表的结构 `pinery_car_content_4`
---
--- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
--- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
 
 -- --------------------------------------------------------
 
@@ -923,14 +877,6 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_4_9` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_car_content_5`
---
--- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
--- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
-
--- --------------------------------------------------------
-
---
 -- 表的结构 `pinery_car_content_5_0`
 --
 
@@ -1067,14 +1013,6 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_5_9` (
   `images` text NOT NULL COMMENT '图片',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- 表的结构 `pinery_car_content_6`
---
--- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
--- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
 
 -- --------------------------------------------------------
 
@@ -1219,14 +1157,6 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_6_9` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_car_content_7`
---
--- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
--- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
-
--- --------------------------------------------------------
-
---
 -- 表的结构 `pinery_car_content_7_0`
 --
 
@@ -1363,14 +1293,6 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_7_9` (
   `images` text NOT NULL COMMENT '图片',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- 表的结构 `pinery_car_content_8`
---
--- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
--- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
 
 -- --------------------------------------------------------
 
@@ -1515,14 +1437,6 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_8_9` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_car_content_9`
---
--- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
--- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
-
--- --------------------------------------------------------
-
---
 -- 表的结构 `pinery_car_content_9_0`
 --
 
@@ -1659,14 +1573,6 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_9_9` (
   `images` text NOT NULL COMMENT '图片',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- 表的结构 `pinery_car_content_10`
---
--- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
--- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
 
 -- --------------------------------------------------------
 
@@ -1811,14 +1717,6 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_10_9` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_car_content_11`
---
--- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
--- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
-
--- --------------------------------------------------------
-
---
 -- 表的结构 `pinery_car_content_11_0`
 --
 
@@ -1955,14 +1853,6 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_11_9` (
   `images` text NOT NULL COMMENT '图片',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- 表的结构 `pinery_car_content_12`
---
--- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
--- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
 
 -- --------------------------------------------------------
 
@@ -2107,14 +1997,6 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_12_9` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_car_content_13`
---
--- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
--- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
-
--- --------------------------------------------------------
-
---
 -- 表的结构 `pinery_car_content_13_0`
 --
 
@@ -2251,14 +2133,6 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_13_9` (
   `images` text NOT NULL COMMENT '图片',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- 表的结构 `pinery_car_content_14`
---
--- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
--- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
 
 -- --------------------------------------------------------
 
@@ -2473,15 +2347,7 @@ CREATE TABLE IF NOT EXISTS `pinery_location_1` (
   `map` text NOT NULL COMMENT '地图信息',
   PRIMARY KEY (`id`),
   KEY `name` (`name`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='位置表_城市id' AUTO_INCREMENT=3 ;
-
---
--- 转存表中的数据 `pinery_location_1`
---
-
-INSERT INTO `pinery_location_1` (`id`, `name`, `address`, `map`) VALUES
-(1, '燕郊镇信访办公室', '京哈公路附近', '{"name":"\\u71d5\\u90ca\\u9547\\u4fe1\\u8bbf\\u529e\\u516c\\u5ba4","location":{"lat":39.950846,"lng":116.8159},"address":"\\u4eac\\u54c8\\u516c\\u8def\\u9644\\u8fd1","uid":"a0180392a1b5ebf6c4f50d41"}'),
-(2, '燕郊镇邮政支局', '汉王路113-115', '{"name":"\\u71d5\\u90ca\\u9547\\u90ae\\u653f\\u652f\\u5c40","location":{"lat":39.95319,"lng":116.833201},"address":"\\u6c49\\u738b\\u8def113-115","uid":"f746bbb0d5047efe725e8024"}');
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='位置表_城市id' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -2697,14 +2563,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_1` (
   PRIMARY KEY (`id`),
   KEY `type` (`type`),
   KEY `source` (`source`,`userid`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='集市表_城市id' AUTO_INCREMENT=2 ;
-
---
--- 转存表中的数据 `pinery_market_1`
---
-
-INSERT INTO `pinery_market_1` (`id`, `update_time`, `add_time`, `type`, `userid`, `view_num`, `content_id`, `price`, `source`) VALUES
-(1, 1411567221, 1411567221, 1, 1, 1, 1, 1234, 0);
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='集市表_城市id' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -2982,14 +2841,6 @@ CREATE TABLE IF NOT EXISTS `pinery_market_14` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_market_content_1`
---
--- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
--- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
-
--- --------------------------------------------------------
-
---
 -- 表的结构 `pinery_market_content_1_0`
 --
 
@@ -3013,14 +2864,7 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_1_1` (
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=2 ;
-
---
--- 转存表中的数据 `pinery_market_content_1_1`
---
-
-INSERT INTO `pinery_market_content_1_1` (`id`, `title`, `content`, `images`) VALUES
-(1, '12341234', '<p>123412341234<img src="http://pinery.b0.upaiyun.com/2014/09/24/141156719153808400.jpg!m01" title="" alt=""/></p>', 'http://pinery.b0.upaiyun.com/2014/09/24/141156719153808400.jpg!m01');
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -3133,14 +2977,6 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_1_9` (
   `images` text NOT NULL COMMENT '图片',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- 表的结构 `pinery_market_content_2`
---
--- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
--- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
 
 -- --------------------------------------------------------
 
@@ -3285,14 +3121,6 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_2_9` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_market_content_3`
---
--- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
--- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
-
--- --------------------------------------------------------
-
---
 -- 表的结构 `pinery_market_content_3_0`
 --
 
@@ -3429,14 +3257,6 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_3_9` (
   `images` text NOT NULL COMMENT '图片',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- 表的结构 `pinery_market_content_4`
---
--- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
--- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
 
 -- --------------------------------------------------------
 
@@ -3581,14 +3401,6 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_4_9` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_market_content_5`
---
--- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
--- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
-
--- --------------------------------------------------------
-
---
 -- 表的结构 `pinery_market_content_5_0`
 --
 
@@ -3725,14 +3537,6 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_5_9` (
   `images` text NOT NULL COMMENT '图片',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- 表的结构 `pinery_market_content_6`
---
--- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
--- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
 
 -- --------------------------------------------------------
 
@@ -3877,14 +3681,6 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_6_9` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_market_content_7`
---
--- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
--- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
-
--- --------------------------------------------------------
-
---
 -- 表的结构 `pinery_market_content_7_0`
 --
 
@@ -4021,14 +3817,6 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_7_9` (
   `images` text NOT NULL COMMENT '图片',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- 表的结构 `pinery_market_content_8`
---
--- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
--- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
 
 -- --------------------------------------------------------
 
@@ -4173,14 +3961,6 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_8_9` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_market_content_9`
---
--- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
--- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
-
--- --------------------------------------------------------
-
---
 -- 表的结构 `pinery_market_content_9_0`
 --
 
@@ -4317,14 +4097,6 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_9_9` (
   `images` text NOT NULL COMMENT '图片',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- 表的结构 `pinery_market_content_10`
---
--- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
--- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
 
 -- --------------------------------------------------------
 
@@ -4469,14 +4241,6 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_10_9` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_market_content_11`
---
--- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
--- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
-
--- --------------------------------------------------------
-
---
 -- 表的结构 `pinery_market_content_11_0`
 --
 
@@ -4613,14 +4377,6 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_11_9` (
   `images` text NOT NULL COMMENT '图片',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- 表的结构 `pinery_market_content_12`
---
--- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
--- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
 
 -- --------------------------------------------------------
 
@@ -4765,14 +4521,6 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_12_9` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_market_content_13`
---
--- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
--- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
-
--- --------------------------------------------------------
-
---
 -- 表的结构 `pinery_market_content_13_0`
 --
 
@@ -4909,14 +4657,6 @@ CREATE TABLE IF NOT EXISTS `pinery_market_content_13_9` (
   `images` text NOT NULL COMMENT '图片',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- 表的结构 `pinery_market_content_14`
---
--- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
--- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
 
 -- --------------------------------------------------------
 
@@ -5125,15 +4865,7 @@ CREATE TABLE IF NOT EXISTS `pinery_member` (
   PRIMARY KEY (`id`),
   KEY `email` (`email`),
   KEY `mobile` (`mobile`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='会员帐号' AUTO_INCREMENT=3 ;
-
---
--- 转存表中的数据 `pinery_member`
---
-
-INSERT INTO `pinery_member` (`id`, `email`, `mobile`, `password`, `source`, `names`, `city_id`, `addtime`, `logintime`, `step`, `org_name`, `org_id`, `avatar`, `long2ip`, `tel`, `qq`, `weixin`, `weibo`, `mobile_is`, `email_is`, `tel_is`, `qq_is`, `weixin_is`, `weibo_is`) VALUES
-(1, 'zsc@2010.mobi', 13141083366, 'e10adc3949ba59abbe56e057f20f883e', 1, '超哥', 1, 1410276161, 1411566196, 9, '', 0, 'http://pinery.b0.upaiyun.com/2014/09/24/141156359415909600.jpg', 2130706433, '0312-1231234', 213412341234, 'adsfadsflihjadsfadfasdfasdfasdfadsfadsflihjadsfadf', 'http://www.adsfasdfasd.faf', 0, 0, 0, 0, 0, 0),
-(2, 'a@a.a1324', 13141083355, 'e10adc3949ba59abbe56e057f20f883e', 2, 'adsfadsfasdfasdf', 1, 1411566052, 1411566196, 9, 'adfadsfadsfadf', 0, 'http://pinery.b0.upaiyun.com/2014/09/24/141156694421543500.jpg', 2130706433, '', 0, '', '', 0, 0, 0, 0, 0, 0);
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='会员帐号' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -5199,15 +4931,7 @@ CREATE TABLE IF NOT EXISTS `pinery_property_1_1` (
   PRIMARY KEY (`id`),
   KEY `type` (`type`),
   KEY `source` (`source`,`userid`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='房产出租表_城市id_方式id' AUTO_INCREMENT=3 ;
-
---
--- 转存表中的数据 `pinery_property_1_1`
---
-
-INSERT INTO `pinery_property_1_1` (`id`, `type`, `location_id`, `floors`, `floors_total`, `room`, `hall`, `bathroom`, `area`, `rent`, `toward`, `decoration`, `userid`, `content_id`, `add_time`, `update_time`, `view_num`, `source`) VALUES
-(1, 1, 1, 123, 123, 1, 12, 12, 123, 132, 5, 3, 1, 1, 1411565995, 1411565995, 8, 0),
-(2, 1, 2, 12, 12, 1, 2, 3, 123, 123, 5, 3, 2, 1, 1411566136, 1411566136, 38, 0);
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='房产出租表_城市id_方式id' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -6638,14 +6362,6 @@ CREATE TABLE IF NOT EXISTS `pinery_property_14_4` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_1_1`
---
--- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
--- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
-
--- --------------------------------------------------------
-
---
 -- 表的结构 `pinery_property_content_1_1_0`
 --
 
@@ -6669,14 +6385,7 @@ CREATE TABLE IF NOT EXISTS `pinery_property_content_1_1_1` (
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=2 ;
-
---
--- 转存表中的数据 `pinery_property_content_1_1_1`
---
-
-INSERT INTO `pinery_property_content_1_1_1` (`id`, `title`, `content`, `images`) VALUES
-(1, '123412341234', '<p>123412341234<br/></p>', '');
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -6690,14 +6399,7 @@ CREATE TABLE IF NOT EXISTS `pinery_property_content_1_1_2` (
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=2 ;
-
---
--- 转存表中的数据 `pinery_property_content_1_1_2`
---
-
-INSERT INTO `pinery_property_content_1_1_2` (`id`, `title`, `content`, `images`) VALUES
-(1, 'asddfasdf', '<p>asdfasdfasdfadsf<br/></p>', '');
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -6796,14 +6498,6 @@ CREATE TABLE IF NOT EXISTS `pinery_property_content_1_1_9` (
   `images` text NOT NULL COMMENT '图片',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- 表的结构 `pinery_property_content_1_3`
---
--- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
--- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
 
 -- --------------------------------------------------------
 
@@ -6948,14 +6642,6 @@ CREATE TABLE IF NOT EXISTS `pinery_property_content_1_3_9` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_2_1`
---
--- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
--- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
-
--- --------------------------------------------------------
-
---
 -- 表的结构 `pinery_property_content_2_1_0`
 --
 
@@ -7092,14 +6778,6 @@ CREATE TABLE IF NOT EXISTS `pinery_property_content_2_1_9` (
   `images` text NOT NULL COMMENT '图片',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- 表的结构 `pinery_property_content_2_3`
---
--- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
--- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
 
 -- --------------------------------------------------------
 
@@ -7244,14 +6922,6 @@ CREATE TABLE IF NOT EXISTS `pinery_property_content_2_3_9` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_3_1`
---
--- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
--- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
-
--- --------------------------------------------------------
-
---
 -- 表的结构 `pinery_property_content_3_1_0`
 --
 
@@ -7388,14 +7058,6 @@ CREATE TABLE IF NOT EXISTS `pinery_property_content_3_1_9` (
   `images` text NOT NULL COMMENT '图片',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- 表的结构 `pinery_property_content_3_3`
---
--- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
--- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
 
 -- --------------------------------------------------------
 
@@ -7540,14 +7202,6 @@ CREATE TABLE IF NOT EXISTS `pinery_property_content_3_3_9` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_4_1`
---
--- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
--- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
-
--- --------------------------------------------------------
-
---
 -- 表的结构 `pinery_property_content_4_1_0`
 --
 
@@ -7684,14 +7338,6 @@ CREATE TABLE IF NOT EXISTS `pinery_property_content_4_1_9` (
   `images` text NOT NULL COMMENT '图片',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- 表的结构 `pinery_property_content_4_3`
---
--- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
--- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
 
 -- --------------------------------------------------------
 
@@ -7836,14 +7482,6 @@ CREATE TABLE IF NOT EXISTS `pinery_property_content_4_3_9` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_5_1`
---
--- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
--- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
-
--- --------------------------------------------------------
-
---
 -- 表的结构 `pinery_property_content_5_1_0`
 --
 
@@ -7980,14 +7618,6 @@ CREATE TABLE IF NOT EXISTS `pinery_property_content_5_1_9` (
   `images` text NOT NULL COMMENT '图片',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- 表的结构 `pinery_property_content_5_3`
---
--- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
--- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
 
 -- --------------------------------------------------------
 
@@ -8132,14 +7762,6 @@ CREATE TABLE IF NOT EXISTS `pinery_property_content_5_3_9` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_6_1`
---
--- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
--- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
-
--- --------------------------------------------------------
-
---
 -- 表的结构 `pinery_property_content_6_1_0`
 --
 
@@ -8276,14 +7898,6 @@ CREATE TABLE IF NOT EXISTS `pinery_property_content_6_1_9` (
   `images` text NOT NULL COMMENT '图片',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- 表的结构 `pinery_property_content_6_3`
---
--- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
--- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
 
 -- --------------------------------------------------------
 
@@ -8428,14 +8042,6 @@ CREATE TABLE IF NOT EXISTS `pinery_property_content_6_3_9` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_7_1`
---
--- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
--- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
-
--- --------------------------------------------------------
-
---
 -- 表的结构 `pinery_property_content_7_1_0`
 --
 
@@ -8572,14 +8178,6 @@ CREATE TABLE IF NOT EXISTS `pinery_property_content_7_1_9` (
   `images` text NOT NULL COMMENT '图片',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- 表的结构 `pinery_property_content_7_3`
---
--- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
--- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
 
 -- --------------------------------------------------------
 
@@ -8724,14 +8322,6 @@ CREATE TABLE IF NOT EXISTS `pinery_property_content_7_3_9` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_8_1`
---
--- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
--- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
-
--- --------------------------------------------------------
-
---
 -- 表的结构 `pinery_property_content_8_1_0`
 --
 
@@ -8868,14 +8458,6 @@ CREATE TABLE IF NOT EXISTS `pinery_property_content_8_1_9` (
   `images` text NOT NULL COMMENT '图片',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- 表的结构 `pinery_property_content_8_3`
---
--- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
--- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
 
 -- --------------------------------------------------------
 
@@ -9020,14 +8602,6 @@ CREATE TABLE IF NOT EXISTS `pinery_property_content_8_3_9` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_9_1`
---
--- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
--- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
-
--- --------------------------------------------------------
-
---
 -- 表的结构 `pinery_property_content_9_1_0`
 --
 
@@ -9164,14 +8738,6 @@ CREATE TABLE IF NOT EXISTS `pinery_property_content_9_1_9` (
   `images` text NOT NULL COMMENT '图片',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- 表的结构 `pinery_property_content_9_3`
---
--- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
--- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
 
 -- --------------------------------------------------------
 
@@ -9316,14 +8882,6 @@ CREATE TABLE IF NOT EXISTS `pinery_property_content_9_3_9` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_10_1`
---
--- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
--- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
-
--- --------------------------------------------------------
-
---
 -- 表的结构 `pinery_property_content_10_1_0`
 --
 
@@ -9460,14 +9018,6 @@ CREATE TABLE IF NOT EXISTS `pinery_property_content_10_1_9` (
   `images` text NOT NULL COMMENT '图片',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- 表的结构 `pinery_property_content_10_3`
---
--- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
--- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
 
 -- --------------------------------------------------------
 
@@ -9612,14 +9162,6 @@ CREATE TABLE IF NOT EXISTS `pinery_property_content_10_3_9` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_11_1`
---
--- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
--- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
-
--- --------------------------------------------------------
-
---
 -- 表的结构 `pinery_property_content_11_1_0`
 --
 
@@ -9756,14 +9298,6 @@ CREATE TABLE IF NOT EXISTS `pinery_property_content_11_1_9` (
   `images` text NOT NULL COMMENT '图片',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- 表的结构 `pinery_property_content_11_3`
---
--- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
--- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
 
 -- --------------------------------------------------------
 
@@ -9908,14 +9442,6 @@ CREATE TABLE IF NOT EXISTS `pinery_property_content_11_3_9` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_12_1`
---
--- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
--- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
-
--- --------------------------------------------------------
-
---
 -- 表的结构 `pinery_property_content_12_1_0`
 --
 
@@ -10052,14 +9578,6 @@ CREATE TABLE IF NOT EXISTS `pinery_property_content_12_1_9` (
   `images` text NOT NULL COMMENT '图片',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- 表的结构 `pinery_property_content_12_3`
---
--- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
--- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
 
 -- --------------------------------------------------------
 
@@ -10204,14 +9722,6 @@ CREATE TABLE IF NOT EXISTS `pinery_property_content_12_3_9` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_13_1`
---
--- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
--- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
-
--- --------------------------------------------------------
-
---
 -- 表的结构 `pinery_property_content_13_1_0`
 --
 
@@ -10348,14 +9858,6 @@ CREATE TABLE IF NOT EXISTS `pinery_property_content_13_1_9` (
   `images` text NOT NULL COMMENT '图片',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- 表的结构 `pinery_property_content_13_3`
---
--- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
--- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
 
 -- --------------------------------------------------------
 
@@ -10500,14 +10002,6 @@ CREATE TABLE IF NOT EXISTS `pinery_property_content_13_3_9` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_property_content_14_1`
---
--- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
--- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
-
--- --------------------------------------------------------
-
---
 -- 表的结构 `pinery_property_content_14_1_0`
 --
 
@@ -10644,14 +10138,6 @@ CREATE TABLE IF NOT EXISTS `pinery_property_content_14_1_9` (
   `images` text NOT NULL COMMENT '图片',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- 表的结构 `pinery_property_content_14_3`
---
--- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
--- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
 
 -- --------------------------------------------------------
 
@@ -10913,14 +10399,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_1` (
   PRIMARY KEY (`id`),
   KEY `type` (`type`),
   KEY `source` (`source`,`userid`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='服务表_城市id' AUTO_INCREMENT=2 ;
-
---
--- 转存表中的数据 `pinery_services_1`
---
-
-INSERT INTO `pinery_services_1` (`id`, `update_time`, `add_time`, `type`, `userid`, `view_num`, `content_id`, `price`, `source`) VALUES
-(1, 1411567149, 1411567149, 1, 1, 1, 1, 123, 0);
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='服务表_城市id' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -11198,14 +10677,6 @@ CREATE TABLE IF NOT EXISTS `pinery_services_14` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_services_content_1`
---
--- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
--- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
-
--- --------------------------------------------------------
-
---
 -- 表的结构 `pinery_services_content_1_0`
 --
 
@@ -11229,14 +10700,7 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_1_1` (
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=2 ;
-
---
--- 转存表中的数据 `pinery_services_content_1_1`
---
-
-INSERT INTO `pinery_services_content_1_1` (`id`, `title`, `content`, `images`) VALUES
-(1, '1234', '<p>12341234<img src="http://pinery.b0.upaiyun.com/2014/09/24/141156713787423400.jpg!m01" title="" alt=""/></p>', 'http://pinery.b0.upaiyun.com/2014/09/24/141156713787423400.jpg!m01');
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -11349,14 +10813,6 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_1_9` (
   `images` text NOT NULL COMMENT '图片',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- 表的结构 `pinery_services_content_2`
---
--- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
--- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
 
 -- --------------------------------------------------------
 
@@ -11501,14 +10957,6 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_2_9` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_services_content_3`
---
--- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
--- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
-
--- --------------------------------------------------------
-
---
 -- 表的结构 `pinery_services_content_3_0`
 --
 
@@ -11645,14 +11093,6 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_3_9` (
   `images` text NOT NULL COMMENT '图片',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- 表的结构 `pinery_services_content_4`
---
--- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
--- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
 
 -- --------------------------------------------------------
 
@@ -11797,14 +11237,6 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_4_9` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_services_content_5`
---
--- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
--- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
-
--- --------------------------------------------------------
-
---
 -- 表的结构 `pinery_services_content_5_0`
 --
 
@@ -11941,14 +11373,6 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_5_9` (
   `images` text NOT NULL COMMENT '图片',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- 表的结构 `pinery_services_content_6`
---
--- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
--- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
 
 -- --------------------------------------------------------
 
@@ -12093,14 +11517,6 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_6_9` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_services_content_7`
---
--- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
--- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
-
--- --------------------------------------------------------
-
---
 -- 表的结构 `pinery_services_content_7_0`
 --
 
@@ -12237,14 +11653,6 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_7_9` (
   `images` text NOT NULL COMMENT '图片',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- 表的结构 `pinery_services_content_8`
---
--- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
--- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
 
 -- --------------------------------------------------------
 
@@ -12389,14 +11797,6 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_8_9` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_services_content_9`
---
--- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
--- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
-
--- --------------------------------------------------------
-
---
 -- 表的结构 `pinery_services_content_9_0`
 --
 
@@ -12533,14 +11933,6 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_9_9` (
   `images` text NOT NULL COMMENT '图片',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- 表的结构 `pinery_services_content_10`
---
--- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
--- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
 
 -- --------------------------------------------------------
 
@@ -12685,14 +12077,6 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_10_9` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_services_content_11`
---
--- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
--- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
-
--- --------------------------------------------------------
-
---
 -- 表的结构 `pinery_services_content_11_0`
 --
 
@@ -12829,14 +12213,6 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_11_9` (
   `images` text NOT NULL COMMENT '图片',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- 表的结构 `pinery_services_content_12`
---
--- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
--- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
 
 -- --------------------------------------------------------
 
@@ -12981,14 +12357,6 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_12_9` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `pinery_services_content_13`
---
--- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
--- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
-
--- --------------------------------------------------------
-
---
 -- 表的结构 `pinery_services_content_13_0`
 --
 
@@ -13125,14 +12493,6 @@ CREATE TABLE IF NOT EXISTS `pinery_services_content_13_9` (
   `images` text NOT NULL COMMENT '图片',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- 表的结构 `pinery_services_content_14`
---
--- 使用中(#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
--- 读取数据时发生错误: (#1168 - Unable to open underlying table which is differently defined or of non-MyISAM type or doesn't exist)
 
 -- --------------------------------------------------------
 

@@ -123,9 +123,10 @@ if ( ! function_exists('mobi_array_rand'))
 		$cn = count($data);
 		if($cn > $num){
 			$rkey = array_rand($data,$num);
+			$rkey = is_array($rkey) ? $rkey : array($rkey);
 			$rdata = array();
 			foreach ($rkey as $key => $value) {
-				$rdata[$value] = $data[$value];
+				$rdata[] = $data[$value];
 			}
 			return $rdata;
 		}else{

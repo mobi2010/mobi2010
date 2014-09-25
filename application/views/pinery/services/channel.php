@@ -18,28 +18,27 @@
 			$propertyMode = $initData['dataProperty']['mode'];
 		?>
 		<div class="channel">
-			<div class="line">
-				<?php
-
-				$text = '服务';
-				$dd = "";
-				$key = 1;
-				$dt = html_dt(array('body'=>html_a(array('text'=>$text,'href'=>mobi_url('services/lists',array('mid'=>$key))))));
-				$value = $channelData[$key];
-				if(empty($value)){
+			<?php				
+				$servicesType = $initData['dataServices']['type'];
+				$count = count($channelData);
+				$i == 0;
+				foreach ($channelData as $key => $value) {					
+					$i++;
+					if($i%2 == 1){echo '<div class="line">';$class='left';}else{$class='right';}
+					$text = $servicesType[$key]['name'];
+					$dd = "";
+					$dt = html_dt(array('body'=>html_a(array('text'=>$text,'href'=>mobi_url('services/lists',array('tid'=>$key))))));
+					if(empty($value)){
 						$dd .= html_dd(array('body'=>'暂无'));
 					}else{
 						foreach ($value as $ck => $cv) {
 							$dd .= html_dd(array('body'=>html_a(array('href'=>mobi_url('services/detail',array('id'=>$initData['cityId'].'_'.$cv['id'])),'text'=>$cv['title'],'target'=>'_blank'))));
 						}
 					}	
-				echo html_dl(array('body'=>$dt.$dd,'class'=>'left'));	
-
-
-				?>
-			</div>
-
-			
+					echo html_dl(array('body'=>$dt.$dd,'class'=>$class));	
+					if($i%2 == 0 || $i == $count){echo '</div>';}
+				}
+			?>
 		</div>
 	</div>
 </div>

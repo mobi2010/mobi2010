@@ -150,15 +150,15 @@ class Data extends MY_Controller {
 	function alterTable(){
 	}
 	function truncateTable(){
-		// $tables = $this->pineryModel->query("show tables;")->result_array();
-		// $noTables = array('pinery_member','pinery_member_system','pinery_car_type','pinery_city','pinery_market_type','pinery_property_decoration','pinery_property_mode','pinery_property_toward','pinery_property_type','pinery_services_type');
-		// foreach ($tables as $key => $value) {
-		// 	$table = $value['Tables_in_2010mobi'];
-		// 	if(!in_array($table, $noTables)){
-		// 		$this->pineryModel->query("truncate table ".$table);
-		// 	}
+		$tables = $this->pineryModel->query("show tables;")->result_array();
+		$noTables = array('pinery_member','pinery_member_system','pinery_car_type','pinery_city','pinery_market_type','pinery_property_decoration','pinery_property_mode','pinery_property_toward','pinery_property_type','pinery_services_type');
+		foreach ($tables as $key => $value) {
+			$table = $value['Tables_in_2010mobi'];
+			if(!in_array($table, $noTables)){
+				$this->pineryModel->query("truncate table ".$table);
+			}
 			
-		// }
+		}
 	}
 	function tableSqls($params){
 		$key = $params['key'];

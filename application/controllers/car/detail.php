@@ -28,7 +28,7 @@ class Detail extends MY_Controller {
 		$typeText = $this->initData['dataCar']['type'][$type]['name'];
 
 		$data['pineryTitle'] = $data['carData']['title'];
-		$data['memberInfo'] = $data['carData']['userid'] == $this->userId ? $this->userEntity : $this->member->info($data['carData']['userid']);
+		$data['memberInfo'] = $this->memberInfo($data['carData']['userid']);
 		$data['breadNavData'] = array('首页'=>base_url('/'),'车辆'=>base_url('car/channel'),$typeText=>mobi_url('car/lists',array('tid'=>$type)),$data['carData']['title']=>'text');
 
 

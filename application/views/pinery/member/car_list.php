@@ -50,14 +50,14 @@ $dataCar = $initData['dataCar'];
             }
             var id = $(this).attr('id');
             if(id == 'delete' && confirm("确定删除?")){
-                $.post("<?=base_url('member/index/deleteProperty');?>",$('#listDataForm').serialize(),function(dt){
+                $.post("<?=base_url('member/index/deleteCar');?>",$('#listDataForm').serialize(),function(dt){
                     $.mobi.alert(dt);
                     $.mobi.refresh();
                 })                
                 return false;
             }
             if(id == 'flash'){
-                $.post("<?=base_url('member/index/flashProperty');?>",$('#listDataForm').serialize(),function(dt){
+                $.post("<?=base_url('member/index/flashCar');?>",$('#listDataForm').serialize(),function(dt){
                     $.mobi.alert(dt);
                     $.mobi.refresh();
                 }) 

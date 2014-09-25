@@ -5,7 +5,7 @@
 .home-body-box dd a{color: #666666}
 .home-body-box dd a:hover{color: #FE7203;text-decoration:underline;}
 </style>
-<!-- <div class="home-nav">
+<div class="home-nav">
 	<dl>
 		<?php
 		$menuData = array('property'=>'房产','car'=>'车辆','market'=>'集市','services'=>'服务');
@@ -14,24 +14,17 @@
 		}
 		?>
 	</dl>	
-</div> -->
+</div>
 <div class="home-body">	
 	<?php
 		$propertyMode = $initData['dataProperty']['mode'];
-
 		$menuData = array('property'=>'房产','car'=>'车辆','market'=>'集市','services'=>'服务');
 		foreach ($menuData as $key => $value) {
-			if($key == 'property'){
-				$typeInfo = $initData['dataProperty']['mode'];
-			}else{
-				$typeKey = ucfirst($key);
-				$typeInfo = $initData['data'.$typeKey]['type'];
-			}
 			$title = html_a(array('text'=>$value,'href'=>base_url($key.'/channel')));
 			$listData  = $key.'Data';
 			$listDd = "";
 			foreach ($$listData as $key => $value) {
-				$listDd .= html_dd(array('body'=>'['.html_a(array('text'=>$typeInfo[$value[0]['type']]['name'])).']'.html_a(array('text'=>$value[0]['title']))));
+				$listDd .= html_dd(array('body'=>'['.html_a(array('text'=>$value['typeName'],'href'=>$value['typeUrl'])).']'.html_a(array('text'=>$value['title'],'href'=>$value['url']))));
 			}
 			
 			echo <<<ETO

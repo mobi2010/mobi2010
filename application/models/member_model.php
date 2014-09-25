@@ -10,9 +10,10 @@ class Member_model extends MY_Model {
 	 * @param  [type] $userId [description]
 	 * @return [type]         [description]
 	 */
-	function info($userId){
+	function info($userId,$source=0){
 		$userId = intval($userId);
-		return $this->dataFetchRow(array('table'=>'pinery_member','where'=>$userId));
+		$table = $source == 1 ? 'pinery_member_system' : 'pinery_member';
+		return $this->dataFetchRow(array('table'=>$table,'where'=>$userId));
 	}
 	/**
 	 * [帐号处理]

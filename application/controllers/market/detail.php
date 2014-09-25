@@ -28,7 +28,7 @@ class Detail extends MY_Controller {
 		$typeText = $this->initData['dataMarket']['type'][$type]['name'];
 
 		$data['pineryTitle'] = $data['marketData']['title'];
-		$data['memberInfo'] = $data['marketData']['userid'] == $this->userId ? $this->userEntity : $this->member->info($data['marketData']['userid']);
+		$data['memberInfo'] = $this->memberInfo($data['marketData']['userid']);
 		$data['breadNavData'] = array('首页'=>base_url('/'),'集市'=>base_url('market/channel'),$typeText=>mobi_url('market/lists',array('tid'=>$type)),$data['marketData']['title']=>'text');
 
 

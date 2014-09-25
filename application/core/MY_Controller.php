@@ -137,4 +137,14 @@ class MY_Controller extends CI_Controller
     	}
     	$exit && exit; 
     }
+    /**
+     * [会员信息]
+     * @return [type] [description]
+     */
+    protected function memberInfo($userid,$source=0){
+    	if($source == 0 && $userid == $this->userId){
+    		return $this->userEntity;
+    	}
+    	return $this->member->info($userid,$source);
+    }
 }

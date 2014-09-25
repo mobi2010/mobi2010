@@ -15,31 +15,29 @@
 		<?php 
 
 			$this->load->view('pinery/public/bread_nav',array('breadNavData'=>$breadNavData));
-			$propertyMode = $initData['dataProperty']['mode'];
 		?>
-		<div class="channel">
-			<div class="line">
-				<?php
-
-				$text = '车辆';
-				$dd = "";
-				$key = 1;
-				$dt = html_dt(array('body'=>html_a(array('text'=>$text,'href'=>mobi_url('car/lists',array('mid'=>$key))))));
-				$value = $channelData[$key];
-				if(empty($value)){
+		<div class="channel">			
+			<?php				
+				$carType = $initData['dataCar']['type'];
+				$count = count($channelData);
+				$i == 0;
+				foreach ($channelData as $key => $value) {					
+					$i++;
+					if($i%2 == 1){echo '<div class="line">';$class='left';}else{$class='right';}
+					$text = $carType[$key]['name'];
+					$dd = "";
+					$dt = html_dt(array('body'=>html_a(array('text'=>$text,'href'=>mobi_url('car/lists',array('tid'=>$key))))));
+					if(empty($value)){
 						$dd .= html_dd(array('body'=>'暂无'));
 					}else{
 						foreach ($value as $ck => $cv) {
 							$dd .= html_dd(array('body'=>html_a(array('href'=>mobi_url('car/detail',array('id'=>$initData['cityId'].'_'.$cv['id'])),'text'=>$cv['title'],'target'=>'_blank'))));
 						}
 					}	
-				echo html_dl(array('body'=>$dt.$dd,'class'=>'left'));	
-
-
-				?>
-			</div>
-
-			
+					echo html_dl(array('body'=>$dt.$dd,'class'=>$class));	
+					if($i%2 == 0 || $i == $count){echo '</div>';}
+				}
+			?>			
 		</div>
 	</div>
 </div>
