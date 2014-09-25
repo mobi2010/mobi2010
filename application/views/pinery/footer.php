@@ -13,9 +13,9 @@
 
 $onlineData = array(
 	array(
-		'title'=>'技术支持',
+		'title'=>'管理员',
 		'children'=>array(
-				array('qq'=>'574833141','tel'=>13141083366)
+				array('qq'=>'420012223','tel'=>13141083366)
 			)
 	)
 );

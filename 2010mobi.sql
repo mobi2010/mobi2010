@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主机: localhost
--- 生成日期: 2014 年 09 月 25 日 11:14
+-- 生成日期: 2014 年 09 月 25 日 13:02
 -- 服务器版本: 5.5.16
 -- PHP 版本: 5.3.8
 
@@ -39,7 +39,14 @@ CREATE TABLE IF NOT EXISTS `pinery_car_1` (
   PRIMARY KEY (`id`),
   KEY `type` (`type`),
   KEY `source` (`source`,`userid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='车辆表_城市id' AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='车辆表_城市id' AUTO_INCREMENT=2 ;
+
+--
+-- 转存表中的数据 `pinery_car_1`
+--
+
+INSERT INTO `pinery_car_1` (`id`, `update_time`, `add_time`, `type`, `userid`, `view_num`, `content_id`, `price`, `source`) VALUES
+(1, 1411642846, 1411642846, 1, 1, 5, 1, 24, 0);
 
 -- --------------------------------------------------------
 
@@ -340,7 +347,14 @@ CREATE TABLE IF NOT EXISTS `pinery_car_content_1_1` (
   `content` text NOT NULL COMMENT '描述',
   `images` text NOT NULL COMMENT '图片',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='内容表_城市id_用户id最后一位' AUTO_INCREMENT=2 ;
+
+--
+-- 转存表中的数据 `pinery_car_content_1_1`
+--
+
+INSERT INTO `pinery_car_content_1_1` (`id`, `title`, `content`, `images`) VALUES
+(1, '阿斯顿发生的发', '<p>asdfadsfadsf<br/></p>', '');
 
 -- --------------------------------------------------------
 
@@ -4862,10 +4876,18 @@ CREATE TABLE IF NOT EXISTS `pinery_member` (
   `qq_is` tinyint(1) NOT NULL COMMENT '0公开,1隐藏',
   `weixin_is` tinyint(1) NOT NULL COMMENT '0公开,1隐藏',
   `weibo_is` tinyint(1) NOT NULL COMMENT '0公开,1隐藏',
+  `status` tinyint(4) NOT NULL COMMENT '状态：0正常，9拉黑',
   PRIMARY KEY (`id`),
   KEY `email` (`email`),
   KEY `mobile` (`mobile`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='会员帐号' AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='会员帐号' AUTO_INCREMENT=2 ;
+
+--
+-- 转存表中的数据 `pinery_member`
+--
+
+INSERT INTO `pinery_member` (`id`, `email`, `mobile`, `password`, `source`, `names`, `city_id`, `addtime`, `logintime`, `step`, `org_name`, `org_id`, `avatar`, `long2ip`, `tel`, `qq`, `weixin`, `weibo`, `mobile_is`, `email_is`, `tel_is`, `qq_is`, `weixin_is`, `weibo_is`, `status`) VALUES
+(1, '1324@ads.com', 13141083366, 'e10adc3949ba59abbe56e057f20f883e', 1, '超哥', 1, 1411640729, 1411642831, 9, '', 0, 'http://pinery.b0.upaiyun.com/2014/09/25/141164074562662000.jpg', 2130706433, '', 0, '', '', 0, 0, 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -4898,6 +4920,7 @@ CREATE TABLE IF NOT EXISTS `pinery_member_system` (
   `qq_is` tinyint(1) NOT NULL COMMENT '0公开,1隐藏',
   `weixin_is` tinyint(1) NOT NULL COMMENT '0公开,1隐藏',
   `weibo_is` tinyint(1) NOT NULL COMMENT '0公开,1隐藏',
+  `status` tinyint(4) NOT NULL COMMENT '状态：0正常，9拉黑',
   PRIMARY KEY (`id`),
   KEY `email` (`email`),
   KEY `mobile` (`mobile`)
@@ -10379,6 +10402,22 @@ INSERT INTO `pinery_property_type` (`id`, `name`, `sort`) VALUES
 (4, '写字楼', 0),
 (5, '商铺', 0),
 (6, '自建房/厂房/仓库', 0);
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pinery_report`
+--
+
+CREATE TABLE IF NOT EXISTS `pinery_report` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `table` varchar(50) NOT NULL COMMENT '表名',
+  `table_id` bigint(20) NOT NULL COMMENT '表的id',
+  `userid` bigint(20) NOT NULL COMMENT '举报人id',
+  `add_time` int(11) NOT NULL COMMENT '举报时间',
+  `content` text NOT NULL COMMENT '举报理由',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='举报表' AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 

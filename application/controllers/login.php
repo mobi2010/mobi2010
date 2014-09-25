@@ -44,7 +44,9 @@ class Login extends MY_Controller {
 		if($account['password'] != $password){
 			$this->printer(array('msg'=>'密码错误','code'=>400));
 		}
-
+		if($account['status'] == 9){
+			$this->printer(array('msg'=>'您已被拉黑,请联系管理员','code'=>400));
+		}
 
 		mobi_setcookie('auth',$this->gycrypt->encrypt($account['id']),3600*24*30);
 

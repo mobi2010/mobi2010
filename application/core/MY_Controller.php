@@ -86,7 +86,8 @@ class MY_Controller extends CI_Controller
 				
 				break;			
 			default:
-				if(!$this->userId && $this->uriEntity['class'] != "login"){
+				if((!$this->userId || $this->userEntity['status'] != 0) && 
+					$this->uriEntity['class'] != "login"){
 					redirect('login');		
 				}
 				if($this->userEntity['step'] < 9 && 
