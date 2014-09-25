@@ -668,7 +668,7 @@ if ( ! function_exists('html_select')){
 if ( ! function_exists('html_checkbox')){
 	function html_checkbox($params){
 		$params['id'] = $params['id'] ? $params['id'] : $params['name'];
-		$checkbox ='<input type="checkbox"';
+		$checkbox ='<input type="checkbox" ';
 		$checkbox .= html_join($params,array('position','text','checked'));
 		$checkbox .= $params['checked'] ? ' checked="checked" ' : null;
 		$checkbox .= '/>';
@@ -686,7 +686,7 @@ if ( ! function_exists('html_submit')){
    function html_submit($params=array()){
     $params['id'] = $params['id'] ? $params['id'] : $params['name'];
     $params['value'] = $params['value'] ? $params['value'] : '提交';
-    $submit ='<input type="submit"';
+    $submit ='<input type="submit" ';
     $submit .= html_join($params);
     $submit .= '/>';
     return $submit;
@@ -701,7 +701,7 @@ if ( ! function_exists('html_button')){
    function html_button($params=array()){
 	    $params['id'] = $params['id'] ? $params['id'] : $params['name'];
 	    $params['value'] = $params['value'] ? $params['value'] : '提交';
-	    $submit ='<input type="button"';
+	    $submit ='<input type="button" ';
 	    $submit .= html_join($params);
 	    $submit .= '/>';
 	    return $submit;
