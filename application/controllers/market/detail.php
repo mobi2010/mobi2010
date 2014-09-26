@@ -24,6 +24,7 @@ class Detail extends MY_Controller {
 
 		$data['marketData'] = $this->market->getMarketRow(array('city_id'=>$city_id,'id'=>$id));
 		
+		$data['table'] = "pinery_market_{$city_id}";
 		$type = $data['marketData']['type'];
 		$typeText = $this->initData['dataMarket']['type'][$type]['name'];
 

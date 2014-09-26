@@ -58,7 +58,7 @@ $dataservices = $initData['dataservices'];
             </div>
             <div class="info-services">                
                 <?php
-                    echo html_div(array('body'=>$servicesData['title'],'class'=>'services-title'));
+                    echo html_div(array('body'=>$servicesData['title'].'&nbsp;'.html_a(array('text'=>'[举报]','class'=>'report','data-table'=>$table,'data-id'=>$servicesData['id'])),'class'=>'services-title'));
                     echo html_div(array('body'=>date('Y-m-d',$servicesData['update_time']).'发布&nbsp;&nbsp;浏览&nbsp;'.$servicesData['view_num'].'&nbsp;次','class'=>'color-grey'));                   
                     $servicesAttr = html_div(array('body'=>$servicesData['content']));
                     echo html_div(array('body'=>$servicesAttr,'class'=>'services-content'));
@@ -68,10 +68,6 @@ $dataservices = $initData['dataservices'];
 </div>    
 <script type="text/javascript">
     $(document).ready(function() {  
-        if($('.info-services').height() > $('.info-member').height()){
-            $('.info-member').height($('.info-services').height())
-        }else{
-            $('.info-services').height($('.info-member').height())
-        }
+        $.mobi.detailLayout($('.info-services'),$('.info-member'));
     })
 </script>

@@ -21,7 +21,7 @@ class Detail extends MY_Controller {
 		 
 
 		$this->services->updateViewnum(array('city_id'=>$city_id,'id'=>$id));//浏览数
-
+		$data['table'] = "pinery_services_{$city_id}";
 		$data['servicesData'] = $this->services->getServicesRow(array('city_id'=>$city_id,'id'=>$id));
 		
 		$type = $data['servicesData']['type'];

@@ -68,10 +68,6 @@ $dataProperty = $initData['dataProperty'];
 </div>    
 <script type="text/javascript">
     $(document).ready(function() {  
-        if($('.info-property').height() > $('.info-member').height()){
-            $('.info-member').height($('.info-property').height())
-        }else{
-            $('.info-property').height($('.info-member').height())
-        }
+        $.mobi.detailLayout($('.info-property'),$('.info-member'));
     })
 </script>

@@ -446,6 +446,13 @@
                 }
             }
             return dt;  
+        },
+        detailLayout:function($cObj,$mObj){//详细页详情           
+            setTimeout(function(){ 
+                var ch = $cObj.height(); 
+                var mh = $mObj.height(); 
+                ch > mh ? $mObj.height(ch) : $cObj.height(mh);
+            }, 50);   
         }
     }    
 })(jQuery)  

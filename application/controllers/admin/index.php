@@ -22,8 +22,13 @@ class Index extends Admin_Controller {
 	 * @return [type] [description]
 	 */
 	function menu(){
-		$data[] = array('title'=>'Android','url'=>'admin/android');
-		$data[] = array('title'=>'Wap','url'=>'admin/wap');
+		$data[] = array('title'=>'member','url'=>'admin/member');
+		$data[] = array('title'=>'report','url'=>'admin/report');
+		$data[] = array('title'=>'property','url'=>'admin/property');
+		$data[] = array('title'=>'car','url'=>'admin/car');
+		$data[] = array('title'=>'market','url'=>'admin/market');
+		$data[] = array('title'=>'services','url'=>'admin/services');
+		$data[] = array('title'=>'import','url'=>'admin/import');
 		return $data; 
 	}
 }

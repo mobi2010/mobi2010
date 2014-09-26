@@ -58,7 +58,7 @@ $datacar = $initData['datacar'];
             </div>
             <div class="info-car">                
                 <?php
-                    echo html_div(array('body'=>$carData['title'],'class'=>'car-title'));
+                    echo html_div(array('body'=>$carData['title'].'&nbsp;'.html_a(array('text'=>'[举报]','class'=>'report','data-table'=>$table,'data-id'=>$carData['id'])),'class'=>'car-title'));
                     echo html_div(array('body'=>date('Y-m-d',$carData['update_time']).'发布&nbsp;&nbsp;浏览&nbsp;'.$carData['view_num'].'&nbsp;次','class'=>'color-grey'));                   
                     $carAttr = html_div(array('body'=>$carData['content']));
                     echo html_div(array('body'=>$carAttr,'class'=>'car-content'));
@@ -67,11 +67,7 @@ $datacar = $initData['datacar'];
         </div>
 </div>    
 <script type="text/javascript">
-    $(document).ready(function() {  
-        if($('.info-car').height() > $('.info-member').height()){
-            $('.info-member').height($('.info-car').height())
-        }else{
-            $('.info-car').height($('.info-member').height())
-        }
+    $(document).ready(function() {                
+        $.mobi.detailLayout($('.info-car'),$('.info-member'));
     })
 </script>

@@ -13,7 +13,14 @@ class Admin_Controller extends CI_Controller
 	{
 		parent::__construct();
 		$this->uriEntity();//uri实体数据
-		$this->load->model('Mobi_model', 'mobiModel');//会员类
+		$this->load->model('Pinery_model', 'pineryModel');//
+		$this->load->model('Member_model', 'member');//会员
+		$this->load->model('Property_model', 'property');//房产
+		$this->load->model('Car_model', 'car');//车辆
+		$this->load->model('Market_model', 'market');//集市
+		$this->load->model('Services_model', 'services');//服务
+		$this->load->library('gycrypt');
+		$this->load->library('image');
 		$this->auth();//验证
 	}
 	/**

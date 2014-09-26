@@ -1,0 +1,37 @@
+*{padding:0;margin:0;}
+a{text-decoration:none; color:#006699; font-size:13px}
+a:hover{text-decoration:underline; color:#FF0000}
+
+table{
+	border-collapse:collapse;
+}
+table td,table th{border:#E0E0E0 2px solid;height: 30px;text-align: center;}
+table tr:hover{background: #D3DCE3;}
+
+
+.member-page{
+	display:inline-block;
+}
+.member-page a{cursor: pointer;display: inline-block;vertical-align: middle;text-align:center;padding:5px 10px;background:#EBEBEB;color:#333333;border:#CCCCCC thin solid;}
+
+.member-page a.on{background:#FE7203;color: #fff;border:#FE7203 thin solid;}
+
+.w10{width:10%}
+.w15{width:15%}
+.w20{width:20%}
+.w30{width:30%}
+.w40{width:40%}
+.w50{width:50%}
+.w60{width:60%}
+.w70{width:70%}
+.w80{width:80%}
+.w90{width:90%}
+
+.wp100{width:100px}
+.wp200{width:200px}
+.wp300{width:300px}
+.wp400{width:400px}
+.wp500{width:500px}
+.wp600{width:600px}
+.wp700{width:700px}
+.wp800{width:800px}

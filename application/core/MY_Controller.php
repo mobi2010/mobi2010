@@ -24,7 +24,7 @@ class MY_Controller extends CI_Controller
 		$this->load->model('Car_model', 'car');//车辆
 		$this->load->model('Market_model', 'market');//集市
 		$this->load->model('Services_model', 'services');//服务
-		$this->load->library('gycrypt');	
+		$this->load->library('gycrypt');
 		$this->load->library('image');
 		$this->uriEntity();//uri实体数据		
 
