@@ -60,7 +60,7 @@ $dataProperty = $initData['dataProperty'];
             </div>
             <div class="info-property">                
                 <?php
-                    echo html_div(array('body'=>$propertyRow['title'].'&nbsp;'.html_a(array('text'=>'[举报]','class'=>'report','data-table'=>$table,'data-id'=>$propertyRow['id'])),'class'=>'property-title'));
+                    echo html_div(array('body'=>$propertyRow['title'].'&nbsp;'.html_a(array('text'=>'[举报]','class'=>'report','data-type'=>'property','data-id'=>$dataId)),'class'=>'property-title'));
                     echo html_div(array('body'=>date('Y-m-d',$propertyRow['update_time']).'发布&nbsp;&nbsp;浏览&nbsp;'.$propertyRow['view_num'].'&nbsp;次','class'=>'color-grey'));
 
                     $propertyAttr = html_div(array('body'=>'小区：'.$propertyRow['name']));

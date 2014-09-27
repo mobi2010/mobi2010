@@ -218,12 +218,12 @@
             //report
             $('.report').unbind('click').bind('click',function(){                
                 $('#reportCover').remove();$('.report-win').remove();
-                var id = $(this).attr('data-id');
-                var table = $(this).attr('data-table');
+                var dataId = $(this).attr('data-id');
+                var dataType = $(this).attr('data-type');
                 var zindex = 1;
                 var coverObj = cover.init({'id':'reportCover','z-index':zindex});
                 coverObj.show();
-                $.post("/util/common/report",{'id':id,'table':table},function(dt){
+                $.post("/util/common/report",{'dataId':dataId,'dataType':dataType},function(dt){
                     $(dt).center({'z-index':(zindex+1),'y':-50,'height':200,'width':400}).appendTo('body');
                 })
                 $.mobi.onmousewheel(false);

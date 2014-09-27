@@ -58,7 +58,7 @@ $dataMarket = $initData['dataMarket'];
             </div>
             <div class="info-market">                
                 <?php
-                    echo html_div(array('body'=>$marketData['title'].'&nbsp;'.html_a(array('text'=>'[举报]','class'=>'report','data-table'=>$table,'data-id'=>$marketData['id'])),'class'=>'market-title'));
+                    echo html_div(array('body'=>$marketData['title'].'&nbsp;'.html_a(array('text'=>'[举报]','class'=>'report','data-type'=>'market','data-id'=>$dataId)),'class'=>'market-title'));
                     echo html_div(array('body'=>date('Y-m-d',$marketData['update_time']).'发布&nbsp;&nbsp;浏览&nbsp;'.$marketData['view_num'].'&nbsp;次','class'=>'color-grey'));                   
                     $marketAttr = html_div(array('body'=>$marketData['content']));
                     echo html_div(array('body'=>$marketAttr,'class'=>'market-content'));

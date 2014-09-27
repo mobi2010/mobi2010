@@ -18,7 +18,7 @@ class Detail extends MY_Controller {
 		$city_id = $this->initData['dataCity'][$ids[0]] ? intval($ids[0]) : 1; 
 		$id = intval($ids[1]);
 
-		$data['table'] = "pinery_car_{$city_id}"; 
+		$data['dataId'] = $_GET['id']; 
 
 		$this->car->updateViewnum(array('city_id'=>$city_id,'id'=>$id));//浏览数
 

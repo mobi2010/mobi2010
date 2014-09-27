@@ -24,7 +24,7 @@
 			$listData  = $key.'Data';
 			$listDd = "";
 			foreach ($$listData as $key => $value) {
-				$listDd .= html_dd(array('body'=>'['.html_a(array('text'=>$value['typeName'],'href'=>$value['typeUrl'])).']'.html_a(array('text'=>$value['title'],'href'=>$value['url']))));
+				$listDd .= html_dd(array('body'=>'['.html_a(array('text'=>$value['typeName'],'href'=>$value['typeUrl'])).']'.html_a(array('target'=>'_blank','text'=>$value['title'],'href'=>$value['url']))));
 			}
 			
 			echo <<<ETO

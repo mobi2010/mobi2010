@@ -15,13 +15,13 @@ class Common extends MY_Controller {
 	 * @return [type] [description]
 	 */
 	function report(){
-		$data['table'] = $_POST['table'];
-		$data['id'] = $_POST['id'];
+		$data['dataType'] = $_POST['dataType'];
+		$data['dataId'] = $_POST['dataId'];
 		$this->load->view('pinery/public/report',$data);
 	}
 	function reportSave(){
-		$params['table'] = mobi_string_filter($_POST['table']);
-		$params['table_id'] = intval($_POST['id']);
+		$params['info_type'] = mobi_string_filter($_POST['dataType']);
+		$params['info_id'] = mobi_string_filter($_POST['dataId']);
 		$params['content'] = mobi_string_filter($_POST['content']);
 		$params['userid'] = intval($this->userId);
 		$params['add_time'] = time(); 

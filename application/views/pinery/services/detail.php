@@ -58,7 +58,7 @@ $dataservices = $initData['dataservices'];
             </div>
             <div class="info-services">                
                 <?php
-                    echo html_div(array('body'=>$servicesData['title'].'&nbsp;'.html_a(array('text'=>'[举报]','class'=>'report','data-table'=>$table,'data-id'=>$servicesData['id'])),'class'=>'services-title'));
+                    echo html_div(array('body'=>$servicesData['title'].'&nbsp;'.html_a(array('text'=>'[举报]','class'=>'report','data-type'=>'services','data-id'=>$dataId)),'class'=>'services-title'));
                     echo html_div(array('body'=>date('Y-m-d',$servicesData['update_time']).'发布&nbsp;&nbsp;浏览&nbsp;'.$servicesData['view_num'].'&nbsp;次','class'=>'color-grey'));                   
                     $servicesAttr = html_div(array('body'=>$servicesData['content']));
                     echo html_div(array('body'=>$servicesAttr,'class'=>'services-content'));

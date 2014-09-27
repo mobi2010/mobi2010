@@ -11,14 +11,14 @@
     	$('#reportSure').click(function(){
     		var dialog = {'code':400};
     		var content = $('.report-text').val();
-    		var table = "<?=$table;?>";
-    		var id = "<?=$id;?>";
+    		var dataType = "<?=$dataType;?>";
+    		var dataId = "<?=$dataId;?>";
     		if(!$.mobi.isZlength(content,0,5)){
     			dialog['msg'] = "内容不能少于5个字";
     			$.mobi.alert(dialog);
     			return false;
     		}
-    		$.post("<?=base_url('util/common/reportSave');?>",{'table':table,'id':id,'content':content},function(dt){
+    		$.post("<?=base_url('util/common/reportSave');?>",{'dataType':dataType,'dataId':dataId,'content':content},function(dt){
     			$.mobi.alert(dt);
     			$('#reportCover').remove();
     			$('.report-win').remove();     
