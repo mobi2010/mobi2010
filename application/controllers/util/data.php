@@ -72,7 +72,7 @@ class Data extends MY_Controller {
 		$citys = $this->pineryModel->dataFetchArray(array('table'=>'pinery_city','skey'=>'id'));
 		$tableTypes = array('property','car','market','services');
 
-		//位置表
+		// //位置表
 		// foreach ($citys as $cityId => $value) {
 		// 	$params = array();
 		// 	$params['table'] = "pinery_location_{$cityId}";
@@ -81,7 +81,7 @@ class Data extends MY_Controller {
 		// 	$this->pineryModel->query($sql);
 		// }		
 		
-		//索引表
+		// //索引表
 		// foreach ($citys as $cityId => $value) {
 		// 	foreach ($tableTypes as $key => $value) {	
 		// 		$params = array();			
@@ -100,7 +100,7 @@ class Data extends MY_Controller {
 		// 		}
 		// 	}
 		// }
-		//内容表
+		// //内容表
 		// foreach ($citys as $cityId => $value) {
 		// 	foreach ($tableTypes as $key => $value) {
 		// 		$mtables = array();

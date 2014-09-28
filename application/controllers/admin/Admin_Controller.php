@@ -21,6 +21,9 @@ class Admin_Controller extends CI_Controller
 		$this->load->model('Services_model', 'services');//服务
 		$this->load->library('gycrypt');
 		$this->load->library('image');
+		
+		$this->init();
+
 		$this->auth();//验证
 	}
 	/**
@@ -31,6 +34,39 @@ class Admin_Controller extends CI_Controller
 		if ($this->uriEntity['class'] != 'login' && !$_SESSION['logined']) {
 			redirect('admin/login');
 		}
+	}
+	/**
+	* [初始数据]
+	* @return [type] [description]
+	*/
+	protected function init(){
+		
+		//网站头信息
+		$this->initData['dataCity'] = $dataCity = require(APPPATH.'/config/data_city.php');
+
+
+		//导航
+		$this->initData['dataMenu'] = require(APPPATH.'/config/data_menu.php');
+
+		//来源
+		$this->initData['dataSource'] = array(1=>'个人','机构');
+
+		//房产
+		$this->initData['dataProperty'] = require(APPPATH.'/config/data_property.php');
+
+		//车辆
+		$this->initData['dataCar'] = require(APPPATH.'/config/data_car.php');
+
+		//集市
+		$this->initData['dataMarket'] = require(APPPATH.'/config/data_market.php');
+
+		//服务
+		$this->initData['dataServices'] = require(APPPATH.'/config/data_services.php');
+
+		$this->load->vars('initData',$this->initData);//映射到模板
+
+
+		return $this->initData;
 	}
 	/**
 	 * [uri实体数据整理]
