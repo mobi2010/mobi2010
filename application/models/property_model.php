@@ -42,9 +42,7 @@ class Property_model extends MY_Model {
 		}
 		$data['address'] = mobi_string_filter($argv['address']);
 		$data['map'] = !empty($map) ? addslashes(json_encode($map)) : "";
-		// $data['aliases'] = mobi_string_filter($argv['aliases']);
-		// $data['street_id'] = intval($argv['street_id']);
-		// $data['road_id'] = intval($argv['road_id']);		
+		
 		
 		$params['data'] = $data;
 		return $this->dataInsert($params);
@@ -74,12 +72,10 @@ class Property_model extends MY_Model {
 		$city_id = intval($argv['city_id']);
 		if(empty($argv['ids'])){return false;}
 
-		if(in_array($mode, array(1,3))){
-			$ids = implode(',', $argv['ids']);
-			foreach ($argv['ids'] as $key => $value) {
-				$data = $this->dataFetchRow(array('table'=>"pinery_property_{$city_id}_{$mode}",'where'=>$value));
-				$this->dataDelete(array('table'=>"pinery_property_content_{$city_id}_{$mode}_".substr($data['userid'], -1),'where'=>$data['content_id']));	
-			}
+		$ids = implode(',', $argv['ids']);
+		foreach ($argv['ids'] as $key => $value) {
+			$data = $this->dataFetchRow(array('table'=>"pinery_property_{$city_id}_{$mode}",'where'=>$value));
+			$this->dataDelete(array('table'=>"pinery_property_content_{$city_id}_{$mode}_".substr($data['userid'], -1),'where'=>$data['content_id']));	
 		}
 		$params['table'] = "pinery_property_{$city_id}_{$mode}";
 		$params['where'] = "id in ({$ids})";
@@ -122,9 +118,8 @@ class Property_model extends MY_Model {
 				}
 				break;
 			case 2://求租
-			case 4://求购
-				$data['title'] = mobi_string_filter($argv['title']);
-				$data['content'] = mobi_string_filter($argv['content']);				
+			case 4://求购						
+				$data['content_id'] = $this->addContent($argv);				
 				break;
 			case 3://出售
 				$data['location_id'] = $this->addLocation($argv);
@@ -157,6 +152,7 @@ class Property_model extends MY_Model {
 	function getLocationRow($argv=array()){
 		$city_id = intval($argv['city_id']);
 		$id = intval($argv['id']);
+		if(!$id){return array();}
 		return $this->dataFetchRow(array('table'=>'pinery_location_'.$city_id,'where'=>$id));
 	}
 	/**
@@ -168,6 +164,7 @@ class Property_model extends MY_Model {
 		$id = intval($argv['id']);
 		$city_id = intval($argv['city_id']);
 		$mode = $argv['mode'];
+		if(!$id){return array();}
 		$data = $this->dataFetchRow(array('table'=>"pinery_property_content_{$city_id}_{$mode}_".substr($userId, -1),'where'=>$id));
 		$data['images'] = $data['images'] ? explode('|', $data['images']) : array();
 		return $data;
@@ -184,10 +181,8 @@ class Property_model extends MY_Model {
 		if(empty($data)){
 			return array();
 		}
-		if(in_array($mode, array(1,3))){
-			$data += $this->getLocationRow(array('city_id'=>$city_id,'id'=>$data['location_id']));
-			$data += $this->getContentRow(array('mode'=>$mode,'userid'=>$data['userid'],'id'=>$data['content_id'],'city_id'=>$city_id));
-		}
+		$data += $this->getLocationRow(array('city_id'=>$city_id,'id'=>$data['location_id']));
+		$data += $this->getContentRow(array('mode'=>$mode,'userid'=>$data['userid'],'id'=>$data['content_id'],'city_id'=>$city_id));
 		return $data;		
 	}
 	/**
@@ -201,14 +196,10 @@ class Property_model extends MY_Model {
 		if(empty($resData)){
 			return array();
 		}
-		if(in_array($mode, array(1,3))){
-			foreach ($resData as $key => $value) {
-				$value += $this->getLocationRow(array('city_id'=>$city_id,'id'=>$value['location_id']));
-				$value += $this->getContentRow(array('mode'=>$mode,'userid'=>$value['userid'],'id'=>$value['content_id'],'city_id'=>$city_id));
-				$data[$key] = $value;
-			}			
-		}else{
-			$data = $resData;
+		foreach ($resData as $key => $value) {
+			$value += $this->getLocationRow(array('city_id'=>$city_id,'id'=>$value['location_id']));
+			$value += $this->getContentRow(array('mode'=>$mode,'userid'=>$value['userid'],'id'=>$value['content_id'],'city_id'=>$city_id));
+			$data[$key] = $value;
 		}
 		return $data;		
 	}

@@ -13,7 +13,6 @@ class Report extends Admin_Controller {
 		$page = intval($_GET['p']) > 0 ? intval($_GET['p']) : 1;
 		$size = 30;
 		$start = ($page-1)*$size;
-		$data['names'] = $names = mobi_string_filter($_GET['names']);
 		$params['table'] = "pinery_report";
 	
 		$total = $this->pineryModel->dataFetchCount($params);

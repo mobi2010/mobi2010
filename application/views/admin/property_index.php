@@ -5,50 +5,42 @@ $dataCity = $initData['dataCity'];
 ?>
 <form id="propertyForm">
 <?php
-echo html_tags(array('name'=>'city','class'=>'btn-grey-s','options'=>$dataCity,'sval'=>'name','blank'=>'&nbsp;','checked'=>1));
+echo html_tags(array('checked'=>$city_id,'name'=>'cid','sval'=>'name','class'=>'btn-grey-s','options'=>$dataCity,'blank'=>'&nbsp;','href'=>mobi_query_url('admin/property/index',array('cid'))));
+
 echo "<br/><br/>";
-echo html_tags(array('name'=>'mode','class'=>'btn-grey-s','options'=>$dataProperty["mode"],'sval'=>'name','blank'=>'&nbsp;','checked'=>1));
+echo html_tags(array('checked'=>$mode,'name'=>'mid','sval'=>'name','class'=>'btn-grey-s','options'=>$dataProperty["mode"],'blank'=>'&nbsp;','href'=>mobi_query_url('admin/property/index',array('mid'))));
 echo "<br/><br/>";
 
 ?>
 <table width="100%" border="1">
     <tr>       
         <th></th> 
-        <th>id</th>
-        <th>info_type</th>
-        <th>info_id</th>
-        <th>userid</th>
-        <th>add_time</th>
-        <th>content</th>
-        <th>status</th>
+        <th>title</th>
+        <th>update_time</th>
         <th>operation</th>
     </tr>
     <?php
         if(!empty($dataList)){
             foreach ($dataList as $key => $value) {
-                $status = html_text(array('size'=>6,'value'=>$value['status'],'name'=>"status[{$value['id']}]"));
-                $addtime = date('Y-m-d H:i:s',$value['add_time']);
-                $view = html_a(array('href'=>mobi_url($value['info_type'].'/detail',array('id'=>$value['info_id'])),'text'=>'view','target'=>'_blank'));
+                $update_time = date('Y-m-d H:i:s',$value['update_time']);
+                $view = html_a(array('href'=>mobi_url('property/detail',array('id'=>$city_id.'_'.$mode.'_'.$value['id'])),'text'=>'view','target'=>'_blank'));
                 echo <<<ETO
                 <tr>
                     <td><input type="checkbox" id="ckbOption[]" value="{$value['id']}" name="ckbOption[]" /></td>
-                    <td>{$value['id']}</td>
-                    <td>{$value['info_type']}</td>
-                    <td>{$value['info_id']}</td>
-                    <td>{$value['userid']}</td>
-                    <td>{$addtime}</td>
-                    <td>{$value['content']}</td>
-                    <td>{$status}</td>
+                    <td>{$value['title']}</td>
+                    <td>{$update_time}</td>
                     <td>{$view}</td>
                 </tr>
 ETO;
             }
         }
-
+        echo html_hidden(array('name'=>'mid','value'=>$mode));
+        echo html_hidden(array('name'=>'cid','value'=>$city_id));
     ?>
     <tr>        
-        <th><input type="checkbox" id="ckbAll" class="ckbAll" /></th>
-        <th colspan="15"><?=html_button(array('value'=>'删除','name'=>'deleteBtn'));?> <?=html_button(array('value'=>'修改','name'=>'updateBtn'));?></th>
+        <td><input type="checkbox" id="ckbAll" class="ckbAll" /></td>
+        <td><?=html_button(array('value'=>'删除','name'=>'deleteBtn'));?> </td>
+        <td colspan="2" style="text-align:right "><?=$pageView;?> </td>
     </tr>
 </table>
 </form>

@@ -72,70 +72,71 @@ class Data extends MY_Controller {
 		$citys = $this->pineryModel->dataFetchArray(array('table'=>'pinery_city','skey'=>'id'));
 		$tableTypes = array('property','car','market','services');
 
-		// //位置表
-		// foreach ($citys as $cityId => $value) {
-		// 	$params = array();
-		// 	$params['table'] = "pinery_location_{$cityId}";
-		// 	$params['key'] = "location"; 
-		// 	$sql = $this->tableSqls($params);
-		// 	$this->pineryModel->query($sql);
-		// }		
+		//位置表
+		foreach ($citys as $cityId => $value) {
+			$params = array();
+			$params['table'] = "pinery_location_{$cityId}";
+			$params['key'] = "location"; 
+			$sql = $this->tableSqls($params);
+			$this->pineryModel->query($sql);
+		}		
 		
-		// //索引表
-		// foreach ($citys as $cityId => $value) {
-		// 	foreach ($tableTypes as $key => $value) {	
-		// 		$params = array();			
-		// 		if($value == "property"){
-		// 			for($i=1;$i<5;$i++){
-		// 				$params['table'] = "pinery_{$value}_{$cityId}_".$i;
-		// 				$params['key'] = "{$value}_{$i}"; 
-		// 				$sql = $this->tableSqls($params);
-		// 				$this->pineryModel->query($sql);
-		// 			}					
-		// 		}else{
-		// 			$params['table'] = "pinery_{$value}_{$cityId}";
-		// 			$params['key'] = $value; 
-		// 			$sql = $this->tableSqls($params);
-		// 			$this->pineryModel->query($sql);
-		// 		}
-		// 	}
-		// }
-		// //内容表
-		// foreach ($citys as $cityId => $value) {
-		// 	foreach ($tableTypes as $key => $value) {
-		// 		$mtables = array();
-		// 		$params = array();
-		// 		if($value == "property"){
-		// 			foreach (array(1,3) as $key => $mode) {
-		// 				for($i=0;$i<10;$i++){
-		// 					$params = array();
-		// 					$mtables[] = $params['table'] = "pinery_{$value}_content_{$cityId}_{$mode}_".$i;
-		// 					$params['key'] = "content"; 
-		// 					$sql = $this->tableSqls($params);
-		// 					$this->pineryModel->query($sql);
-		// 				}				
-		// 				$params['table'] = "pinery_{$value}_content_{$cityId}_{$mode}";
-		// 				$params['key'] = "content_merge"; 
-		// 				$params['mtables'] = $mtables; 
-		// 				$sql = $this->tableSqls($params);
-		// 				$this->pineryModel->query($sql);
-		// 			}
-		// 		}else{	
-		// 			for($i=0;$i<10;$i++){
-		// 				$params = array();
-		// 				$mtables[] = $params['table'] = "pinery_{$value}_content_{$cityId}_".$i;
-		// 				$params['key'] = "content"; 
-		// 				$sql = $this->tableSqls($params);
-		// 				$this->pineryModel->query($sql);
-		// 			}				
-		// 			$params['table'] = "pinery_{$value}_content_{$cityId}";
-		// 			$params['key'] = "content_merge"; 
-		// 			$params['mtables'] = $mtables; 
-		// 			$sql = $this->tableSqls($params);
-		// 			$this->pineryModel->query($sql);
-		// 		}
-		// 	}
-		// }	
+		//索引表
+		foreach ($citys as $cityId => $value) {
+			foreach ($tableTypes as $key => $value) {	
+				$params = array();			
+				if($value == "property"){
+					for($i=1;$i<5;$i++){
+						$params['table'] = "pinery_{$value}_{$cityId}_".$i;
+						$params['key'] = "{$value}_{$i}"; 
+						$sql = $this->tableSqls($params);
+						$this->pineryModel->query($sql);
+					}					
+				}else{
+					$params['table'] = "pinery_{$value}_{$cityId}";
+					$params['key'] = $value; 
+					$sql = $this->tableSqls($params);
+					$this->pineryModel->query($sql);
+				}
+			}
+		}
+		//内容表
+		foreach ($citys as $cityId => $value) {
+			foreach ($tableTypes as $key => $value) {
+				$mtables = array();
+				$params = array();
+				if($value == "property"){
+					foreach (array(1,2,3,4) as $key => $mode) {
+						$mtables = array();
+						for($i=0;$i<10;$i++){
+							$params = array();
+							$mtables[] = $params['table'] = "pinery_{$value}_content_{$cityId}_{$mode}_".$i;
+							$params['key'] = "content"; 
+							$sql = $this->tableSqls($params);
+							$this->pineryModel->query($sql);
+						}				
+						$params['table'] = "pinery_{$value}_content_{$cityId}_{$mode}";
+						$params['key'] = "content_merge"; 
+						$params['mtables'] = $mtables; 
+						$sql = $this->tableSqls($params);
+						$this->pineryModel->query($sql);
+					}
+				}else{	
+					for($i=0;$i<10;$i++){
+						$params = array();
+						$mtables[] = $params['table'] = "pinery_{$value}_content_{$cityId}_".$i;
+						$params['key'] = "content"; 
+						$sql = $this->tableSqls($params);
+						$this->pineryModel->query($sql);
+					}				
+					$params['table'] = "pinery_{$value}_content_{$cityId}";
+					$params['key'] = "content_merge"; 
+					$params['mtables'] = $mtables; 
+					$sql = $this->tableSqls($params);
+					$this->pineryModel->query($sql);
+				}
+			}
+		}	
 	}
 	function dropTable(){
 		// $tables = $this->pineryModel->query("show tables;")->result_array();
@@ -228,10 +229,9 @@ class Data extends MY_Controller {
 		$sqls['property_2'] = "CREATE TABLE IF NOT EXISTS `{$table}` (
 		  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
 		  `type` tinyint(4) NOT NULL COMMENT '类型',
-		  `title` varchar(30) NOT NULL COMMENT '标题',
-		  `content` text NOT NULL COMMENT '内容',
 		  `add_time` int(11) NOT NULL COMMENT '添加时间',
 		  `update_time` int(11) NOT NULL COMMENT '修改时间',
+		  `content_id` bigint(20) NOT NULL COMMENT '内容id',
 		  `view_num` int(11) NOT NULL COMMENT '浏览数',
 		  `userid` bigint(20) NOT NULL COMMENT '用户id',
 		  `source` tinyint(4) NOT NULL COMMENT '来源:0会员,1系统',
@@ -269,9 +269,8 @@ class Data extends MY_Controller {
 		$sqls['property_4'] = "CREATE TABLE IF NOT EXISTS `{$table}` (
 		  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
 		  `type` tinyint(4) NOT NULL COMMENT '类型',
-		  `title` varchar(30) NOT NULL COMMENT '标题',
-		  `content` text NOT NULL COMMENT '内容',
 		  `add_time` int(11) NOT NULL COMMENT '添加时间',
+		  `content_id` bigint(20) NOT NULL COMMENT '内容id',
 		  `update_time` int(11) NOT NULL COMMENT '修改时间',
 		  `view_num` int(11) NOT NULL COMMENT '浏览数',
 		  `userid` bigint(20) NOT NULL COMMENT '用户id',
@@ -310,14 +309,12 @@ class Data extends MY_Controller {
 		
 		$mtables =  empty($params['mtables']) ? "" : implode(',', $params['mtables']);
 		$sqls['content_merge'] = "CREATE TABLE IF NOT EXISTS `{$table}` (
-				  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-				  `title` varchar(30) NOT NULL COMMENT '标题',
-				  `content` text NOT NULL COMMENT '描述',
-				  `images` text NOT NULL COMMENT '图片',
-				  `userid` bigint(20) NOT NULL COMMENT '用户id',
-				  PRIMARY KEY (`id`),
-				  KEY `userid` (`userid`,`title`)
-				) ENGINE=MERGE UNION=(".$mtables.") INSERT_METHOD=LAST";
+			`id` bigint(20) NOT NULL AUTO_INCREMENT,
+			`title` varchar(30) NOT NULL COMMENT '标题',
+			`content` text NOT NULL COMMENT '描述',
+			`images` text NOT NULL COMMENT '图片',
+			PRIMARY KEY (`id`)
+		) ENGINE=MERGE UNION=(".$mtables.") INSERT_METHOD=LAST";
 		return $sqls[$key];
 	}
 	

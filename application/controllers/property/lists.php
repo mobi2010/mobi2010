@@ -61,7 +61,11 @@ class Lists extends MY_Controller {
 		$type = $params['type'];
 		$city_id = $params['city_id'];
 		if($q){
-			$where[] = "title like binary '%{$q}%'";
+			$contentIds = $this->property->dataFetchArray(array('table'=>"pinery_property_content_{$city_id}_{$mode}",'skey'=>'id','sval'=>'id','where'=>'title like binary "%'.$q.'%"'));
+			if(!empty($contentIds)){
+				$where[] = 'content_id in('.implode(',', $contentIds).')';
+			}
+			$data['q'] = $q;
 		}
 		if($type){
 			$where[] = 'type='.$type;
@@ -105,13 +109,13 @@ class Lists extends MY_Controller {
 		$city_id = $params['city_id'];
 		$type = $params['type'];
 		if($q){
-			$locationIds = $this->property->dataFetchArray(array('table'=>'pinery_location_'.$city_id,'skey'=>'id','sval'=>'id','where'=>'name like binary "%'.$q.'%" or address like binary "%'.$q.'%"'));
-			if(!empty($locationIds)){
-				$where[] = 'location_id in('.implode(',', $locationIds).')';
+			$contentIds = $this->property->dataFetchArray(array('table'=>"pinery_property_content_{$city_id}_{$mode}",'skey'=>'id','sval'=>'id','where'=>'title like binary "%'.$q.'%"'));
+			if(!empty($contentIds)){
+				$where[] = 'content_id in('.implode(',', $contentIds).')';
 			}
 			$data['q'] = $q;
 		}
-		if($q && !empty($locationIds) || !$q){
+		if($q && !empty($contentIds) || !$q){
 			if($type){
 				$where[] = 'type='.$type;	
 			}

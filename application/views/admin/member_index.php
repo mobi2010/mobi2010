@@ -51,8 +51,9 @@ ETO;
 
     ?>
     <tr>        
-        <th><input type="checkbox" id="ckbAll" class="ckbAll" /></th>
-        <th colspan="15"><?=html_button(array('value'=>'删除','name'=>'deleteBtn'));?> <?=html_button(array('value'=>'修改','name'=>'updateBtn'));?></th>
+        <td><input type="checkbox" id="ckbAll" class="ckbAll" /></td>
+        <td><?=html_button(array('value'=>'删除','name'=>'deleteBtn'));?> <?=html_button(array('value'=>'修改','name'=>'updateBtn'));?></td>
+        <td colspan="14" style="text-align:right "><?=$pageView;?> </td>
     </tr>
 </table>
 </form>
