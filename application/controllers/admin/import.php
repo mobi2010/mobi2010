@@ -69,7 +69,7 @@ class Import extends Admin_Controller {
 		preg_match('/<p class="title color690 size14px weightBold">(.*?)<\/p>/is', $infoHtml, $matches);
 		$title = $matches[1];
 
-		preg_match('/<p class="subTitle size14px weightBold">【(.*?)】&nbsp;(\\d+)室(\\d+)厅(\\d+)卫(\\d+)阳&nbsp;\|&nbsp;(\\d+)平米<\/p>/is', $infoHtml, $matches);
+		preg_match('/<p class="subTitle size14px weightBold">【(.*?)】&nbsp;(.*?)室(.*?)厅(.*?)卫(.*?)阳&nbsp;\|&nbsp;(.*?)平米<\/p>/is', $infoHtml, $matches);
 		
 		$title = mobi_string_filter($matches[1]);
 
@@ -77,7 +77,19 @@ class Import extends Admin_Controller {
 		$hall = $matches[3];
 		$bathroom = $matches[4];
 		$area = $matches[6];
-		var_dump($title,$room,$hall,$bathroom,$area);
+
+		preg_match('/<td width="52%">售价：<span class="familyAlpha colorF60 size24px">(.*?)<\/span>/is', $infoHtml, $matches);
+
+		$price = $matches[1];
+
+		preg_match('/<td>楼层：(.*?)F\/(.*?)F<\/td>/is', $infoHtml, $matches);
+		$floors = $matches[1];
+		$floors_total = $matches[2];
+		preg_match('/<td>朝向：(.*?)<\/td>/is', $infoHtml, $matches);	
+		$toward = $matches[1];			
+		preg_match('/<td>装修：(.*?)<\/td>/is', $infoHtml, $matches);
+		$decoration = $matches[1];
+		var_dump($floors,$floors_total,$toward,$decoration);
 	}
 	/**
 	 * [source description]
