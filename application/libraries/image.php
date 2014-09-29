@@ -893,4 +893,49 @@ class Image {
 		imagejpeg($image);// 输出图像
 		ImageDestroy($image);// 关闭之前使用的图片缓冲
 	}
+	/**
+	 * [读文件]
+	 * @param  [type] $fname [description]
+	 * @return [type]        [description]
+	 */
+	function readFile($filename){    
+		$handle = fopen($filename, "rb");
+		$contents = fread($handle, filesize($filename));
+		fclose($handle);
+	 	return $contents;
+	}
+	/**
+	 * [下载图片]
+	 * @return [type] [description]
+	 */
+	function wget($params){
+		$file = $params['file'];
+		$fileExtStr = $this->fileExt($file); //.jpg 后缀
+		$fileExt = empty($params['fileExt']) ? $this->fileExt : $params['fileExt'];//允许的文件格式		
+		$res['status'] = 403;
+		if(!in_array($fileExtStr, $fileExt)){
+	    	$res['msg'] = $fileExt.'文件不合法!'.$fileExtStr;
+			return $res;
+	    }
+		$byteFile = file_get_contents($file);			
+		$filePath = $this->filePath($this->uploadImagePath);			
+		if(!is_dir($filePath)) {
+			if(!mkdir($filePath,0777,true)){
+				$res['msg'] = "The destination directory could not be created.";
+				return $res;
+			}
+		}
+		
+		$cfile = $filePath.$this->fileName().$fileExtStr;
+		$upload = file_put_contents($cfile, $byteFile);
+		if(!$upload){
+			$res['msg'] = "Download Failed";
+			return $res;
+		}
+
+        $res['status'] = 200;
+		$res['data'] = $cfile;
+		$res['msg'] = 'Success';		
+		return $res;		
+	}
 }

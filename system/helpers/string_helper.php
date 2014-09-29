@@ -470,3 +470,24 @@ if ( ! function_exists('mobi_content_images')){
 		return $images;
 	}
 }
+
+/**
+ * [中文转英文]
+ * @param  [type] $key [description]
+ * @return [type]      [description]
+ */
+if ( ! function_exists('mobi_gb2u')){
+	function mobi_gb2u($str){
+		return iconv("GBK", "UTF-8", $str); 
+	}
+}
+/**
+ * [英文转中文]
+ * @param  [type] $key [description]
+ * @return [type]      [description]
+ */	
+if ( ! function_exists('mobi_u2gb')){
+	function mobi_u2gb($str){
+		return iconv("UTF-8", "GBK", $str); 
+	}
+}	

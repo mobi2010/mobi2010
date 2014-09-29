@@ -2,6 +2,14 @@
 $this->load->view('admin/header');
 ?>
 <form id="memberForm">
+<?php
+echo html_tags(array('checked'=>$tid,'name'=>'tid','class'=>'btn-grey-s','options'=>array('普通','系统'),'blank'=>'&nbsp;','href'=>mobi_query_url('admin/member/index',array('tid'))));
+
+echo "<br/><br/>";
+
+?>
+
+
 <table width="100%" border="1">
     <tr>       
         <th></th> 

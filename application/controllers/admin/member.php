@@ -10,11 +10,14 @@ class Member extends Admin_Controller {
 	 */
 	public function index()
 	{	
+
+		$data['tid'] = $tid = $_GET['tid'] == 1 ? 1 : 0;
+		$table = $tid == 1 ?  'pinery_member_system' : 'pinery_member';
 		$page = intval($_GET['p']) > 0 ? intval($_GET['p']) : 1;
 		$size = 30;
 		$start = ($page-1)*$size;
 		$data['names'] = $names = mobi_string_filter($_GET['names']);
-		$params['table'] = "pinery_member";
+		$params['table'] = $table;
 		if($names){
 			$params['where'] = "names like BINARY '%{$names}%'";
 		}
