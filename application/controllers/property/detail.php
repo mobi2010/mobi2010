@@ -26,7 +26,7 @@ class Detail extends MY_Controller {
 
 		$data['propertyRow'] = $this->property->getPropertyRow(array('city_id'=>$city_id,'mode'=>$mode,'id'=>$id));
 		$data['pineryTitle'] = $data['propertyRow']['title'].','.$data['propertyRow']['address'];
-		$data['memberInfo'] = $this->memberInfo($data['propertyRow']['userid']);
+		$data['memberInfo'] = $this->memberInfo($data['propertyRow']['userid'],$data['propertyRow']['source']);
 
 		$data['breadNavData'] = array('首页'=>base_url('/'),'房产'=>base_url('property/channel'),$propertyMode['name']=>mobi_url('property/lists',array('mid'=>$mode)),$data['propertyRow']['title']=>'text');
 

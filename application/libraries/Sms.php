@@ -63,7 +63,7 @@ class Sms{
 	        CURLOPT_FRESH_CONNECT => 1,
 	        CURLOPT_RETURNTRANSFER => 1,
 	        CURLOPT_FORBID_REUSE => 1,
-	        CURLOPT_TIMEOUT => 4,
+	        CURLOPT_TIMEOUT => 30,
 	        CURLOPT_POSTFIELDS => http_build_query($data)
 	    );
 
@@ -90,7 +90,7 @@ class Sms{
 	        CURLOPT_URL => $url. (strpos($url, '?') === FALSE ? '?' : ''). http_build_query($data),
 	        CURLOPT_HEADER => 0,
 	        CURLOPT_RETURNTRANSFER => TRUE,
-	        CURLOPT_TIMEOUT => 4
+	        CURLOPT_TIMEOUT => 30
 	    );   
 	    $ch = curl_init();
 	    curl_setopt_array($ch, ($options + $defaults));

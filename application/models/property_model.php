@@ -29,10 +29,10 @@ class Property_model extends MY_Model {
 		$params['table'] = 'pinery_location_'.$city_id;
 		if($argv['community']){
 			$argv['name'] = $argv['community'];
-			$argv['address'] = $map['address'];
+			$argv['address'] = $argv['address'] ? $argv['address'] : $map['address'];
 		}elseif($argv['address']){
 			$argv['name'] = $map['name'];
-			$argv['address'] = $map['address'];
+			$argv['address'] = $argv['address'];
 		}
 		$data['name'] = mobi_string_filter($argv['name']);
 		$params['where'] = 'name like binary("'.$data['name'].'")';
@@ -140,9 +140,11 @@ class Property_model extends MY_Model {
 		}	
 		$data['type'] = intval($argv['type']);	
 		$data['add_time'] = $data['update_time'] = time();
+		$data['source'] = intval($argv['source']);
 		$city_id = intval($argv['city_id']);
 		$params['table'] = "pinery_property_{$city_id}_{$mode}";
 		$params['data'] = $data;
+
 		return $this->dataInsert($params);		
 	}
 	/**

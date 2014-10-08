@@ -13,7 +13,7 @@ class Property extends Admin_Controller {
 		$page = intval($_GET['p']) > 0 ? intval($_GET['p']) : 1;
 		$data['city_id'] = $city_id = $_GET['cid'] ? $_GET['cid'] : 1;
 		$data['mode'] = $mode = $_GET['mid'] ? $_GET['mid'] : 1;
-		$size = 30;
+		$size = 20;
 		$start = ($page-1)*$size;
 
 		$total = $this->property->getPropertyCount(array('where'=>$where,'mode'=>$mode,'city_id'=>$city_id));

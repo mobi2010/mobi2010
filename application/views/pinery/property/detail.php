@@ -4,7 +4,7 @@ $dataProperty = $initData['dataProperty'];
 <style type="text/css">
 .info{height: 360px;padding: 20px;}
 
-.info-member{border-right: #666666 1px dotted;width:160px;float:left;padding: 20px; word-wrap:break-word; overflow:hidden;}
+.info-member{border-right: #666666 1px dotted;width:200px;float:left; word-wrap:break-word; overflow:hidden;}
 .member-attr{}
 .member-attr div{line-height: 30px; height:30px; vertical-align:middle; }
 .member-attr .name{width:40px; display:inline-block}
@@ -25,9 +25,9 @@ $dataProperty = $initData['dataProperty'];
             <div class="info-member">
                 <div style="text-align: center;"><?=html_img(array('src'=>$memberInfo['avatar']));?></div>
                 <?php 
-                $memberAttr = html_div(array('body'=>html_span(array('class'=>'attribute-name','body'=>'姓名：')).$memberInfo['names']));
+                $memberAttr = html_div(array('body'=>html_span(array('class'=>'attribute-name','body'=>'姓名：')).mb_substr($memberInfo['names'], 0, 12, 'UTF-8')));
                 if($memberInfo['source'] == 2){
-                    $memberAttr .= html_div(array('body'=>html_span(array('class'=>'attribute-name','body'=>'机构：')).$memberInfo['org_name']));
+                    $memberAttr .= html_div(array('body'=>html_span(array('class'=>'attribute-name','body'=>'机构：')).mb_substr($memberInfo['org_name'], 0, 12, 'UTF-8')));
                 }     
                 
                 $otherInfo = array('mobile'=>'手机','tel'=>'座机','qq'=>'&nbsp;&nbsp;QQ','email'=>'邮箱','weixin'=>'微信','weibo'=>'微博');
@@ -64,7 +64,11 @@ $dataProperty = $initData['dataProperty'];
                     echo html_div(array('body'=>date('Y-m-d',$propertyRow['update_time']).'发布&nbsp;&nbsp;浏览&nbsp;'.$propertyRow['view_num'].'&nbsp;次','class'=>'color-grey'));
 
                     $propertyAttr = html_div(array('body'=>'小区：'.$propertyRow['name']));
-                    $propertyAttr .= html_div(array('body'=>'租金：'.html_span(array('body'=>$propertyRow['rent'])).'元/月'));
+                    if($mode == 1){
+                        $propertyAttr .= html_div(array('body'=>'租金：'.html_span(array('body'=>$propertyRow['rent'])).'元/月'));
+                    }else{
+                        $propertyAttr .= html_div(array('body'=>'售价：'.html_span(array('body'=>$propertyRow['price'])).'万元'));
+                    }
                     $propertyAttr .= html_div(array('body'=>"户型：{$propertyRow['room']}室{$propertyRow['hall']}厅{$propertyRow['bathroom']}卫"));
                     $propertyAttr .= html_div(array('body'=>"面积：{$propertyRow['area']}平米"));
                     $propertyAttr .= html_div(array('body'=>"楼层：{$propertyRow['floors']}F/{$propertyRow['floors_total']}F"));
