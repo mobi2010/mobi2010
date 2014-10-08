@@ -35,7 +35,7 @@ $dataservices = $initData['dataservices'];
                     }else{
                         if($memberInfo[$key]){
                             if($key == 'mobile'){
-                                $info = html_img(array('class'=>'mobile-img','src'=>mobi_url('util/uploadify/textImage',array('text'=>$memberInfo[$key]))));
+                                $info = html_img(array('class'=>'mobile-img','src'=>mobi_url('util/uploadify/textImage',array('text'=>$this->gycrypt->encrypt($memberInfo[$key])))));
                             }elseif($key == 'qq'){
                                 $info = html_qq($memberInfo[$key]);
                             }elseif($key == 'weibo'){

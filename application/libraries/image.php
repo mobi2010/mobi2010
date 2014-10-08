@@ -871,7 +871,7 @@ class Image {
 		$height = $argv['height'] ? $argv['height'] : 18;//画布高
 		$y2 = $argv['y2'] ? $argv['y2'] : $width;//矩形纵坐标
 		$x2 = $argv['x2'] ? $argv['x2'] : $height;//矩形横坐标
-		$size = $argv['size'] ? $argv['size'] : 13;//字体大小
+		$size = $argv['size'] ? $argv['size'] : 12;//字体大小
 		$left = $argv['left'] ? $argv['left'] : 1;//字符中点靠左
 		$top = $argv['top'] ? $argv['top'] : 6;//字符中点靠下
 		$border = $argv['border'];//边框

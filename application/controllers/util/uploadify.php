@@ -73,6 +73,9 @@ class Uploadify extends MY_Controller {
 	 */
 	function textImage(){
 		$text = $_GET['text'];
-		echo $this->image->textImage(array('text'=>$text));
+		if($text){			
+			echo $this->image->textImage(array('text'=>$this->gycrypt->decrypt($text)));
+		}
+		
 	}
 }
