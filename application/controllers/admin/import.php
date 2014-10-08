@@ -137,14 +137,25 @@ class Import extends Admin_Controller {
 	 * @return [type] [description]
 	 */
 	function source($key=null){
-		$sourceData[1] = array('name'=>'涿州房产网','url'=>'http://www.zhuozhoufangchan.com/');
-		$sourceData[] = array('name'=>'安居客','url'=>'http://beijing.anjuke.com/');
-		$sourceData[] = array('name'=>'赶集网','url'=>'http://bj.ganji.com/');
-		$sourceData[] = array('name'=>'58同城','url'=>'http://bj.58.com/');
+		$sourceData[1] = array('key'=>'zzfc','name'=>'涿州房产网','url'=>'http://www.zhuozhoufangchan.com/');
+		$sourceData[] = array('key'=>'ajk','name'=>'安居客','url'=>'http://beijing.anjuke.com/');
+		$sourceData[] = array('key'=>'gjw','name'=>'赶集网','url'=>'http://bj.ganji.com/');
+		$sourceData[] = array('key'=>'city58','name'=>'58同城','url'=>'http://bj.58.com/');
 		if($key){
 			return $sourceData[$key];
 		}else{
 			return $sourceData;
+		}
+	}
+	/**
+	 * [exec description]
+	 * @return [type] [description]
+	 */
+	function ido(){
+		$sid = $_POST['sid'];
+		$sourceInfo = $this->source($sid);
+		if($sourceInfo){
+			$this->$sourceInfo['key']();
 		}
 	}
 }		
