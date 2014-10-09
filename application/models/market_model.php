@@ -14,7 +14,7 @@ class Market_model extends MY_Model {
 	function updateViewnum($argv=array()){
 		$city_id = intval($argv['city_id']);
 		$id = intval($argv['id']);
-		$viewNum = mt_rand(1, 3);
+		$viewNum = mt_rand(1, 2);
 		$sql = "update pinery_market_{$city_id} set view_num=view_num+{$viewNum} where id={$id} limit 1";
 		return $this->query($sql);
 	}
@@ -26,7 +26,6 @@ class Market_model extends MY_Model {
 		$content = $argv['content'] ? $argv['content'] : "";
 		$userId = intval($argv['userid']);
 		$city_id = intval($argv['city_id']);
-		$data['title'] = mobi_string_filter($argv['title']);
 		$data['content'] = addslashes($content);
 		$data['images'] = mobi_content_images($content);
 		$params['table'] = "pinery_market_content_{$city_id}_".substr($userId, -1);
@@ -69,6 +68,7 @@ class Market_model extends MY_Model {
 	 * @param array $argv [description]
 	 */
 	function addMarket($argv=array()){			
+		$data['title'] = mobi_string_filter($argv['title']);
 		$data['type'] = intval($argv['type']);	
 		$data['content_id'] = $this->addContent($argv);
 		$data['type'] = intval($argv['type']);	

@@ -20,11 +20,8 @@ class Lists extends MY_Controller {
 		$data['breadNavData'] = array('首页'=>base_url('/'),'车辆'=>base_url('car/channel'),'列表'=>'text');
 		$where = null;	
 		$q = mobi_string_filter($_GET['q']);
-		if($q){
-			$ids = $this->car->dataFetchArray(array('table'=>'pinery_car_content_'.$city_id,'skey'=>'id','sval'=>'id','where'=>'title like binary "%'.$q.'%"'));
-			if(!empty($ids)){
-				$where[] = 'content_id in('.implode(',', $ids).')';
-			}
+		if($q){			
+			$where[] = 'title like binary "%'.$q.'%"';
 			$data['q'] = $q;
 		}
 

@@ -15,7 +15,7 @@ class Property_model extends MY_Model {
 		$mode = intval($argv['mode']);
 		$city_id = intval($argv['city_id']);
 		$id = intval($argv['id']);
-		$viewNum = mt_rand(1, 3);
+		$viewNum = mt_rand(1, 2);
 		$sql = "update pinery_property_{$city_id}_{$mode} set view_num=view_num+{$viewNum} where id={$id} limit 1";
 		return $this->query($sql);
 	}
@@ -56,7 +56,6 @@ class Property_model extends MY_Model {
 		$userId = intval($argv['userid']);	
 		$city_id = intval($argv['city_id']);
 		$mode = $argv['mode'];
-		$data['title'] = mobi_string_filter($argv['title']);
 		$data['content'] = addslashes($argv['content']);
 		$data['images'] = mobi_content_images($argv['content']);
 		$params['table'] = "pinery_property_content_{$city_id}_{$mode}_".substr($userId, -1);
@@ -138,6 +137,7 @@ class Property_model extends MY_Model {
 				break;	
 
 		}	
+		$data['title'] = mobi_string_filter($argv['title']);	
 		$data['type'] = intval($argv['type']);	
 		$data['add_time'] = $data['update_time'] = time();
 		$data['source'] = intval($argv['source']);

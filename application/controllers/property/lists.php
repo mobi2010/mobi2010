@@ -61,10 +61,7 @@ class Lists extends MY_Controller {
 		$type = $params['type'];
 		$city_id = $params['city_id'];
 		if($q){
-			$contentIds = $this->property->dataFetchArray(array('table'=>"pinery_property_content_{$city_id}_{$mode}",'skey'=>'id','sval'=>'id','where'=>'title like binary "%'.$q.'%"'));
-			if(!empty($contentIds)){
-				$where[] = 'content_id in('.implode(',', $contentIds).')';
-			}
+			$where[] = 'title like binary "%'.$q.'%"';
 			$data['q'] = $q;
 		}
 		if($type){
@@ -108,43 +105,40 @@ class Lists extends MY_Controller {
 		$start = $params['start'];
 		$city_id = $params['city_id'];
 		$type = $params['type'];
+		
+		if($type){
+			$where[] = 'type='.$type;	
+		}
+		if($room){
+			$where[] = $room > 5 ? 'room>5' : 'room='.$room;
+		}
+
 		if($q){
-			$contentIds = $this->property->dataFetchArray(array('table'=>"pinery_property_content_{$city_id}_{$mode}",'skey'=>'id','sval'=>'id','where'=>'title like binary "%'.$q.'%"'));
-			if(!empty($contentIds)){
-				$where[] = 'content_id in('.implode(',', $contentIds).')';
-			}
+			$where[] = 'title like binary "%'.$q.'%"';
 			$data['q'] = $q;
 		}
-		if($q && !empty($contentIds) || !$q){
-			if($type){
-				$where[] = 'type='.$type;	
-			}
-			if($room){
-				$where[] = $room > 5 ? 'room>5' : 'room='.$room;
-			}
 
-			if(!empty($where)){
-				$where = implode(' and ', $where);
-			}
+		if(!empty($where)){
+			$where = implode(' and ', $where);
+		}
 
-			$orderBy = array(1=>'update_time',2=>'price',3=>'rent');
-			$orderUd = array(1=>'asc',2=>'desc');
+		$orderBy = array(1=>'update_time',2=>'price',3=>'rent');
+		$orderUd = array(1=>'asc',2=>'desc');
 
-			
-			$ob = $orderBy[$_GET['ob']] ? $_GET['ob'] : 1;
+		
+		$ob = $orderBy[$_GET['ob']] ? $_GET['ob'] : 1;
 
-			if($ob == 1 && !$_GET['ud']){
-				$ud = 2;
-			}else{
-				$ud = $orderUd[$_GET['ud']] ? $_GET['ud'] : 1;
-			}
+		if($ob == 1 && !$_GET['ud']){
+			$ud = 2;
+		}else{
+			$ud = $orderUd[$_GET['ud']] ? $_GET['ud'] : 1;
+		}
 
-			$order = $orderBy[$ob]." ".$orderUd[$ud];
-	 		$total = $this->property->getPropertyCount(array('where'=>$where,'mode'=>$mode,'city_id'=>$city_id));
-			if($total){
-				$data['propertyList'] = $this->property->getPropertyArray(array('where'=>$where,'mode'=>$mode,'city_id'=>$city_id,'limit'=>"{$start},{$size}",'order'=>$order));
-				$data['pageView'] = $this->load->view('pinery/public/member_page',array('total'=>$total,'pageSize'=>$size),true);
-			}
+		$order = $orderBy[$ob]." ".$orderUd[$ud];
+ 		$total = $this->property->getPropertyCount(array('where'=>$where,'mode'=>$mode,'city_id'=>$city_id));
+		if($total){
+			$data['propertyList'] = $this->property->getPropertyArray(array('where'=>$where,'mode'=>$mode,'city_id'=>$city_id,'limit'=>"{$start},{$size}",'order'=>$order));
+			$data['pageView'] = $this->load->view('pinery/public/member_page',array('total'=>$total,'pageSize'=>$size),true);
 		}
 		$data = empty($data) ? array() : $data;
 		return $data;

@@ -14,7 +14,7 @@ class Car_model extends MY_Model {
 	function updateViewnum($argv=array()){
 		$city_id = intval($argv['city_id']);
 		$id = intval($argv['id']);
-		$viewNum = mt_rand(1, 3);
+		$viewNum = mt_rand(1, 2);
 		$sql = "update pinery_car_{$city_id} set view_num=view_num+{$viewNum} where id={$id} limit 1";
 		return $this->query($sql);
 	}
@@ -26,7 +26,6 @@ class Car_model extends MY_Model {
 		$content = $argv['content'] ? $argv['content'] : "";
 		$userId = intval($argv['userid']);
 		$city_id = intval($argv['city_id']);
-		$data['title'] = mobi_string_filter($argv['title']);
 		$data['content'] = addslashes($content);
 		$data['images'] = mobi_content_images($content);
 		$params['table'] = "pinery_car_content_{$city_id}_".substr($userId, -1);
@@ -75,6 +74,7 @@ class Car_model extends MY_Model {
 		$data['userid'] = intval($argv['userid']);	
 		$data['price'] = intval($argv['price']);
 		$data['add_time'] = $data['update_time'] = time();
+		$data['title'] = mobi_string_filter($argv['title']);
 		$city_id = intval($argv['city_id']);
 		$params['table'] = "pinery_car_{$city_id}";
 		$params['data'] = $data;

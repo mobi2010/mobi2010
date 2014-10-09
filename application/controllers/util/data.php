@@ -100,7 +100,7 @@ class Data extends MY_Controller {
 		// 		}
 		// 	}
 		// }
-		//内容表
+		// //内容表
 		// foreach ($citys as $cityId => $value) {
 		// 	foreach ($tableTypes as $key => $value) {
 		// 		$mtables = array();
@@ -115,11 +115,11 @@ class Data extends MY_Controller {
 		// 					$sql = $this->tableSqls($params);
 		// 					$this->pineryModel->query($sql);
 		// 				}				
-		// 				$params['table'] = "pinery_{$value}_content_{$cityId}_{$mode}";
-		// 				$params['key'] = "content_merge"; 
-		// 				$params['mtables'] = $mtables; 
-		// 				$sql = $this->tableSqls($params);
-		// 				$this->pineryModel->query($sql);
+		// 				// $params['table'] = "pinery_{$value}_content_{$cityId}_{$mode}";
+		// 				// $params['key'] = "content_merge"; 
+		// 				// $params['mtables'] = $mtables; 
+		// 				// $sql = $this->tableSqls($params);
+		// 				// $this->pineryModel->query($sql);
 		// 			}
 		// 		}else{	
 		// 			for($i=0;$i<10;$i++){
@@ -129,11 +129,11 @@ class Data extends MY_Controller {
 		// 				$sql = $this->tableSqls($params);
 		// 				$this->pineryModel->query($sql);
 		// 			}				
-		// 			$params['table'] = "pinery_{$value}_content_{$cityId}";
-		// 			$params['key'] = "content_merge"; 
-		// 			$params['mtables'] = $mtables; 
-		// 			$sql = $this->tableSqls($params);
-		// 			$this->pineryModel->query($sql);
+		// 			// $params['table'] = "pinery_{$value}_content_{$cityId}";
+		// 			// $params['key'] = "content_merge"; 
+		// 			// $params['mtables'] = $mtables; 
+		// 			// $sql = $this->tableSqls($params);
+		// 			// $this->pineryModel->query($sql);
 		// 		}
 		// 	}
 		// }	
@@ -174,6 +174,7 @@ class Data extends MY_Controller {
 
 		$sqls['car'] = "CREATE TABLE IF NOT EXISTS `{$table}` (
 		  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+		  `title` varchar(50) NOT NULL COMMENT '标题',
 		  `update_time` int(11) NOT NULL COMMENT '修改时间',
 		  `add_time` int(11) NOT NULL COMMENT '添加时间',
 		  `type` tinyint(4) NOT NULL COMMENT '类型',
@@ -189,6 +190,7 @@ class Data extends MY_Controller {
 
 		$sqls['market'] = "CREATE TABLE IF NOT EXISTS `{$table}` (
 		  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+		  `title` varchar(50) NOT NULL COMMENT '标题',
 		  `update_time` int(11) NOT NULL COMMENT '修改时间',
 		  `add_time` int(11) NOT NULL COMMENT '添加时间',
 		  `type` tinyint(4) NOT NULL COMMENT '类型',
@@ -204,6 +206,7 @@ class Data extends MY_Controller {
 		
 		$sqls['property_1'] = "CREATE TABLE IF NOT EXISTS `{$table}` (
 		  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+		  `title` varchar(50) NOT NULL COMMENT '标题',
 		  `type` tinyint(1) NOT NULL COMMENT '类型',
 		  `location_id` bigint(20) NOT NULL COMMENT '位置',
 		  `floors` tinyint(1) NOT NULL COMMENT '楼层',
@@ -228,6 +231,7 @@ class Data extends MY_Controller {
 
 		$sqls['property_2'] = "CREATE TABLE IF NOT EXISTS `{$table}` (
 		  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+		  `title` varchar(50) NOT NULL COMMENT '标题',
 		  `type` tinyint(4) NOT NULL COMMENT '类型',
 		  `add_time` int(11) NOT NULL COMMENT '添加时间',
 		  `update_time` int(11) NOT NULL COMMENT '修改时间',
@@ -242,6 +246,7 @@ class Data extends MY_Controller {
 
 		$sqls['property_3'] = "CREATE TABLE IF NOT EXISTS `{$table}` (
 		  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+		  `title` varchar(50) NOT NULL COMMENT '标题',
 		  `type` tinyint(1) NOT NULL COMMENT '类型',
 		  `location_id` bigint(20) NOT NULL COMMENT '位置',
 		  `floors` tinyint(1) NOT NULL COMMENT '楼层',
@@ -268,6 +273,7 @@ class Data extends MY_Controller {
 		
 		$sqls['property_4'] = "CREATE TABLE IF NOT EXISTS `{$table}` (
 		  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+		  `title` varchar(50) NOT NULL COMMENT '标题',
 		  `type` tinyint(4) NOT NULL COMMENT '类型',
 		  `add_time` int(11) NOT NULL COMMENT '添加时间',
 		  `content_id` bigint(20) NOT NULL COMMENT '内容id',
@@ -282,6 +288,7 @@ class Data extends MY_Controller {
 
 		$sqls['services'] = "CREATE TABLE IF NOT EXISTS `{$table}` (
 		  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+		  `title` varchar(50) NOT NULL COMMENT '标题',
 		  `update_time` int(11) NOT NULL COMMENT '修改时间',
 		  `add_time` int(11) NOT NULL COMMENT '添加时间',
 		  `type` tinyint(4) NOT NULL COMMENT '类型',
@@ -298,7 +305,6 @@ class Data extends MY_Controller {
 		
 		$sqls['content'] = "CREATE TABLE IF NOT EXISTS `{$table}`  (
 		  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-		  `title` varchar(50) NOT NULL COMMENT '标题',
 		  `content` text NOT NULL COMMENT '描述',
 		  `images` text NOT NULL COMMENT '图片',
 		  PRIMARY KEY (`id`)
@@ -309,8 +315,7 @@ class Data extends MY_Controller {
 		
 		$mtables =  empty($params['mtables']) ? "" : implode(',', $params['mtables']);
 		$sqls['content_merge'] = "CREATE TABLE IF NOT EXISTS `{$table}` (
-			`id` bigint(20) NOT NULL AUTO_INCREMENT,
-			`title` varchar(50) NOT NULL COMMENT '标题',
+			`id` bigint(20) NOT NULL AUTO_INCREMENT,			
 			`content` text NOT NULL COMMENT '描述',
 			`images` text NOT NULL COMMENT '图片',
 			PRIMARY KEY (`id`)

@@ -82,7 +82,7 @@ class Import extends Admin_Controller {
 				if($userid){
 					preg_match('/<p class="title color690 size14px weightBold">(.*?)<\/p>/is', $infoHtml, $matches);
 					$property['title'] = mobi_string_filter($matches[1]);
-				    $row = $this->pineryModel->dataFetchRow(array('table'=>"pinery_property_content_{$city_id}_{$mode}_".substr($userid, -1),'where'=>'title like binary "'.$property['title'].'"'));
+				    $row = $this->pineryModel->dataFetchRow(array('table'=>"pinery_property_{$city_id}_{$mode}",'where'=>'title like binary "'.$property['title'].'"'));
 					if(!$row['id']){
 						preg_match('/<p class="subTitle size14px weightBold">【(.*?)】&nbsp;(.*?)室(.*?)厅(.*?)卫(.*?)阳&nbsp;\|&nbsp;(.*?)平米<\/p>/is', $infoHtml, $matches);
 				

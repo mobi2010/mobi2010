@@ -21,10 +21,7 @@ class Lists extends MY_Controller {
 		$where = null;	
 		$q = mobi_string_filter($_GET['q']);
 		if($q){
-			$ids = $this->services->dataFetchArray(array('table'=>'pinery_services_content_'.$city_id,'skey'=>'id','sval'=>'id','where'=>'title like binary "%'.$q.'%"'));
-			if(!empty($ids)){
-				$where[] = 'content_id in('.implode(',', $ids).')';
-			}
+			$where[] = 'title like binary "%'.$q.'%"';
 			$data['q'] = $q;
 		}
 
