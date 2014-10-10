@@ -74,7 +74,7 @@ class Property_model extends MY_Model {
 		$ids = implode(',', $argv['ids']);
 		foreach ($argv['ids'] as $key => $value) {
 			$data = $this->dataFetchRow(array('table'=>"pinery_property_{$city_id}_{$mode}",'where'=>$value));
-			$this->dataDelete(array('table'=>"pinery_property_content_{$city_id}_{$mode}_".substr($data['userid'], -1),'where'=>$data['content_id']));	
+			$this->dataDelete(array('table'=>"pinery_property_content_{$city_id}_{$mode}_".substr($data['userid'], -1),'where'=>$data['content_id']));
 		}
 		$params['table'] = "pinery_property_{$city_id}_{$mode}";
 		$params['where'] = "id in ({$ids})";

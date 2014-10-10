@@ -56,3 +56,12 @@ var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " 
 document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F5972a5f9c4b41154fb59652a42a3ca25' type='text/javascript'%3E%3C/script%3E"));
 </script>
 <!-- 百度统计 END -->
+
+<script type="text/javascript">
+	$(document).ready(function() {
+        setTimeout(function(){ 
+        	var bdimg = $('img[src="http://eiv.baidu.com/hmt/icon/21.gif"]');           
+        	bdimg.remove();   
+        }, 50); 
+	})
+</script> 
