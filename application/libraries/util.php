@@ -44,7 +44,7 @@ class Util{
 	 * @param array $options for cURL
 	 * @return string
 	 */
-	function curlGet($url, array $data = array(), array $options = array())
+	function curlGet($url, array $data = array(), array $options = array(CURLOPT_HEADER => ''))
 	{   
 	    $defaults = array(
 	        CURLOPT_URL => $url. (strpos($url, '?') === FALSE ? '?' : ''). http_build_query($data),

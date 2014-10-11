@@ -139,7 +139,8 @@ class Property_model extends MY_Model {
 		}	
 		$data['title'] = mobi_string_filter($argv['title']);	
 		$data['type'] = intval($argv['type']);	
-		$data['add_time'] = $data['update_time'] = time();
+		$data['add_time'] = time();
+		$data['update_time'] = $argv['update_time'] ? $argv['update_time'] : $data['add_time'];
 		$data['source'] = intval($argv['source']);
 		$city_id = intval($argv['city_id']);
 		$params['table'] = "pinery_property_{$city_id}_{$mode}";

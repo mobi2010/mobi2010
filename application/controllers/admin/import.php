@@ -250,7 +250,82 @@ class Import extends Admin_Controller {
 			sleep(1);
 		}
 	}
+	/**
+	 * [赶集网-求租]
+	 * @return [type] [description]
+	 */
+	function gjw_qiuzu(){
+		$uriInfo = $this->source(3);			
+		$cityInfo = array(
+				array('url'=>'/fang2/yanjiao/','id'=>1),
+				array('url'=>'/fang2/guan/','id'=>4),
+				array('url'=>'/fang2/sanhe/','id'=>3),
+				array('url'=>'/fang2/xianghe/','id'=>5),
+				array('url'=>'/fang2/zhuozhou/','id'=>2)
+			);
+		$mode = 2;
+		foreach ($cityInfo as $key => $city) {
+			$url = $uriInfo['url'].$city['url'];
+			$html = $this->util->curlGet($url);			
 
+			preg_match_all('/<dl class="list-noimg clearfix">(.*?)<\/dl>/is',$html, $list, PREG_SET_ORDER);
+			foreach ($list as $key => $value) {
+
+				preg_match("/<a id='(.*?)' class='list-title'(.*?)href='(.*?)'(.*?)>/is", $value[1], $matches);
+				$url = $uriInfo['url'].$matches[3];
+				$html = $this->util->curlGet($url);		
+
+
+				preg_match('/<div class="leftBox">(.*?)<div class="rightBar">/is', $html, $matches);
+				$infoHmlt = $matches[1];
+				$member = array();
+
+				preg_match('/<em class="contact-mobile">(.*?)<\/em>/is', $infoHmlt, $matches);
+				$member['mobile'] = preg_replace('/\s*/', '', $matches[1]);				
+
+				$userid = 0;
+				if($member['mobile']){
+					$row = $this->pineryModel->dataFetchRow(array('table'=>'pinery_member_system','where'=>'mobile='.$member['mobile']));
+					if($row['id']){
+						$userid = $row['id'];
+					}else{
+						preg_match('/<i class="fc-4b">(.*?)<\/i>/is', $infoHmlt, $matches);
+						$member['names'] = mobi_string_filter($matches[1]);
+						$userid = $this->member->addSystemAccount($member);
+					}		
+
+					if($userid){
+						$property = array();
+						preg_match('/<h1 class="title-name">(.*?)<\/h1>/is', $infoHmlt, $matches);
+						$property['title'] = mobi_string_filter($matches[1]);
+
+
+						preg_match('/<ul class="basic-info-ul" style="width:auto">(.*?)<\/ul>/is', $infoHmlt, $matches);
+						$content = str_replace(array('###','(查看周边高薪工作)'),array('<br/>',''),strip_tags(trim(str_replace('</li>', '###', $matches[1]))));
+
+						
+						preg_match('/<i class="f10 pr-5">(.*?)<\/i>/is', $infoHmlt, $matches);
+						$property['update_time'] = strtotime(date('Y').'-'.$matches[1]);
+						preg_match('/<div class="summary-cont">(.*?)<p class="clear">/is', $infoHmlt, $matches);
+						$content .= '描述：'.mobi_string_filter($matches[1]);
+						$property['content'] = $content;
+
+						$property['userid'] = $userid;
+
+
+
+						$property['city_id'] = $city['id'];
+						$property['mode'] = $mode;
+						$property['type'] = 1;
+						$property['source'] = 1;
+						$this->property->addProperty($property);
+					}				
+				}
+				sleep(2);
+			}exit;
+		}
+
+	}
 	/**
 	 * [source description]
 	 * @return [type] [description]
@@ -258,9 +333,10 @@ class Import extends Admin_Controller {
 	function source($key=null){
 		$sourceData[1] = array('key'=>'zzfc_sale','name'=>'涿州房产网-出售','url'=>'http://www.zhuozhoufangchan.com/');
 		$sourceData[] = array('key'=>'zzfc_rent','name'=>'涿州房产网-出租','url'=>'http://www.zhuozhoufangchan.com/');
-		$sourceData[] = array('key'=>'ajk','name'=>'安居客','url'=>'http://beijing.anjuke.com/');
-		$sourceData[] = array('key'=>'gjw','name'=>'赶集网','url'=>'http://bj.ganji.com/');
-		$sourceData[] = array('key'=>'city58','name'=>'58同城','url'=>'http://bj.58.com/');
+		$sourceData[] = array('key'=>'gjw_qiuzu','name'=>'赶集网-求租','url'=>'http://bj.ganji.com');
+		// $sourceData[] = array('key'=>'city58','name'=>'58同城','url'=>'http://bj.58.com/');
+		// $sourceData[] = array('key'=>'ajk','name'=>'安居客','url'=>'http://beijing.anjuke.com/');
+		
 		if($key){
 			return $sourceData[$key];
 		}else{

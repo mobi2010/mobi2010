@@ -20,7 +20,7 @@ $dataProperty = $initData['dataProperty'];
         <?php $this->load->view('pinery/public/bread_nav',array('breadNavData'=>$breadNavData));?>
         <div class="info">
             <div class="info-member">
-                <div style="text-align: center;"><?=html_img(array('src'=>$memberInfo['avatar']));?></div>
+                <div style="text-align: center;"><?=html_img(array('src'=>$memberInfo['avatar']?$memberInfo['avatar']:));?></div>
                 <?php 
                 $memberAttr = html_div(array('body'=>html_span(array('class'=>'attribute-name','body'=>'姓名：')).$memberInfo['names']));
                 if($memberInfo['source'] == 2){

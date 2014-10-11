@@ -63,7 +63,7 @@ class Member_model extends MY_Model {
 		$data['org_name'] = mobi_string_filter($argv['org_name']);
 		$data['source'] = $data['org_name'] ? 2 : 1;
 		$data['city_id'] = intval($argv['city_id']);
-		$data['avatar'] = mobi_string_filter($argv['avatar']);
+		$data['avatar'] = $argv['avatar'] ? mobi_string_filter($argv['avatar']) : 'http://pinery.b0.upaiyun.com/web/avatar.jpg';
 		return $this->dataInsert(array('table'=>$table,'data'=>$data));
 	}
 }	

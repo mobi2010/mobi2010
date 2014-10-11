@@ -5,9 +5,9 @@ $dataProperty = $initData['dataProperty'];
 <form id="importForm">
 <?php
 
-echo html_tags(array('checked'=>$source,'name'=>'sid','sval'=>'name','class'=>'btn-grey-s','options'=>$sourceData,'blank'=>'&nbsp;'));
+echo html_tags(array('checked'=>$source,'name'=>'sid','sval'=>'name','class'=>'btn-grey-s','options'=>$sourceData,'blank'=>'<br/><br/>'));
 
-echo "<br/><br/>";
+echo "<br/>";
 
 echo html_a(array('text'=>'导入','id'=>'ido','class'=>'btn-blue'));
 ?>
@@ -19,10 +19,13 @@ $this->load->view('admin/footer');
 <script type="text/javascript">
   $(document).ready(function() {
         $('#ido').click(function(){
-            var sid = $('#sid').val();
-            $.post('<?=base_url("admin/import/ido")?>',{'sid':sid},function(){
-                
-            })
+			var sid = $('#sid').val();
+			$('#sid_'+sid).loading();
+			$.post('<?=base_url("admin/import/ido")?>',{'sid':sid},function(){
+				$('#sid_'+sid+' img').remove();
+				return false;
+			})
+			return false;
         })
     
   })
