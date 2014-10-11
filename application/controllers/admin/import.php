@@ -37,12 +37,12 @@ class Import extends Admin_Controller {
 			$url = $uriInfo['url']."sale/index.php?&pageno=".$p;
 			$html = $this->util->curlGet($url);
 
-			preg_match_all('/<tr class="mouseOver">(.*?)<span class="thumbnail"><a href="(.*?)"(.*?)<\/tr>/is',$html, $list, PREG_SET_ORDER);
+			preg_match_all('/<tr class="mouseOver">(.*?)<span class="thumbnail"><a href="(.*?)"(.*?)<td class="tdAlignLeft" width="18%">(.*?)<\/p>(.*?)<\/tr>/is',$html, $list, PREG_SET_ORDER);
 
 			foreach ($list as $key => $value) {
 				$url = $value[2];
 				$html = mobi_gb2u($this->util->curlGet($url));			
-
+				$property['update_time'] = strtotime(trim(strip_tags($value[4])));
 				preg_match('/<div class="detailMainRight">(.*?)<\/div>/is', $html, $matches);
 
 				$infoHtml = $matches[1];
@@ -150,10 +150,10 @@ class Import extends Admin_Controller {
 			$url = $uriInfo['url']."rent/index.php?&pageno=".$p;
 			$html = $this->util->curlGet($url);
 
-			preg_match_all('/<tr class="mouseOver">(.*?)<span class="thumbnail"><a href="(.*?)"(.*?)<\/tr>/is',$html, $list, PREG_SET_ORDER);
-
+			preg_match_all('/<tr class="mouseOver">(.*?)<span class="thumbnail"><a href="(.*?)"(.*?)<td class="tdAlignLeft" width="18%">(.*?)<\/p>(.*?)<\/tr>/is',$html, $list, PREG_SET_ORDER);
 			foreach ($list as $key => $value) {
 				$url = $value[2];
+				$property['update_time'] = strtotime(trim(strip_tags($value[4])));
 				$html = mobi_gb2u($this->util->curlGet($url));			
 
 				preg_match('/<div class="detailMainRight">(.*?)<\/div>/is', $html, $matches);
