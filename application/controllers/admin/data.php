@@ -1,10 +1,12 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+require('Admin_Controller.php');
+
 /**
  * 数据
  *
  * @author by zsc
  */
-class Data extends MY_Controller {	
+class Data extends Admin_Controller {	
 	function __construct($params = array())
 	{
 		parent::__construct(array('auth'=>false));
@@ -139,14 +141,14 @@ class Data extends MY_Controller {
 		// }	
 	}
 	function dropTable(){
-		// $tables = $this->pineryModel->query("show tables;")->result_array();
-		// $noTables = array('pinery_member','pinery_member_system','pinery_car_type','pinery_city','pinery_market_type','pinery_property_decoration','pinery_property_mode','pinery_property_toward','pinery_property_type','pinery_services_type','pinery_report');
-		// foreach ($tables as $key => $value) {
-		// 	$table = $value['Tables_in_2010mobi'];
-		// 	if(!in_array($table, $noTables)){
-		// 		$this->pineryModel->query("drop table ".$table);
-		// 	}			
-		// }
+		$tables = $this->pineryModel->query("show tables;")->result_array();
+		$noTables = array('pinery_member','pinery_member_system','pinery_car_type','pinery_city','pinery_market_type','pinery_property_decoration','pinery_property_mode','pinery_property_toward','pinery_property_type','pinery_services_type','pinery_report');
+		foreach ($tables as $key => $value) {
+			$table = $value['Tables_in_2010mobi'];
+			if(!in_array($table, $noTables)){
+				$this->pineryModel->query("drop table ".$table);
+			}			
+		}
 	}	
 	function alterTable(){
 	}
