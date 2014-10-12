@@ -32,7 +32,7 @@ class Import extends Admin_Controller {
 			$decorationData[$value['name']] = $value['id'];
 		}
 
-		for($p=1;$p<4;$p++){
+		for($p=1;$p<3;$p++){
 			$uriInfo = $this->source(1);
 			$url = $uriInfo['url']."sale/index.php?&pageno=".$p;
 			$html = $this->util->curlGet($url);
@@ -127,7 +127,8 @@ class Import extends Admin_Controller {
 						$property['source'] = 1;
 						$this->property->addProperty($property);
 				 	}
-				}				
+				}	
+				sleep(1);			
 			}
 			sleep(1);
 		}		
@@ -145,7 +146,7 @@ class Import extends Admin_Controller {
 			$decorationData[$value['name']] = $value['id'];
 		}
 
-		for($p=1;$p<4;$p++){
+		for($p=1;$p<3;$p++){
 			$uriInfo = $this->source(1);
 			$url = $uriInfo['url']."rent/index.php?&pageno=".$p;
 			$html = $this->util->curlGet($url);
@@ -245,7 +246,8 @@ class Import extends Admin_Controller {
 						$property['source'] = 1;
 						$this->property->addProperty($property);
 				 	}
-				}				
+				}	
+				sleep(1);			
 			}
 			sleep(1);
 		}
@@ -333,13 +335,13 @@ class Import extends Admin_Controller {
 	function gjw_qiugou(){
 		$uriInfo = $this->source(4);			
 		$cityInfo = array(
-				array('url'=>'/fang2/yanjiao/','id'=>1),
-				array('url'=>'/fang2/guan/','id'=>4),
-				array('url'=>'/fang2/sanhe/','id'=>3),
-				array('url'=>'/fang2/xianghe/','id'=>5),
-				array('url'=>'/fang2/zhuozhou/','id'=>2)
+				array('url'=>'/fang4/yanjiao/','id'=>1),
+				array('url'=>'/fang4/guan/','id'=>4),
+				array('url'=>'/fang4/sanhe/','id'=>3),
+				array('url'=>'/fang4/xianghe/','id'=>5),
+				array('url'=>'/fang4/zhuozhou/','id'=>2)
 			);
-		$mode = 2;
+		$mode = 4;
 		foreach ($cityInfo as $key => $city) {
 			$url = $uriInfo['url'].$city['url'];
 			$html = $this->util->curlGet($url);			
