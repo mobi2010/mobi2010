@@ -352,7 +352,7 @@ if ( ! function_exists('mobi_string_protocol')){
 if ( ! function_exists('mobi_string_filter')){
 	function mobi_string_filter($string){
 		if($string){
-			$string = addslashes(strip_tags(trim(strval($string))));
+			$string = addslashes(trim(strip_tags(strval($string))));
 		}
 		return $string;
 	}

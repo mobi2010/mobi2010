@@ -28,7 +28,7 @@ class Detail extends MY_Controller {
 		$typeText = $this->initData['dataServices']['type'][$type]['name'];
 
 		$data['pineryTitle'] = $data['servicesData']['title'];
-		$data['memberInfo'] = $this->memberInfo($data['servicesData']['userid']);
+		$data['memberInfo'] = $this->memberInfo($data['servicesData']['userid'],$data['servicesData']['source']);
 		$data['breadNavData'] = array('首页'=>base_url('/'),'服务'=>base_url('services/channel'),$typeText=>mobi_url('services/lists',array('tid'=>$type)),$data['servicesData']['title']=>'text');
 
 

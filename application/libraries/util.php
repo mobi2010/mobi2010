@@ -18,20 +18,22 @@ class Util{
 	{
 	    $defaults = array(
 	        CURLOPT_POST => 1,
-	        CURLOPT_HEADER => 0,
+	        CURLOPT_HEADER => 1,
 	        CURLOPT_URL => $url,
 	        CURLOPT_FRESH_CONNECT => 1,
 	        CURLOPT_RETURNTRANSFER => 1,
 	        CURLOPT_FORBID_REUSE => 1,
 	        CURLOPT_TIMEOUT => 30,
+	        CURLOPT_USERAGENT => 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.22 (KHTML, like Gecko) Chrome/25.0.1364.58 Safari/537.22',
 	        CURLOPT_POSTFIELDS => http_build_query($data)
 	    );
+
 
 	    $ch = curl_init();
 	    curl_setopt_array($ch, ($options + $defaults));
 	    if( ! $result = curl_exec($ch))
 	    {
-	        trigger_error(curl_error($ch));
+	        echo curl_error($ch);
 	    }
 	    curl_close($ch);
 	    return $result;
@@ -48,15 +50,16 @@ class Util{
 	{   
 	    $defaults = array(
 	        CURLOPT_URL => $url. (strpos($url, '?') === FALSE ? '?' : ''). http_build_query($data),
-	        CURLOPT_HEADER => 0,
+	        CURLOPT_HEADER => 1,
 	        CURLOPT_RETURNTRANSFER => TRUE,
-	        CURLOPT_TIMEOUT => 30
+	        CURLOPT_TIMEOUT => 30,
+	        CURLOPT_USERAGENT => 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.22 (KHTML, like Gecko) Chrome/25.0.1364.58 Safari/537.22'
 	    );   
 	    $ch = curl_init();
 	    curl_setopt_array($ch, ($options + $defaults));
 	    if( ! $result = curl_exec($ch))
 	    {
-	        trigger_error(curl_error($ch));
+	        echo curl_error($ch);
 	    }
 	    curl_close($ch);
 	    return $result;
