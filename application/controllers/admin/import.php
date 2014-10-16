@@ -589,17 +589,16 @@ class Import extends Admin_Controller {
 			$url = $uriInfo['url'].$city['url'];
 			$html = $this->util->curlGet($url);			
 			preg_match_all('/<li class="js-item"(.*?)<\/a>/is',$html, $list, PREG_SET_ORDER);
-			var_dump($list);exit;
 			sleep(1);
 			foreach ($list as $key => $value) {
-
-				$url =  $uriInfo['url'].$value[1];
+				preg_match('/<a href="(.*?)"(.*?)class="ft-tit">/is', $value[1], $matches);
+				$url =  $matches[1];
 				$infoHmlt = $this->util->curlGet($url);		
 
 				
 				$member = array();
 
-				preg_match('/<span class="contact-col phoneNum-style">(.*?)<\/span>/is', $infoHmlt, $matches);
+				preg_match('/<span class="phoneNum-style">(.*?)<\/span>/is', $infoHmlt, $matches);
 				$member['mobile'] = preg_replace('/\s*/', '', $matches[1]);				
 				$userid = 0;
 				if($member['mobile']){
@@ -607,7 +606,7 @@ class Import extends Admin_Controller {
 					if($row['id']){
 						$userid = $row['id'];
 					}else{
-						preg_match('/<i class="fc-4b">(.*?)<\/i>/is', $infoHmlt, $matches);
+						preg_match('/人：(.*?)<span class="fc-orange">/is', $infoHmlt, $matches);
 						$member['names'] = mobi_string_filter($matches[1]);
 						//$userid = $this->member->addSystemAccount($member);
 					}		
@@ -616,38 +615,26 @@ class Import extends Admin_Controller {
 						preg_match('/<h1 class="title-name">(.*?)<\/h1>/is', $infoHmlt, $matches);
 						$property['title'] = mobi_string_filter($matches[1]);
 
-						preg_match('/<b class="fc-orange f-type ft-22">(.*?)<\/b>/is', $infoHmlt, $matches);
+						preg_match('/<i class="f22 fc-orange f-type">(.*?)<\/i>/is', $infoHmlt, $matches);
 
-						if($matches[1]){
-							$price = strstr($matches[1],'万') ? floatval($matches[1])*10000 : floatval($matches[1]);
-						}
+						
 
-						$property['price'] = $price; 
+						$property['price'] = $matches[1]; 
 
-						preg_match('/<i class="f10 pr-5">(.*?)<\/i>/is', $infoHmlt, $matches);
-						$property['update_time'] = strtotime(date('Y').'-'.$matches[1]);
+						preg_match('/<i class="pr-5">(.*?)&nbsp;/is', $infoHmlt, $matches);
+						$property['update_time'] = strtotime(date('Y').'-'.trim($matches[1]));
 
 
-						preg_match('/所在地：(.*?)<\/li>/is', $infoHmlt, $matches);
-						$content = '所在地：'.mobi_string_filter($matches[1]).'<br/>';
+						preg_match('/交易地点：(.*?)<\/li>/is', $infoHmlt, $matches);
+						$content = '交易地点：'.mobi_string_filter($matches[1]).'<br/>';
 
-						preg_match('/品牌\/车系：(.*?)<\/li>/is', $infoHmlt, $matches);
-						$content .= '品牌/车系：'.mobi_string_filter($matches[1]).'<br/>';
-
-						preg_match('/类型：(.*?)<\/div>/is', $infoHmlt, $matches);
+						
+						preg_match('/类　　型：(.*?)<\/li>/is', $infoHmlt, $matches);
 						$content .= '类型：'.mobi_string_filter($matches[1]).'<br/>';
 
-						preg_match('/排气量：(.*?)<\/li>/is', $infoHmlt, $matches);
-						$content .= '排气量：'.mobi_string_filter($matches[1]).'<br/>';
+											
 						
-
-						preg_match('/行驶里程：(.*?)<\/div>/is', $infoHmlt, $matches);						
-						$content .= '行驶里程：'.mobi_string_filter($matches[1]).'<br/>';
-
-						preg_match('/上牌日期：(.*?)<\/div>/is', $infoHmlt, $matches);						
-						$content .= '上牌日期：'.mobi_string_filter($matches[1]).'<br/>';						
-						
-						preg_match('/车辆说明 ：(.*?)联系我时/is', $infoHmlt, $matches);
+						preg_match('/<div class="js-tab-content">(.*?)联系我时/is', $infoHmlt, $matches);
 						$content .= '描述：'.mobi_string_filter($matches[1]);
 
 
@@ -659,7 +646,7 @@ class Import extends Admin_Controller {
 
 
 						$property['city_id'] = $city['id'];
-						$property['type'] = 6;
+						$property['type'] = 5;
 						$property['source'] = 1;
 						var_dump($member,$property);exit;
 						$this->car->addCar($property);
