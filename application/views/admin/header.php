@@ -7,9 +7,11 @@
     <link href="/style/css/admin.css" rel="stylesheet" type="text/css"/>
 	<script src="/style/js/jquery-1.10.2.min.js"></script>
 	<script src="/style/js/mobi.js"></script>
+	<script type="text/javascript" charset="utf-8" src="/style/plugins/ueditor/ueditor.config.js"></script>
+	<script type="text/javascript" charset="utf-8" src="/style/plugins/ueditor/ueditor.all.min.js"></script>
 </head>
 <script type="text/javascript">
-	$(document).ready(function() { 
+	$(document).ready(function() {
 		$.mobi.init();
 	})
 </script>

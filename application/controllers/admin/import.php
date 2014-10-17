@@ -15,6 +15,12 @@ class Import extends Admin_Controller {
 		$data['sourceData'] = $this->source();
 		$this->load->view('admin/import_index',$data);
 	}	
+	function propertyAdd1(){
+		$data['city_id'] = $city_id = $_GET['cid'] ? $_GET['cid'] : 1;
+		$this->load->view('admin/import_propertyadd1',$data);
+	}
+	function propertyAdd1Do(){
+	}	
 	/**
 	 * [涿州房产]
 	 * @return [type] [description]

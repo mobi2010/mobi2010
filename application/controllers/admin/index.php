@@ -29,6 +29,8 @@ class Index extends Admin_Controller {
 		$data[] = array('title'=>'market','url'=>'admin/market');
 		$data[] = array('title'=>'services','url'=>'admin/services');
 		$data[] = array('title'=>'import','url'=>'admin/import');
+		$data[] = array('title'=>'propertyAdd1','url'=>'admin/import/propertyAdd1');
+		
 		return $data; 
 	}
 }
