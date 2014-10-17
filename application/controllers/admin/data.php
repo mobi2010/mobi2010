@@ -141,26 +141,26 @@ class Data extends Admin_Controller {
 		// }	
 	}
 	function dropTable(){
-		$tables = $this->pineryModel->query("show tables;")->result_array();
-		$noTables = array('pinery_member','pinery_member_system','pinery_car_type','pinery_city','pinery_market_type','pinery_property_decoration','pinery_property_mode','pinery_property_toward','pinery_property_type','pinery_services_type','pinery_report');
-		foreach ($tables as $key => $value) {
-			$table = $value['Tables_in_2010mobi'];
-			if(!in_array($table, $noTables)){
-				$this->pineryModel->query("drop table ".$table);
-			}			
-		}
-	}	
-	function alterTable(){
-	}
-	function truncateTable(){
 		// $tables = $this->pineryModel->query("show tables;")->result_array();
 		// $noTables = array('pinery_member','pinery_member_system','pinery_car_type','pinery_city','pinery_market_type','pinery_property_decoration','pinery_property_mode','pinery_property_toward','pinery_property_type','pinery_services_type','pinery_report');
 		// foreach ($tables as $key => $value) {
 		// 	$table = $value['Tables_in_2010mobi'];
 		// 	if(!in_array($table, $noTables)){
-		// 		$this->pineryModel->query("truncate table ".$table);
+		// 		$this->pineryModel->query("drop table ".$table);
 		// 	}			
 		// }
+	}	
+	function alterTable(){
+	}
+	function truncateTable(){
+		$tables = $this->pineryModel->query("show tables;")->result_array();
+		$noTables = array('pinery_member','pinery_car_type','pinery_city','pinery_market_type','pinery_property_decoration','pinery_property_mode','pinery_property_toward','pinery_property_type','pinery_services_type','pinery_report');
+		foreach ($tables as $key => $value) {
+			$table = $value['Tables_in_2010mobi'];
+			if(!in_array($table, $noTables)){
+				$this->pineryModel->query("truncate table ".$table);
+			}			
+		}
 	}
 	function tableSqls($params){
 		$key = $params['key'];
