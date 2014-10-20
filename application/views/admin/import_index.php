@@ -10,6 +10,15 @@ echo html_tags(array('checked'=>$source,'name'=>'sid','sval'=>'name','class'=>'b
 echo "<br/>";
 
 echo html_a(array('text'=>'导入','id'=>'ido','class'=>'btn-blue'));
+
+
+echo '<br/><br/><br/>';
+
+foreach ($otherData as $key => $value) {
+	echo html_a(array('text'=>$value['title'],'href'=>base_url($value['url']),'target'=>"_blank"));
+	echo "&nbsp;";
+}
+
 ?>
 
 </form>

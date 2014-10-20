@@ -13,6 +13,9 @@ class Import extends Admin_Controller {
 	{	
 		$data['source'] = $_GET['sid'] ? $_GET['sid'] : 1;		
 		$data['sourceData'] = $this->source();
+
+		$otherData[] = array('title'=>'propertyAdd1','url'=>'admin/import/propertyAdd1');
+		$data['otherData'] = $otherData;
 		$this->load->view('admin/import_index',$data);
 	}	
 	function propertyAdd1(){
