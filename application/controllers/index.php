@@ -11,6 +11,8 @@ class Index extends MY_Controller {
 	}
 	public function index()
 	{
+		
+		
 		$city_id = $this->initData['cityId'];
 		//房产
 		$propertyMode = $this->initData['dataProperty']['mode'];		

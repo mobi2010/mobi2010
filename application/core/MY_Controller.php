@@ -49,6 +49,11 @@ class MY_Controller extends CI_Controller
 		//网站头信息
 		$this->initData['dataCity'] = $dataCity = require(APPPATH.'/config/data_city.php');
 
+		if($_REQUEST['cityid'] && $dataCity[$_REQUEST['cityid']]){
+			mobi_setcookie('cityId',$_REQUEST['cityid'],3600*24*30);
+			$cityId = $_REQUEST['cityid'];
+		}
+
 		!$cityId && $cityId = mobi_getcookie('cityId');
 		$this->initData['cityId'] = $cityId = $dataCity[$cityId] ? intval($cityId) : 1;
 		$this->initData['cityName'] = $cityName = $dataCity[$cityId]['name'];
