@@ -69,9 +69,13 @@ a:hover{color:#00B7D6}
 
 
 
-.home-bottombar{clear: both;width:980px;margin: 2em auto 0;text-align:center;}
-.home-bottombar a{text-decoration:none; color:#666;}
-.home-bottombar a:hover{text-decoration:underline; color:#FF0000;}
+.home-bottombar{clear: both;width:100%;height:300px;background: #333333;padding: 20px 0;}
+
+.home-bottombar .box{clear:both;width:980px;margin:0 auto;}
+
+.home-bottombar .box dl{width: 240px;float:left;}
+.home-bottombar .box dl dt{color: #fff; font-size: 16px; font-weight: bold}
+.home-bottombar .box dl dd a{color: #999999; font-size: 13px;}
 
 
 

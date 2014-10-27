@@ -2,7 +2,40 @@
 	if($footerInfo != "no"):
 ?>
 <div class="home-bottombar">
-	<!-- 邮箱：<a href="mailto:zsc@2010.mobi" target="_blank" rel="nofollow">zsc@2010.mobi</a>  -->
+	<div class="box">
+		<dl>
+			<dt>友情链接</dt>			
+			<dd><a href="http://www.zhihu.com/" target="_blank">知乎</a></dd>
+			<dd><a href="http://www.doyouhike.net/" target="_blank">磨房</a></dd>
+			<dd><a href="http://www.qyer.com/" target="_blank">穷游</a></dd>
+			<dd><a href="http://www.huxiu.com/" target="_blank">虎嗅网</a></dd>
+			<dd><a href="http://www.36kr.com/" target="_blank">36氪</a></dd>
+		</dl>
+		<dl>
+			<dt>网站导航</dt>
+			<?php
+				$fnavs = array('房产','车辆','二手物品','服务');				
+				foreach ($initData['dataCity'] as $key => $value) {
+					$mrk = mt_rand(0,3);
+					echo '<dd>'.html_a(array('href'=>mobi_url('/',array('cityid'=>$key)),'target'=>'_blank','text'=>$value['name'].$fnavs[$mrk])).'</dd>';
+				}
+			?>
+		</dl>
+		<dl>
+			<dt>关于我们</dt>
+			<dd><?=html_a(array('text'=>'公司简介'));?></dd>
+			<dd><?=html_a(array('text'=>'联系我们'));?></dd>
+			<dd><?=html_a(array('text'=>'加入我们'));?></dd>
+			<dd><?=html_a(array('text'=>'服务条款'));?></dd>
+		</dl>
+		<dl>
+			<dt>关注我们</dt>
+			<dd><img src="/style/img/qrcode.png" /></dd>
+		</dl>
+
+	</div>
+
+	<!-- 邮箱：<a href="mailto:zsc@2010.mobi" target="_blank" rel="nofollow">zsc@2010.mobi</a> -->
 </div>			
 <?php
 	endif;
