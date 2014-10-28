@@ -10,9 +10,7 @@ class Index extends MY_Controller {
 		parent::__construct(array('auth'=>false));		
 	}
 	public function index()
-	{
-		
-		
+	{	
 		$city_id = $this->initData['cityId'];
 		//房产
 		$propertyMode = $this->initData['dataProperty']['mode'];		
@@ -27,7 +25,7 @@ class Index extends MY_Controller {
 		$data['propertyData'] = $propertyData;
 		
 		//车辆
-		$carType = mobi_array_rand($this->initData['dataCar']['type'],4);		
+		$carType = $this->initData['dataCar']['type'];//mobi_array_rand($this->initData['dataCar']['type'],4);		
 		foreach ($carType as $key => $value) {
 			$info = mobi_array_rand($this->car->getCarArray(array('where'=>'type='.$key,'city_id'=>$city_id,'limit'=>"50",'order'=>'id desc')),1);
 
@@ -41,7 +39,7 @@ class Index extends MY_Controller {
 		$data['carData'] = $carData;		
 
 		//集市
-		$marketType = mobi_array_rand($this->initData['dataMarket']['type'],4);	
+		$marketType = $this->initData['dataMarket']['type'];//mobi_array_rand($this->initData['dataMarket']['type'],4);	
 		foreach ($marketType as $key => $value) {
 			$info = mobi_array_rand($this->market->getMarketArray(array('where'=>'type='.$key,'city_id'=>$city_id,'limit'=>"50",'order'=>'id desc')),1);
 
@@ -55,7 +53,7 @@ class Index extends MY_Controller {
 		$data['marketData'] = $marketData;
 
 		//服务
-		$servicesType = mobi_array_rand($this->initData['dataServices']['type'],4);		
+		$servicesType = $this->initData['dataServices']['type'];//mobi_array_rand($this->initData['dataServices']['type'],4);		
 		foreach ($servicesType as $key => $value) {
 			$info = mobi_array_rand($this->services->getServicesArray(array('where'=>'type='.$key,'city_id'=>$city_id,'limit'=>"50",'order'=>'id desc')),1);
 

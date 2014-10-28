@@ -9,7 +9,7 @@ $this->load->view('admin/footer');
 ?>
 <script type="text/javascript">
 	$(document).ready(function() {
-		$('#login').click(function(){
+		var verify = function(){
 			var uname = $('#uname').val();
 			var upwd = $('#upwd').val();
 			if(!uname){alert('Account not null');return;}
@@ -22,6 +22,19 @@ $this->load->view('admin/footer');
 					alert(dt.msg);
 				}
 			})
+			
+		}
+
+		$('#upwd').focus(function(){
+	        $(document).bind('keyup',function(e){
+	            if(e.keyCode == 13){
+	                verify();
+	            }            
+	        })
+	    }) 
+
+		$('#login').click(function(){
+			verify();
 			return false;
 		})
 	})
