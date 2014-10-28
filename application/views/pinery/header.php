@@ -11,9 +11,11 @@ $bodyClass = $bodyClass ? $bodyClass : "body";
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="Keywords" content="<?=$pineryKeywords;?>,菠萝园" />
 	<meta name="Description" content="<?=$pineryDescription;?>菠萝园最好的分类信息网。" />
+	<link href="/style/img/favicon.ico" rel="shortcut icon" type="image/x-icon">
     <link href="/style/css/main.css" rel="stylesheet" type="text/css"/>
 	<script src="/style/js/jquery-1.10.2.min.js"></script>
 	<script src="/style/js/mobi.js"></script>	
+
 </head>
 <script type="text/javascript">
 	$(document).ready(function() { 
