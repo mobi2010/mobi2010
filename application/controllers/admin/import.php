@@ -5,6 +5,185 @@ set_time_limit(0);
  * 导入
  */
 class Import extends Admin_Controller {
+
+
+	/**
+	 * [房产]
+	 * @return [type] [description]
+	 */
+	function property(){
+		$this->load->view('admin/publish_property',$data);
+	}
+	/**
+	 * [房产保存]
+	 * @return [type] [description]
+	 */
+	function propertySave(){
+
+		$member['names'] = $_POST['names'];
+		$member['mobile'] = $_POST['mobile'];
+		$member['org_name'] = $_POST['org_name'];
+		$member['avatar'] = $_POST['avatar'];
+		$argv['city_id'] = $member['city_id'] = $_POST['cid'];
+
+		$minfo = $this->memberInfo($member);
+
+
+		$res['code'] = 400;
+		$mode = intval($_POST['mode']);
+		$type = intval($_POST['type']);
+		$argv = $_POST;
+
+
+		if(!$minfo['id']){
+			$res['msg'] = "用户数据错误";
+			$this->printer($res);
+		}
+		$argv['userid'] = $minfo['id'];
+		if(in_array($mode, array(1,3))){
+			if(in_array($type,array(1,2,3))){
+				if(!$_POST['community']){
+					$res['msg'] = "小区不能为空";
+					$this->printer($res);
+				}
+				$argv['map'] = $argv['communityHide'];
+			}else{
+				if(!$_POST['address']){
+					$res['msg'] = "地址不能为空";
+					$this->printer($res);
+				}
+				$argv['map'] = $argv['addressHide'];
+			}
+		}
+		if(!$_POST['title']){
+			$res['msg'] = "标题不能为空";
+			$this->printer($res);
+		}
+		$res['code'] = 200;
+		
+		$argv['source'] = 1;
+		$argv['content'] = $_POST['editorValue'];
+		$res['data'] = $this->property->addProperty($argv);
+		$this->printer($res);
+	}
+	/**
+	 * [车辆]
+	 * @return [type] [description]
+	 */
+	function car(){
+		$this->load->view('admin/publish_car',$data);
+	}
+	/**
+	 * [车辆保存]
+	 * @return [type] [description]
+	 */
+	function carSave(){
+		$res['code'] = 400;
+		$type = intval($_POST['type']);
+		$argv = $_POST;
+
+		$member['names'] = $_POST['names'];
+		$member['mobile'] = $_POST['mobile'];
+		$member['org_name'] = $_POST['org_name'];
+		$member['avatar'] = $_POST['avatar'];
+		$argv['city_id'] = $member['city_id'] = $_POST['cid'];
+		$minfo = $this->memberInfo($member);
+		if(!$minfo['id']){
+			$res['msg'] = "用户数据错误";
+			$this->printer($res);
+		}
+
+		if(!$_POST['title']){
+			$res['msg'] = "标题不能为空";
+			$this->printer($res);
+		}
+		$res['code'] = 200;
+		
+		$argv['userid'] = $minfo['id'];
+		$argv['source'] = 1;
+		$argv['content'] = $_POST['editorValue'];
+		$res['data'] = $this->car->addCar($argv);
+		$this->printer($res);
+	}
+	/**
+	 * [集市]
+	 * @return [type] [description]
+	 */
+	function market(){
+		$this->load->view('admin/publish_market',$data);
+	}
+	/**
+	 * [集市保存]
+	 * @return [type] [description]
+	 */
+	function marketSave(){
+		$res['code'] = 400;
+		$type = intval($_POST['type']);
+		$argv = $_POST;
+
+
+		$member['names'] = $_POST['names'];
+		$member['mobile'] = $_POST['mobile'];
+		$member['org_name'] = $_POST['org_name'];
+		$member['avatar'] = $_POST['avatar'];
+		$argv['city_id'] = $member['city_id'] = $_POST['cid'];
+		$minfo = $this->memberInfo($member);
+		if(!$minfo['id']){
+			$res['msg'] = "用户数据错误";
+			$this->printer($res);
+		}
+		if(!$_POST['title']){
+			$res['msg'] = "标题不能为空";
+			$this->printer($res);
+		}
+		$res['code'] = 200;
+		
+		$argv['userid'] = $minfo['id'];
+		$argv['source'] = 1;
+		$argv['content'] = $_POST['editorValue'];
+		$res['data'] = $this->market->addMarket($argv);
+		$this->printer($res);
+	}
+	/**
+	 * [服务]
+	 * @return [type] [description]
+	 */
+	function services(){		
+		$this->load->view('admin/publish_services',$data);
+	}
+	/**
+	 * [服务保存]
+	 * @return [type] [description]
+	 */
+	function servicesSave(){
+		$res['code'] = 400;
+		$type = intval($_POST['type']);
+		$argv = $_POST;
+		$member['names'] = $_POST['names'];
+		$member['mobile'] = $_POST['mobile'];
+		$member['org_name'] = $_POST['org_name'];
+		$member['avatar'] = $_POST['avatar'];
+		$argv['city_id'] = $member['city_id'] = $_POST['cid'];
+		$minfo = $this->memberInfo($member);
+		if(!$minfo['id']){
+			$res['msg'] = "用户数据错误";
+			$this->printer($res);
+		}
+		if(!$_POST['title']){
+			$res['msg'] = "标题不能为空";
+			$this->printer($res);
+		}
+		$res['code'] = 200;
+		
+		$argv['userid'] = $minfo['id'];		
+		$argv['source'] = 1;
+		$argv['content'] = $_POST['editorValue'];
+		$res['data'] = $this->services->addServices($argv);
+		$this->printer($res);
+	}
+
+
+
 	/**
 	 * [index]
 	 * @return [type] [description]
@@ -14,16 +193,43 @@ class Import extends Admin_Controller {
 		$data['source'] = $_GET['sid'] ? $_GET['sid'] : 1;		
 		$data['sourceData'] = $this->source();
 
-		$otherData[] = array('title'=>'propertyAdd1','url'=>'admin/import/propertyAdd1');
+		$otherData[] = array('title'=>'房产','url'=>'admin/import/property');
+		$otherData[] = array('title'=>'车辆','url'=>'admin/import/car');
+		$otherData[] = array('title'=>'集市','url'=>'admin/import/market');
+		$otherData[] = array('title'=>'服务','url'=>'admin/import/services');
 		$data['otherData'] = $otherData;
 		$this->load->view('admin/import_index',$data);
 	}	
-	function propertyAdd1(){
-		$data['city_id'] = $city_id = $_GET['cid'] ? $_GET['cid'] : 1;
-		$this->load->view('admin/import_propertyadd1',$data);
+
+
+	function memberInfo($params){
+
+		$member['mobile'] = $mobile = trim($params['mobile']);
+
+		$row = $this->pineryModel->dataFetchRow(array('table'=>'pinery_member_system','where'=>'mobile='.$mobile));
+
+		if($row['id']){
+			return $row;
+		}
+
+		if($params['avatar']){
+		$dimage = $this->image->wget(array('file'=>$params['avatar']));
+			if($dimage['status'] == 200){
+				$thumbImg = $this->image->thumb(array('file'=>$dimage['data'],'width'=>120,'height'=>120,'bgcolor'=>'black'));
+				$ypyImg = $this->image->ypyUpload(array('file'=>$thumbImg['filePath']));
+				$member['avatar'] = mobi_string_filter($ypyImg['filePath']);
+			}
+		}			
+
+		$member['names'] = mobi_string_filter($params['names']);
+		$member['org_name'] = mobi_string_filter($params['org_name']);
+		$member['city_id'] = $params['city_id'];
+
+		$member['id'] = $this->member->addSystemAccount($member);
+		return $member;
+				
 	}
-	function propertyAdd1Do(){
-	}	
+
 	/**
 	 * [涿州房产]
 	 * @return [type] [description]
